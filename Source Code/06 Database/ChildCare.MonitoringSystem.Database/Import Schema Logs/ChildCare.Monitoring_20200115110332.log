@@ -1,0 +1,85 @@
+15-01-2020 16:33:32	This log contains information about the import schema operation into project 'ChildCare.MonitoringSystem.Database' on computer 'LAPTOP-J2D0BL79' by user 'Admin'.
+15-01-2020 16:33:32	Import of database schema has started.
+15-01-2020 16:33:41	Gathering database credentials
+15-01-2020 16:33:41	Gathering database options
+15-01-2020 16:33:41	Gathering generic database scoped configuration option
+15-01-2020 16:33:41	Gathering users
+15-01-2020 16:33:41	Gathering roles
+15-01-2020 16:33:41	Gathering application roles
+15-01-2020 16:33:41	Gathering role memberships
+15-01-2020 16:33:41	Gathering filegroups
+15-01-2020 16:33:41	Gathering full-text catalogs
+15-01-2020 16:33:41	Gathering assemblies
+15-01-2020 16:33:41	Gathering certificates
+15-01-2020 16:33:41	Gathering asymmetric keys
+15-01-2020 16:33:41	Gathering symmetric keys
+15-01-2020 16:33:41	Gathering encrypted symmetric keys
+15-01-2020 16:33:41	Gathering schemas
+15-01-2020 16:33:41	Gathering XML schema collections
+15-01-2020 16:33:41	Gathering user-defined data types
+15-01-2020 16:33:41	Gathering user-defined types
+15-01-2020 16:33:41	Gathering table types
+15-01-2020 16:33:41	Gathering unique keys for table types
+15-01-2020 16:33:41	Gathering primary keys for table types
+15-01-2020 16:33:41	Gathering indexes for table types
+15-01-2020 16:33:41	Gathering check constraints for table types
+15-01-2020 16:33:41	Gathering default constraints for table types
+15-01-2020 16:33:41	Gathering partition functions
+15-01-2020 16:33:41	Gathering partition schemes
+15-01-2020 16:33:41	Gathering functions
+15-01-2020 16:33:41	Gathering encrypted functions
+15-01-2020 16:33:41	Gathering aggregates
+15-01-2020 16:33:41	Gathering procedures
+15-01-2020 16:33:41	Gathering encrypted procedures
+15-01-2020 16:33:42	Gathering tables
+15-01-2020 16:33:42	Gathering primary keys
+15-01-2020 16:33:42	Gathering unique constraints
+15-01-2020 16:33:42	Gathering foreign keys
+15-01-2020 16:33:42	Gathering default constraints
+15-01-2020 16:33:42	Gathering check constraints
+15-01-2020 16:33:42	Gathering views
+15-01-2020 16:33:42	Gathering encrypted views
+15-01-2020 16:33:42	Gathering indexes
+15-01-2020 16:33:42	Gathering statistics
+15-01-2020 16:33:42	Gathering full-text index stoplists
+15-01-2020 16:33:42	Gathering search property lists
+15-01-2020 16:33:42	Gathering search properties
+15-01-2020 16:33:42	Gathering full-text indexes
+15-01-2020 16:33:42	Gathering column store indexes
+15-01-2020 16:33:42	Gathering spatial indexes
+15-01-2020 16:33:42	Gathering XML indexes
+15-01-2020 16:33:42	Gathering Selective XML indexes
+15-01-2020 16:33:42	Gathering encrypted triggers
+15-01-2020 16:33:42	Gathering triggers
+15-01-2020 16:33:42	Gathering encrypted and clr ddl triggers
+15-01-2020 16:33:42	Gathering ddl triggers
+15-01-2020 16:33:42	Gathering synonyms
+15-01-2020 16:33:42	Gathering defaults
+15-01-2020 16:33:42	Gathering data constraint uddt bindings
+15-01-2020 16:33:42	Gathering rules
+15-01-2020 16:33:42	Gathering data constraint uddt bindings
+15-01-2020 16:33:42	Gathering message types
+15-01-2020 16:33:42	Gathering queues
+15-01-2020 16:33:42	Gathering contracts
+15-01-2020 16:33:42	Gathering services
+15-01-2020 16:33:42	Gathering event notifications
+15-01-2020 16:33:42	Gathering remote service bindings
+15-01-2020 16:33:42	Gathering broker priorities
+15-01-2020 16:33:42	Gathering signatures
+15-01-2020 16:33:42	Gathering data compression options
+15-01-2020 16:33:42	Gathering sequence types
+15-01-2020 16:33:42	Gathering security policies
+15-01-2020 16:33:42	Gather column encryption keys
+15-01-2020 16:33:42	Gathering column master keys
+15-01-2020 16:33:42	Gathering external data sources
+15-01-2020 16:33:42	Gathering external file formats
+15-01-2020 16:33:42	Gathering external tables
+15-01-2020 16:33:42	Gathering extended properties
+15-01-2020 16:33:42	Gathering credentials
+15-01-2020 16:33:42	Gathering logins
+15-01-2020 16:33:42	Gathering server audits
+15-01-2020 16:33:42	Scanning project for duplicate elements
+15-01-2020 16:33:42	Finished duplicate element processing
+15-01-2020 16:33:43	Finished importing database.
+15-01-2020 16:33:43	A summary of the import was saved to the following location: D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\06 Database\ChildCare.MonitoringSystem.Database\Import Schema Logs\ChildCare.Monitoring_20200115110332.log
+15-01-2020 16:33:43	Click Finish to continue...

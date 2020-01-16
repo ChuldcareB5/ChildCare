@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Infrastructure\" />
+    <Folder Include="Middlewares\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\02 Common\ChildCare.MonitoringSystem.Common\ChildCare.MonitoringSystem.Common.csproj" />
+    <ProjectReference Include="..\..\02 Common\ChildCare.MonitoringSystem.Core\ChildCare.MonitoringSystem.Core.csproj" />
+    <ProjectReference Include="..\..\04 Business\ChildCare.MonitoringSystem.Business\ChildCare.MonitoringSystem.Business.csproj" />
+  </ItemGroup>
+
+</Project>

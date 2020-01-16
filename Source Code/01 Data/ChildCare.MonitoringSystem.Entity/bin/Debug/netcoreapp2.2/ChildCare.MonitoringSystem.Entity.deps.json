@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v2.2",
+    "signature": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v2.2": {
+      "ChildCare.MonitoringSystem.Entity/1.0.0": {
+        "dependencies": {
+          "ChildCare.MonitoringSystem.Core": "1.0.0"
+        },
+        "runtime": {
+          "ChildCare.MonitoringSystem.Entity.dll": {}
+        }
+      },
+      "ChildCare.MonitoringSystem.Core/1.0.0": {
+        "runtime": {
+          "ChildCare.MonitoringSystem.Core.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ChildCare.MonitoringSystem.Entity/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ChildCare.MonitoringSystem.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

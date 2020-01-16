@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Infrastructure\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\01 Data\ChildCare.MonitoringSystem.Model\ChildCare.MonitoringSystem.Model.csproj" />
+    <ProjectReference Include="..\..\02 Common\ChildCare.MonitoringSystem.Common\ChildCare.MonitoringSystem.Common.csproj" />
+    <ProjectReference Include="..\..\02 Common\ChildCare.MonitoringSystem.Core\ChildCare.MonitoringSystem.Core.csproj" />
+    <ProjectReference Include="..\..\05 Repository\ChildCare.MonitoringSystem.Repository\ChildCare.MonitoringSystem.Repository.csproj" />
+  </ItemGroup>
+
+</Project>

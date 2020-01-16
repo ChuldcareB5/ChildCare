@@ -1,0 +1,16 @@
+D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\05 Repository\ChildCare.MonitoringSystem.Repository\bin\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Repository.deps.json
+D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\05 Repository\ChildCare.MonitoringSystem.Repository\bin\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Repository.dll
+D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\05 Repository\ChildCare.MonitoringSystem.Repository\bin\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Repository.pdb
+D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\05 Repository\ChildCare.MonitoringSystem.Repository\bin\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Common.dll
+D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\05 Repository\ChildCare.MonitoringSystem.Repository\bin\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Core.dll
+D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\05 Repository\ChildCare.MonitoringSystem.Repository\bin\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Entity.dll
+D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\05 Repository\ChildCare.MonitoringSystem.Repository\bin\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Entity.pdb
+D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\05 Repository\ChildCare.MonitoringSystem.Repository\bin\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Common.pdb
+D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\05 Repository\ChildCare.MonitoringSystem.Repository\bin\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Core.pdb
+D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\05 Repository\ChildCare.MonitoringSystem.Repository\obj\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Repository.csprojAssemblyReference.cache
+D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\05 Repository\ChildCare.MonitoringSystem.Repository\obj\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Repository.csproj.CoreCompileInputs.cache
+D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\05 Repository\ChildCare.MonitoringSystem.Repository\obj\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Repository.AssemblyInfoInputs.cache
+D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\05 Repository\ChildCare.MonitoringSystem.Repository\obj\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Repository.AssemblyInfo.cs
+D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\05 Repository\ChildCare.MonitoringSystem.Repository\obj\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Repository.csproj.CopyComplete
+D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\05 Repository\ChildCare.MonitoringSystem.Repository\obj\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Repository.dll
+D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\05 Repository\ChildCare.MonitoringSystem.Repository\obj\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Repository.pdb

@@ -1,0 +1,9 @@
+D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\06 Database\ChildCare.MonitoringSystem.Database\bin\Debug\ChildCare.MonitoringSystem.Database.dacpac
+D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\06 Database\ChildCare.MonitoringSystem.Database\bin\Debug\ChildCare.MonitoringSystem.Database.dll
+D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\06 Database\ChildCare.MonitoringSystem.Database\bin\Debug\ChildCare.MonitoringSystem.Database.pdb
+D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\06 Database\ChildCare.MonitoringSystem.Database\obj\Debug\ChildCare.MonitoringSystem.Database.dll
+D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\06 Database\ChildCare.MonitoringSystem.Database\obj\Debug\ChildCare.MonitoringSystem.Database.pdb
+D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\06 Database\ChildCare.MonitoringSystem.Database\obj\Debug\Model.xml
+D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\06 Database\ChildCare.MonitoringSystem.Database\obj\Debug\refactor.xml
+D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\06 Database\ChildCare.MonitoringSystem.Database\obj\Debug\postdeploy.sql
+D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\06 Database\ChildCare.MonitoringSystem.Database\obj\Debug\predeploy.sql

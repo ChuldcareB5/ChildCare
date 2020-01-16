@@ -1,0 +1,8 @@
+D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\04 Business\ChildCare.MonitoringSystem.Business\bin\Debug\netcoreapp2.2\ChildCare.MonitoringSystem.Business.deps.json
+D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\04 Business\ChildCare.MonitoringSystem.Business\bin\Debug\netcoreapp2.2\ChildCare.MonitoringSystem.Business.dll
+D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\04 Business\ChildCare.MonitoringSystem.Business\bin\Debug\netcoreapp2.2\ChildCare.MonitoringSystem.Business.pdb
+D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\04 Business\ChildCare.MonitoringSystem.Business\obj\Debug\netcoreapp2.2\ChildCare.MonitoringSystem.Business.csproj.CoreCompileInputs.cache
+D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\04 Business\ChildCare.MonitoringSystem.Business\obj\Debug\netcoreapp2.2\ChildCare.MonitoringSystem.Business.AssemblyInfoInputs.cache
+D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\04 Business\ChildCare.MonitoringSystem.Business\obj\Debug\netcoreapp2.2\ChildCare.MonitoringSystem.Business.AssemblyInfo.cs
+D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\04 Business\ChildCare.MonitoringSystem.Business\obj\Debug\netcoreapp2.2\ChildCare.MonitoringSystem.Business.dll
+D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\04 Business\ChildCare.MonitoringSystem.Business\obj\Debug\netcoreapp2.2\ChildCare.MonitoringSystem.Business.pdb

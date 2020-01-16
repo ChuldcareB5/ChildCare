@@ -1,0 +1,12 @@
+D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\02 Common\ChildCare.MonitoringSystem.Common\bin\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Common.deps.json
+D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\02 Common\ChildCare.MonitoringSystem.Common\bin\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Common.dll
+D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\02 Common\ChildCare.MonitoringSystem.Common\bin\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Common.pdb
+D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\02 Common\ChildCare.MonitoringSystem.Common\bin\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Core.dll
+D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\02 Common\ChildCare.MonitoringSystem.Common\bin\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Core.pdb
+D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\02 Common\ChildCare.MonitoringSystem.Common\obj\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Common.csprojAssemblyReference.cache
+D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\02 Common\ChildCare.MonitoringSystem.Common\obj\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Common.csproj.CoreCompileInputs.cache
+D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\02 Common\ChildCare.MonitoringSystem.Common\obj\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Common.AssemblyInfoInputs.cache
+D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\02 Common\ChildCare.MonitoringSystem.Common\obj\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Common.AssemblyInfo.cs
+D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\02 Common\ChildCare.MonitoringSystem.Common\obj\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Common.csproj.CopyComplete
+D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\02 Common\ChildCare.MonitoringSystem.Common\obj\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Common.dll
+D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\02 Common\ChildCare.MonitoringSystem.Common\obj\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Common.pdb
