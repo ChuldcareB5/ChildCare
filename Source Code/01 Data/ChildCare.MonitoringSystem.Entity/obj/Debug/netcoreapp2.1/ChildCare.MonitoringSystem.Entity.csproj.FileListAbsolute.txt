@@ -10,3 +10,15 @@ D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\01 Data\ChildCare.Monitori
 D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\01 Data\ChildCare.MonitoringSystem.Entity\obj\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Entity.csproj.CopyComplete
 D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\01 Data\ChildCare.MonitoringSystem.Entity\obj\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Entity.dll
 D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\01 Data\ChildCare.MonitoringSystem.Entity\obj\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Entity.pdb
+H:\ChildCareSystem\ChildCare\Source Code\01 Data\ChildCare.MonitoringSystem.Entity\bin\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Entity.deps.json
+H:\ChildCareSystem\ChildCare\Source Code\01 Data\ChildCare.MonitoringSystem.Entity\bin\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Entity.dll
+H:\ChildCareSystem\ChildCare\Source Code\01 Data\ChildCare.MonitoringSystem.Entity\bin\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Entity.pdb
+H:\ChildCareSystem\ChildCare\Source Code\01 Data\ChildCare.MonitoringSystem.Entity\bin\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Core.dll
+H:\ChildCareSystem\ChildCare\Source Code\01 Data\ChildCare.MonitoringSystem.Entity\bin\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Core.pdb
+H:\ChildCareSystem\ChildCare\Source Code\01 Data\ChildCare.MonitoringSystem.Entity\obj\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Entity.csprojAssemblyReference.cache
+H:\ChildCareSystem\ChildCare\Source Code\01 Data\ChildCare.MonitoringSystem.Entity\obj\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Entity.csproj.CoreCompileInputs.cache
+H:\ChildCareSystem\ChildCare\Source Code\01 Data\ChildCare.MonitoringSystem.Entity\obj\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Entity.AssemblyInfoInputs.cache
+H:\ChildCareSystem\ChildCare\Source Code\01 Data\ChildCare.MonitoringSystem.Entity\obj\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Entity.AssemblyInfo.cs
+H:\ChildCareSystem\ChildCare\Source Code\01 Data\ChildCare.MonitoringSystem.Entity\obj\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Entity.csproj.CopyComplete
+H:\ChildCareSystem\ChildCare\Source Code\01 Data\ChildCare.MonitoringSystem.Entity\obj\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Entity.dll
+H:\ChildCareSystem\ChildCare\Source Code\01 Data\ChildCare.MonitoringSystem.Entity\obj\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Entity.pdb

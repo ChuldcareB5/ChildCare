@@ -7,3 +7,12 @@ D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\06 Database\ChildCare.Moni
 D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\06 Database\ChildCare.MonitoringSystem.Database\obj\Debug\refactor.xml
 D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\06 Database\ChildCare.MonitoringSystem.Database\obj\Debug\postdeploy.sql
 D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\06 Database\ChildCare.MonitoringSystem.Database\obj\Debug\predeploy.sql
+H:\ChildCareSystem\ChildCare\Source Code\06 Database\ChildCare.MonitoringSystem.Database\bin\Debug\ChildCare.MonitoringSystem.Database.dacpac
+H:\ChildCareSystem\ChildCare\Source Code\06 Database\ChildCare.MonitoringSystem.Database\bin\Debug\ChildCare.MonitoringSystem.Database.dll
+H:\ChildCareSystem\ChildCare\Source Code\06 Database\ChildCare.MonitoringSystem.Database\bin\Debug\ChildCare.MonitoringSystem.Database.pdb
+H:\ChildCareSystem\ChildCare\Source Code\06 Database\ChildCare.MonitoringSystem.Database\obj\Debug\Model.xml
+H:\ChildCareSystem\ChildCare\Source Code\06 Database\ChildCare.MonitoringSystem.Database\obj\Debug\refactor.xml
+H:\ChildCareSystem\ChildCare\Source Code\06 Database\ChildCare.MonitoringSystem.Database\obj\Debug\postdeploy.sql
+H:\ChildCareSystem\ChildCare\Source Code\06 Database\ChildCare.MonitoringSystem.Database\obj\Debug\predeploy.sql
+H:\ChildCareSystem\ChildCare\Source Code\06 Database\ChildCare.MonitoringSystem.Database\obj\Debug\ChildCare.MonitoringSystem.Database.dll
+H:\ChildCareSystem\ChildCare\Source Code\06 Database\ChildCare.MonitoringSystem.Database\obj\Debug\ChildCare.MonitoringSystem.Database.pdb
