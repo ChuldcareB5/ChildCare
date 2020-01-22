@@ -15,3 +15,11 @@ H:\ChildCareSystem\ChildCare\Source Code\01 Data\ChildCare.MonitoringSystem.Mode
 H:\ChildCareSystem\ChildCare\Source Code\01 Data\ChildCare.MonitoringSystem.Model\obj\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Model.AssemblyInfo.cs
 H:\ChildCareSystem\ChildCare\Source Code\01 Data\ChildCare.MonitoringSystem.Model\obj\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Model.dll
 H:\ChildCareSystem\ChildCare\Source Code\01 Data\ChildCare.MonitoringSystem.Model\obj\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Model.pdb
+D:\AykanGit\Project\Source Code\01 Data\ChildCare.MonitoringSystem.Model\bin\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Model.deps.json
+D:\AykanGit\Project\Source Code\01 Data\ChildCare.MonitoringSystem.Model\bin\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Model.dll
+D:\AykanGit\Project\Source Code\01 Data\ChildCare.MonitoringSystem.Model\bin\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Model.pdb
+D:\AykanGit\Project\Source Code\01 Data\ChildCare.MonitoringSystem.Model\obj\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Model.csproj.CoreCompileInputs.cache
+D:\AykanGit\Project\Source Code\01 Data\ChildCare.MonitoringSystem.Model\obj\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Model.AssemblyInfoInputs.cache
+D:\AykanGit\Project\Source Code\01 Data\ChildCare.MonitoringSystem.Model\obj\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Model.AssemblyInfo.cs
+D:\AykanGit\Project\Source Code\01 Data\ChildCare.MonitoringSystem.Model\obj\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Model.dll
+D:\AykanGit\Project\Source Code\01 Data\ChildCare.MonitoringSystem.Model\obj\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Model.pdb

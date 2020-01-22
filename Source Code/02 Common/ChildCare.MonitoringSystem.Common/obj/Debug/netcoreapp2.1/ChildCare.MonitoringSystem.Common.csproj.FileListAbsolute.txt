@@ -22,3 +22,15 @@ H:\ChildCareSystem\ChildCare\Source Code\02 Common\ChildCare.MonitoringSystem.Co
 H:\ChildCareSystem\ChildCare\Source Code\02 Common\ChildCare.MonitoringSystem.Common\obj\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Common.csproj.CopyComplete
 H:\ChildCareSystem\ChildCare\Source Code\02 Common\ChildCare.MonitoringSystem.Common\obj\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Common.dll
 H:\ChildCareSystem\ChildCare\Source Code\02 Common\ChildCare.MonitoringSystem.Common\obj\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Common.pdb
+D:\AykanGit\Project\Source Code\02 Common\ChildCare.MonitoringSystem.Common\bin\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Common.deps.json
+D:\AykanGit\Project\Source Code\02 Common\ChildCare.MonitoringSystem.Common\bin\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Common.dll
+D:\AykanGit\Project\Source Code\02 Common\ChildCare.MonitoringSystem.Common\bin\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Common.pdb
+D:\AykanGit\Project\Source Code\02 Common\ChildCare.MonitoringSystem.Common\bin\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Core.dll
+D:\AykanGit\Project\Source Code\02 Common\ChildCare.MonitoringSystem.Common\bin\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Core.pdb
+D:\AykanGit\Project\Source Code\02 Common\ChildCare.MonitoringSystem.Common\obj\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Common.csprojAssemblyReference.cache
+D:\AykanGit\Project\Source Code\02 Common\ChildCare.MonitoringSystem.Common\obj\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Common.csproj.CoreCompileInputs.cache
+D:\AykanGit\Project\Source Code\02 Common\ChildCare.MonitoringSystem.Common\obj\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Common.AssemblyInfoInputs.cache
+D:\AykanGit\Project\Source Code\02 Common\ChildCare.MonitoringSystem.Common\obj\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Common.AssemblyInfo.cs
+D:\AykanGit\Project\Source Code\02 Common\ChildCare.MonitoringSystem.Common\obj\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Common.csproj.CopyComplete
+D:\AykanGit\Project\Source Code\02 Common\ChildCare.MonitoringSystem.Common\obj\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Common.dll
+D:\AykanGit\Project\Source Code\02 Common\ChildCare.MonitoringSystem.Common\obj\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Common.pdb

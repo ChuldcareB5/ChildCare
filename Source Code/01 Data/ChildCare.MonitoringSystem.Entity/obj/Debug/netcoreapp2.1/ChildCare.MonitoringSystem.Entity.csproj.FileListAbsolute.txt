@@ -22,3 +22,15 @@ H:\ChildCareSystem\ChildCare\Source Code\01 Data\ChildCare.MonitoringSystem.Enti
 H:\ChildCareSystem\ChildCare\Source Code\01 Data\ChildCare.MonitoringSystem.Entity\obj\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Entity.csproj.CopyComplete
 H:\ChildCareSystem\ChildCare\Source Code\01 Data\ChildCare.MonitoringSystem.Entity\obj\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Entity.dll
 H:\ChildCareSystem\ChildCare\Source Code\01 Data\ChildCare.MonitoringSystem.Entity\obj\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Entity.pdb
+D:\AykanGit\Project\Source Code\01 Data\ChildCare.MonitoringSystem.Entity\bin\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Entity.deps.json
+D:\AykanGit\Project\Source Code\01 Data\ChildCare.MonitoringSystem.Entity\bin\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Entity.dll
+D:\AykanGit\Project\Source Code\01 Data\ChildCare.MonitoringSystem.Entity\bin\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Entity.pdb
+D:\AykanGit\Project\Source Code\01 Data\ChildCare.MonitoringSystem.Entity\bin\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Core.dll
+D:\AykanGit\Project\Source Code\01 Data\ChildCare.MonitoringSystem.Entity\bin\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Core.pdb
+D:\AykanGit\Project\Source Code\01 Data\ChildCare.MonitoringSystem.Entity\obj\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Entity.csprojAssemblyReference.cache
+D:\AykanGit\Project\Source Code\01 Data\ChildCare.MonitoringSystem.Entity\obj\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Entity.csproj.CoreCompileInputs.cache
+D:\AykanGit\Project\Source Code\01 Data\ChildCare.MonitoringSystem.Entity\obj\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Entity.AssemblyInfoInputs.cache
+D:\AykanGit\Project\Source Code\01 Data\ChildCare.MonitoringSystem.Entity\obj\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Entity.AssemblyInfo.cs
+D:\AykanGit\Project\Source Code\01 Data\ChildCare.MonitoringSystem.Entity\obj\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Entity.csproj.CopyComplete
+D:\AykanGit\Project\Source Code\01 Data\ChildCare.MonitoringSystem.Entity\obj\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Entity.dll
+D:\AykanGit\Project\Source Code\01 Data\ChildCare.MonitoringSystem.Entity\obj\Debug\netcoreapp2.1\ChildCare.MonitoringSystem.Entity.pdb
