@@ -8,7 +8,7 @@
 // Do not make changes directly to this file - edit the template instead.
 //
 // The following connection settings were used to generate this file:
-//     Connection String:      "Data Source=.;Database=ChildCare;Integrated Security=True;Application Name=EntityFramework Reverse POCO Generator"
+//     Connection String:      "Data Source=.;Database=ChildCareSystem;Integrated Security=True;Application Name=EntityFramework Reverse POCO Generator"
 // ------------------------------------------------------------------------------------------------
 // Database Edition       : Express Edition (64-bit)
 // Database Engine Edition: Express
@@ -23,7 +23,7 @@
 // ReSharper disable RedundantNameQualifier
 // ReSharper disable RedundantOverridenMember
 // ReSharper disable UseNameofExpression
-// TargetFrameworkVersion = 2.2
+// TargetFrameworkVersion = 2.1
 #pragma warning disable 1591    //  Ignore "Missing XML Comment" warning
 
 
@@ -40,8 +40,17 @@ namespace ChildCare.MonitoringSystem.Repository
 
     public partial interface IMonitoringSystemDbContext : IUnitOfWork, System.IDisposable
     {
+        Microsoft.EntityFrameworkCore.DbSet<Bus> Bus { get; set; } // Bus
+        Microsoft.EntityFrameworkCore.DbSet<BusSchedule> BusSchedule { get; set; } // BusSchedule
+        Microsoft.EntityFrameworkCore.DbSet<MessageBoard> MessageBoard { get; set; } // MessageBoard
+        Microsoft.EntityFrameworkCore.DbSet<Role> Role { get; set; } // Role
+        Microsoft.EntityFrameworkCore.DbSet<Room> Room { get; set; } // Room
+        Microsoft.EntityFrameworkCore.DbSet<RoomSchedule> RoomSchedule { get; set; } // RoomSchedule
+        Microsoft.EntityFrameworkCore.DbSet<RoomVideo> RoomVideo { get; set; } // RoomVideo
         Microsoft.EntityFrameworkCore.DbSet<Student> Student { get; set; } // Student
+        Microsoft.EntityFrameworkCore.DbSet<StudentBusSchedule> StudentBusSchedule { get; set; } // StudentBusSchedule
         Microsoft.EntityFrameworkCore.DbSet<User> User { get; set; } // User
+        Microsoft.EntityFrameworkCore.DbSet<UserRole> UserRole { get; set; } // UserRole
 
         int SaveChanges();
 		System.Threading.Tasks.Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -59,8 +68,17 @@ namespace ChildCare.MonitoringSystem.Repository
     public partial class MonitoringSystemDbContext : DbContext, IMonitoringSystemDbContext
     {
 		public ApplicationContext ApplicationContext { get; private set; }
+        public Microsoft.EntityFrameworkCore.DbSet<Bus> Bus { get; set; } // Bus
+        public Microsoft.EntityFrameworkCore.DbSet<BusSchedule> BusSchedule { get; set; } // BusSchedule
+        public Microsoft.EntityFrameworkCore.DbSet<MessageBoard> MessageBoard { get; set; } // MessageBoard
+        public Microsoft.EntityFrameworkCore.DbSet<Role> Role { get; set; } // Role
+        public Microsoft.EntityFrameworkCore.DbSet<Room> Room { get; set; } // Room
+        public Microsoft.EntityFrameworkCore.DbSet<RoomSchedule> RoomSchedule { get; set; } // RoomSchedule
+        public Microsoft.EntityFrameworkCore.DbSet<RoomVideo> RoomVideo { get; set; } // RoomVideo
         public Microsoft.EntityFrameworkCore.DbSet<Student> Student { get; set; } // Student
+        public Microsoft.EntityFrameworkCore.DbSet<StudentBusSchedule> StudentBusSchedule { get; set; } // StudentBusSchedule
         public Microsoft.EntityFrameworkCore.DbSet<User> User { get; set; } // User
+        public Microsoft.EntityFrameworkCore.DbSet<UserRole> UserRole { get; set; } // UserRole
 
         public MonitoringSystemDbContext(DbContextOptions<MonitoringSystemDbContext> options, ApplicationContext applicationContext)
             : base(options)
@@ -81,6 +99,206 @@ namespace ChildCare.MonitoringSystem.Repository
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+			modelBuilder.Entity<Bus>(entity => 
+			{
+
+				entity.ToTable("Bus", "dbo");
+				
+				entity.Property(x => x.BusId).HasColumnName(@"BusId").IsRequired();
+
+				entity.Property(x => x.CreatedBy).HasColumnName(@"CreatedBy").IsRequired();
+
+				entity.Property(x => x.CreatedOn).HasColumnName(@"CreatedOn").IsRequired();
+
+				entity.Property(x => x.UpdatedBy).HasColumnName(@"UpdatedBy").IsRequired();
+
+				entity.Property(x => x.UpdatedOn).HasColumnName(@"UpdatedOn").IsRequired();
+
+				entity.Property(x => x.IsDeleted).HasColumnName(@"IsDeleted").IsRequired();
+
+				InitializePartial();
+        
+			});
+
+			modelBuilder.Entity<BusSchedule>(entity => 
+			{
+
+				entity.ToTable("BusSchedule", "dbo");
+				
+				entity.HasOne(a => a.Bus).WithMany(b => b.BusSchedule).HasForeignKey(c => c.BusId); // FK_BusSchedule_Bus
+				entity.Property(x => x.BusScheduleId).HasColumnName(@"BusScheduleId").IsRequired();
+
+				entity.Property(x => x.BusScheduleDriverName).HasColumnName(@"BusScheduleDriverName").IsRequired().IsUnicode(false).HasMaxLength(100);
+
+				entity.Property(x => x.ToBusSchedule).HasColumnName(@"ToBusSchedule").IsRequired().IsUnicode(false).HasMaxLength(100);
+
+				entity.Property(x => x.FromBusSchedule).HasColumnName(@"FromBusSchedule").IsRequired().IsUnicode(false).HasMaxLength(100);
+
+				entity.Property(x => x.BusScheduleTime).HasColumnName(@"BusScheduleTime").IsRequired();
+
+				entity.Property(x => x.BusScheduleDate).HasColumnName(@"BusScheduleDate").IsRequired();
+
+				entity.Property(x => x.BusId).HasColumnName(@"BusId").IsRequired();
+
+				entity.Property(x => x.CreatedBy).HasColumnName(@"CreatedBy").IsRequired();
+
+				entity.Property(x => x.CreatedOn).HasColumnName(@"CreatedOn").IsRequired();
+
+				entity.Property(x => x.UpdatedBy).HasColumnName(@"UpdatedBy").IsRequired();
+
+				entity.Property(x => x.UpdatedOn).HasColumnName(@"UpdatedOn").IsRequired();
+
+				entity.Property(x => x.IsDeleted).HasColumnName(@"IsDeleted").IsRequired();
+
+
+				InitializePartial();
+        
+			});
+
+			modelBuilder.Entity<MessageBoard>(entity => 
+			{
+
+				entity.ToTable("MessageBoard", "dbo");
+				
+				entity.HasOne(a => a.User_FromMsg).WithMany(b => b.MessageBoard_FromMsg).HasForeignKey(c => c.FromMsg); // FK_MessageBoard_User1
+				entity.HasOne(a => a.User_ToMsg).WithMany(b => b.MessageBoard_ToMsg).HasForeignKey(c => c.ToMsg); // FK_MessageBoard_User
+				entity.Property(x => x.MsgId).HasColumnName(@"MsgId").IsRequired();
+
+				entity.Property(x => x.ToMsg).HasColumnName(@"ToMsg").IsRequired();
+
+				entity.Property(x => x.FromMsg).HasColumnName(@"FromMsg").IsRequired();
+
+				entity.Property(x => x.MsgStatus).HasColumnName(@"MsgStatus").IsRequired();
+
+				entity.Property(x => x.MsgDateTime).HasColumnName(@"MsgDateTime").IsRequired();
+
+				entity.Property(x => x.Msg).HasColumnName(@"Msg").IsRequired().IsUnicode(false).HasMaxLength(500);
+
+				entity.Property(x => x.CreatedBy).HasColumnName(@"CreatedBy").IsRequired();
+
+				entity.Property(x => x.CreatedOn).HasColumnName(@"CreatedOn").IsRequired();
+
+				entity.Property(x => x.UpdatedBy).HasColumnName(@"UpdatedBy").IsRequired();
+
+				entity.Property(x => x.UpdatedOn).HasColumnName(@"UpdatedOn").IsRequired();
+
+				entity.Property(x => x.IsDeleted).HasColumnName(@"IsDeleted").IsRequired();
+
+
+				InitializePartial();
+        
+			});
+
+			modelBuilder.Entity<Role>(entity => 
+			{
+
+				entity.ToTable("Role", "dbo");
+				
+				entity.Property(x => x.RoleId).HasColumnName(@"RoleId").IsRequired();
+
+				entity.Property(x => x.RoleName).HasColumnName(@"RoleName").IsRequired().IsUnicode(false).HasMaxLength(100);
+
+				entity.Property(x => x.CreatedBy).HasColumnName(@"CreatedBy").IsRequired();
+
+				entity.Property(x => x.CreatedOn).HasColumnName(@"CreatedOn").IsRequired();
+
+				entity.Property(x => x.UpdatedBy).HasColumnName(@"UpdatedBy").IsRequired();
+
+				entity.Property(x => x.UpdatedOn).HasColumnName(@"UpdatedOn").IsRequired();
+
+				entity.Property(x => x.IsDeleted).HasColumnName(@"IsDeleted").IsRequired();
+
+				InitializePartial();
+        
+			});
+
+			modelBuilder.Entity<Room>(entity => 
+			{
+
+				entity.ToTable("Room", "dbo");
+				
+				entity.Property(x => x.RoomId).HasColumnName(@"RoomId").IsRequired();
+
+				entity.Property(x => x.RoomName).HasColumnName(@"RoomName").IsRequired().IsUnicode(false).HasMaxLength(100);
+
+				entity.Property(x => x.CreatedBy).HasColumnName(@"CreatedBy").IsRequired();
+
+				entity.Property(x => x.CreatedOn).HasColumnName(@"CreatedOn").IsRequired();
+
+				entity.Property(x => x.UpdatedBy).HasColumnName(@"UpdatedBy").IsRequired();
+
+				entity.Property(x => x.UpdatedOn).HasColumnName(@"UpdatedOn").IsRequired();
+
+				entity.Property(x => x.IsDeleted).HasColumnName(@"IsDeleted").IsRequired();
+
+				InitializePartial();
+        
+			});
+
+			modelBuilder.Entity<RoomSchedule>(entity => 
+			{
+
+				entity.ToTable("RoomSchedule", "dbo");
+				
+				entity.HasOne(a => a.Room).WithMany(b => b.RoomSchedule).HasForeignKey(c => c.RoomId); // FK_RoomSchedule_Room
+				entity.HasOne(a => a.Student).WithMany(b => b.RoomSchedule).HasForeignKey(c => c.StudentId); // FK_RoomSchedule_Student
+				entity.HasOne(a => a.User).WithMany(b => b.RoomSchedule).HasForeignKey(c => c.TeacherId); // FK_RoomSchedule_User
+				entity.Property(x => x.RoomScheduleId).HasColumnName(@"RoomScheduleId").IsRequired();
+
+				entity.Property(x => x.TeacherId).HasColumnName(@"TeacherId").IsRequired();
+
+				entity.Property(x => x.RoomScheduleDate).HasColumnName(@"RoomScheduleDate").IsRequired();
+
+				entity.Property(x => x.RoomScheduleTime).HasColumnName(@"RoomScheduleTime").IsRequired();
+
+				entity.Property(x => x.RoomScheduleSubject).HasColumnName(@"RoomScheduleSubject").IsRequired().IsUnicode(false).HasMaxLength(100);
+
+				entity.Property(x => x.StudentId).HasColumnName(@"StudentId").IsRequired();
+
+				entity.Property(x => x.RoomId).HasColumnName(@"RoomId").IsRequired();
+
+				entity.Property(x => x.CreatedBy).HasColumnName(@"CreatedBy").IsRequired();
+
+				entity.Property(x => x.CreatedOn).HasColumnName(@"CreatedOn").IsRequired();
+
+				entity.Property(x => x.UpdatedBy).HasColumnName(@"UpdatedBy").IsRequired();
+
+				entity.Property(x => x.UpdatedOn).HasColumnName(@"UpdatedOn").IsRequired();
+
+				entity.Property(x => x.IsDeleted).HasColumnName(@"IsDeleted").IsRequired();
+
+
+				InitializePartial();
+        
+			});
+
+			modelBuilder.Entity<RoomVideo>(entity => 
+			{
+
+				entity.ToTable("RoomVideo", "dbo");
+				
+				entity.HasOne(a => a.Room).WithMany(b => b.RoomVideo).HasForeignKey(c => c.RoomId); // FK_RoomVideo_Room
+				entity.Property(x => x.RoomVideoId).HasColumnName(@"RoomVideoId").IsRequired();
+
+				entity.Property(x => x.RoomVideo_).HasColumnName(@"RoomVideo").IsRequired().IsUnicode(false).HasMaxLength(300);
+
+				entity.Property(x => x.RoomId).HasColumnName(@"RoomId").IsRequired();
+
+				entity.Property(x => x.CreatedBy).HasColumnName(@"CreatedBy").IsRequired();
+
+				entity.Property(x => x.CreatedOn).HasColumnName(@"CreatedOn").IsRequired();
+
+				entity.Property(x => x.UpdatedBy).HasColumnName(@"UpdatedBy").IsRequired();
+
+				entity.Property(x => x.UpdatedOn).HasColumnName(@"UpdatedOn").IsRequired();
+
+				entity.Property(x => x.IsDeleted).HasColumnName(@"IsDeleted").IsRequired();
+
+
+				InitializePartial();
+        
+			});
 
 			modelBuilder.Entity<Student>(entity => 
 			{
@@ -105,6 +323,34 @@ namespace ChildCare.MonitoringSystem.Repository
 				entity.Property(x => x.MotherName).HasColumnName(@"MotherName").IsRequired().IsUnicode(false).HasMaxLength(100);
 
 				entity.Property(x => x.ParentId).HasColumnName(@"ParentId").IsRequired();
+
+				entity.Property(x => x.CreatedBy).HasColumnName(@"CreatedBy").IsRequired();
+
+				entity.Property(x => x.CreatedOn).HasColumnName(@"CreatedOn").IsRequired();
+
+				entity.Property(x => x.UpdatedBy).HasColumnName(@"UpdatedBy").IsRequired();
+
+				entity.Property(x => x.UpdatedOn).HasColumnName(@"UpdatedOn").IsRequired();
+
+				entity.Property(x => x.IsDeleted).HasColumnName(@"IsDeleted").IsRequired();
+
+
+				InitializePartial();
+        
+			});
+
+			modelBuilder.Entity<StudentBusSchedule>(entity => 
+			{
+
+				entity.ToTable("StudentBusSchedule", "dbo");
+				
+				entity.HasOne(a => a.BusSchedule).WithMany(b => b.StudentBusSchedule).HasForeignKey(c => c.BusScheduleId); // FK_StudentBusSchedule_BusSchedule1
+				entity.HasOne(a => a.Student).WithMany(b => b.StudentBusSchedule).HasForeignKey(c => c.StudentId); // FK_StudentBusSchedule_Student
+				entity.Property(x => x.StudentBusScheduleId).HasColumnName(@"StudentBusScheduleId").IsRequired();
+
+				entity.Property(x => x.BusScheduleId).HasColumnName(@"BusScheduleId").IsRequired();
+
+				entity.Property(x => x.StudentId).HasColumnName(@"StudentId").IsRequired();
 
 				entity.Property(x => x.CreatedBy).HasColumnName(@"CreatedBy").IsRequired();
 
@@ -150,6 +396,34 @@ namespace ChildCare.MonitoringSystem.Repository
         
 			});
 
+			modelBuilder.Entity<UserRole>(entity => 
+			{
+
+				entity.ToTable("UserRole", "dbo");
+				
+				entity.HasOne(a => a.Role).WithMany(b => b.UserRole).HasForeignKey(c => c.RoleId); // FK_UserRole_Role
+				entity.HasOne(a => a.User).WithMany(b => b.UserRole).HasForeignKey(c => c.UserId); // FK_UserRole_User
+				entity.Property(x => x.UserRoleId).HasColumnName(@"UserRoleId").IsRequired();
+
+				entity.Property(x => x.UserId).HasColumnName(@"UserId").IsRequired();
+
+				entity.Property(x => x.RoleId).HasColumnName(@"RoleId").IsRequired();
+
+				entity.Property(x => x.CreatedBy).HasColumnName(@"CreatedBy").IsRequired();
+
+				entity.Property(x => x.CreatedOn).HasColumnName(@"CreatedOn").IsRequired();
+
+				entity.Property(x => x.UpdatedBy).HasColumnName(@"UpdatedBy").IsRequired();
+
+				entity.Property(x => x.UpdatedOn).HasColumnName(@"UpdatedOn").IsRequired();
+
+				entity.Property(x => x.IsDeleted).HasColumnName(@"IsDeleted").IsRequired();
+
+
+				InitializePartial();
+        
+			});
+
 
 
             OnModelCreatingPartial(modelBuilder);
@@ -162,9 +436,9 @@ namespace ChildCare.MonitoringSystem.Repository
     #endregion
 
 // Generated helper templates
-// ChildCare.MonitoringSystem\01 Data\ChildCare.MonitoringSystem.Entity\Auto\MonitoringSystemDbContext.txt4
+// ChildCare.MonitoringSystem.Entity\Auto\MonitoringSystemDbContext.txt4
 // Generated items
-// ChildCare.MonitoringSystem\01 Data\ChildCare.MonitoringSystem.Entity\Auto\Entities.cs
+// ChildCare.MonitoringSystem.Entity\Auto\Entities.cs
 }
 // </auto-generated>
 
