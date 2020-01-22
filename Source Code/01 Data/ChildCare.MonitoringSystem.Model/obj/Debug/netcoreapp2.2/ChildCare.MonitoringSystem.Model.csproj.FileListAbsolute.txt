@@ -1,9 +1,0 @@
-D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\01 Data\ChildCare.MonitoringSystem.Model\bin\Debug\netcoreapp2.2\ChildCare.MonitoringSystem.Model.deps.json
-D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\01 Data\ChildCare.MonitoringSystem.Model\bin\Debug\netcoreapp2.2\ChildCare.MonitoringSystem.Model.dll
-D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\01 Data\ChildCare.MonitoringSystem.Model\bin\Debug\netcoreapp2.2\ChildCare.MonitoringSystem.Model.pdb
-D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\01 Data\ChildCare.MonitoringSystem.Model\obj\Debug\netcoreapp2.2\ChildCare.MonitoringSystem.Model.csproj.CoreCompileInputs.cache
-D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\01 Data\ChildCare.MonitoringSystem.Model\obj\Debug\netcoreapp2.2\ChildCare.MonitoringSystem.Model.AssemblyInfoInputs.cache
-D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\01 Data\ChildCare.MonitoringSystem.Model\obj\Debug\netcoreapp2.2\ChildCare.MonitoringSystem.Model.AssemblyInfo.cs
-D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\01 Data\ChildCare.MonitoringSystem.Model\obj\Debug\netcoreapp2.2\ChildCare.MonitoringSystem.Model.dll
-D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\01 Data\ChildCare.MonitoringSystem.Model\obj\Debug\netcoreapp2.2\ChildCare.MonitoringSystem.Model.pdb
-D:\Aykan Projects\Projects\ChildCare.MonitoringSystem\01 Data\ChildCare.MonitoringSystem.Model\obj\Debug\netcoreapp2.2\ChildCare.MonitoringSystem.Model.csprojAssemblyReference.cache
