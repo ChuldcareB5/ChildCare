@@ -7,23 +7,23 @@
 <head>
     <!-- Fontfaces CSS-->
     <link href="~/css/font-face.css" rel="stylesheet" media="all">
-    <link href="~/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
-    <link href="~/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
-    <link href="~/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="~/css/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="~/css/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="~/css/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
 
     <!-- Bootstrap CSS-->
-    <link href="~/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+    <link href="~/css/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
 
     <!-- Vendor ~/CSS-->
-    <link href="~/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
-    <link href="~/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
-    <link href="~/vendor/wow/animate.css" rel="stylesheet" media="all">
-    <link href="~/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
-    <link href="~/vendor/slick/slick.css" rel="stylesheet" media="all">
-    <link href="~/vendor/select2/select2.min.css" rel="stylesheet" media="all">
-    <link href="~/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
-    <link href="~/vendor/vector-map/jqvmap.min.css" rel="stylesheet" media="all">
-    <link href="~/vendor/vector-map/jqvmap.min.css" rel="stylesheet" media="all">
+    <link href="~/css/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+    <link href="~/css/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+    <link href="~/css/vendor/wow/animate.css" rel="stylesheet" media="all">
+    <link href="~/css/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+    <link href="~/css/vendor/slick/slick.css" rel="stylesheet" media="all">
+    <link href="~/css/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="~/css/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+    <link href="~/css/vendor/vector-map/jqvmap.min.css" rel="stylesheet" media="all">
+    <link href="~/css/vendor/vector-map/jqvmap.min.css" rel="stylesheet" media="all">
     <!-- Main CSS-->
     <link href="~/css/theme.css" rel="stylesheet" media="all">
 </head>
@@ -78,11 +78,12 @@
                             <i class="fas fa-camera"></i>Student Camera View
                         </a>
                     </li>
-                    @*<li>
-            <a href="~/Home/Calender">
-                <i class="fas fa-calendar-alt"></i>Calendar
-            </a>
-        </li>*@
+                    @*
+                    <li>
+                        <a href="~/Home/Calender">
+                            <i class="fas fa-calendar-alt"></i>Calendar
+                        </a>
+                    </li>*@
                     <li class="has-sub">
                         <a class="js-arrow">
                             <i class="fa fa-location-arrow"></i>Location
@@ -97,11 +98,6 @@
                                 <a asp-area="" asp-controller="Home" asp-action="BusTracking">Student Location</a>
                             </li>
                         </ul>
-                    </li>
-                    <li>
-                        <a href="~/Home/BusSchedule">
-                            <i class="fas fa-times"></i>Bus Schedule
-                        </a>
                     </li>
                 </ul>
             </div>
@@ -148,6 +144,14 @@
                             <i class="fas fa-camera"></i>Student Camera View
                         </a>
                     </li>
+
+
+
+                    @*<li>
+                        <a href="~/Home/Calender">
+                            <i class="fas fa-calendar-alt"></i>Calendar
+                        </a>
+                    </li>*@
                     <li class="has-sub">
                         <a class="js-arrow">
                             <i class="far fa-location-arrow"></i>Location
@@ -164,6 +168,7 @@
                             </li>
                         </ul>
                     </li>
+
                     <li>
                         <a href="~/Home/BusSchedule">
                             <i class="fas fa-times"></i>Bus Schedule
@@ -222,44 +227,44 @@
                                 </div>
 
                                 @*<div class="noti__item js-item-menu">
-                                        <i class="zmdi zmdi-email"></i>
-                                        <span class="quantity">1</span>
-                                        <div class="email-dropdown js-dropdown">
-                                            <div class="email__title">
-                                                <p>You have 3 New Emails</p>
+                                    <i class="zmdi zmdi-email"></i>
+                                    <span class="quantity">1</span>
+                                    <div class="email-dropdown js-dropdown">
+                                        <div class="email__title">
+                                            <p>You have 3 New Emails</p>
+                                        </div>
+                                        <div class="email__item">
+                                            <div class="image img-cir img-40">
+                                                <img src="~/images/icon/avatar-06.jpg" alt="Cynthia Harvey" />
                                             </div>
-                                            <div class="email__item">
-                                                <div class="image img-cir img-40">
-                                                    <img src="~/images/icon/avatar-06.jpg" alt="Cynthia Harvey" />
-                                                </div>
-                                                <div class="content">
-                                                    <p>Meeting about new dashboard...</p>
-                                                    <span>Cynthia Harvey, 3 min ago</span>
-                                                </div>
-                                            </div>
-                                            <div class="email__item">
-                                                <div class="image img-cir img-40">
-                                                    <img src="~/images/icon/avatar-05.jpg" alt="Cynthia Harvey" />
-                                                </div>
-                                                <div class="content">
-                                                    <p>Meeting about new dashboard...</p>
-                                                    <span>Cynthia Harvey, Yesterday</span>
-                                                </div>
-                                            </div>
-                                            <div class="email__item">
-                                                <div class="image img-cir img-40">
-                                                    <img src="~/images/icon/avatar-04.jpg" alt="Cynthia Harvey" />
-                                                </div>
-                                                <div class="content">
-                                                    <p>Meeting about new dashboard...</p>
-                                                    <span>Cynthia Harvey, April 12,,2018</span>
-                                                </div>
-                                            </div>
-                                            <div class="email__footer">
-                                                <a href="#">See all emails</a>
+                                            <div class="content">
+                                                <p>Meeting about new dashboard...</p>
+                                                <span>Cynthia Harvey, 3 min ago</span>
                                             </div>
                                         </div>
-                                    </div>*@
+                                        <div class="email__item">
+                                            <div class="image img-cir img-40">
+                                                <img src="~/images/icon/avatar-05.jpg" alt="Cynthia Harvey" />
+                                            </div>
+                                            <div class="content">
+                                                <p>Meeting about new dashboard...</p>
+                                                <span>Cynthia Harvey, Yesterday</span>
+                                            </div>
+                                        </div>
+                                        <div class="email__item">
+                                            <div class="image img-cir img-40">
+                                                <img src="~/images/icon/avatar-04.jpg" alt="Cynthia Harvey" />
+                                            </div>
+                                            <div class="content">
+                                                <p>Meeting about new dashboard...</p>
+                                                <span>Cynthia Harvey, April 12,,2018</span>
+                                            </div>
+                                        </div>
+                                        <div class="email__footer">
+                                            <a href="#">See all emails</a>
+                                        </div>
+                                    </div>
+                                </div>*@
 
                                 <div class="noti__item js-item-menu">
                                     <i class="zmdi zmdi-notifications"></i>
@@ -319,7 +324,7 @@
                                                 <h5 class="name">
                                                     <a href="#">purshotham</a>
                                                 </h5>
-                                                <span class="email">purshotham123@gmail.com</span>
+                                                <span class="email">purshotham123@gmail.com/span>
                                             </div>
                                         </div>
                                         <div class="account-dropdown__body">
@@ -351,7 +356,7 @@
         <!-- HEADER DESKTOP-->
         <!-- MAIN CONTENT-->
         <div class="main-content">
-            @*<div class="section__content section__content--p30">*@
+            <div class="section__content section__content--p30">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-12">
@@ -407,309 +412,128 @@
                     </div>
                 </div>
                 @*<div class="row">
-                        <div class="col-md-6">
-                            <!-- MAP DATA-->
-                            <div class="map-data m-b-40">
-                                <h3 class="title-3 m-b-30">
-                                    <i class="zmdi zmdi-map"></i>Europe
-                                </h3>
-                                <div class="map-wrap">
-                                    <div class="vmap" id="vmap1"></div>
-                                </div>
+                    <div class="col-md-6">
+                        <!-- MAP DATA-->
+                        <div class="map-data m-b-40">
+                            <h3 class="title-3 m-b-30">
+                                <i class="zmdi zmdi-map"></i>Europe
+                            </h3>
+                            <div class="map-wrap">
+                                <div class="vmap" id="vmap1"></div>
                             </div>
-                            <!-- END MAP DATA-->
                         </div>
-                        <div class="col-md-6">
-                            <!-- MAP DATA-->
-                            <div class="map-data m-b-40">
-                                <h3 class="title-3 m-b-30">
-                                    <i class="zmdi zmdi-map"></i>USA
-                                </h3>
-                                <div class="map-wrap">
-                                    <div class="vmap" id="vmap2"></div>
-                                </div>
+                        <!-- END MAP DATA-->
+                    </div>
+                    <div class="col-md-6">
+                        <!-- MAP DATA-->
+                        <div class="map-data m-b-40">
+                            <h3 class="title-3 m-b-30">
+                                <i class="zmdi zmdi-map"></i>USA
+                            </h3>
+                            <div class="map-wrap">
+                                <div class="vmap" id="vmap2"></div>
                             </div>
-                            <!-- END MAP DATA-->
                         </div>
-                        <div class="col-md-6">
-                            <!-- MAP DATA-->
-                            <div class="map-data m-b-40">
-                                <h3 class="title-3 m-b-30">
-                                    <i class="zmdi zmdi-map"></i>Germany
-                                </h3>
-                                <div class="map-wrap">
-                                    <div class="vmap" id="vmap3"></div>
-                                </div>
+                        <!-- END MAP DATA-->
+                    </div>
+                    <div class="col-md-6">
+                        <!-- MAP DATA-->
+                        <div class="map-data m-b-40">
+                            <h3 class="title-3 m-b-30">
+                                <i class="zmdi zmdi-map"></i>Germany
+                            </h3>
+                            <div class="map-wrap">
+                                <div class="vmap" id="vmap3"></div>
                             </div>
-                            <!-- END MAP DATA-->
                         </div>
-                        <div class="col-md-6">
-                            <!-- MAP DATA-->
-                            <div class="map-data m-b-40">
-                                <h3 class="title-3 m-b-30">
-                                    <i class="zmdi zmdi-map"></i>France
-                                </h3>
-                                <div class="map-wrap">
-                                    <div class="vmap" id="vmap4"></div>
-                                </div>
+                        <!-- END MAP DATA-->
+                    </div>
+                    <div class="col-md-6">
+                        <!-- MAP DATA-->
+                        <div class="map-data m-b-40">
+                            <h3 class="title-3 m-b-30">
+                                <i class="zmdi zmdi-map"></i>France
+                            </h3>
+                            <div class="map-wrap">
+                                <div class="vmap" id="vmap4"></div>
                             </div>
-                            <!-- END MAP DATA-->
                         </div>
-                        <div class="col-md-6">
-                            <!-- MAP DATA-->
-                            <div class="map-data m-b-40">
-                                <h3 class="title-3 m-b-30">
-                                    <i class="zmdi zmdi-map"></i>Russia
-                                </h3>
-                                <div class="map-wrap">
-                                    <div class="vmap" id="vmap5"></div>
-                                </div>
+                        <!-- END MAP DATA-->
+                    </div>
+                    <div class="col-md-6">
+                        <!-- MAP DATA-->
+                        <div class="map-data m-b-40">
+                            <h3 class="title-3 m-b-30">
+                                <i class="zmdi zmdi-map"></i>Russia
+                            </h3>
+                            <div class="map-wrap">
+                                <div class="vmap" id="vmap5"></div>
                             </div>
-                            <!-- END MAP DATA-->
                         </div>
-                        <div class="col-md-6">
-                            <!-- MAP DATA-->
-                            <div class="map-data m-b-40">
-                                <h3 class="title-3 m-b-30">
-                                    <i class="zmdi zmdi-map"></i>Brazil
-                                </h3>
-                                <div class="map-wrap">
-                                    <div class="vmap" id="vmap6"></div>
-                                </div>
+                        <!-- END MAP DATA-->
+                    </div>
+                    <div class="col-md-6">
+                        <!-- MAP DATA-->
+                        <div class="map-data m-b-40">
+                            <h3 class="title-3 m-b-30">
+                                <i class="zmdi zmdi-map"></i>Brazil
+                            </h3>
+                            <div class="map-wrap">
+                                <div class="vmap" id="vmap6"></div>
                             </div>
-                            <!-- END MAP DATA-->
-                            <!-- END PAGE CONTAINER-->
                         </div>
-                    </div>*@
+                        <!-- END MAP DATA-->
+                        <!-- END PAGE CONTAINER-->
+                    </div>
+                </div>*@
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="copyright">
+                            <p>Copyright © 2018 Colorlib. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
     <!-- END MAIN CONTENT-->
     <!-- END PAGE CONTAINER-->
-
-
-
-<!--start Account popup-->
-<div id="test-form-div ">
-    <div id="test-form" class="">
-        <div class="form-container">
-            <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
-            <h2 align="center" class="text-primary">Profile View</h2><hr />
-            <form action="Homepage.html" method="post">
-                <div class="form-group" align="center">
-                    <div class="image">
-                        <img src="~/images/img/user.png" />
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="text-primary">User Name</label>
-                    <label class="form-control" name="fname" id="fname">Purshotham</label>
-                </div>
-                <div class="form-group">
-                    <label class="text-primary">User Email</label>
-                    <label class="form-control" name="email" id="fname">Pursh123@gmail.com</label>
-                </div>
-                <div class="form-group">
-                    <label class="text-primary">Mobile No</label>
-                    <label class="form-control" name="number" id="pwd">9653247815</label>
-                </div>
-
-            </form>
-        </div>
-    </div>
 </div>
-<!--close Account popup-->
-<!--start setting popup-->
-<div id="setting" class="">
-    <div class="form-container">
-        <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
-        <h2 align="center" class="text-primary">Password Setting</h2><hr />
-        <form action="Homepage.html" method="post">
-            <div class="form-group">
-                <label>Old Password</label>
-                <input class="form-control" type="text" name="fname" id="fname" required>
-            </div>
-            <div class="form-group">
-                <label>New Password</label>
-                <input class="form-control" type="email" name="email" id="fname" required>
-            </div>
-            <div class="form-group">
-                <label for="pwd">Confirm Password</label>
-                <input class="form-control" type="tel" name="number" id="pwd" required>
-            </div>
-            <button type="submit" class="btn btn-block btn-primary" id="reg">SUBMIT </button><br>
-            <a href="#moresetting" class="pull-right" onclick="showmoresetting()">Set More Details</a>
-        </form>
-    </div>
+
 </div>
-<!--close setting popup-->
-<!--start more setting popup-->
-<div id="moresetting" class="">
-    <div class="form-container">
-        <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
-        <h2 align="center" class="text-primary">User Detail Setting</h2><hr />
-        <form action="Homepage.html" method="post">
-            <div class="form-group">
-                <label>User Name</label>
-                <input class="form-control" type="text" name="fname" id="fname" required>
-            </div>
-            <div class="form-group">
-                <label>User Email</label>
-                <input class="form-control" type="email" name="email" id="fname" required>
-            </div>
-            <div class="form-group">
-                <label>Address</label>
-                <input class="form-control" type="email" name="email" id="fname" required>
-            </div>
-            <div class="form-group">
-                <label>Mobile No</label>
-                <input class="form-control" type="email" name="email" id="fname" required>
-            </div>
-            <button type="submit" class="btn btn-block btn-primary" id="reg">EDIT</button>
-        </form>
-    </div>
-</div>
-<!--close more setting popup-->
+
 <!-- Jquery JS-->
-<script src="~/vendor/jquery-3.2.1.min.js"></script>
+<script src="~/css/vendor/jquery-3.2.1.min.js"></script>
 <!-- Bootstrap JS-->
-<script src="~/vendor/bootstrap-4.1/popper.min.js"></script>
-<script src="~/vendor/bootstrap-4.1/bootstrap.min.js"></script>
+<script src="~/css/vendor/bootstrap-4.1/popper.min.js"></script>
+<script src="~/css/vendor/bootstrap-4.1/bootstrap.min.js"></script>
 <!-- Vendor JS       -->
-<script src="~/vendor/slick/slick.min.js">
+<script src="~/css/vendor/slick/slick.min.js">
 </script>
-<script src="~/vendor/wow/wow.min.js"></script>
-<script src="~/vendor/animsition/animsition.min.js"></script>
-<script src="~/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+<script src="~/css/vendor/wow/wow.min.js"></script>
+<script src="~/css/vendor/animsition/animsition.min.js"></script>
+<script src="~/css/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
 </script>
-<script src="~/vendor/counter-up/jquery.waypoints.min.js"></script>
-<script src="~/vendor/counter-up/jquery.counterup.min.js">
+<script src="~/css/vendor/counter-up/jquery.waypoints.min.js"></script>
+<script src="~/css/vendor/counter-up/jquery.counterup.min.js">
 </script>
-<script src="~/vendor/circle-progress/circle-progress.min.js"></script>
-<script src="~/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
-<script src="~/vendor/chartjs/Chart.bundle.min.js"></script>
-<script src="~/vendor/select2/select2.min.js"></script>
-<script src="~/vendor/vector-map/jquery.vmap.js"></script>
-<script src="~/vendor/vector-map/jquery.vmap.min.js"></script>
-<script src="~/vendor/vector-map/jquery.vmap.sampledata.js"></script>
-<script src="~/vendor/vector-map/jquery.vmap.world.js"></script>
-<script src="~/vendor/vector-map/jquery.vmap.brazil.js"></script>
-<script src="~/vendor/vector-map/jquery.vmap.europe.js"></script>
-<script src="~/vendor/vector-map/jquery.vmap.france.js"></script>
-<script src="~/vendor/vector-map/jquery.vmap.germany.js"></script>
-<script src="~/vendor/vector-map/jquery.vmap.russia.js"></script>
-<script src="~/vendor/vector-map/jquery.vmap.usa.js"></script>
+<script src="~/css/vendor/circle-progress/circle-progress.min.js"></script>
+<script src="~/css/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+<script src="~/css/vendor/chartjs/Chart.bundle.min.js"></script>
+<script src="~/css/vendor/select2/select2.min.js"></script>
+<script src="~/css/vendor/vector-map/jquery.vmap.js"></script>
+<script src="~/css/vendor/vector-map/jquery.vmap.min.js"></script>
+<script src="~/css/vendor/vector-map/jquery.vmap.sampledata.js"></script>
+<script src="~/css/vendor/vector-map/jquery.vmap.world.js"></script>
+<script src="~/css/vendor/vector-map/jquery.vmap.brazil.js"></script>
+<script src="~/css/vendor/vector-map/jquery.vmap.europe.js"></script>
+<script src="~/css/vendor/vector-map/jquery.vmap.france.js"></script>
+<script src="~/css/vendor/vector-map/jquery.vmap.germany.js"></script>
+<script src="~/css/vendor/vector-map/jquery.vmap.russia.js"></script>
+<script src="~/css/vendor/vector-map/jquery.vmap.usa.js"></script>
 
 
 <!-- Main JS-->
 <script src="~/js/main.js"></script>
-
-<script>
-    function showtest() {
-        $('#test-form').animate({ top: '15%' }, 500);
-        $('#test-form-div').animate({ top: '20%' }, 500);
-        $('.account-dropdown').hide();
-    }
-    function hidetest() {
-        $('#test-form').animate({ top: '-500%' }, 500);
-    }
-
-    function showsetting() {
-        $('#setting').animate({ top: '15%' }, 500);
-        $('.account-dropdown').hide();
-    }
-    function hidesetting() {
-        $('#setting').animate({ top: '-500%' }, 500);
-    }
-
-    function showmoresetting() {
-        $('#moresetting').animate({ top: '15%' }, 500);
-        $('.account-dropdown').hide();
-    }
-    function hidemoresetting() {
-        $('#moresetting').animate({ top: '-500%' }, 500);
-    }
-</script>
-<style>
-    #test-form {
-        position: fixed;
-        top: -500%;
-        width: 35%;
-        margin-left: 30%;
-        background-color: white;
-        box-shadow: 2px 3px 8px slategrey;
-        border-radius: 5px;
-        padding: 35px;
-    }
-
-    #setting {
-        position: fixed;
-        top: -500%;
-        width: 35%;
-        margin-left: 30%;
-        background-color: white;
-        box-shadow: 2px 3px 8px slategrey;
-        border-radius: 5px;
-        padding: 35px;
-    }
-
-    #moresetting {
-        position: fixed;
-        top: -500%;
-        width: 35%;
-        margin-left: 30%;
-        background-color: white;
-        box-shadow: 2px 3px 8px slategrey;
-        border-radius: 5px;
-        padding: 35px;
-    }
-
-    #test-form-div {
-        position: fixed;
-        top: -500%;
-        max-width: 1500px;
-        max-height: 1500px;
-        min-width: 1500px;
-        min-height: 1500px;
-        background-color: black;
-    }
-
-    form.example input[type=text] {
-        padding: 8px;
-        font-size: 17px;
-        border: 1px solid grey;
-        float: left;
-        width: 70%;
-        height: 60%;
-        background: white;
-    }
-
-    form.example button {
-        float: left;
-        width: 20%;
-        height: 70%;
-        padding: 10px;
-        background: #2196F3;
-        color: white;
-        font-size: 17px;
-        border: 1px solid grey;
-        border-left: none;
-        cursor: pointer;
-    }
-
-        form.example button:hover {
-            background: #0b7dda;
-        }
-
-    form.example::after {
-        content: "";
-        clear: both;
-        display: table;
-    }
-</style>
-
-
-
-
 
 
