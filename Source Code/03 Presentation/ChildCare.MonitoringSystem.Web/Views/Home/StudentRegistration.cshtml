@@ -123,7 +123,7 @@
             <div class="container-fluid">
                 <div class="header-mobile-inner">
                     <a class="logo" href="index.html">
-                        <img src="images/icon/logo.png" alt="CoolAdmin" />
+
                     </a>
                     <button class="hamburger hamburger--slider" type="button">
                         <span class="hamburger-box">
@@ -136,24 +136,12 @@
         <nav class="navbar-mobile">
             <div class="container-fluid">
                 <ul class="navbar-mobile__list list-unstyled">
-                    <li class="active has-sub">
+                    <li class="has-sub">
                         <a asp-area="" asp-controller="Home" asp-action="Dashboard">
-                            <i class="fas fa-tachometer-alt"></i> Dashboard
-                        </a>
-
-                    </li>
-                    <li>
-                        <a href="~/Home/CamaraView">
-                            <i class="fas fa-chart-bar"></i>Camera View
-                        </a>
-                    </li>
-                    <li>
-                        <a asp-area="" asp-controller="Home" asp-action="StudentDetails">
-                            <i class="fas fa-table"></i>Student Details
+                            <i class="fas fa-tachometer-alt"></i>Dashboard
                         </a>
                     </li>
                     <li class="has-sub">
-
                         <a class="js-arrow">
                             <i class="far fa-edit"></i>Registration
                         </a>
@@ -167,19 +155,37 @@
                             <li>
                                 <a asp-area="" asp-controller="Home" asp-action="Form1">Teacher Registration</a>
                             </li>
-
                         </ul>
                     </li>
-
                     <li>
+                        <a asp-area="" asp-controller="Home" asp-action="StudentDetails">
+                            <i class="fas fa-user"></i>Student View
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/Home/CamaraView">
+                            <i class="fas fa-camera"></i>Student Camera View
+                        </a>
+                    </li>
+                    @*<li>
                         <a href="~/Home/Calender">
                             <i class="fas fa-calendar-alt"></i>Calendar
                         </a>
-                    </li>
-                    <li>
-                        <a href="~/Home/BusTracking">
-                            <i class="fas fa-map-marker-alt"></i>Bus Location
+                    </li>*@
+                    <li class="has-sub">
+                        <a class="js-arrow">
+                            <i class="fa fa-location-arrow"></i>Location
                         </a>
+                        <ul class="list-unstyled navbar__sub-list js-sub-list">
+                            <li>
+                                <a asp-area="" asp-controller="Home" asp-action="BusTracking">Bus Location</a>
+                            </li>
+                        </ul>
+                        <ul class="list-unstyled navbar__sub-list js-sub-list">
+                            <li>
+                                <a asp-area="" asp-controller="Home" asp-action="BusTracking">Student Location</a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>
@@ -188,28 +194,15 @@
     <!-- END HEADER MOBILE-->
     <!-- MENU SIDEBAR-->
     <aside class="menu-sidebar d-none d-lg-block">
-        <div class="logo">
-            <a href="#">
-                <img src="images/icon/logo.png" alt="Cool Admin" />
-            </a>
+        <div class="logo" style="background-color:white;">
+            <p style="font-family: 'Britannic Bold'; font-size: 20px; margin-left:10%"><img src="~/images/img/Logopic3a.jpg" style="width: 26%; height:40%;" />ChildCare System</p>
         </div>
         <div class="menu-sidebar__content js-scrollbar1">
             <nav class="navbar-sidebar">
                 <ul class="list-unstyled navbar__list">
                     <li class="active has-sub">
                         <a asp-area="" asp-controller="Home" asp-action="Dashboard">
-                            <i class="fas fa-tachometer-alt"></i> Dashboard
-                        </a>
-
-                    </li>
-                    <li>
-                        <a href="~/Home/CamaraView">
-                            <i class="fas fa-chart-bar"></i>Camera View
-                        </a>
-                    </li>
-                    <li>
-                        <a asp-area="" asp-controller="Home" asp-action="StudentDetails">
-                            <i class="fas fa-table"></i>Student Details
+                            <i class="fas fa-edit"></i>Dashboard
                         </a>
                     </li>
                     <li class="has-sub">
@@ -221,7 +214,6 @@
                             <li>
                                 <a asp-area="" asp-controller="Home" asp-action="Form">Parent Registration</a>
                             </li>
-
                         </ul>
                         <ul class="list-unstyled navbar__sub-list js-sub-list">
                             <li>
@@ -230,20 +222,45 @@
 
                         </ul>
                     </li>
-
                     <li>
+                        <a asp-area="" asp-controller="Home" asp-action="StudentDetails">
+                            <i class="fas fa-user"></i>Student View
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/Home/CamaraView">
+                            <i class="fas fa-camera"></i>Student Camera View
+                        </a>
+                    </li>
+                    @*<li>
                         <a href="~/Home/Calender">
                             <i class="fas fa-calendar-alt"></i>Calendar
                         </a>
+                    </li>*@
+                    <li class="has-sub">
+                        <a class="js-arrow">
+                            <i class="far fa-location-arrow"></i>Location
+                        </a>
+                        <ul class="list-unstyled navbar__sub-list js-sub-list">
+                            <li>
+                                <a asp-area="" asp-controller="Home" asp-action="BusTracking">Bus Location</a>
+                            </li>
+
+                        </ul>
+                        <ul class="list-unstyled navbar__sub-list js-sub-list">
+                            <li>
+                                <a asp-area="" asp-controller="Home" asp-action="BusTracking">Student Location</a>
+                            </li>
+                        </ul>
                     </li>
+
                     <li>
-                        <a href="~/Home/BusTracking">
-                            <i class="fas fa-map-marker-alt"></i>Bus Location
+                        <a href="~/Home/BusSchedule">
+                            <i class="fas fa-times"></i>Bus Schedule
                         </a>
                     </li>
-                    </ul>
-
-</nav>
+                </ul>
+            </nav>
         </div>
     </aside>
     <!-- END MENU SIDEBAR-->
@@ -254,12 +271,11 @@
             <div class="section__content section__content--p30">
                 <div class="container-fluid">
                     <div class="header-wrap">
-                        <form class="form-header" action="" method="POST">
-                            <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." />
-                            <button class="au-btn--submit" type="submit">
-                                <i class="zmdi zmdi-search"></i>
-                            </button>
-                        </form>
+
+                        <form class="example" action="/action_page.php" style="max-width:300px">
+                            <input type="text" placeholder="Search.." name="search2">
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                        </form>&nbsp;&nbsp;&nbsp;
                         <div class="header-button">
                             <div class="noti-wrap">
                                 <div class="noti__item js-item-menu">
@@ -271,7 +287,7 @@
                                         </div>
                                         <div class="mess__item">
                                             <div class="image img-cir img-40">
-                                                <img src="images/icon/avatar-06.jpg" alt="Michelle Moreno" />
+                                                <img src="~/images/icon/avatar-06.jpg" alt="Michelle Moreno" />
                                             </div>
                                             <div class="content">
                                                 <h6>Michelle Moreno</h6>
@@ -281,7 +297,7 @@
                                         </div>
                                         <div class="mess__item">
                                             <div class="image img-cir img-40">
-                                                <img src="images/icon/avatar-04.jpg" alt="Diane Myers" />
+                                                <img src="~/images/icon/avatar-04.jpg" alt="Diane Myers" />
                                             </div>
                                             <div class="content">
                                                 <h6>Diane Myers</h6>
@@ -294,7 +310,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="noti__item js-item-menu">
+
+                                @*<div class="noti__item js-item-menu">
                                     <i class="zmdi zmdi-email"></i>
                                     <span class="quantity">1</span>
                                     <div class="email-dropdown js-dropdown">
@@ -303,7 +320,7 @@
                                         </div>
                                         <div class="email__item">
                                             <div class="image img-cir img-40">
-                                                <img src="images/icon/avatar-06.jpg" alt="Cynthia Harvey" />
+                                                <img src="~/images/icon/avatar-06.jpg" alt="Cynthia Harvey" />
                                             </div>
                                             <div class="content">
                                                 <p>Meeting about new dashboard...</p>
@@ -312,7 +329,7 @@
                                         </div>
                                         <div class="email__item">
                                             <div class="image img-cir img-40">
-                                                <img src="images/icon/avatar-05.jpg" alt="Cynthia Harvey" />
+                                                <img src="~/images/icon/avatar-05.jpg" alt="Cynthia Harvey" />
                                             </div>
                                             <div class="content">
                                                 <p>Meeting about new dashboard...</p>
@@ -321,7 +338,7 @@
                                         </div>
                                         <div class="email__item">
                                             <div class="image img-cir img-40">
-                                                <img src="images/icon/avatar-04.jpg" alt="Cynthia Harvey" />
+                                                <img src="~/images/icon/avatar-04.jpg" alt="Cynthia Harvey" />
                                             </div>
                                             <div class="content">
                                                 <p>Meeting about new dashboard...</p>
@@ -332,7 +349,8 @@
                                             <a href="#">See all emails</a>
                                         </div>
                                     </div>
-                                </div>
+                                </div>*@
+
                                 <div class="noti__item js-item-menu">
                                     <i class="zmdi zmdi-notifications"></i>
                                     <span class="quantity">3</span>
@@ -373,40 +391,39 @@
                                     </div>
                                 </div>
                             </div>
+
+
                             <div class="account-wrap">
                                 <div class="account-item clearfix js-item-menu">
                                     <div class="image">
-                                        <img src="images/icon/avatar-01.jpg" alt="John Doe" />
-                                    </div>
-                                    <div class="content">
-                                        <a class="js-acc-btn" href="#">john doe</a>
+                                        <img src="~/images/img/user.png" style="width:80%; height:80%" alt="John Doe" />
                                     </div>
                                     <div class="account-dropdown js-dropdown">
                                         <div class="info clearfix">
                                             <div class="image">
                                                 <a href="#">
-                                                    <img src="images/icon/avatar-01.jpg" alt="John Doe" />
+                                                    <img src="~/images/img/user.png" alt="John Doe" />
                                                 </a>
                                             </div>
                                             <div class="content">
                                                 <h5 class="name">
-                                                    <a href="#">john doe</a>
+                                                    <a href="#">purshotham</a>
                                                 </h5>
-                                                <span class="email">johndoe@example.com</span>
+                                                <span class="email">purshotham123@gmail.com/span>
                                             </div>
                                         </div>
                                         <div class="account-dropdown__body">
                                             <div class="account-dropdown__item">
-                                                <a href="#">
+                                                <a href="#test-form" onclick="showtest()">
                                                     <i class="zmdi zmdi-account"></i>Account
                                                 </a>
                                             </div>
                                             <div class="account-dropdown__item">
-                                                <a href="#">
+                                                <a href="#setting" onclick="showsetting()">
                                                     <i class="zmdi zmdi-settings"></i>Setting
                                                 </a>
                                             </div>
-                                           
+
                                         </div>
                                         <div class="account-dropdown__footer">
                                             <a href="#">
@@ -490,7 +507,7 @@
                                             <i class="fa fa-envelope"></i>
                                         </div>
                                     </div>
-                                    
+
 
                                 </div>
                                 <div class="form-group">
@@ -499,16 +516,16 @@
                                         <input type="password" id="nf-password" name="nf-password" placeholder="Enter Password.." class="form-control">
                                         <div class="input-group-addon">
                                             <i class="fa fa-asterisk"></i>
-                                            </div>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="mobileno" class=" form-control-label">Mobile Number</label>
-                                        <input type="number" id="mobileno" name="mobileno" class="form-control" />
-                                        @*<span class="help-block">Please enter your Student Name</span>*@
-                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="mobileno" class=" form-control-label">Mobile Number</label>
+                                    <input type="number" id="mobileno" name="mobileno" class="form-control" />
+                                    @*<span class="help-block">Please enter your Student Name</span>*@
+                                </div>
 
-</form>
+                            </form>
                         </div>
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary ">
