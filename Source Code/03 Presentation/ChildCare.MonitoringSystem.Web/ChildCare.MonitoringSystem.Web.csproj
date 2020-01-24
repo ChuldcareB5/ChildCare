@@ -24,6 +24,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\fonts\font-awesome-5\webfonts\fa-brands-400.svg" />
+    <None Include="wwwroot\fonts\font-awesome-5\webfonts\fa-brands-400.woff2" />
+    <None Include="wwwroot\fonts\font-awesome-5\webfonts\fa-regular-400.svg" />
+    <None Include="wwwroot\fonts\font-awesome-5\webfonts\fa-regular-400.woff2" />
+    <None Include="wwwroot\fonts\font-awesome-5\webfonts\fa-solid-900.svg" />
+    <None Include="wwwroot\fonts\font-awesome-5\webfonts\fa-solid-900.woff2" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\02 Common\ChildCare.MonitoringSystem.Common\ChildCare.MonitoringSystem.Common.csproj" />
     <ProjectReference Include="..\..\02 Common\ChildCare.MonitoringSystem.Core\ChildCare.MonitoringSystem.Core.csproj" />
     <ProjectReference Include="..\..\04 Business\ChildCare.MonitoringSystem.Business\ChildCare.MonitoringSystem.Business.csproj" />

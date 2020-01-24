@@ -8,6 +8,7 @@ namespace ChildCare.MonitoringSystem.Entity
     public partial class Bus: BaseEntity, IAuditable, ISoftDelete
     {
         public int BusId { get; set; } // BusId (Primary key)
+        public string BusName { get; set; } // BusName (length: 100)
         public int CreatedBy { get; set; } // CreatedBy
         public System.DateTime CreatedOn { get; set; } // CreatedOn
         public int UpdatedBy { get; set; } // UpdatedBy
@@ -243,7 +244,7 @@ namespace ChildCare.MonitoringSystem.Entity
     {
         public int StudentId { get; set; } // StudentId (Primary key)
         public string StudentName { get; set; } // StudentName (length: 100)
-        public byte[] StudentImg { get; set; } // StudentImg (length: 2147483647)
+        public string StudentImg { get; set; } // StudentImg (length: 100)
         public string StudentAddress { get; set; } // StudentAddress (length: 200)
         public string StudentGender { get; set; } // StudentGender (length: 100)
         public System.DateTime StudentDob { get; set; } // StudentDob

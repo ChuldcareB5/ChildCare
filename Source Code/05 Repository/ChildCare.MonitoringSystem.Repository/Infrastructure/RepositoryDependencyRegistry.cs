@@ -19,8 +19,9 @@ namespace ChildCare.MonitoringSystem.Repository
                     provider.GetService<IRepositoryFactory>(),
                     new DbContextOptionsBuilder<MonitoringSystemDbContext>().UseSqlServer(appSettings.ConnectionString).Options,
                     provider.GetService<ApplicationContext>()));
-            services.AddRepository<IRepository<User>, Repository<User>>();
-            services.AddRepository<IRepository<Role>, Repository<Role>>();
-        }
+
+			services.AddRepository<IRepository<User>, Repository<User>>();
+			services.AddRepository<IRepository<Role>, Repository<Role>>();
+		}
     }
 }

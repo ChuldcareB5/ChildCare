@@ -4,39 +4,48 @@ using System.Linq;
 using System.Threading.Tasks;
 using ChildCare.MonitoringSystem.Business;
 using ChildCare.MonitoringSystem.Model;
+using ChildCare.MonitoringSystem.Web.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace ChildCare.MonitoringSystem.Web.Controllers
 {
     public class UserController : Controller
     {
-        private readonly UserBusiness userBusiness;
+		private readonly UserBusiness userBusiness;
 
-        public UserController(UserBusiness userBusiness)
-        {
-            this.userBusiness = userBusiness;
-        }
+		public UserController(UserBusiness userBusiness)
+		{
+			this.userBusiness = userBusiness;
+		}
 
-        [HttpPost]
-        public ActionResult<UserModel> AddParent([FromBody]UserModel studentmodel)
-        {
-            var user = this.userBusiness.AddParent(studentmodel);
-            return user;
-        }
+		public ActionResult<UserModel> Get(int userId)
+		{
+			return this.userBusiness.GetUserById(userId);
+		}
 
-        public ActionResult<UserModel> AddTeachert([FromBody]UserModel studentmodel)
-        {
-            var user = this.userBusiness.AddTeacher(studentmodel);
-            return user;
-        }
+		[HttpPost]
+		public ActionResult<UserModel> AddParent([FromBody]UserModel studentmodel)
+		{
+			var user = this.userBusiness.AddParent(studentmodel);
+			return user;
+		}
 
-        public IActionResult Index()
-        {
-            return View();
-        }
-        public IActionResult submit()
-        {
-            return View("index");
-        }
-    }
+		public ActionResult<UserModel> AddTeacher([FromBody] UserModel studentmodel)
+		{
+			var user = this.userBusiness.AddTeacher(studentmodel);
+			return user;
+		}
+
+		//public IActionResult TeacherLogin(User teacher)
+		//{
+		//	return View("HomePage");
+		//}
+
+		//public IActionResult TeacherEditProfile(User teachereditprofile)
+		//{
+		//	return View("HomePage");
+		//}
+
+	}
 }
