@@ -830,25 +830,25 @@
     <div class="form-container">
         <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
         <h2 align="center" class="text-primary">User Detail Setting</h2><hr />
-        <form action="Homepage.html" method="post">
+        @*<form action="" method="post">*@
             <div class="form-group">
                 <label>User Name</label>
-                <input class="form-control" type="text" name="fname" id="fname" required>
+                <input class="form-control" type="text" name="fname" id="uname" required>
             </div>
             <div class="form-group">
                 <label>User Email</label>
-                <input class="form-control" type="email" name="email" id="fname" required>
+                <input class="form-control" type="email" name="email" id="uemail" required>
             </div>
             <div class="form-group">
                 <label>Address</label>
-                <input class="form-control" type="email" name="email" id="fname" required>
+                <input class="form-control" type="text" name="email" id="uaddress" required>
             </div>
             <div class="form-group">
                 <label>Mobile No</label>
-                <input class="form-control" type="email" name="email" id="fname" required>
+                <input class="form-control" type="text" name="email" id="umobileno" required>
             </div>
-            <button type="submit" class="btn btn-block btn-primary" id="reg">EDIT</button>
-        </form>
+            <button type="submit" class="btn btn-block btn-primary" id="teachereditprofile">EDIT</button>
+        @*</form>*@
     </div>
 </div>
 <!--close more setting popup-->
@@ -884,33 +884,63 @@
 
 <!-- Main JS-->
 <script src="~/js/main.js"></script>
-
-
 <script>
-    function showtest() {
-        $('#test-form').animate({ top: '15%' }, 500);
-        $('#test-form-div').animate({ top: '20%' }, 500);
+    $(document).ready(function () {
+        $("#teachereditprofile").click(function () {
+            var uname = $("#uname").val();
+            var uemail = $("#uemail").val();
+            var uaddress = $("#uaddress").val();
+            var umobileno = $("#umobileno").val();
+            alert(uname);
+            alert(uemail);
+            alert(uaddress);
+            alert(umobileno);
+            $.ajax({
+                url: '/User/TeacherEditProfile',
+                type: 'post',
+                dataType: 'json',
+                data:
+                {
+                    UserName: uname,
+                    UserEmail: uemail,
+                    UserAddress: uaddress,
+                    UserMobileNo: umobileno,
+                },
+                success: function (result) {
+
+                    alert("hii");
+
+                },
+
+            });
+        });
+
+    });
+
+        function showtest() {
+            $('#test-form').animate({ top: '15%' }, 500);
+        $('#test-form-div').animate({top: '20%' }, 500);
         $('.account-dropdown').hide();
     }
     function hidetest() {
-        $('#test-form').animate({ top: '-500%' }, 500);
-    }
+            $('#test-form').animate({ top: '-500%' }, 500);
+        }
 
     function showsetting() {
-        $('#setting').animate({ top: '15%' }, 500);
+            $('#setting').animate({ top: '15%' }, 500);
         $('.account-dropdown').hide();
     }
     function hidesetting() {
-        $('#setting').animate({ top: '-500%' }, 500);
-    }
+            $('#setting').animate({ top: '-500%' }, 500);
+        }
 
     function showmoresetting() {
-        $('#moresetting').animate({ top: '15%' }, 500);
+            $('#moresetting').animate({ top: '15%' }, 500);
         $('.account-dropdown').hide();
     }
     function hidemoresetting() {
-        $('#moresetting').animate({ top: '-500%' }, 500);
-    }
+            $('#moresetting').animate({ top: '-500%' }, 500);
+        }
 </script>
 <style>
     #test-form {
