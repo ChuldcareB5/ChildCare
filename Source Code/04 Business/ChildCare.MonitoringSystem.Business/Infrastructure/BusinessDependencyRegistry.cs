@@ -9,7 +9,6 @@ namespace ChildCare.MonitoringSystem.Business.Infrastructure
         public static void RegisterDependency(IServiceCollection services, AppSettings appSettings)
         {
             RepositoryDependencyRegistry.RegisterDependency(services, appSettings);
-			services.AddTransient<UserBusiness>();
         }
     }
 }

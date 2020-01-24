@@ -107,8 +107,6 @@ namespace ChildCare.MonitoringSystem.Repository
 				
 				entity.Property(x => x.BusId).HasColumnName(@"BusId").IsRequired();
 
-				entity.Property(x => x.BusName).HasColumnName(@"BusName").IsRequired().IsUnicode(false).HasMaxLength(100);
-
 				entity.Property(x => x.CreatedBy).HasColumnName(@"CreatedBy").IsRequired();
 
 				entity.Property(x => x.CreatedOn).HasColumnName(@"CreatedOn").IsRequired();
@@ -165,7 +163,7 @@ namespace ChildCare.MonitoringSystem.Repository
 				
 				entity.HasOne(a => a.User_FromMsg).WithMany(b => b.MessageBoard_FromMsg).HasForeignKey(c => c.FromMsg); // FK_MessageBoard_User1
 				entity.HasOne(a => a.User_ToMsg).WithMany(b => b.MessageBoard_ToMsg).HasForeignKey(c => c.ToMsg); // FK_MessageBoard_User
-				entity.Property(x => x.MessageBoardId).HasColumnName(@"MessageBoardId").IsRequired();
+				entity.Property(x => x.MsgId).HasColumnName(@"MsgId").IsRequired();
 
 				entity.Property(x => x.ToMsg).HasColumnName(@"ToMsg").IsRequired();
 
@@ -312,7 +310,7 @@ namespace ChildCare.MonitoringSystem.Repository
 
 				entity.Property(x => x.StudentName).HasColumnName(@"StudentName").IsRequired().IsUnicode(false).HasMaxLength(100);
 
-				entity.Property(x => x.StudentImg).HasColumnName(@"StudentImg").IsRequired().IsUnicode(false).HasMaxLength(100);
+				entity.Property(x => x.StudentImg).HasColumnName(@"StudentImg").IsRequired().HasMaxLength(2147483647);
 
 				entity.Property(x => x.StudentAddress).HasColumnName(@"StudentAddress").IsRequired().IsUnicode(false).HasMaxLength(200);
 

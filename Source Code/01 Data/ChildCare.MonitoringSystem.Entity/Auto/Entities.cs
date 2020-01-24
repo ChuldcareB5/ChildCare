@@ -8,7 +8,6 @@ namespace ChildCare.MonitoringSystem.Entity
     public partial class Bus: BaseEntity, IAuditable, ISoftDelete
     {
         public int BusId { get; set; } // BusId (Primary key)
-        public string BusName { get; set; } // BusName (length: 100)
         public int CreatedBy { get; set; } // CreatedBy
         public System.DateTime CreatedOn { get; set; } // CreatedOn
         public int UpdatedBy { get; set; } // UpdatedBy
@@ -51,9 +50,9 @@ namespace ChildCare.MonitoringSystem.Entity
         // Reverse navigation
 
         /// <summary>
-        /// Child StudentBusSchedule where [StudentBusSchedule].[BusScheduleId] point to this entity (FK_StudentBusSchedule_BusSchedule1)
+        /// Child StudentBusSchedule where [StudentBusSchedule].[BusScheduleId] point to this entity (FK_StudentBusSchedule_BusSchedule)
         /// </summary>
-        public virtual System.Collections.Generic.ICollection<StudentBusSchedule> StudentBusSchedule { get; set; } // StudentBusSchedule.FK_StudentBusSchedule_BusSchedule1
+        public virtual System.Collections.Generic.ICollection<StudentBusSchedule> StudentBusSchedule { get; set; } // StudentBusSchedule.FK_StudentBusSchedule_BusSchedule
 
         // Foreign keys
 
@@ -75,7 +74,7 @@ namespace ChildCare.MonitoringSystem.Entity
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.34.1.0")]
     public partial class MessageBoard: BaseEntity, IAuditable, ISoftDelete
     {
-        public int MessageBoardId { get; set; } // MessageBoardId (Primary key)
+        public int MsgId { get; set; } // MsgId (Primary key)
         public int ToMsg { get; set; } // ToMsg
         public int FromMsg { get; set; } // FromMsg
         public int MsgStatus { get; set; } // MsgStatus
@@ -244,10 +243,10 @@ namespace ChildCare.MonitoringSystem.Entity
     {
         public int StudentId { get; set; } // StudentId (Primary key)
         public string StudentName { get; set; } // StudentName (length: 100)
-        public string StudentImg { get; set; } // StudentImg (length: 100)
+        public byte[] StudentImg { get; set; } // StudentImg (length: 2147483647)
         public string StudentAddress { get; set; } // StudentAddress (length: 200)
-        public string StudentGender { get; set; } // StudentGender (length: 100)
-        public System.DateTime StudentDob { get; set; } // StudentDob
+        public string StudentGender { get; set; } // StudentGender (length: 10)
+        public System.DateTime StudentIDob { get; set; } // StudentIDob
         public string FatherName { get; set; } // FatherName (length: 100)
         public string MotherName { get; set; } // MotherName (length: 100)
         public int ParentId { get; set; } // ParentId
@@ -274,6 +273,7 @@ namespace ChildCare.MonitoringSystem.Entity
         /// Parent User pointed by [Student].([ParentId]) (FK_Student_User)
         /// </summary>
         public virtual User User { get; set; } // FK_Student_User
+        public object StudentDob { get; set; }
 
         public Student()
         {
@@ -301,9 +301,9 @@ namespace ChildCare.MonitoringSystem.Entity
         // Foreign keys
 
         /// <summary>
-        /// Parent BusSchedule pointed by [StudentBusSchedule].([BusScheduleId]) (FK_StudentBusSchedule_BusSchedule1)
+        /// Parent BusSchedule pointed by [StudentBusSchedule].([BusScheduleId]) (FK_StudentBusSchedule_BusSchedule)
         /// </summary>
-        public virtual BusSchedule BusSchedule { get; set; } // FK_StudentBusSchedule_BusSchedule1
+        public virtual BusSchedule BusSchedule { get; set; } // FK_StudentBusSchedule_BusSchedule
 
         /// <summary>
         /// Parent Student pointed by [StudentBusSchedule].([StudentId]) (FK_StudentBusSchedule_Student)
