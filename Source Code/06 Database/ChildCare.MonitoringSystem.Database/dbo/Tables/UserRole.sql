@@ -12,3 +12,8 @@
     CONSTRAINT [FK_UserRole_User] FOREIGN KEY ([UserId]) REFERENCES [dbo].[User] ([UserId])
 );
 
+
+GO
+CREATE NONCLUSTERED INDEX [IX_UserRole]
+    ON [dbo].[UserRole]([UserId] ASC);
+

@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[Room] (
-    [RoomId]    INT           IDENTITY (1, 1) NOT NULL,
+    [RoomId]    INT           NOT NULL,
     [RoomName]  VARCHAR (100) NOT NULL,
     [CreatedBy] INT           NOT NULL,
     [CreatedOn] DATETIME      NOT NULL,

@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[MessageBoard] (
-    [MsgId]       INT           NOT NULL,
+    [MsgId]       INT           IDENTITY (1, 1) NOT NULL,
     [ToMsg]       INT           NOT NULL,
     [FromMsg]     INT           NOT NULL,
     [MsgStatus]   INT           NOT NULL,
