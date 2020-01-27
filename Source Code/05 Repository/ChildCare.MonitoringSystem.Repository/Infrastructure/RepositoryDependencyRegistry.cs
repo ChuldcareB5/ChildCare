@@ -21,6 +21,8 @@ namespace ChildCare.MonitoringSystem.Repository
                     provider.GetService<ApplicationContext>()));
             services.AddRepository<IRepository<User>, Repository<User>>();
 
-        }
+			services.AddRepository<IRepository<User>, Repository<User>>();
+			services.AddRepository<IRepository<Role>, Repository<Role>>();
+		}
     }
 }

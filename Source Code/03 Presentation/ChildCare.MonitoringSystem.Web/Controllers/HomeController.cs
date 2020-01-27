@@ -10,17 +10,7 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 {
     public class HomeController : Controller
     {
-        //public IActionResult Index()
-        //{
-        //    return View();
-        //}
 
-        //public IActionResult About()
-        //{
-        //    ViewData["Message"] = "Your application description page.";
-
-        //    return View();
-        //}
 
 		public IActionResult Contact()
 		{
@@ -58,6 +48,12 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 		public IActionResult Privacy()
 		{
 			return View();
+		}
+		
+
+		public IActionResult submit()
+		{
+			return View("HomePage");
 		}
 		public IActionResult Dashboard()
 		{

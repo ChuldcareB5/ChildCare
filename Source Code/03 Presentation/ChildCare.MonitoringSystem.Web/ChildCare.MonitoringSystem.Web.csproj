@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="7.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.9" />
@@ -20,6 +21,15 @@
   <ItemGroup>
     <Folder Include="Infrastructure\" />
     <Folder Include="Middlewares\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\fonts\font-awesome-5\webfonts\fa-brands-400.svg" />
+    <None Include="wwwroot\fonts\font-awesome-5\webfonts\fa-brands-400.woff2" />
+    <None Include="wwwroot\fonts\font-awesome-5\webfonts\fa-regular-400.svg" />
+    <None Include="wwwroot\fonts\font-awesome-5\webfonts\fa-regular-400.woff2" />
+    <None Include="wwwroot\fonts\font-awesome-5\webfonts\fa-solid-900.svg" />
+    <None Include="wwwroot\fonts\font-awesome-5\webfonts\fa-solid-900.woff2" />
   </ItemGroup>
 
   <ItemGroup>

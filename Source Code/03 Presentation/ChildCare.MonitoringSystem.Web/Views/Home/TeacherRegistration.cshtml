@@ -362,18 +362,12 @@
         <div class="main-content">
             @*<div class="section__content section__content--p30">*@
             <div class="container-fluid">
-
-
-
-
-
                 <div class="card">
                     <div class="card-header">
                         <strong align="center">Teacher Registration Form</strong>
                     </div>
                     <div class="card-body card-block" style="padding:60px;">
                         <form action="" method="post" class="" style="width:100%;">
-
                             <div class="form-group">
                                 <label for="mname" class=" form-control-label">User Name</label>
                                 <div class="input-group">
@@ -391,11 +385,9 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-envelope"></i>
                                     </div>
-                                    <input type="email" id="nf-email" name="nf-email" class="form-control">
+                                    <input type="email" id="uemail" name="nf-email" class="form-control">
 
                                 </div>
-
-
                             </div>
                             <div class="form-group">
                                 <label for="nf-password" class=" form-control-label">Password</label>
@@ -403,7 +395,7 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-asterisk"></i>
                                     </div>
-                                    <input type="password" id="nf-password" name="nf-password" class="form-control">
+                                    <input type="password" id="upassword" name="nf-password" class="form-control">
 
                                 </div>
                             </div>
@@ -413,14 +405,13 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-mobile"></i>
                                     </div>
-                                    <input type="tel" id="mobileno" name="mobileno" class="form-control" />
+                                    <input type="tel" id="umobileno" name="mobileno" class="form-control" />
                                 </div>
                             </div>
-
                         </form>
                     </div>
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-primary ">
+                        <button type="submit" id="teacherlogin" class="btn btn-primary ">
                             Submit
                         </button>
                         <button type="reset" class="btn btn-success ">
@@ -545,9 +536,39 @@
 
 <!-- Main JS-->
 <script src="~/js/main.js"></script>
-
-
 <script>
+    $(document).ready(function () {
+        $("#teacherlogin").click(function () {
+            var uname = $("#uname").val();
+            var uemail = $("#uemail").val();
+            var upassword = $("#upassword").val();
+            var umobileno = $("#umobileno").val();
+            alert(uname);
+            alert(uemail);
+            alert(upassword);
+            alert(umobileno);
+            $.ajax({
+                url: '/User/TeacherLogin',
+                type: 'post',
+                dataType: 'json',
+                data:
+                {
+                    UserName: uname,
+                    UserEmail: uemail,
+                    UserPassword: upassword,
+                    UserMobileNo: umobileno,
+                },
+                success: function (result) {
+
+                    alert("hii");
+
+                },
+
+            });
+        });
+
+    });
+ 
     function showtest() {
         $('#test-form').animate({ top: '15%' }, 500);
         $('#test-form-div').animate({ top: '20%' }, 500);
