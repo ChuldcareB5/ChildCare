@@ -351,6 +351,7 @@
             </div>
         </header>
         <!-- HEADER DESKTOP-->
+
         <!-- MAIN CONTENT-->
         <div class="main-content">
             @*<div class="section__content section__content--p30">*@
@@ -766,10 +767,7 @@
         </div>
         <!-- END MAIN CONTENT-->
         <!-- END PAGE CONTAINER-->
-    </div>
 </div>
-
-
 
 <!--start Account popup-->
 <div id="test-form-div ">
@@ -795,12 +793,12 @@
                     <label class="text-primary">Mobile No</label>
                     <label class="form-control" name="number" id="pwd">9653247815</label>
                 </div>
-
             </form>
         </div>
     </div>
 </div>
 <!--close Account popup-->
+
 <!--start setting popup-->
 <div id="setting" class="">
     <div class="form-container">
@@ -825,6 +823,7 @@
     </div>
 </div>
 <!--close setting popup-->
+
 <!--start more setting popup-->
 <div id="moresetting" class="">
     <div class="form-container">
@@ -852,6 +851,7 @@
     </div>
 </div>
 <!--close more setting popup-->
+
 <!-- Jquery JS-->
 <script src="~/vendor/jquery-3.2.1.min.js"></script>
 <!-- Bootstrap JS-->
@@ -884,6 +884,7 @@
 
 <!-- Main JS-->
 <script src="~/js/main.js"></script>
+
 <script>
     $(document).ready(function () {
         $("#teachereditprofile").click(function () {
@@ -917,31 +918,32 @@
 
     });
 
-        function showtest() {
-            $('#test-form').animate({ top: '15%' }, 500);
+    function showtest() {
+        $('#test-form').animate({ top: '15%' }, 500);
         $('#test-form-div').animate({top: '20%' }, 500);
         $('.account-dropdown').hide();
     }
     function hidetest() {
-            $('#test-form').animate({ top: '-500%' }, 500);
-        }
+        $('#test-form').animate({ top: '-500%' }, 500);
+     }
 
     function showsetting() {
-            $('#setting').animate({ top: '15%' }, 500);
+        $('#setting').animate({ top: '15%' }, 500);
         $('.account-dropdown').hide();
     }
     function hidesetting() {
-            $('#setting').animate({ top: '-500%' }, 500);
-        }
+        $('#setting').animate({ top: '-500%' }, 500);
+    }
 
     function showmoresetting() {
-            $('#moresetting').animate({ top: '15%' }, 500);
+        $('#moresetting').animate({ top: '15%' }, 500);
         $('.account-dropdown').hide();
     }
     function hidemoresetting() {
-            $('#moresetting').animate({ top: '-500%' }, 500);
-        }
+        $('#moresetting').animate({ top: '-500%' }, 500);
+    }
 </script>
+
 <style>
     #test-form {
         position: fixed;
@@ -986,8 +988,6 @@
         background-color: black;
     }
 
-
-
     form.example input[type=text] {
         padding: 8px;
         font-size: 17px;
@@ -1011,9 +1011,9 @@
         cursor: pointer;
     }
 
-        form.example button:hover {
-            background: #0b7dda;
-        }
+    form.example button:hover {
+        background: #0b7dda;
+    }
 
     form.example::after {
         content: "";

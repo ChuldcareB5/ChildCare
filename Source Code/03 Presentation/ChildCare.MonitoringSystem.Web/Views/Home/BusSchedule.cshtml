@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "BusSchedule";
 }
 
@@ -26,6 +25,7 @@
     <!-- Main CSS-->
     <link href="~/css/theme.css" rel="stylesheet" media="all">
 </head>
+
 <div class="page-wrapper">
     <!-- HEADER MOBILE-->
     <header class="header-mobile d-block d-lg-none">
@@ -102,6 +102,7 @@
         </nav>
     </header>
     <!-- END HEADER MOBILE-->
+
     <!-- MENU SIDEBAR-->
     <aside class="menu-sidebar d-none d-lg-block">
         <div class="logo" style="background-color:white;">
@@ -129,7 +130,6 @@
                             <li>
                                 <a asp-area="" asp-controller="Home" asp-action="Form1">Teacher Registration</a>
                             </li>
-
                         </ul>
                     </li>
                     <li>
@@ -142,29 +142,21 @@
                             <i class="fas fa-camera"></i>Student Camera View
                         </a>
                     </li>
-
-
-
-                    @*<li>
-            <a href="~/Home/Calender">
-                <i class="fas fa-calendar-alt"></i>Calendar
-            </a>
-        </li>*@
                     <li class="has-sub">
                         <a class="js-arrow">
                             <i class="far fa-location-arrow"></i>Location
                         </a>
-                        <ul class="list-unstyled navbar__sub-list js-sub-list">
-                            <li>
-                                <a asp-area="" asp-controller="Home" asp-action="BusTracking">Bus Location</a>
-                            </li>
+                    <ul class="list-unstyled navbar__sub-list js-sub-list">
+                        <li>
+                            <a asp-area="" asp-controller="Home" asp-action="BusTracking">Bus Location</a>
+                        </li>
 
-                        </ul>
-                        <ul class="list-unstyled navbar__sub-list js-sub-list">
-                            <li>
-                                <a asp-area="" asp-controller="Home" asp-action="BusTracking">Student Location</a>
-                            </li>
-                        </ul>
+                    </ul>
+                    <ul class="list-unstyled navbar__sub-list js-sub-list">
+                        <li>
+                            <a asp-area="" asp-controller="Home" asp-action="BusTracking">Student Location</a>
+                         </li>
+                     </ul>
                     </li>
                     <li>
                         <a href="~/Home/BusSchedule">
@@ -176,6 +168,7 @@
         </div>
     </aside>
     <!-- END MENU SIDEBAR-->
+
     <!-- PAGE CONTAINER-->
     <div class="page-container">
         <!-- HEADER DESKTOP-->
@@ -445,9 +438,11 @@
 
             </div>
         </div>
-
+    </div>
         <!-- END MAIN CONTENT-->
+</div>
         <!-- END PAGE CONTAINER-->
+
         <!--start Account popup-->
         <div id="test-form-div ">
             <div id="test-form" class="">
@@ -530,7 +525,6 @@
         </div>
         <!--close more setting popup-->
 
-
         <div id="schedule" class="">
             <div class="form-container">
                 <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
@@ -565,7 +559,6 @@
             </div>
         </div>
 
-
         <div id="add" class="">
             <div class="form-container">
                 <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
@@ -595,6 +588,7 @@
                 </form>
             </div>
         </div>
+
         <!-- Jquery JS-->
         <script src="~/vendor/jquery-3.2.1.min.js"></script>
         <!-- Bootstrap JS-->
@@ -624,8 +618,6 @@
         <script src="~/vendor/vector-map/jquery.vmap.germany.js"></script>
         <script src="~/vendor/vector-map/jquery.vmap.russia.js"></script>
         <script src="~/vendor/vector-map/jquery.vmap.usa.js"></script>
-
-
         <!-- Main JS-->
         <script src="~/js/main.js"></script>
 
@@ -672,12 +664,13 @@
                 $('#add').animate({ top: '-500%' }, 500);
             }
         </script>
+
         <style>
             #test-form {
                 position: fixed;
                 top: -500%;
                 width: 35%;
-                margin-left: 12%;
+                margin-left: 30%;
                 background-color: white;
                 box-shadow: 2px 3px 8px slategrey;
                 border-radius: 5px;
@@ -688,7 +681,7 @@
                 position: fixed;
                 top: -500%;
                 width: 35%;
-                margin-left: 12%;
+                margin-left: 30%;
                 background-color: white;
                 box-shadow: 2px 3px 8px slategrey;
                 border-radius: 5px;
@@ -699,7 +692,7 @@
                 position: fixed;
                 top: -500%;
                 width: 35%;
-                margin-left: 12%;
+                margin-left: 30%;
                 background-color: white;
                 box-shadow: 2px 3px 8px slategrey;
                 border-radius: 5px;
@@ -710,7 +703,7 @@
                 position: fixed;
                 top: -500%;
                 width: 35%;
-                margin-left: 12%;
+                margin-left: 30%;
                 background-color: white;
                 box-shadow: 2px 3px 8px slategrey;
                 border-radius: 5px;
@@ -722,7 +715,7 @@
                 position: fixed;
                 top: -500%;
                 width: 35%;
-                margin-left: 12%;
+                margin-left: 30%;
                 background-color: white;
                 box-shadow: 2px 3px 8px slategrey;
                 border-radius: 5px;
@@ -763,9 +756,9 @@
                 cursor: pointer;
             }
 
-                form.example button:hover {
-                    background: #0b7dda;
-                }
+            form.example button:hover {
+                background: #0b7dda;
+            }
 
             form.example::after {
                 content: "";

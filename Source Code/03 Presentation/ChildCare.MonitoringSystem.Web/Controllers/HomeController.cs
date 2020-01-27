@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using ChildCare.MonitoringSystem.Web.Models;
+using ChildCare.MonitoringSystem.Model;
 
 namespace ChildCare.MonitoringSystem.Web.Controllers
 {
@@ -61,7 +62,9 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 		}
 		public IActionResult Form()
 		{
-			return View("StudentRegistration");
+			var model = new UserModel();
+			model.UserName = "test";
+			return View("StudentRegistration", model);
 		}
 		public IActionResult Form1()
 		{

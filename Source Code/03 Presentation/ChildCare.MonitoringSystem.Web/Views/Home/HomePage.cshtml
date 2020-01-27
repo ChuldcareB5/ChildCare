@@ -3,7 +3,6 @@
     Layout = null;
 }
 
-
 <head>
     <!-- Fontfaces CSS-->
     <link href="~/css/font-face.css" rel="stylesheet" media="all">
@@ -23,10 +22,14 @@
     <link href="~/vendor/select2/select2.min.css" rel="stylesheet" media="all">
     <link href="~/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
     <link href="~/vendor/vector-map/jqvmap.min.css" rel="stylesheet" media="all">
+
     <!-- Main CSS-->
     <link href="~/css/theme.css" rel="stylesheet" media="all">
 </head>
+
+
 <div class="page-wrapper">
+
     <!-- HEADER MOBILE-->
     <header class="header-mobile d-block d-lg-none">
         <div class="header-mobile__bar">
@@ -50,9 +53,7 @@
                         <a asp-area="" asp-controller="Home" asp-action="Mainpage">
                             <i class="fas fa-tachometer-alt"></i>Dashboard
                         </a>
-
                     </li>
-
                     <li>
                         <a asp-area="" asp-controller="Home" asp-action="Student">
                             <i class="fas fa-table"></i>Student Details
@@ -63,7 +64,6 @@
                             <i class="fas fa-chart-bar"></i>Camera View
                         </a>
                     </li>
-
                     @*<li>
                             <a href="~/Home/Calender1">
                                 <i class="fas fa-calendar-alt"></i>Calendar
@@ -76,10 +76,10 @@
                     </li>
                 </ul>
             </div>
-
         </nav>
     </header>
     <!-- END HEADER MOBILE-->
+
     <!-- MENU SIDEBAR-->
     <aside class="menu-sidebar d-none d-lg-block">
         <div class="logo">
@@ -94,9 +94,7 @@
                         <a asp-area="" asp-controller="Home" asp-action="Mainpage">
                             <i class="fas fa-tachometer-alt"></i>Dashboard
                         </a>
-
                     </li>
-
                     <li>
                         <a asp-area="" asp-controller="Home" asp-action="Student">
                             <i class="fas fa-table"></i>Student Details
@@ -107,8 +105,6 @@
                             <i class="fas fa-chart-bar"></i>Camera View
                         </a>
                     </li>
-
-
                     @*<li>
                             <a href="~/Home/Calender1">
                                 <i class="fas fa-calendar-alt"></i>Calendar
@@ -124,11 +120,12 @@
         </div>
     </aside>
     <!-- END MENU SIDEBAR-->
+
+
     <!-- PAGE CONTAINER-->
     <div class="page-container">
+
         <!-- HEADER DESKTOP-->
-
-
         <header class="header-desktop">
             <div class="section__content section__content--p30">
                 <div class="container-fluid">
@@ -172,7 +169,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="account-wrap">
                                 <div class="account-item clearfix js-item-menu">
                                     <div class="image">
@@ -221,8 +217,8 @@
                 </div>
             </div>
         </header>
-
         <!-- HEADER DESKTOP-->
+
         <!-- MAIN CONTENT-->
         <div class="main-content">
             @*<div class="section__content section__content--p30">*@
@@ -232,7 +228,6 @@
                     <div class="col-md-12">
                         <div class="overview-wrap">
                             <h2 class="title-1">Dashboard</h2>
-
                         </div>
                     </div>
                 </div><br /><hr />
@@ -265,7 +260,6 @@
                                         <span>View live videos</span>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -281,7 +275,6 @@
                                         <span>View Kid Location</span>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -290,10 +283,11 @@
         </div>
     </div>
     <!-- END MAIN CONTENT-->
+
     <!-- END PAGE CONTAINER-->
 </div>
 
-</div>
+
 
 <!-- Jquery JS-->
 <script src="~/vendor/jquery-3.2.1.min.js"></script>
@@ -358,9 +352,9 @@
             </div>
         </div>
     </div>
-
-
 <!--close Account popup-->
+
+
 <!--start setting popup-->
 <div id="setting" class="">
     <div class="form-container">
@@ -385,6 +379,8 @@
     </div>
 </div>
 <!--close setting popup-->
+
+
 <!--start more setting popup-->
 <div id="moresetting" class="">
     <div class="form-container">
@@ -414,7 +410,6 @@
 <!--close more setting popup-->
 
 
-
 <script>
     function showtest() {
         $('#test-form').animate({ top: '15%' }, 500);
@@ -441,6 +436,7 @@
         $('#moresetting').animate({ top: '-500%' }, 500);
     }
 </script>
+
 <style>
     #test-form {
         position: fixed;
