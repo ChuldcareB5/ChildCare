@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ChildCare.MonitoringSystem.Business;
+using ChildCare.MonitoringSystem.Entity;
 using ChildCare.MonitoringSystem.Model;
 using ChildCare.MonitoringSystem.Web.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -37,15 +38,15 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 			return user;
 		}
 
-		//public IActionResult TeacherLogin(User teacher)
-		//{
-		//	return View("HomePage");
-		//}
+        public IActionResult StudentLogin(User teacher)
+        {
+            return View("HomePage");
+        }
 
-		//public IActionResult TeacherEditProfile(User teachereditprofile)
-		//{
-		//	return View("HomePage");
-		//}
+        public IActionResult TeacherEditProfile(User teachereditprofile)
+        {
+            return View("HomePage");
+        }
 
-	}
+    }
 }
