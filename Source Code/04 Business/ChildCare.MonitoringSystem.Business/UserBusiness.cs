@@ -28,9 +28,9 @@ namespace ChildCare.MonitoringSystem.Business
 
 			return user != null ? new UserModel()
 			{
-				UserId = user.UserId,
-				UserEmail = user.UserEmail,
-				UserMobileNo = user.UserMobileNo,
+				//UserId = user.UserId,
+				//UserEmail = user.UserEmail,
+				//UserMobileNo = user.UserMobileNo,
 				UserName = user.UserName
 			}
 			: null;

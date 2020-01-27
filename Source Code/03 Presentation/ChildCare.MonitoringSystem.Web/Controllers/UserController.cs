@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ChildCare.MonitoringSystem.Business;
+using ChildCare.MonitoringSystem.Entity;
 using ChildCare.MonitoringSystem.Model;
-using ChildCare.MonitoringSystem.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,7 +12,9 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 {
     public class UserController : Controller
     {
+		
 		private readonly UserBusiness userBusiness;
+		
 
 		public UserController(UserBusiness userBusiness)
 		{
@@ -25,27 +27,31 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 		}
 
 		[HttpPost]
-		public ActionResult<UserModel> AddParent([FromBody]UserModel studentmodel)
+		public ActionResult<Int32> AddParent(UserModel usermodel)
 		{
-			var user = this.userBusiness.AddParent(studentmodel);
+			var user = this.userBusiness.AddParent(usermodel);
+			var userId = user.UserId;
+			return user.UserId; ;
+		}
+
+		public ActionResult<UserModel> AddTeacher(UserModel usermodel)
+		{
+			var user = this.userBusiness.AddTeacher(usermodel);
 			return user;
 		}
 
-		public ActionResult<UserModel> AddTeacher([FromBody] UserModel studentmodel)
+		
+
+		[HttpPost]
+		public IActionResult StudentLogin(UserModel userModel)
 		{
-			var user = this.userBusiness.AddTeacher(studentmodel);
-			return user;
+			return View("HomePage");
 		}
 
-		//public IActionResult TeacherLogin(User teacher)
-		//{
-		//	return View("HomePage");
-		//}
-
-		//public IActionResult TeacherEditProfile(User teachereditprofile)
-		//{
-		//	return View("HomePage");
-		//}
+		public IActionResult TeacherLogin(User teachereditprofile)
+		{
+			return View("HomePage");
+		}
 
 	}
 }

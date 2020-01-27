@@ -1,4 +1,5 @@
-﻿@{
+﻿@*@model ChildCare.MonitoringSystem.Model.UserModel*@
+@{
     ViewData["Title"] = "Home Page";
     Layout = null;
 }
@@ -11,12 +12,12 @@
     <link href="~/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
 
     @*<script src="~/new/jquery/jquery.min.js"></script>
-    <script src="~/new/nouislider/nouislider.min.js"></script>
-    <script src="~/new/wnumb/wNumb.js"></script>
-    <script src="~/new/jquery-validation/dist/jquery.validate.min.js"></script>
-    <script src="~/new/jquery-validation/dist/additional-methods.min.js"></script>
-    <link rel="stylesheet" href="~/fonts/material-icon/css/material-design-iconic-font.min.css">
-    <link rel="stylesheet" href="~/css/nouislider.min.css">*@
+        <script src="~/new/nouislider/nouislider.min.js"></script>
+        <script src="~/new/wnumb/wNumb.js"></script>
+        <script src="~/new/jquery-validation/dist/jquery.validate.min.js"></script>
+        <script src="~/new/jquery-validation/dist/additional-methods.min.js"></script>
+        <link rel="stylesheet" href="~/fonts/material-icon/css/material-design-iconic-font.min.css">
+        <link rel="stylesheet" href="~/css/nouislider.min.css">*@
     <!-- Bootstrap CSS-->
     <link href="~/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
     @*<link href="~/css/css/style.css.map" rel="stylesheet" media="all">*@
@@ -84,10 +85,10 @@
                         </a>
                     </li>
                     @*<li>
-            <a href="~/Home/Calender">
-                <i class="fas fa-calendar-alt"></i>Calendar
-            </a>
-        </li>*@
+                            <a href="~/Home/Calender">
+                                <i class="fas fa-calendar-alt"></i>Calendar
+                            </a>
+                        </li>*@
                     <li class="has-sub">
                         <a class="js-arrow">
                             <i class="fa fa-location-arrow"></i>Location
@@ -153,14 +154,6 @@
                             <i class="fas fa-camera"></i>Student Camera View
                         </a>
                     </li>
-
-
-
-                    @*<li>
-            <a href="~/Home/Calender">
-                <i class="fas fa-calendar-alt"></i>Calendar
-            </a>
-        </li>*@
                     <li class="has-sub">
                         <a class="js-arrow">
                             <i class="far fa-location-arrow"></i>Location
@@ -234,44 +227,44 @@
                                 </div>
 
                                 @*<div class="noti__item js-item-menu">
-                    <i class="zmdi zmdi-email"></i>
-                    <span class="quantity">1</span>
-                    <div class="email-dropdown js-dropdown">
-                        <div class="email__title">
-                            <p>You have 3 New Emails</p>
-                        </div>
-                        <div class="email__item">
-                            <div class="image img-cir img-40">
-                                <img src="~/images/icon/avatar-06.jpg" alt="Cynthia Harvey" />
-                            </div>
-                            <div class="content">
-                                <p>Meeting about new dashboard...</p>
-                                <span>Cynthia Harvey, 3 min ago</span>
-                            </div>
-                        </div>
-                        <div class="email__item">
-                            <div class="image img-cir img-40">
-                                <img src="~/images/icon/avatar-05.jpg" alt="Cynthia Harvey" />
-                            </div>
-                            <div class="content">
-                                <p>Meeting about new dashboard...</p>
-                                <span>Cynthia Harvey, Yesterday</span>
-                            </div>
-                        </div>
-                        <div class="email__item">
-                            <div class="image img-cir img-40">
-                                <img src="~/images/icon/avatar-04.jpg" alt="Cynthia Harvey" />
-                            </div>
-                            <div class="content">
-                                <p>Meeting about new dashboard...</p>
-                                <span>Cynthia Harvey, April 12,,2018</span>
-                            </div>
-                        </div>
-                        <div class="email__footer">
-                            <a href="#">See all emails</a>
-                        </div>
-                    </div>
-                </div>*@
+                                        <i class="zmdi zmdi-email"></i>
+                                        <span class="quantity">1</span>
+                                        <div class="email-dropdown js-dropdown">
+                                            <div class="email__title">
+                                                <p>You have 3 New Emails</p>
+                                            </div>
+                                            <div class="email__item">
+                                                <div class="image img-cir img-40">
+                                                    <img src="~/images/icon/avatar-06.jpg" alt="Cynthia Harvey" />
+                                                </div>
+                                                <div class="content">
+                                                    <p>Meeting about new dashboard...</p>
+                                                    <span>Cynthia Harvey, 3 min ago</span>
+                                                </div>
+                                            </div>
+                                            <div class="email__item">
+                                                <div class="image img-cir img-40">
+                                                    <img src="~/images/icon/avatar-05.jpg" alt="Cynthia Harvey" />
+                                                </div>
+                                                <div class="content">
+                                                    <p>Meeting about new dashboard...</p>
+                                                    <span>Cynthia Harvey, Yesterday</span>
+                                                </div>
+                                            </div>
+                                            <div class="email__item">
+                                                <div class="image img-cir img-40">
+                                                    <img src="~/images/icon/avatar-04.jpg" alt="Cynthia Harvey" />
+                                                </div>
+                                                <div class="content">
+                                                    <p>Meeting about new dashboard...</p>
+                                                    <span>Cynthia Harvey, April 12,,2018</span>
+                                                </div>
+                                            </div>
+                                            <div class="email__footer">
+                                                <a href="#">See all emails</a>
+                                            </div>
+                                        </div>
+                                    </div>*@
 
                                 <div class="noti__item js-item-menu">
                                     <i class="zmdi zmdi-notifications"></i>
@@ -331,7 +324,7 @@
                                                 <h5 class="name">
                                                     <a href="#">purshotham</a>
                                                 </h5>
-                                                <span class="email">purshotham123@gmail.com/span>
+                                                <span class="email">purshotham123@gmail.com</span>
                                             </div>
                                         </div>
                                         <div class="account-dropdown__body">
@@ -372,99 +365,103 @@
 
 
                 <div class="card">
-            <div class="card-header">
-                <strong align="center">Student Registration Form</strong>
-            </div>
-            <div class="card-body card-block">
-                <form action="" method="post" class="">
-                    <div class="form-group">
-                        <label for="nf-student" class=" form-control-label">Student Name *</label>
-                        <input type="text" id="sname" name="nf-student" placeholder="Enter Student Name" title="Enter Student Name" class="form-control" required>
-     
+                    <div class="card-header">
+                        <strong align="center">Student Registration Form</strong>
                     </div>
-                    <div class="form-group">
-                        <label for="nf-student-img" class=" form-control-label">Student Profile</label>
-                        <input type="file" id="simg" name="nf-student-img" class="form-control" title="Choose Student Profile Picture">
-                  
-                    </div>
-                    <div class="form-group">
-                        <label for="address" class=" form-control-label">Address *</label>
-                        <textarea id="address" rows="5" name="address" class="form-control" title="Enter Student Address" required></textarea>
+                    <div class="card-body card-block">
+                        @*@foreach (var item in Model.Student)
+                            {*@
 
-                    </div>
-                    <div class="form-group">
-                        <label for="gender" class=" form-control-label">Gender *</label><br>
-                        <input type="radio" id="gender" value="male" name="gender" />Male
-                        <input type="radio" id="gender" value="female" name="gender"> Female
-                    </div>
-                    <div class="form-group">
-                        <label for="dob" class=" form-control-label">Date-Of-Birth *</label>
-                        <input type="date" id="dob" name="dob" class="form-control" required />
-
-                    </div>
-                    <div class="form-group">
-                        <label for="fname" class=" form-control-label">Father Name/Guardian Name *</label>
-                        <input type="text" id="fname" name="fname" class="form-control" required />
-
-                    </div>
-                    <div class="form-group">
-                        <label for="mname" class=" form-control-label">Mother Name </label>
-                        <input type="text" id="mname" name="mname" class="form-control" />
-
-                    </div>
-                    <div class="form-group">
-                        <label for="mname" class=" form-control-label">User Name *</label>
-                        <div class="input-group">
-                            <input type="text" id="uname" name="uname" placeholder="Username" class="form-control" required>
-                            <div class="input-group-addon">
-                                <i class="fa fa-user"></i>
+                        <form  id="studentForm">
+                            <div class="form-group">
+                                <label for="nf-student" class=" form-control-label">Student Name *</label>
+                                <input type="text" id="name" name="nf-student" placeholder="Enter Student Name" title="Enter Student Name" class="form-control" required>
 
                             </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="nf-email" class=" form-control-label">Email *</label>
-                        <div class="input-group">
-                            <input type="email" id="uemail" name="nf-email" placeholder="Enter Email.." class="form-control" required>
-                            <div class="input-group-addon">
-                                <i class="fa fa-envelope"></i>
+                            <div class="form-group">
+                                <label for="nf-student-img" class=" form-control-label">Student Profile</label>
+                                <input type="file" id="img" name="nf-student-img" class="form-control" title="Choose Student Profile Picture">
+
                             </div>
-                        </div>
+                            <div class="form-group">
+                                <label for="address" class=" form-control-label">Address *</label>
+                                <textarea id="address" rows="5" name="address" class="form-control" title="Enter Student Address" required></textarea>
 
-
-                    </div>
-                    <div class="form-group">
-                        <label for="nf-password" class=" form-control-label">Password *</label>
-                        <div class="input-group">
-                            <input type="password" id="upassword" name="nf-password" placeholder="Enter Password.." class="form-control" required>
-                            <div class="input-group-addon">
-                                <i class="fa fa-asterisk"></i>
                             </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="mobileno" class=" form-control-label">Mobile Number</label>
-                        <input type="tel" id="mobileno" name="mobileno" class="form-control" />
+                            <div class="form-group">
+                                <label for="gender" class=" form-control-label">Gender *</label><br>
+                                <input type="radio" id="gender" checked="checked" value="male" name="gender" />Male
+                                <input type="radio" id="gender" value="female" name="gender"> Female
+                            </div>
+                            <div class="form-group">
+                                <label for="dob" class=" form-control-label">Date-Of-Birth *</label>
+                                <input type="date" id="dob" name="dob" class="form-control" required />
 
-                    </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="fname" class=" form-control-label">Father Name/Guardian Name *</label>
+                                <input type="text" id="fname" name="fname" class="form-control" required />
 
-                </form>
-            </div>
-            <div class="card-footer">
-                <button type="submit" id="userlogin" class="btn btn-primary ">
-                    Submit
-                </button>
-                <button type="reset" class="btn btn-success ">
-                    Reset
-                </button>
+                            </div>
+                            <div class="form-group">
+                                <label for="mname" class=" form-control-label">Mother Name </label>
+                                <input type="text" id="mname" name="mname" class="form-control" />
+
+                            </div>
+                            <div class="form-group">
+                                <label for="mname" class=" form-control-label">User Name *</label>
+                                <div class="input-group">
+                                    @*@Html.TextBoxFor(x => x.UserName)*@
+                                    <input type="text" id="uname" name="UserName" placeholder="Username" class="form-control" required>
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-user"></i>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="nf-email" class=" form-control-label">Email *</label>
+                                <div class="input-group">
+                                    <input type="email" id="uemail" name="nf-email" placeholder="Enter Email.." class="form-control" required>
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-envelope"></i>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="form-group">
+                                <label for="nf-password" class=" form-control-label">Password *</label>
+                                <div class="input-group">
+                                    <input type="password" id="upassword" name="nf-password" placeholder="Enter Password.." class="form-control" required>
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-asterisk"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="mobileno" class=" form-control-label">Mobile Number</label>
+                                <input type="tel" id="umobileno" name="mobileno" class="form-control" />
+
+                            </div>
+
+                        </form>
+                
+                    </div>
+                    <div class="card-footer">
+                        <button type="button" id="userlogin" class="btn btn-primary ">
+                            Submit
+                        </button>
+                        <button type="reset" class="btn btn-success ">
+                            Reset
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
-            </div>
-            </div>
-        </div>
-        <!-- END MAIN CONTENT-->
-        <!-- END PAGE CONTAINER-->
     </div>
+    <!-- END MAIN CONTENT-->
+    <!-- END PAGE CONTAINER-->
 </div>
 
 
@@ -575,10 +572,11 @@
 <script src="~/js/main.js"></script>
 
 <script>
+
     $(document).ready(function () {
         $("#userlogin").click(function () {
-            var sname = $("#sname").val();
-            var simg = $("#simg").val();
+            var name = $("#name").val();
+            var img = $("#img").val();
             var address = $("#address").val();
             var gender = $("#gender").val();
             var dob = $("#dob").val();
@@ -587,45 +585,47 @@
             var uname = $("#uname").val();
             var uemail = $("#uemail").val();
             var upassword = $("#upassword").val();
-            var mobileno = $("#mobileno").val();
-            alert(sname);
-            alert(simg);
-            alert(address);
-            alert(gender);
-            alert(dob);
-            alert(fname);
-            alert(mname);
-            alert(uname);
-            alert(uemail);
-            alert(upassword);
-            alert(mobileno);
+            var umobileno = $("#umobileno").val();
+
+            alert(name);
+
             $.ajax({
-                url: '/User/StudentLogin',
+                url: '/User/AddParent',
                 type: 'post',
                 dataType: 'json',
-                data:
-                {
-                     StudentName:sname,
-                     StudentImg: simg,
-                     StudentAddress: address ,
-                     StudentGender:gender,
-                     StudentDob:dob ,
-                     FatherName:fname ,
-                     MotherName:mname ,
-                     UserName: uname ,
-                     UserEmail:  uemail,
-                     UserPassword:  upassword,
-                     UserMobileNo: mobileno ,
+                data: {
+                    UserName: uname,
+                    UserEmail: uemail,
+                    UserPassword: upassword,
+                    UserMobileNo: umobileno,
                 },
                 success: function (result) {
+                    alert("Parent Added");
+                    var parentId = result;
+                    $.ajax({
 
-                    alert("hii");
+                        url: '/Student/AddStudent',
+                        type: 'post',
+                        dataType: 'json',
+                        data:
+                        {
+                            StudentName: name,
+                            StudentImg: img,
+                            StudentAddress: address,
+                            StudentGender: gender,
+                            StudentDob: dob,
+                            FatherName: fname,
+                            MotherName: mname,
+                            ParentId: parentId,
+                        },
+                        success: function (result) {
 
+                            alert("Student Added");
+                        },
+                    });
                 },
-
             });
         });
-
     });
     function showtest() {
         $('#test-form').animate({ top: '15%' }, 500);
@@ -643,7 +643,6 @@
     function hidesetting() {
         $('#setting').animate({ top: '-500%' }, 500);
     }
-
     function showmoresetting() {
         $('#moresetting').animate({ top: '15%' }, 500);
         $('.account-dropdown').hide();
@@ -719,20 +718,17 @@
         cursor: pointer;
     }
 
-        form.example button:hover {
-            background: #0b7dda;
-        }
+    form.example button:hover {
+        background: #0b7dda;
+    }
 
     form.example::after {
-        content: "";
+        content: " ";
         clear: both;
         display: table;
     }
 </style>
 
-<script>
-    
-</script>
 
 
 
