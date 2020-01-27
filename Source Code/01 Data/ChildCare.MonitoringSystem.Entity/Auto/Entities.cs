@@ -273,6 +273,7 @@ namespace ChildCare.MonitoringSystem.Entity
         /// Parent User pointed by [Student].([ParentId]) (FK_Student_User)
         /// </summary>
         public virtual User User { get; set; } // FK_Student_User
+        public object StudentDob { get; set; }
 
         public Student()
         {

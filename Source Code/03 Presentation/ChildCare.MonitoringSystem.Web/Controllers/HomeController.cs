@@ -115,8 +115,16 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 		{
 			return View("Onclicks");
 		}
-
-		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+		public IActionResult ClassRooms()
+		{
+			return View("ClassRooms");
+		}
+		public IActionResult PlayGround()
+		{
+			return View("PlayGround");
+		}
+        
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
