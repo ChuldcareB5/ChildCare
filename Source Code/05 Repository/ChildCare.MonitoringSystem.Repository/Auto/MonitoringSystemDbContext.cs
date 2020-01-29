@@ -107,8 +107,6 @@ namespace ChildCare.MonitoringSystem.Repository
 				
 				entity.Property(x => x.BusId).HasColumnName(@"BusId").IsRequired();
 
-				entity.Property(x => x.BusName).HasColumnName(@"BusName").IsRequired().IsUnicode(false).HasMaxLength(100);
-
 				entity.Property(x => x.CreatedBy).HasColumnName(@"CreatedBy").IsRequired();
 
 				entity.Property(x => x.CreatedOn).HasColumnName(@"CreatedOn").IsRequired();
