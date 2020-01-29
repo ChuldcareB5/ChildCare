@@ -604,7 +604,7 @@
 
 <div id="schedule" class="">
     <div class="form-container">
-        <a class="pull-right" href="#viewroomschedule" onclick="hideschedule();"><i class="fa fa-close"></i></a>
+        <a class="pull-right" href="#viewroomschedule" onclick="hidechangeschedule();"><i class="fa fa-close"></i></a>
         <h4 align="center" class="text-primary">Schedule Room</h4><hr />
         <form action="Homepage.html" method="post">
             <div class="form-group">
@@ -683,6 +683,7 @@
                     </div>
                     <div class="form-group">
                         <label>Time</label>
+                        @* <input class="form-control" type="text" name="email" id="fname" required>*@
                         <select name="scheduleTime" class="form-control">
                             <option value="9.00">9.00</option>
                             <option value="9.55">9.55</option>
@@ -767,6 +768,7 @@
                         success: function (result) {
 
                             alert("Successfully inserted Room");
+
                         },
 
                     });
