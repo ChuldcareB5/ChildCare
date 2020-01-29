@@ -756,22 +756,23 @@
                 $("#addRoom").click(function () {
                     var rname = $("#rname").val();
                     alert(rname);
-                   
-                    $.ajax({
-                        url: '/Room/AddRoom',
-                        type: 'post',
-                        dataType: 'json',
-                        data:
-                        {
-                            RoomName: rname,
-                        },
-                        success: function (result) {
+                        $.ajax({
+                            url: '/Room/AddRoom',
+                            type: 'post',
+                            dataType: 'json',
+                            data:
+                            {
+                                RoomName: rname,
+                            },
 
-                            alert("Successfully inserted Room");
+                            success: function (result) {
+                                alert(result);
+                                alert("Successfully inserted Room");
 
-                        },
+                            },
 
-                    });
+                        });
+
                 });
 
             });

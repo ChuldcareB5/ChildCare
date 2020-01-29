@@ -23,7 +23,7 @@ namespace ChildCare.MonitoringSystem.Business
 		{
 			var busEntity = new Bus()
 			{
-				BusName = busModel.BusName,
+				BusName=busModel.BusName,
 				CreatedBy = -1,
 				CreatedOn = DateTime.UtcNow,
 				UpdatedBy = -1,
