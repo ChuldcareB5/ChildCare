@@ -14,8 +14,9 @@ namespace ChildCare.MonitoringSystem.Business
 		private readonly IRepository<User> userRepository;//Connect User Repository
 		private readonly IUnitOfWork unitOfWork;
 		private readonly IRepository<Role> roleRepository;//Connect Role Repository
-        private readonly IRepository<UserRole> userroleRepository;//Connect Role Repository
-        public UserBusiness(IUnitOfWork unitOfWork)
+		private readonly IRepository<UserRole> userroleRepository;//Connect userRole Repository
+
+		public UserBusiness(IUnitOfWork unitOfWork)
 		{
 			this.userRepository = unitOfWork.GetRepository<IRepository<User>>();//Get User From Repository
 			this.roleRepository = unitOfWork.GetRepository<IRepository<Role>>();//Get Role From Repository

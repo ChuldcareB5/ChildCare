@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [dbo].[Student] (
     [StudentId]      INT           IDENTITY (1, 1) NOT NULL,
     [StudentName]    VARCHAR (100) NOT NULL,
-    [StudentImg]     IMAGE         NOT NULL,
+    [StudentImg]     VARCHAR (100) NOT NULL,
     [StudentAddress] VARCHAR (200) NOT NULL,
     [StudentGender]  VARCHAR (100) NOT NULL,
     [StudentDob]     DATE          NOT NULL,

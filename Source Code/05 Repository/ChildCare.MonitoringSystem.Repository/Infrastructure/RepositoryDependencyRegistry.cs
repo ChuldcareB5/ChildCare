@@ -22,8 +22,11 @@ namespace ChildCare.MonitoringSystem.Repository
 
 			services.AddRepository<IRepository<User>, Repository<User>>();
 			services.AddRepository<IRepository<Role>, Repository<Role>>();
-			services.AddRepository<IRepository<Student>, Repository<Student>>();
 			services.AddRepository<IRepository<UserRole>, Repository<UserRole>>();
+			services.AddRepository<IRepository<Student>, Repository<Student>>();
+			services.AddRepository<IRepository<Bus>, Repository<Bus>>();
+			services.AddRepository<IRepository<BusSchedule>, Repository<BusSchedule>>();
+            services.AddRepository<IRepository<Room>, Repository<Room>>();
 		}
     }
 }

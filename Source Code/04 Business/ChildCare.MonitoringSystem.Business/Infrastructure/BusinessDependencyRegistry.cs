@@ -11,6 +11,9 @@ namespace ChildCare.MonitoringSystem.Business.Infrastructure
             RepositoryDependencyRegistry.RegisterDependency(services, appSettings);
 			services.AddTransient<UserBusiness>();
 			services.AddTransient<StudentBusiness>();
+			services.AddTransient<BusBusiness>();
+			services.AddTransient<BusScheduleBusiness>();
+			services.AddTransient<RoomBusiness>();
 		}
     }
 }

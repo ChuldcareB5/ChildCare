@@ -85,10 +85,10 @@
                         </a>
                     </li>
                     @*<li>
-                            <a href="~/Home/Calender">
-                                <i class="fas fa-calendar-alt"></i>Calendar
-                            </a>
-                        </li>*@
+            <a href="~/Home/Calender">
+                <i class="fas fa-calendar-alt"></i>Calendar
+            </a>
+        </li>*@
                     <li class="has-sub">
                         <a class="js-arrow">
                             <i class="fa fa-location-arrow"></i>Location
@@ -105,8 +105,13 @@
                         </ul>
                     </li>
                     <li>
+                        <a href="~/Home/RoomSchedule">
+                            <i class="fas fa-home"></i>Room Schedule
+                        </a>
+                    </li>
+                    <li>
                         <a href="~/Home/BusSchedule">
-                            <i class="fas fa-times"></i>Bus Schedule
+                            <i class="fas fa-bus"></i>Bus Schedule
                         </a>
                     </li>
                 </ul>
@@ -171,8 +176,13 @@
                         </ul>
                     </li>
                     <li>
+                        <a href="~/Home/RoomSchedule">
+                            <i class="fas fa-home"></i>Room Schedule
+                        </a>
+                    </li>
+                    <li>
                         <a href="~/Home/BusSchedule">
-                            <i class="fas fa-times"></i>Bus Schedule
+                            <i class="fas fa-bus"></i>Bus Schedule
                         </a>
                     </li>
                 </ul>
@@ -452,7 +462,7 @@
                         <button type="button" id="userlogin" class="btn btn-primary ">
                             Submit
                         </button>
-                        <button type="reset" class="btn btn-success ">
+                        <button type="reset" onclick="reset()" class="btn btn-success ">
                             Reset
                         </button>
                     </div>
@@ -622,9 +632,9 @@
 
                             alert("Student Added");
                         },
-                    });
+                    }); 
                 },
-            });
+            }); 
         });
     });
     function showtest() {
@@ -649,6 +659,11 @@
     }
     function hidemoresetting() {
         $('#moresetting').animate({ top: '-500%' }, 500);
+    }
+
+    function reset()
+    {
+        document.getElementById('studentForm').reset();
     }
 </script>
 <style>

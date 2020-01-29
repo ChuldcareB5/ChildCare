@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "BusSchedule";
+    ViewData["Title"] = "RoomSchedule";
 }
 
 <head>
@@ -77,7 +77,11 @@
                             <i class="fas fa-camera"></i>Student Camera View
                         </a>
                     </li>
-                    
+                    @*<li>
+                            <a href="~/Home/Calender">
+                                <i class="fas fa-calendar-alt"></i>Calendar
+                            </a>
+                        </li>*@
                     <li class="has-sub">
                         <a class="js-arrow">
                             <i class="fa fa-location-arrow"></i>Location
@@ -95,12 +99,12 @@
                     </li>
                     <li>
                         <a href="~/Home/RoomSchedule">
-                            <i class="fas fa-home"></i>Room Schedule
+                            <i class="fas fa-times"></i>Room Schedule
                         </a>
                     </li>
                     <li>
                         <a href="~/Home/BusSchedule">
-                            <i class="fas fa-bus"></i>Bus Schedule
+                            <i class="fas fa-times"></i>Bus Schedule
                         </a>
                     </li>
                 </ul>
@@ -165,12 +169,12 @@
                     </li>
                     <li>
                         <a href="~/Home/RoomSchedule">
-                            <i class="fas fa-home"></i>Room Schedule
+                            <i class="fas fa-times"></i>Room Schedule
                         </a>
                     </li>
                     <li>
                         <a href="~/Home/BusSchedule">
-                            <i class="fas fa-bus"></i>Bus Schedule
+                            <i class="fas fa-times"></i>Bus Schedule
                         </a>
                     </li>
                 </ul>
@@ -223,6 +227,7 @@
                                         </div>
                                     </div>
                                 </div>
+
 
 
                                 <div class="noti__item js-item-menu">
@@ -314,9 +319,9 @@
         </header>
         <!-- HEADER DESKTOP-->
         <!-- MAIN CONTENT-->
-        <div class="main-content">
+        <div class="main-content" id="viewroom">
             @*<div class="section__content section__content--p30">*@
-            <button class="btn btn-primary col-lg-1 pull-right" style="margin-right:5%;" onclick="showadd();">+ ADD</button><br />
+            <button class="btn btn-primary col-lg-1 pull-right" style="margin-right:5%;"  onclick="showadd();">+ ADD</button><br />
             <button class="btn btn-danger col-lg-1 pull-right" style="margin-right:5%;">- DELETE</button>
             <div class="container-fluid">
                 <div class="row">
@@ -328,8 +333,8 @@
                                         <th>
                                             #
                                         </th>
-                                        <th>Bus Id</th>
-                                        <th>Bus Name</th>
+                                        <th>Room Id</th>
+                                        <th>Room Name</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -348,7 +353,7 @@
                                         <td>
                                             <div class="table-data-feature">
                                                 <button onclick="show();" title="Send Message" class="btn btn-primary">
-                                                    <a onclick="showschedule()">
+                                                    <a onclick="showviewschedule()">
                                                         Schedule
                                                     </a>
                                                 </button>
@@ -369,7 +374,7 @@
                                         <td>
                                             <div class="table-data-feature">
                                                 <button onclick="show();" title="Send Message" class="btn btn-primary">
-                                                    <a onclick="showschedule()">
+                                                    <a onclick="showviewschedule()">
                                                         Schedule
                                                     </a>
                                                 </button>
@@ -390,7 +395,7 @@
                                         <td>
                                             <div class="table-data-feature">
                                                 <button onclick="show();" title="Send Message" class="btn btn-primary">
-                                                    <a onclick="showschedule()">
+                                                    <a onclick="showviewschedule()">
                                                         Schedule
                                                     </a>
                                                 </button>
@@ -408,9 +413,112 @@
 
             </div>
         </div>
+
+        <div class="main-content" id="viewroomschedule">
+            <h2 align="center">View Room Schedule</h2>
+            <hr /><br/><br/>
+            <button class="btn btn-primary col-lg-1 pull-right" style="margin-right:5%;" onclick="showaddSchedule();">+ ADD</button><br />
+            <button class="btn btn-danger col-lg-1 pull-right" style="margin-right:5%;">- DELETE</button>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive table-responsive-data2" style="overflow:auto">
+                            <table class="table table-data2">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            #
+                                        </th>
+                                        <th>Room Id</th>
+                                        <th>Teacher Id</th>
+                                        <th>Date</th>
+                                        <th>Time</th>
+                                        <th>Subject</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="tr-shadow">
+                                        <td>
+                                            <label class="au-checkbox">
+                                                <input type="checkbox">
+                                                <span class="au-checkmark"></span>
+                                            </label>
+                                        </td>
+                                        <td>1</td>
+                                        <td>2</td>
+                                        <td>2020-01-28</td>
+                                        <td>11:55:00</td>
+                                        <td>Kannada</td>
+                                        <td>
+                                            <div class="table-data-feature">
+                                                <button onclick="show();" title="Send Message" class="btn btn-primary">
+                                                    <a onclick="showschedule()">
+                                                        Change
+                                                    </a>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="tr-shadow">
+                                        <td>
+                                            <label class="au-checkbox">
+                                                <input type="checkbox">
+                                                <span class="au-checkmark"></span>
+                                            </label>
+                                        </td>
+                                        <td>2</td>
+                                        <td>3</td>
+                                        <td>2020-01-28</td>
+                                        <td>09:00:00</td>
+                                        <td>Kannada</td>
+                                        <td>
+                                            <div class="table-data-feature">
+                                                <button onclick="show();" title="Send Message" class="btn btn-primary">
+                                                    <a onclick="showschedule()">
+                                                        Change
+                                                    </a>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="tr-shadow">
+                                        <td>
+                                            <label class="au-checkbox">
+                                                <input type="checkbox">
+                                                <span class="au-checkmark"></span>
+                                            </label>
+                                        </td>
+                                        <td>3</td>
+                                        <td>4</td>
+                                        <td>2020-01-28</td>
+                                        <td>09:55:00</td>
+                                        <td>English</td>
+                                        <td>
+                                            <div class="table-data-feature">
+                                                <button onclick="show();" title="Send Message" class="btn btn-primary">
+                                                    <a onclick="showschedule()">
+                                                        Change
+                                                    </a>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- END MAIN CONTENT-->
+
+    
 </div>
+
+
 <!-- END PAGE CONTAINER-->
 <!--start Account popup-->
 <div id="test-form-div ">
@@ -496,301 +604,345 @@
 
 <div id="schedule" class="">
     <div class="form-container">
-        <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
-        <h4 align="center" class="text-primary">Bus Schedule</h4><hr />
+        <a class="pull-right" href="#viewroomschedule" onclick="hidechangeschedule();"><i class="fa fa-close"></i></a>
+        <h4 align="center" class="text-primary">Schedule Room</h4><hr />
         <form action="Homepage.html" method="post">
-            @*<div class="form-group">
-                <label>Bus Id</label>
-                <input class="form-control" type="text" name="bId" id="bId" required>
-            </div>*@
             <div class="form-group">
-                <label>Driver Name</label>
-                <input class="form-control" type="text" name="bdriverName" id="" required>
-            </div>
-            <div class="form-group">
-                <label>To</label>
-                <input class="form-control" type="text" name="to" id="to" required>
-            </div>
-            <div class="form-group">
-                <label>From</label>
-                <input class="form-control" type="text" name="from" id="from" required>
-            </div>
-            <div class="form-group">
-                <label>Time</label>
-                <input class="form-control" type="time" name="time" id="time" required>
-            </div>
-            <div class="form-group">
-                <label>Date</label>
+                <label>Choose Date</label>
                 <input class="form-control" type="date" name="date" id="date" required>
             </div>
-            <button type="submit" class="btn btn-block btn-primary" id="">UPDATE</button>
-        </form>
-    </div>
-</div>
-
-<div id="add" class="">
-    <div class="form-container">
-        <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
-        <h4 align="center" class="text-primary">Add Bus</h4><hr />
-        <form method="post">
             <div class="form-group">
-                <label>Bus Name</label>
-                <input class="form-control" type="text" name="bname" id="bname" required>
-            </div>
-            <div class="form-group">
-                <label>Bus DriverName</label>
-                <input class="form-control" type="text" name="dname" id="dName" required>
-            </div>
-            <div class="form-group">
-                <label>To</label>
-                <input class="form-control" type="text" name="email" id="bto" required>
-            </div>
-            <div class="form-group">
-                <label>From</label>
-                <input class="form-control" type="text" name="email" id="bfrom" required>
+                <label>Teacher Id</label>
+                <input class="form-control" type="text" name="teacherid" id="teacherid" required>
             </div>
             <div class="form-group">
                 <label>Time</label>
-                <input class="form-control" type="time" name="email" id="btime" required>
+                @* <input class="form-control" type="text" name="email" id="fname" required>*@
+                <select name="scheduleTime" class="form-control">
+                    <option value="9.00">9.00</option>
+                    <option value="9.55">9.55</option>
+                    <option value="11.05">11.05</option>
+                    <option value="01.00">01.00</option>
+                    <option value="02.00">02.00</option>
+                </select>
             </div>
             <div class="form-group">
-                <label>Date</label>
-                <input class="form-control" type="date" name="email" id="bdate" required>
+                <label>Subject</label>
+                <input class="form-control" type="text" name="subject" id="subject" required>
             </div>
-            <button type="submit" class="btn btn-block btn-primary" id="busupdate">UPDATE</button>
+            <div class="form-group">
+                <label>Room Id</label>
+                <input class="form-control" type="text" name="roomid" id="roomid" required>
+            </div>
+            <div class="form-group">
+                <label>Batch</label>
+                @*  <input class="form-control" type="time" name="batch" id="batch" required>*@
+                <select name="scheduleTime" class="form-control">
+                    <option value="B1">B1</option>
+                    <option value="B2">B2</option>
+                    <option value="B3">B3</option>
+                    <option value="B4">B4</option>
+                    <option value="B5">B5</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-block btn-primary" id="roomupdate">Save Changes</button>
         </form>
     </div>
 </div>
 
-<!-- Jquery JS-->
-<script src="~/vendor/jquery-3.2.1.min.js"></script>
-<!-- Bootstrap JS-->
-<script src="~/vendor/bootstrap-4.1/popper.min.js"></script>
-<script src="~/vendor/bootstrap-4.1/bootstrap.min.js"></script>
-<!-- Vendor JS       -->
-<script src="~/vendor/slick/slick.min.js">
-</script>
-<script src="~/vendor/wow/wow.min.js"></script>
-<script src="~/vendor/animsition/animsition.min.js"></script>
-<script src="~/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
-</script>
-<script src="~/vendor/counter-up/jquery.waypoints.min.js"></script>
-<script src="~/vendor/counter-up/jquery.counterup.min.js">
-</script>
-<script src="~/vendor/circle-progress/circle-progress.min.js"></script>
-<script src="~/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
-<script src="~/vendor/chartjs/Chart.bundle.min.js"></script>
-<script src="~/vendor/select2/select2.min.js"></script>
-<script src="~/vendor/vector-map/jquery.vmap.js"></script>
-<script src="~/vendor/vector-map/jquery.vmap.min.js"></script>
-<script src="~/vendor/vector-map/jquery.vmap.sampledata.js"></script>
-<script src="~/vendor/vector-map/jquery.vmap.world.js"></script>
-<script src="~/vendor/vector-map/jquery.vmap.brazil.js"></script>
-<script src="~/vendor/vector-map/jquery.vmap.europe.js"></script>
-<script src="~/vendor/vector-map/jquery.vmap.france.js"></script>
-<script src="~/vendor/vector-map/jquery.vmap.germany.js"></script>
-<script src="~/vendor/vector-map/jquery.vmap.russia.js"></script>
-<script src="~/vendor/vector-map/jquery.vmap.usa.js"></script>
-<!-- Main JS-->
-<script src="~/js/main.js"></script>
 
-<script>
-    function showtest() {
-        $('#test-form').animate({ top: '15%' }, 500);
-        $('#test-form-div').animate({ top: '20%' }, 500);
-        $('.account-dropdown').hide();
-    }
-    function hidetest() {
-        $('#test-form').animate({ top: '-500%' }, 500);
-    }
+        <div id="add" class="">
+            <div class="form-container">
+                <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
+                <h4 align="center" class="text-primary">Add Room</h4><hr />
+                <form action="" method="post">
+                    <div class="form-group">
+                        <label>Room Name</label>
+                        <input class="form-control" type="text" name="fname" id="rname" required>
+                    </div>
 
-    function showsetting() {
-        $('#setting').animate({ top: '15%' }, 500);
-        $('.account-dropdown').hide();
-    }
-    function hidesetting() {
-        $('#setting').animate({ top: '-500%' }, 500);
-    }
-
-    function showmoresetting() {
-        $('#moresetting').animate({ top: '15%' }, 500);
-        $('.account-dropdown').hide();
-    }
-    function hidemoresetting() {
-        $('#moresetting').animate({ top: '-500%' }, 500);
-    }
+                    <button type="submit" class="btn btn-block btn-primary" id="addRoom">ADD</button>
+                </form>
+            </div>
+        </div>
 
 
-    function showschedule() {
-        $('#schedule').animate({ top: '12%' }, 500);
-        $('.account-dropdown').hide();
-    }
-    function hideschedule() {
-        $('#schedule').animate({ top: '-500%' }, 500);
-    }
+        <div id="addSchedule" class="">
+            <div class="form-container">
+                <a class="pull-right" href="#viewroomschedule" onclick="hidechangeschedule();"><i class="fa fa-close"></i></a>
+                <h4 align="center" class="text-primary">Room Schedule</h4><hr />
+                <form action="Homepage.html" method="post">
+                    <div class="form-group">
+                        <label>Choose Date</label>
+                        <input class="form-control" type="date" name="date" id="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Teacher Id</label>
+                        <input class="form-control" type="text" name="teacherid" id="teacherid" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Time</label>
+                        @* <input class="form-control" type="text" name="email" id="fname" required>*@
+                        <select name="scheduleTime" class="form-control">
+                            <option value="9.00">9.00</option>
+                            <option value="9.55">9.55</option>
+                            <option value="11.05">11.05</option>
+                            <option value="01.00">01.00</option>
+                            <option value="02.00">02.00</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Subject</label>
+                        <input class="form-control" type="text" name="subject" id="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Room Id</label>
+                        <input class="form-control" type="text" name="roomid" id="roomid" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Batch</label>
+                        @*  <input class="form-control" type="time" name="batch" id="batch" required>*@
+                        <select name="scheduleTime" class="form-control">
+                            <option value="B1">B1</option>
+                            <option value="B2">B2</option>
+                            <option value="B3">B3</option>
+                            <option value="B4">B4</option>
+                            <option value="B5">B5</option>
+                        </select>
+                    </div>
 
-    function showadd() {
-        $('#add').animate({ top: '12%' }, 500);
-        $('.account-dropdown').hide();
-    }
-    function hideadd() {
-        $('#add').animate({ top: '-500%' }, 500);
-    }
-</script>
+                    <button type="submit" class="btn btn-block btn-primary" id="roomupdate">ADD</button>
+                </form>
+            </div>
+        </div>
 
+        <!-- Jquery JS-->
+        <script src="~/vendor/jquery-3.2.1.min.js"></script>
+        <!-- Bootstrap JS-->
+        <script src="~/vendor/bootstrap-4.1/popper.min.js"></script>
+        <script src="~/vendor/bootstrap-4.1/bootstrap.min.js"></script>
+        <!-- Vendor JS       -->
+        <script src="~/vendor/slick/slick.min.js">
+        </script>
+        <script src="~/vendor/wow/wow.min.js"></script>
+        <script src="~/vendor/animsition/animsition.min.js"></script>
+        <script src="~/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+        </script>
+        <script src="~/vendor/counter-up/jquery.waypoints.min.js"></script>
+        <script src="~/vendor/counter-up/jquery.counterup.min.js">
+        </script>
+        <script src="~/vendor/circle-progress/circle-progress.min.js"></script>
+        <script src="~/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+        <script src="~/vendor/chartjs/Chart.bundle.min.js"></script>
+        <script src="~/vendor/select2/select2.min.js"></script>
+        <script src="~/vendor/vector-map/jquery.vmap.js"></script>
+        <script src="~/vendor/vector-map/jquery.vmap.min.js"></script>
+        <script src="~/vendor/vector-map/jquery.vmap.sampledata.js"></script>
+        <script src="~/vendor/vector-map/jquery.vmap.world.js"></script>
+        <script src="~/vendor/vector-map/jquery.vmap.brazil.js"></script>
+        <script src="~/vendor/vector-map/jquery.vmap.europe.js"></script>
+        <script src="~/vendor/vector-map/jquery.vmap.france.js"></script>
+        <script src="~/vendor/vector-map/jquery.vmap.germany.js"></script>
+        <script src="~/vendor/vector-map/jquery.vmap.russia.js"></script>
+        <script src="~/vendor/vector-map/jquery.vmap.usa.js"></script>
+        <!-- Main JS-->
+        <script src="~/js/main.js"></script>
 
-<script>
-    $(document).ready(function () {
-        $("#busupdate").click(function () {
+        <script>
+            $(document).ready(function () {
+                $("#viewroomschedule").hide();
 
-            var dName = $("#dName").val();
-            var bto = $("#bto").val();
-            var bfrom = $("#bfrom").val();
-            var btime = $("#btime").val();
-            var bdate = $("#bdate").val();
-            var bname = $("#bname").val();
-    
-            alert(dName);
-            alert(bto);
-            //alert(bfrom);
-            //alert(btime);
-            //alert(bdate);
-            //alert(bname);
-            $.ajax({
-                url: '/Bus/AddBus',
-                type: 'post',
-                dataType: 'json',
-                data:
-                {
-                    BusName: bname,
-                },
-                success: function (result) {
-                    alert("Successfully inserted Bus");
-                    var busId = result;
+                $("#addRoom").click(function () {
+                    var rname = $("#rname").val();
+                    alert(rname);
+                   
                     $.ajax({
-                        url: '/BusSchedule/AddBusSchedule',
+                        url: '/Room/AddRoom',
                         type: 'post',
                         dataType: 'json',
                         data:
                         {
-                            BusScheduleDriverName: dName,
-                            ToBusSchedule: bto,
-                            FromBusSchedule: bfrom,
-                            BusScheduleTime: btime,
-                            BusScheduleDate: bdate,
-                            BusId: busId,
+                            RoomName: rname,
                         },
                         success: function (result) {
-                            alert("Successfully inserted Bus schedule");
+
+                            alert("Successfully inserted Room");
+
                         },
-                    }); alert("hello");
-                },
-            }); alert("hiii");
-        });
-    });
-</script>
+
+                    });
+                });
+
+            });
+            function showtest() {
+                $('#test-form').animate({ top: '15%' }, 500);
+                $('#test-form-div').animate({ top: '20%' }, 500);
+                $('.account-dropdown').hide();
+            }
+            function hidetest() {
+                $('#test-form').animate({ top: '-500%' }, 500);
+            }
+
+            function showsetting() {
+                $('#setting').animate({ top: '15%' }, 500);
+                $('.account-dropdown').hide();
+            }
+            function hidesetting() {
+                $('#setting').animate({ top: '-500%' }, 500);
+            }
+
+            function showmoresetting() {
+                $('#moresetting').animate({ top: '15%' }, 500);
+                $('.account-dropdown').hide();
+            }
+            function hidemoresetting() {
+                $('#moresetting').animate({ top: '-500%' }, 500);
+            }
 
 
-    <style>
-        #test-form {
-            position: fixed;
-        top: -500%;
-        width: 35%;
-        margin-left: 30%;
-        background-color: white;
-        box-shadow: 2px 3px 8px slategrey;
-        border-radius: 5px;
-        padding: 35px;
-    }
+            function showschedule() {
+                $('#schedule').animate({ top: '12%' }, 500);
+                //$('.account-dropdown').hide();
+            }
+            function hideschedule() {
+                $('#schedule').animate({ top: '-500%' }, 500);
+            }
 
-            #setting {
-            position: fixed;
-        top: -500%;
-        width: 35%;
-        margin-left: 30%;
-        background-color: white;
-        box-shadow: 2px 3px 8px slategrey;
-        border-radius: 5px;
-        padding: 35px;
-    }
+            function hidechangeschedule() {
+                $('#addSchedule').animate({ top: '-500%' }, 500);
+            }
+            
+            function showviewschedule() {
+                $("#viewroom").hide();
+                $("#viewroomschedule").show();
+            }
 
-            #moresetting {
-            position: fixed;
-        top: -500%;
-        width: 35%;
-        margin-left: 30%;
-        background-color: white;
-        box-shadow: 2px 3px 8px slategrey;
-        border-radius: 5px;
-        padding: 35px;
-    }
+            function showadd() {
+                $('#add').animate({ top: '12%' }, 500);
+            }
 
-            #schedule {
-            position: fixed;
-        top: -500%;
-        width: 35%;
-        margin-left: 30%;
-        background-color: white;
-        box-shadow: 2px 3px 8px slategrey;
-        border-radius: 5px;
-        padding: 35px;
-        overflow: auto;
-    }
+            function showaddSchedule() {
+                $('#addSchedule').animate({ top: '12%' }, 500);
+            }
 
-            #add {
-            position: fixed;
-        top: -500%;
-        width: 35%;
-        margin-left: 30%;
-        background-color: white;
-        box-shadow: 2px 3px 8px slategrey;
-        border-radius: 5px;
-        padding: 35px;
-        overflow: auto;
-    }
+            function hideadd() {
+                $('#add').animate({ top: '-500%' }, 500);
+            }
+        </script>
 
-            #test-form-div {
-            position: fixed;
-        top: -500%;
-        max-width: 1500px;
-        max-height: 1500px;
-        min-width: 1500px;
-        min-height: 1500px;
-        background-color: black;
-    }
+        <style>
+                    #test-form {
+                        position: fixed;
+                        top: -500%;
+                        width: 35%;
+                        margin-left: 30%;
+                        background-color: white;
+                        box-shadow: 2px 3px 8px slategrey;
+                        border-radius: 5px;
+                        padding: 35px;
+                    }
 
-            form.example input[type=text] {
-            padding: 8px;
-        font-size: 17px;
-        border: 1px solid grey;
-        float: left;
-        width: 70%;
-        height: 60%;
-        background: white;
-    }
+                    #setting {
+                        position: fixed;
+                        top: -500%;
+                        width: 35%;
+                        margin-left: 30%;
+                        background-color: white;
+                        box-shadow: 2px 3px 8px slategrey;
+                        border-radius: 5px;
+                        padding: 35px;
+                    }
 
-            form.example button {
-            float: left;
-        width: 20%;
-        height: 70%;
-        padding: 5px;
-        background: #2196F3;
-        color: white;
-        font-size: 17px;
-        border: 1px solid grey;
-        border-left: none;
-        cursor: pointer;
-    }
+                    #moresetting {
+                        position: fixed;
+                        top: -500%;
+                        width: 35%;
+                        margin-left: 30%;
+                        background-color: white;
+                        box-shadow: 2px 3px 8px slategrey;
+                        border-radius: 5px;
+                        padding: 35px;
+                    }
 
-            form.example button:hover {
-            background: #0b7dda;
-    }
+                    #schedule {
+                        position: fixed;
+                        top: -500%;
+                        width: 35%;
+                        margin-left: 30%;
+                        background-color: white;
+                        box-shadow: 2px 3px 8px slategrey;
+                        border-radius: 5px;
+                        padding: 35px;
+                        overflow: auto;
+                    }
 
-            form.example::after {
-            content: "";
-        clear: both;
-        display: table;
-    }
+                    #add {
+                        position: fixed;
+                        top: -500%;
+                        width: 35%;
+                        margin-left: 30%;
+                        background-color: white;
+                        box-shadow: 2px 3px 8px slategrey;
+                        border-radius: 5px;
+                        padding: 35px;
+                        overflow: auto;
+                    }
+
+                    #addSchedule {
+                        position: fixed;
+                        top: -500%;
+                        width: 35%;
+                        margin-left: 30%;
+                        background-color: white;
+                        box-shadow: 2px 3px 8px slategrey;
+                        border-radius: 5px;
+                        padding: 35px;
+                        overflow: auto;
+                    }
+
+                    #test-form-div {
+                        position: fixed;
+                        top: -500%;
+                        max-width: 1500px;
+                        max-height: 1500px;
+                        min-width: 1500px;
+                        min-height: 1500px;
+                        background-color: black;
+                    }
+
+                    form.example input[type=text] {
+                        padding: 8px;
+                        font-size: 17px;
+                        border: 1px solid grey;
+                        float: left;
+                        width: 70%;
+                        height: 60%;
+                        background: white;
+                    }
+
+                    form.example button {
+                        float: left;
+                        width: 20%;
+                        height: 70%;
+                        padding: 5px;
+                        background: #2196F3;
+                        color: white;
+                        font-size: 17px;
+                        border: 1px solid grey;
+                        border-left: none;
+                        cursor: pointer;
+                    }
+
+                        form.example button:hover {
+                            background: #0b7dda;
+                        }
+
+                    form.example::after {
+                        content: "";
+                        clear: both;
+                        display: table;
+                    }
         </style>
 
 
