@@ -14,12 +14,13 @@ namespace ChildCare.MonitoringSystem.Business
 		private readonly IRepository<User> userRepository;//Connect User Repository
 		private readonly IUnitOfWork unitOfWork;
 		private readonly IRepository<Role> roleRepository;//Connect Role Repository
-
-		public UserBusiness(IUnitOfWork unitOfWork)
+        private readonly IRepository<UserRole> userroleRepository;//Connect Role Repository
+        public UserBusiness(IUnitOfWork unitOfWork)
 		{
 			this.userRepository = unitOfWork.GetRepository<IRepository<User>>();//Get User From Repository
 			this.roleRepository = unitOfWork.GetRepository<IRepository<Role>>();//Get Role From Repository
-			this.unitOfWork = unitOfWork;//Instantiate unitOfWork Variable
+			this.userroleRepository = unitOfWork.GetRepository<IRepository<UserRole>>();//Get Role From Repository
+            this.unitOfWork = unitOfWork;//Instantiate unitOfWork Variable
 		}
 
 		public UserModel GetUserById(int userId)
@@ -28,10 +29,10 @@ namespace ChildCare.MonitoringSystem.Business
 
 			return user != null ? new UserModel()
 			{
-				//UserId = user.UserId,
-				//UserEmail = user.UserEmail,
-				//UserMobileNo = user.UserMobileNo,
-				UserName = user.UserName
+                //UserId = user.UserId,
+                //UserEmail = user.UserEmail,
+                //UserMobileNo = user.UserMobileNo,
+                UserName = user.UserName
 			}
 			: null;
 		}
@@ -74,5 +75,23 @@ namespace ChildCare.MonitoringSystem.Business
 
 			return userModel;
 		}
-	}
+        public Int32 UserLogin(UserModel userModel)
+        {
+            var user = this.userRepository.GetBy(x => x.UserName == userModel.UserName&&x.UserPassword==userModel.UserPassword).SingleOrDefault();
+            //var Userid = user.UserId;
+           
+            var userrole = user!=null?this.userroleRepository.GetBy(x => x.UserId ==user.UserId).SingleOrDefault():null;
+            //var roleId = userrole.RoleId;
+
+            //return userrole != null ? new UserRoleModel()
+            //{
+            //    UserId = userrole.UserId,
+            //    RoleId=userrole.RoleId
+            //}
+            //: null;
+            return userrole != null ? userrole.RoleId : 0;
+
+
+        }
+    }
 }

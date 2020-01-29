@@ -431,7 +431,7 @@
 
                         <br /><br /><br />
                         <div class="table-responsive table-responsive-data2" style="overflow:scroll">
-                            <table class="table table-data2">
+                            <table class="table table-data2" id="df">
                                 <thead>
                                     <tr>
                                         <th>
@@ -448,7 +448,7 @@
                                         <th></th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                @*<tbody>
                                     <tr class="tr-shadow">
                                         <td>
                                             <label class="au-checkbox">
@@ -570,7 +570,7 @@
                                         </td>
                                     </tr>
 
-                                </tbody>
+                                </tbody>*@
                             </table>
                         </div>
                         <!-- END DATA TABLE -->
@@ -784,7 +784,58 @@
     </div>
 </div>
 
+<script>
+    $(document).ready(function () {
+        //alert("hi");
+        //$("#teacherlogin").click(function () {
+        //    var uname = $("#uname").val();
+        //    var uemail = $("#uemail").val();
+        //    var upassword = $("#upassword").val();
+        //    var umobileno = $("#umobileno").val();
+        //    alert(uname);
+        //    alert(uemail);
+        //    alert(upassword);
+        //    alert(umobileno);
+            $.ajax({
+                url: '/Student/GetStudentDetail',
+                type: 'get',
+                dataType: 'json',
+                success: function (result) {
+                    //debugger
+                 if (result) {
+                     var bat = ' <tbody>';
+                     for (var i = 0; i < result.length; i++) {
 
+
+
+                         bat += '<tr class="tr-shadow"><td><label class="au-checkbox"><input type="checkbox"><span class="au-checkmark"></span></label></td><td>' + (i+1)+ '</td><td>' + result[i].studentName + '</td><td class="desc"> < img src ="'+ result[i].studentImg +'"/> </td><td>' + result[i].studentAddress + '</td><td>' + result[i].studentGender + '</td><td>' + result[i].studentDob + '</td><td>' + result[i].fatherName + '</td><td>' + result[i].motherName + '</td><td><div class="table-data-feature"> <button onclick="show();" class="item" data-toggle="tooltip" data-placement="top" title="Send Message"><a onclick="showsetting1()"><i class="zmdi zmdi-mail-send"></i></a></button><button class="item" data-toggle="tooltip" data-placement="top" title="Edit"><a onclick="showedit()"><i class="zmdi zmdi-edit"></i></a></button><button class="item" data-toggle="tooltip" data-placement="top" title="Delete"><a onclick="alert("Deleted Successfully")"><i class="zmdi zmdi-delete"></i></a></button></div></td></tr>';
+ 
+                                    
+                                
+
+                         // console.log(result[i].dept_id,result[i].dept_name)
+                         //    cat+='<tr><th>'+result[i].r_id+'</th><th>'+result[i].type+'</th><th>'+result[i].bed+'</th><th>'+result[i].amount+'</th><th>'+result[i].c_id+'</th></tr>';
+
+                         //bat += '<tr><th>' + result1[i].r_id + '</th><th>' + result1[i].c_id + '</th><th>' + result1[i].checkin + '</th><th>' + result1[i].checkout + '</th><th>' + result1[i].amount + '</th></tr>';
+                         // alert(result1[i].r_id);
+                         // bat+='<tr><th>'+result1[i].r_id+'</th></tr>'
+                     }
+                     bat +='</tbody>'
+
+                     $('#df').append(bat);
+
+                 }
+                 else {
+                     alert("failed to get data");
+                 }
+
+                },
+
+            });
+        //});
+
+    });
+</script>
 
 <script>
     function showsetting1() {

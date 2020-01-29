@@ -423,7 +423,7 @@
     <div class="popup_box ">
         <div class="popup_inner">
             <h3>Login</h3>
-            <form action=" " method="post">
+            @*<form action=" " method="post">*@
                 <div class="row">
                     <div class="col-xl-12">
                         <input type="text" id="userid" placeholder="UserName">
@@ -432,16 +432,16 @@
                         <input type="text" id="pass" placeholder="Password">
                     </div>
                     <div class="col-xl-12">
-                        <button type="submit" >LOGIN</button>
+                        <button type="button" class="btn btn-block btn-primary" id="loginbtn">LOGIN</button>
                     </div>
                 </div>
                 <a href="/Home/Dashboard" class="text-primary pull-right">Forgot Password</a>
-            </form>
+            @*</form>*@
         </div>
     </div>
 </form>
 <!-- form itself end -->
-
+<script src="~/js/jquery.min.js"></script>
 <!-- JS here -->
 <script src="~/js/js1/vendor/modernizr-3.5.0.min.js"></script>
 <script src="~/js/js1/vendor/jquery-1.12.4.min.js"></script>
@@ -470,6 +470,44 @@
 <script src="~/js/js1/main.js"></script>
 
 <script>
+    $(document).ready(function () {
+
+        $('#loginbtn').click(function () {
+
+            var uname = $('#userid').val();
+            var upassword = $('#pass').val();
+
+            alert(uname);
+            alert(upassword);
+
+            $.ajax({
+                url: '/User/UserLogin',
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    UserName: uname,
+                    UserPassword: upassword,
+                },
+                success: function (result) {
+
+                    if (result == 0) {
+                        alert('Username or password invalid')
+                        $('#userid').val() = " ";
+                        
+                    } else if (result == 1) {
+                        alert('parent');
+                        window.location.href ="/Home/Mainpage"
+                    
+                    } else if (result == 2) {
+                        alert('Teacher')
+                        window.location.href = "/Home/Dashboard"
+                    }
+
+
+                },
+            });
+        });
+    });
     $('#datepicker').datepicker({
         iconsLibrary: 'fontawesome',
         icons: {
@@ -482,12 +520,12 @@
             rightIcon: '<span class="fa fa-caret-down"></span>'
         }
     });
-    $(document).ready(function () {
-        $('.js-example-basic-multiple').select2();
-    });
+    //$(document).ready(function () {
+    //    $('.js-example-basic-multiple').select2();
+    //});
 </script>
 
-<script>
+@*<script>
     $('#datepicker').datepicker({
         iconsLibrary: 'fontawesome',
         icons: {
@@ -500,10 +538,8 @@
             rightIcon: '<span class="fa fa-caret-down"></span>'
         }
     });
-    $(document).ready(function () {
-        $('.js-example-basic-multiple').select2();
-    });
-</script>
+    
+</script>*@
 
 <style>
     .carousel-inner .carousel-item.active,
