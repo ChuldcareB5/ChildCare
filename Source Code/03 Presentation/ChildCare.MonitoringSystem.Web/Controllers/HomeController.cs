@@ -122,6 +122,13 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 		{
 			return View("PlayGround");
 		}
+
+
+
+		public IActionResult RoomSchedule()
+		{
+			return View("RoomSchedule");
+		}
 		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

@@ -14,11 +14,13 @@ namespace ChildCare.MonitoringSystem.Business
 		private readonly IRepository<User> userRepository;//Connect User Repository
 		private readonly IUnitOfWork unitOfWork;
 		private readonly IRepository<Role> roleRepository;//Connect Role Repository
+		private readonly IRepository<UserRole> userroleRepository;//Connect userRole Repository
 
 		public UserBusiness(IUnitOfWork unitOfWork)
 		{
 			this.userRepository = unitOfWork.GetRepository<IRepository<User>>();//Get User From Repository
 			this.roleRepository = unitOfWork.GetRepository<IRepository<Role>>();//Get Role From Repository
+			this.userroleRepository = unitOfWork.GetRepository<IRepository<UserRole>>();//Get Role From Repository
 			this.unitOfWork = unitOfWork;//Instantiate unitOfWork Variable
 		}
 
@@ -73,6 +75,18 @@ namespace ChildCare.MonitoringSystem.Business
 			userModel.UserId = userEntity.UserId;
 
 			return userModel;
+		}
+
+		public Int32 UserLogin(UserModel userModel)
+		{
+			var user = this.userRepository.GetBy(x => x.UserName == userModel.UserName && x.UserPassword == userModel.UserPassword).SingleOrDefault();
+
+
+			var userrole = user != null ? this.userroleRepository.GetBy(x => x.UserId == user.UserId).SingleOrDefault() : null;
+
+			return userrole != null ? userrole.RoleId : 0;
+
+
 		}
 	}
 }

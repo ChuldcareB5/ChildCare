@@ -100,8 +100,13 @@
                         </ul>
                     </li>
                     <li>
+                        <a href="~/Home/RoomSchedule">
+                            <i class="fas fa-home"></i>Room Schedule
+                        </a>
+                    </li>
+                    <li>
                         <a href="~/Home/BusSchedule">
-                            <i class="fas fa-times"></i>Bus Schedule
+                            <i class="fas fa-bus"></i>Bus Schedule
                         </a>
                     </li>
                 </ul>
@@ -174,8 +179,13 @@
                         </ul>
                     </li>
                     <li>
+                        <a href="~/Home/RoomSchedule">
+                            <i class="fas fa-home"></i>Room Schedule
+                        </a>
+                    </li>
+                    <li>
                         <a href="~/Home/BusSchedule">
-                            <i class="fas fa-times"></i>Bus Schedule
+                            <i class="fas fa-bus"></i>Bus Schedule
                         </a>
                     </li>
                 </ul>
@@ -367,7 +377,7 @@
                         <strong align="center">Teacher Registration Form</strong>
                     </div>
                     <div class="card-body card-block" style="padding:60px;">
-                        <form action="" method="post" class="" style="width:100%;">
+                        <form action="" method="post" id="TeacherForm" style="width:100%;">
                             <div class="form-group">
                                 <label for="mname" class=" form-control-label">User Name</label>
                                 <div class="input-group">
@@ -414,7 +424,7 @@
                         <button type="submit" id="teacherlogin" class="btn btn-primary ">
                             Submit
                         </button>
-                        <button type="reset" class="btn btn-success ">
+                        <button type="reset" onclick="reset();" class="btn btn-success ">
                             Reset
                         </button>
                     </div>
@@ -593,6 +603,9 @@
     }
     function hidemoresetting() {
         $('#moresetting').animate({ top: '-500%' }, 500);
+    } 
+    function reset() {
+        document.getElementById('TeacherForm').reset();
     }
 </script>
 

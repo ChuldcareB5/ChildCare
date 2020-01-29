@@ -99,8 +99,13 @@
                         </ul>
                     </li>
                     <li>
+                        <a href="~/Home/RoomSchedule">
+                            <i class="fas fa-home"></i>Room Schedule
+                        </a>
+                    </li>
+                    <li>
                         <a href="~/Home/BusSchedule">
-                            <i class="fas fa-times"></i>Bus Schedule
+                            <i class="fas fa-bus"></i>Bus Schedule
                         </a>
                     </li>
                 </ul>
@@ -173,8 +178,13 @@
                         </ul>
                     </li>
                     <li>
+                        <a href="~/Home/RoomSchedule">
+                            <i class="fas fa-home"></i>Room Schedule
+                        </a>
+                    </li>
+                    <li>
                         <a href="~/Home/BusSchedule">
-                            <i class="fas fa-times"></i>Bus Schedule
+                            <i class="fas fa-bus"></i>Bus Schedule
                         </a>
                     </li>
                 </ul>
@@ -404,30 +414,23 @@
                             </div>*@
                         <div class="rs-select2--dark rs-select2--sm rs-select2--dark2" style="width:15%">
                             <select class="js-select2" name="type">
-                                <option selected="selected">Ground Floor </option>
-                                <option value="">Class A</option>
-                                <option value="">Class B</option>
+                                <optgroup label="Ground Floor">
+                                    <option value="">Class A</option>
+                                    <option value="">Class B</option>
+                                </optgroup>
+                                <optgroup label="First Floor">
+                                    <option value="">Class C</option>
+                                    <option value="">Class D</option>
+                                </optgroup>
+                                <optgroup label="Second Floor">
+                                    <option value="">Class E</option>
+                                    <option value="">Class F</option>
+                                </optgroup>
                             </select>
-                            <div class="dropDownSelect2"></div>
-                        </div>
+                                <div class="dropDownSelect2"></div>
+                          </div>
 
-                        <div class="rs-select2--dark rs-select2--sm rs-select2--dark2 " style="width:15%">
-                            <select class="js-select2" name="type">
-                                <option selected="selected">First Floor </option>
-                                <option value="">Class C</option>
-                                <option value="">Class D</option>
-                            </select>
-                            <div class="dropDownSelect2"></div>
-                        </div>
-
-                        <div class="rs-select2--dark rs-select2--sm rs-select2--dark2" style="width:15%">
-                            <select class="js-select2" name="type">
-                                <option selected="selected">second Floor </option>>
-                                <option value="">Class E</option>
-                                <option value="">Class F</option>
-                            </select>
-                            <div class="dropDownSelect2"></div>
-                        </div>
+                     
 
                         <br /><br /><br />
                         <div class="table-responsive table-responsive-data2" style="overflow:scroll">
