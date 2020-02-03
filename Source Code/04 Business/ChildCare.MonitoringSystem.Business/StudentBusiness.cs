@@ -38,6 +38,7 @@ namespace ChildCare.MonitoringSystem.Business
 				FatherName = studentModel.FatherName,
 				MotherName = studentModel.MotherName,
 				ParentId= studentModel.ParentId,
+				Batch= studentModel.Batch,
 				CreatedBy = -1,
 				CreatedOn = DateTime.UtcNow,
 				UpdatedBy = -1,

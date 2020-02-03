@@ -15,13 +15,16 @@ namespace ChildCare.MonitoringSystem.Business
 		private readonly IUnitOfWork unitOfWork;
 		private readonly IRepository<Role> roleRepository;//Connect Role Repository
 		private readonly IRepository<UserRole> userroleRepository;//Connect userRole Repository
+        private readonly IRepository<Student> studentRepository;//Connect student Repository
 
-		public UserBusiness(IUnitOfWork unitOfWork)
+        public UserBusiness(IUnitOfWork unitOfWork)
 		{
 			this.userRepository = unitOfWork.GetRepository<IRepository<User>>();//Get User From Repository
 			this.roleRepository = unitOfWork.GetRepository<IRepository<Role>>();//Get Role From Repository
 			this.userroleRepository = unitOfWork.GetRepository<IRepository<UserRole>>();//Get Role From Repository
-			this.unitOfWork = unitOfWork;//Instantiate unitOfWork Variable
+            this.studentRepository = unitOfWork.GetRepository<IRepository<Student>>();//Get User From Repository
+
+            this.unitOfWork = unitOfWork;//Instantiate unitOfWork Variable
 		}
 
 		public UserModel GetUserById(int userId)
@@ -30,10 +33,10 @@ namespace ChildCare.MonitoringSystem.Business
 
 			return user != null ? new UserModel()
 			{
-				//UserId = user.UserId,
-				//UserEmail = user.UserEmail,
-				//UserMobileNo = user.UserMobileNo,
-				UserName = user.UserName
+                //UserId = user.UserId,
+                //UserEmail = user.UserEmail,
+                //UserMobileNo = user.UserMobileNo,
+                UserName = user.UserName
 			}
 			: null;
 		}
@@ -76,17 +79,24 @@ namespace ChildCare.MonitoringSystem.Business
 
 			return userModel;
 		}
+        public Int32 UserLogin(UserModel userModel)
+        {
+            var user = this.userRepository.GetBy(x => x.UserName == userModel.UserName&&x.UserPassword==userModel.UserPassword).SingleOrDefault();
+            //var Userid = user.UserId;
+           
+            var userrole = user!=null?this.userroleRepository.GetBy(x => x.UserId ==user.UserId).SingleOrDefault():null;
+            //var roleId = userrole.RoleId;
+            var studentId = this.studentRepository.GetBy(x => x.ParentId == user.UserId);
+         //   FormsAuthentication.SetAuthCookie(userModel.I, model.RememberMe);
+            //return userrole != null ? new UserRoleModel()
+            //{
+            //    UserId = userrole.UserId,
+            //    RoleId=userrole.RoleId
+            //}
+            //: null;
+            return userrole != null ? userrole.RoleId : 0;
 
-		public Int32 UserLogin(UserModel userModel)
-		{
-			var user = this.userRepository.GetBy(x => x.UserName == userModel.UserName && x.UserPassword == userModel.UserPassword).SingleOrDefault();
 
-
-			var userrole = user != null ? this.userroleRepository.GetBy(x => x.UserId == user.UserId).SingleOrDefault() : null;
-
-			return userrole != null ? userrole.RoleId : 0;
-
-
-		}
-	}
+        }
+    }
 }

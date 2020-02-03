@@ -8,7 +8,7 @@
 // Do not make changes directly to this file - edit the template instead.
 //
 // The following connection settings were used to generate this file:
-//     Connection String:      "Data Source=.;Database=ChildCareSystem;Integrated Security=True;Application Name=EntityFramework Reverse POCO Generator"
+//     Connection String:      "Data Source=DESKTOP-VTP9HA9\SQLEXPRESS;Database=ChildCareSystem;Integrated Security=True;Application Name=EntityFramework Reverse POCO Generator"
 // ------------------------------------------------------------------------------------------------
 // Database Edition       : Express Edition
 // Database Engine Edition: Express
@@ -312,7 +312,7 @@ namespace ChildCare.MonitoringSystem.Repository
 
 				entity.Property(x => x.StudentName).HasColumnName(@"StudentName").IsRequired().IsUnicode(false).HasMaxLength(100);
 
-				entity.Property(x => x.StudentImg).HasColumnName(@"StudentImg").IsRequired().IsUnicode(false).HasMaxLength(100);
+				entity.Property(x => x.StudentImg).HasColumnName(@"StudentImg").IsRequired().IsUnicode(false).HasMaxLength(200);
 
 				entity.Property(x => x.StudentAddress).HasColumnName(@"StudentAddress").IsRequired().IsUnicode(false).HasMaxLength(200);
 

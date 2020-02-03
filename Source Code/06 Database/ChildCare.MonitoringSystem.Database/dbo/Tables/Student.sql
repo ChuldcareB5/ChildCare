@@ -8,6 +8,7 @@
     [FatherName]     VARCHAR (100) NOT NULL,
     [MotherName]     VARCHAR (100) NOT NULL,
     [ParentId]       INT           NOT NULL,
+    [Batch]          VARCHAR (100) NOT NULL,
     [CreatedBy]      INT           NOT NULL,
     [CreatedOn]      DATETIME      NOT NULL,
     [UpdatedBy]      INT           NOT NULL,
@@ -16,6 +17,8 @@
     CONSTRAINT [PK_Kid] PRIMARY KEY CLUSTERED ([StudentId] ASC),
     CONSTRAINT [FK_Student_User] FOREIGN KEY ([ParentId]) REFERENCES [dbo].[User] ([UserId])
 );
+
+
 
 
 

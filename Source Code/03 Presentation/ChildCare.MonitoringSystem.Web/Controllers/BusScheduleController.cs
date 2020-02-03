@@ -24,9 +24,17 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 			var BusScheduleId = busSchedule.BusScheduleId;
 			return BusScheduleId;
 		}
+
 		public IActionResult Index()
         {
             return View();
         }
-    }
+
+		public ActionResult<List<BusScheduleModel>> GetBusScheduleDetail()
+		{
+			var busSchedule = this.busScheduleBusiness.GetbusSchedule();
+			return busSchedule;
+		}
+
+	}
 }

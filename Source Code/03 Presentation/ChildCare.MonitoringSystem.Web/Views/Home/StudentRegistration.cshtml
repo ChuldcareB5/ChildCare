@@ -382,7 +382,7 @@
                         @*@foreach (var item in Model.Student)
                             {*@
 
-                        <form  id="studentForm">
+                        <form id="studentForm">
                             <div class="form-group">
                                 <label for="nf-student" class=" form-control-label">Student Name *</label>
                                 <input type="text" id="name" name="nf-student" placeholder="Enter Student Name" title="Enter Student Name" class="form-control" required>
@@ -398,11 +398,15 @@
                                 <textarea id="address" rows="5" name="address" class="form-control" title="Enter Student Address" required></textarea>
 
                             </div>
-                            <div class="form-group">
-                                <label for="gender" class=" form-control-label">Gender *</label><br>
-                                <input type="radio" id="gender" checked="checked" value="male" name="gender" />Male
-                                <input type="radio" id="gender" value="female" name="gender"> Female
-                            </div>
+                            @*<label><input type="radio" name="gender" class="gender" value="0">Male</label>
+        <label><input type="radio" name="gender" class="gender" value="1"> Female</label>*@
+                            <label>Gender  </label>
+
+                            <input type="radio" name="gender" value="male" />Male
+                            <input type="radio" name="gender" value="female" />Female
+                            <input type="radio" name="gender" value="others" />Others
+
+
                             <div class="form-group">
                                 <label for="dob" class=" form-control-label">Date-Of-Birth *</label>
                                 <input type="date" id="dob" name="dob" class="form-control" required />
@@ -453,6 +457,18 @@
                                 <label for="mobileno" class=" form-control-label">Mobile Number</label>
                                 <input type="tel" id="umobileno" name="mobileno" class="form-control" />
 
+                            </div>
+
+                            <div class="form-group">
+                                <label>Batch</label>
+                                @*  <input class="form-control" type="time" name="batch" id="batch" required>*@
+                                <select name="scheduleTime" id="sbatch" class="form-control">
+                                    <option value="B1">B1</option>
+                                    <option value="B2">B2</option>
+                                    <option value="B3">B3</option>
+                                    <option value="B4">B4</option>
+                                    <option value="B5">B5</option>
+                                </select>
                             </div>
 
                         </form>
@@ -588,7 +604,10 @@
             var name = $("#name").val();
             var img = $("#img").val();
             var address = $("#address").val();
-            var gender = $("#gender").val();
+            //var gender = $("").val();
+            //debugger
+           // var gender = $("[type='radio']: checked").val();
+            //var gender = $("input[name='gender']: checked").val();
             var dob = $("#dob").val();
             var fname = $("#fname").val();
             var mname = $("#mname").val();
@@ -596,8 +615,10 @@
             var uemail = $("#uemail").val();
             var upassword = $("#upassword").val();
             var umobileno = $("#umobileno").val();
+            var batch = $("#sbatch").val();
 
             alert(name);
+            alert(gender);
 
             $.ajax({
                 url: '/User/AddParent',
@@ -627,6 +648,7 @@
                             FatherName: fname,
                             MotherName: mname,
                             ParentId: parentId,
+                            Batch:batch,
                         },
                         success: function (result) {
 

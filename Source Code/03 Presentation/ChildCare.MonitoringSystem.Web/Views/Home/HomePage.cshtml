@@ -70,7 +70,7 @@
                             </a>
                         </li>*@
                     <li>
-                        <a href="~/Home/StudentLocation">
+                        <a href="~/Home/ParentStudentLocation">
                             <i class="fas fa-map-marker-alt"></i>Location
                         </a>
                     </li>
@@ -79,7 +79,6 @@
         </nav>
     </header>
     <!-- END HEADER MOBILE-->
-
     <!-- MENU SIDEBAR-->
     <aside class="menu-sidebar d-none d-lg-block">
         <div class="logo">
@@ -111,7 +110,7 @@
                             </a>
                         </li>*@
                     <li>
-                        <a href="~/Home/StudentLocation">
+                        <a href="~/Home/ParentStudentLocation">
                             <i class="fas fa-map-marker-alt"></i>Location
                         </a>
                     </li>
@@ -120,8 +119,6 @@
         </div>
     </aside>
     <!-- END MENU SIDEBAR-->
-
-
     <!-- PAGE CONTAINER-->
     <div class="page-container">
 
@@ -175,8 +172,8 @@
                                         <img src="~/images/img/user.png" style="width:80%; height:80%" alt="John Doe" />
                                     </div>
                                     @*<div class="content">
-                                        <a class="js-acc-btn" href="#">purshotham</a>
-                                    </div>*@
+                                            <a class="js-acc-btn" href="#">purshotham</a>
+                                        </div>*@
                                     <div class="account-dropdown js-dropdown">
                                         <div class="info clearfix">
                                             <div class="image">
@@ -218,19 +215,24 @@
             </div>
         </header>
         <!-- HEADER DESKTOP-->
-
         <!-- MAIN CONTENT-->
         <div class="main-content">
             @*<div class="section__content section__content--p30">*@
             <div class="container-fluid">
                 <br />
-                <div class="row">
+                <div class="row" style="text-align:center; margin-left:16%;">
                     <div class="col-md-12">
                         <div class="overview-wrap">
-                            <h2 class="title-1">Dashboard</h2>
+                            <h1 class="title-1 " style="font-family:'Berlin Sans FB'; color:blue;">Welcome to Dashboard</h1>
+                        </div>
+                        <div>
+                            <button class="btn btn-primary pull-right" id="sendmsg" onclick="showpopup();">Send Message</button>
                         </div>
                     </div>
                 </div><br /><hr />
+
+
+
                 <div class="row m-t-25">
                     <div class="col-sm-6 col-lg-4">
                         <div class="overview-item overview-item--c1">
@@ -283,8 +285,72 @@
         </div>
     </div>
     <!-- END MAIN CONTENT-->
-
     <!-- END PAGE CONTAINER-->
+</div>
+
+
+@*<div id="senddiv" style="z-index:4">
+    <a onclick="hidepopup1();" class="pull-right text-primary"><i class="fa fa-close"></i></a>
+    <div class="form-container">
+        <br />
+        <h3 align="center"><strong class="text-primary">Send Message</strong></h3><hr /><br />
+      
+        <div class="col-xl-12">
+        
+            <input class="form-control" placeholder="From" type="text" name="from" id="frommsg" required>
+        </div><br />
+        <div class="col-xl-12">
+            @*<label>User Name</label>
+            <input class="form-control" placeholder="To" type="text" name="to" id="tomsg" required>
+        </div><br />
+        <div class="col-xl-12">
+            @*<label>New Password</label>
+            <input class="form-control" placeholder="Subject" type="text" name="subject" id="subject" required>
+        </div><br />
+        <div class="col-xl-12">
+            @*<label>New Password</label>
+            <textarea class="form-control" placeholder="Compose Email" name="compemail" id="compemail" required></textarea>
+        </div><br />
+        <div class="col-xl-12">
+            @*<label for="pwd">Confirm Password</label>
+            <button type="button" class="btn btn-block btn-primary" id="sendbtn" style="font-family: 'Baskerville Old Face';">Send </button>
+        </div>
+        @*</form>
+    </div>
+</div>*@
+
+
+<div id="senddiv" class="">
+        <a class="pull-right" onclick="hidepopup1();"><i class="fa fa-close"></i></a>
+        <h2 align="center">Send Message</h2><hr />
+        <div class="form-group row">
+            <label for="staticEmail" class="col-sm-4 col-form-label">From</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="from" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword" class="col-sm-4 col-form-label">To</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="to" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword" class="col-sm-4 col-form-label">Message</label>
+            <div class="col-sm-8">
+                <textarea type="text" class="form-control" id="msg"></textarea>
+            </div>
+        </div>
+        @*<div class="form-group row">
+            <label for="inputPassword" class="col-sm-4 col-form-label">Date and Time</label>
+            <div class="col-sm-8">
+                <input type="datetime" class="form-control" id="inputPassword" />
+            </div>
+        </div>*@
+        <div>
+            <button type="button" class="btn btn-outline-primary btn-block" id="sendbtn">Send</button>
+            <button type="button" class="btn btn-outline-success btn-block" onclick="Clearfield();">Clear</button>
+        </div>
 </div>
 
 
@@ -325,36 +391,34 @@
 
 <!--start Account popup-->
 <div id="test-form-div ">
-        <div id="test-form" class="">
-            <div class="form-container">
-                <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
-                <h2 align="center" class="text-primary">Profile View</h2><hr />
-                <form action="Homepage.html" method="post">
-                    <div class="form-group" align="center">
-                        <div class="image">
-                            <img src="~/images/img/user.png" />
-                        </div>
+    <div id="test-form" class="">
+        <div class="form-container">
+            <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
+            <h2 align="center" class="text-primary">Profile View</h2><hr />
+            <form action="Homepage.html" method="post">
+                <div class="form-group" align="center">
+                    <div class="image">
+                        <img src="~/images/img/user.png" />
                     </div>
-                    <div class="form-group">
-                        <label class="text-primary">User Name</label>
-                        <label class="form-control" name="fname" id="fname" >Purshotham</label>
-                    </div>
-                    <div class="form-group">
-                        <label class="text-primary">User Email</label>
-                        <label class="form-control" name="email" id="fname" >Pursh123@gmail.com</label>
-                    </div>
-                    <div class="form-group">
-                        <label class="text-primary">Mobile No</label>
-                        <label class="form-control" name="number" id="pwd" >9653247815</label>
-                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="text-primary">User Name</label>
+                    <label class="form-control" name="fname" id="fname">Purshotham</label>
+                </div>
+                <div class="form-group">
+                    <label class="text-primary">User Email</label>
+                    <label class="form-control" name="email" id="fname">Pursh123@gmail.com</label>
+                </div>
+                <div class="form-group">
+                    <label class="text-primary">Mobile No</label>
+                    <label class="form-control" name="number" id="pwd">9653247815</label>
+                </div>
 
-                </form>
-            </div>
+            </form>
         </div>
     </div>
+</div>
 <!--close Account popup-->
-
-
 <!--start setting popup-->
 <div id="setting" class="">
     <div class="form-container">
@@ -379,8 +443,6 @@
     </div>
 </div>
 <!--close setting popup-->
-
-
 <!--start more setting popup-->
 <div id="moresetting" class="">
     <div class="form-container">
@@ -435,7 +497,62 @@
     function hidemoresetting() {
         $('#moresetting').animate({ top: '-500%' }, 500);
     }
+
+
+
+    function Clearfield() {
+        document.getElementById('from').value = "";
+        document.getElementById('to').value = "";
+        document.getElementById('msg').value = "";
+    }
 </script>
+
+<script>
+    $(document).ready(function () {
+        $("#sendbtn").click(function () {
+            var frommsg = $("#from").val();
+            var tomsg = $("#to").val();
+            var msg = $("#msg").val();
+            //alert(tomsg);
+            //alert(compemail);
+            $.ajax({
+                url: '/MessageBoard/SendParentMessage',
+                type: 'post',
+                dataType: 'json',
+                data:
+                {
+                    FromMsg: frommsg,
+                    ToMsg: tomsg,
+                    Msg: msg,
+                },
+                success: function (result) {
+
+                    alert("Message send successfully");
+                    location.reload();
+
+                },
+
+            });
+        });
+
+    });
+
+</script>
+
+
+<script>
+    function showpopup() {
+        $('#senddiv').animate({ top: '23%' }, 500);
+    }
+    function hidepopup() {
+        $('#senddiv').animate({ top: '-500%' }, 500);
+    }
+    function hidepopup1() {
+        $('#senddiv').animate({ top: '-500%' }, 500);
+    }
+</script>
+
+
 
 <style>
     #test-form {
@@ -479,6 +596,19 @@
         min-width: 1500px;
         min-height: 1500px;
         background-color: black;
+    }
+
+
+
+    #senddiv {
+        position: fixed;
+        top: -500%;
+        width: 32%;
+        margin-left: 32%;
+        background-color: white;
+        box-shadow: 2px 3px 10px grey;
+        border-radius: 5px;
+        padding: 20px;
     }
 </style>
 
