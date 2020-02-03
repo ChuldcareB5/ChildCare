@@ -6,12 +6,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Net;
+using System.Net.Mail;
 
 namespace ChildCare.MonitoringSystem.Business
 {
     public class StudentBusiness
     {
         private readonly IRepository<User> userRepository;//Connect user Repository
+        //private readonly IRepository<MessageBoard> messageBoardRepository;//Connect user Repository
         private readonly IUnitOfWork unitOfWork;
 
         private readonly IRepository<Student> studentRepository;//Connect student Repository
@@ -19,6 +22,7 @@ namespace ChildCare.MonitoringSystem.Business
         public StudentBusiness(IUnitOfWork unitOfWork)
         {
             this.userRepository = unitOfWork.GetRepository<IRepository<User>>();//Get User From Repository
+            //this.messageBoardRepository = unitOfWork.GetRepository<IRepository<MessageBoard>>();//Get User From Repository
             this.studentRepository = unitOfWork.GetRepository<IRepository<Student>>();//Get User From Repository
             this.unitOfWork = unitOfWork;//Instantiate unitOfWork Variable
         }
@@ -61,6 +65,7 @@ namespace ChildCare.MonitoringSystem.Business
             {
                 students.Add(new StudentModel()
                 {
+                    StudentId = student.StudentId,
                     StudentName = student.StudentName,
                     StudentImg = student.StudentImg,
                     StudentAddress = student.StudentAddress,
@@ -74,5 +79,7 @@ namespace ChildCare.MonitoringSystem.Business
 
             return students;
         }
+
+
     }
 }

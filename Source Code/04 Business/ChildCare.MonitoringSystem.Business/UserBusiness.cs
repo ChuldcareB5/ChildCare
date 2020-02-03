@@ -15,12 +15,15 @@ namespace ChildCare.MonitoringSystem.Business
 		private readonly IUnitOfWork unitOfWork;
 		private readonly IRepository<Role> roleRepository;//Connect Role Repository
 		private readonly IRepository<UserRole> userroleRepository;//Connect userRole Repository
+        private readonly IRepository<Student> studentRepository;//Connect student Repository
 
-		public UserBusiness(IUnitOfWork unitOfWork)
+        public UserBusiness(IUnitOfWork unitOfWork)
 		{
 			this.userRepository = unitOfWork.GetRepository<IRepository<User>>();//Get User From Repository
 			this.roleRepository = unitOfWork.GetRepository<IRepository<Role>>();//Get Role From Repository
 			this.userroleRepository = unitOfWork.GetRepository<IRepository<UserRole>>();//Get Role From Repository
+            this.studentRepository = unitOfWork.GetRepository<IRepository<Student>>();//Get User From Repository
+
             this.unitOfWork = unitOfWork;//Instantiate unitOfWork Variable
 		}
 
@@ -83,7 +86,8 @@ namespace ChildCare.MonitoringSystem.Business
            
             var userrole = user!=null?this.userroleRepository.GetBy(x => x.UserId ==user.UserId).SingleOrDefault():null;
             //var roleId = userrole.RoleId;
-
+            var studentId = this.studentRepository.GetBy(x => x.ParentId == user.UserId);
+         //   FormsAuthentication.SetAuthCookie(userModel.I, model.RememberMe);
             //return userrole != null ? new UserRoleModel()
             //{
             //    UserId = userrole.UserId,

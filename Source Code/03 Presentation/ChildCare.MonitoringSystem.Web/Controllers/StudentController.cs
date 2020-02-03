@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+
 namespace ChildCare.MonitoringSystem.Web.Controllers
 {
 	public class StudentController
@@ -22,6 +23,7 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 			var student = this.studentBusiness.AddStudent(studentmodel);
 			return student;
 		}
+       
 
         public ActionResult<List<StudentModel>> GetStudentDetail()
         {

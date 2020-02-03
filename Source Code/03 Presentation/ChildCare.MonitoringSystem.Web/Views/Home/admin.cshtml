@@ -702,7 +702,7 @@
                                         <i class="zmdi zmdi-comment-text"></i>New Messages
                                     </h3>
                                     <button class="au-btn-plus">
-                                        <i class="zmdi zmdi-plus"></i>
+                                        <i class="zmdi zmdi-plus" onclick="showpopup();"></i>
                                     </button>
                                 </div>
                                 <div class="au-inbox-wrap js-inbox-wrap">
@@ -866,6 +866,31 @@
 </div>
 <!--close more setting popup-->
 
+<div id="login" style="z-index:4">
+    <a onclick="hidepopup1();" class="pull-right text-primary"><i class="fa fa-close"></i></a>
+    <div class="form-container">
+        <br />
+        <h3 align="center"><strong class="text-primary">Send Message</strong></h3><hr /><br />
+        @*<form action="Homepage.html" method="post">*@
+        <div class="col-xl-12">
+            @*<label>User Name</label>*@
+            <input class="form-control" placeholder="To" type="text" name="to" id="tomsg" required>
+        </div><br />
+        <div class="col-xl-12">
+            @*<label>New Password</label>*@
+            <input class="form-control" placeholder="Subject" type="text" name="subject" id="subject" required>
+        </div><br />
+        <div class="col-xl-12">
+            @*<label>New Password</label>*@
+            <textarea class="form-control" placeholder="Compose Email" name="compemail" id="compemail" required></textarea>
+        </div><br />
+        <div class="col-xl-12">
+            @*<label for="pwd">Confirm Password</label>*@
+            <button type="button" class="btn btn-block btn-primary" id="sendbtn" style="font-family: 'Baskerville Old Face';">Send </button>
+        </div>
+        @*</form>*@
+    </div>
+</div>
 <!-- Jquery JS-->
 <script src="~/vendor/jquery-3.2.1.min.js"></script>
 <!-- Bootstrap JS-->
@@ -920,6 +945,30 @@
                     UserEmail: uemail,
                     UserAddress: uaddress,
                     UserMobileNo: umobileno,
+                },
+                success: function (result) {
+
+                    alert("hii");
+
+                },
+
+            });
+        });
+        $("#sendbtn").click(function () { 
+            var frommsg = "childcaresystemsditb5@gmail.com";
+            var tomsg = $("#tomsg").val();
+            var compemail = $("#compemail").val();
+            alert(tomsg);
+            alert(compemail);
+            $.ajax({
+                url: '/MessageBoard/SendMessage',
+                type: 'post',
+                dataType: 'json',
+                data:
+                {
+                    FromMsg: frommsg,                              
+                    ToMsg: tomsg,
+                    Msg: compemail,
                 },
                 success: function (result) {
 
@@ -1034,7 +1083,32 @@
         clear: both;
         display: table;
     }
+
+
+    #login {
+        position: fixed;
+        top: -500%;
+        width: 22%;
+        margin-left: 37%;
+        background-color: white;
+        box-shadow: 2px 3px 10px grey;
+        border-radius: 5px;
+        padding: 20px;
+    }
 </style>
+
+<script>
+    function showpopup() {
+        $('#login').animate({ top: '23%' }, 500);
+    }
+    function hidepopup() {
+        $('#login').animate({ top: '-500%' }, 500);
+    }
+    function hidepopup1()
+    {
+        $('#login').animate({ top: '-500%' }, 500);
+    }
+</script>
 
 
 
