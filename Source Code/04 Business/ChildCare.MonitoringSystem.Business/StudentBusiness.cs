@@ -50,5 +50,46 @@ namespace ChildCare.MonitoringSystem.Business
 
 			return studentModel;
 		}
-	}
+
+        public List<StudentModel> GetStudents()
+        {
+            var studentsEntity = this.studentRepository.GetAll();
+
+            var students = new List<StudentModel>();
+
+            foreach (var student in studentsEntity)
+            {
+                students.Add(new StudentModel()
+                {
+                    StudentName = student.StudentName,
+                    StudentImg = student.StudentImg,
+                    StudentAddress = student.StudentAddress,
+                    StudentGender = student.StudentGender,
+                    StudentDob = student.StudentDob,
+                    FatherName = student.FatherName,
+                    MotherName = student.MotherName,
+                    ParentId = student.ParentId
+                });
+            }
+
+            return students;
+        }
+
+        public List<StudentModel> GetStudentByBatch(String batch)
+        {
+            var studentsEntity = this.studentRepository.GetBy(x => x.Batch == batch);
+
+            var students = new List<StudentModel>();
+            
+            foreach (var student in studentsEntity)
+            {
+                students.Add(new StudentModel
+                {
+                    StudentId = student.StudentId,
+                });
+            }
+
+            return students;
+        }
+    }
 }

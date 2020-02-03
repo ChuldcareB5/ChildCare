@@ -251,6 +251,7 @@ namespace ChildCare.MonitoringSystem.Entity
         public string FatherName { get; set; } // FatherName (length: 100)
         public string MotherName { get; set; } // MotherName (length: 100)
         public int ParentId { get; set; } // ParentId
+        public string Batch { get; set; } // Batch (length: 100)
         public int CreatedBy { get; set; } // CreatedBy
         public System.DateTime CreatedOn { get; set; } // CreatedOn
         public int UpdatedBy { get; set; } // UpdatedBy

@@ -22,5 +22,17 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 			var student = this.studentBusiness.AddStudent(studentmodel);
 			return student;
 		}
-	}
+
+        public ActionResult<List<StudentModel>> GetStudentDetail()
+        {
+            var students = this.studentBusiness.GetStudents();
+            return students;
+        }
+
+        public ActionResult<List<StudentModel>> GetStudentByBatch(String batch)
+        {
+            var students = this.studentBusiness.GetStudentByBatch(batch);
+            return students;
+        }
+    }
 }
