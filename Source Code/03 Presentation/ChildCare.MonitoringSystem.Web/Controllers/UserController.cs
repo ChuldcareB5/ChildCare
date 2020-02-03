@@ -52,12 +52,13 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 		{
 			return View("HomePage");
 		}
-		public ActionResult<Int32> UserLogin(UserModel userModel)
-		{
-			var us = this.userBusiness.UserLogin(userModel);
+        public ActionResult<Int32> UserLogin(UserModel userModel)
+        {
+            var us= this.userBusiness.UserLogin(userModel);
 
-			return us;
+            return us;
 
-		}
-	}
+        }
+
+    }
 }

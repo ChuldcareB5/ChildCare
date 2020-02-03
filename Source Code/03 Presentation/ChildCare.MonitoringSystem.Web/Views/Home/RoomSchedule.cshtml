@@ -77,11 +77,7 @@
                             <i class="fas fa-camera"></i>Student Camera View
                         </a>
                     </li>
-                    @*<li>
-                            <a href="~/Home/Calender">
-                                <i class="fas fa-calendar-alt"></i>Calendar
-                            </a>
-                        </li>*@
+                
                     <li class="has-sub">
                         <a class="js-arrow">
                             <i class="fa fa-location-arrow"></i>Location
@@ -99,7 +95,7 @@
                     </li>
                     <li>
                         <a href="~/Home/RoomSchedule">
-                            <i class="fas fa-times"></i>Room Schedule
+                            <i class="fas fa-home"></i>Room Schedule
                         </a>
                     </li>
                     <li>
@@ -169,7 +165,7 @@
                     </li>
                     <li>
                         <a href="~/Home/RoomSchedule">
-                            <i class="fas fa-times"></i>Room Schedule
+                            <i class="fas fa-home"></i>Room Schedule
                         </a>
                     </li>
                     <li>
@@ -348,7 +344,7 @@
                                         </td>
                                         <td>1</td>
                                         <td>
-                                            Bus1
+                                            Room1
                                         </td>
                                         <td>
                                             <div class="table-data-feature">
@@ -369,7 +365,7 @@
                                         </td>
                                         <td>2</td>
                                         <td>
-                                            Bus2
+                                            Room2
                                         </td>
                                         <td>
                                             <div class="table-data-feature">
@@ -390,7 +386,7 @@
                                         </td>
                                         <td>3</td>
                                         <td>
-                                            Bus3
+                                            Room3
                                         </td>
                                         <td>
                                             <div class="table-data-feature">
@@ -415,8 +411,8 @@
         </div>
 
         <div class="main-content" id="viewroomschedule">
-            <h2 align="center">View Room Schedule</h2>
-            <hr /><br/><br/>
+            @*<h2 align="center">View Room Schedule</h2>*@
+            @*<hr /><br/><br/>*@
             <button class="btn btn-primary col-lg-1 pull-right" style="margin-right:5%;" onclick="showaddSchedule();">+ ADD</button><br />
             <button class="btn btn-danger col-lg-1 pull-right" style="margin-right:5%;">- DELETE</button>
             <div class="container-fluid">
@@ -429,7 +425,7 @@
                                         <th>
                                             #
                                         </th>
-                                        <th>Room Id</th>
+                                        @*<th>Room Id</th>*@
                                         <th>Teacher Id</th>
                                         <th>Date</th>
                                         <th>Time</th>
@@ -445,7 +441,7 @@
                                                 <span class="au-checkmark"></span>
                                             </label>
                                         </td>
-                                        <td>1</td>
+                                        @*<td>1</td>*@
                                         <td>2</td>
                                         <td>2020-01-28</td>
                                         <td>11:55:00</td>
@@ -467,7 +463,7 @@
                                                 <span class="au-checkmark"></span>
                                             </label>
                                         </td>
-                                        <td>2</td>
+                                        @*<td>2</td>*@
                                         <td>3</td>
                                         <td>2020-01-28</td>
                                         <td>09:00:00</td>
@@ -489,7 +485,7 @@
                                                 <span class="au-checkmark"></span>
                                             </label>
                                         </td>
-                                        <td>3</td>
+                                        @*<td>3</td>*@
                                         <td>4</td>
                                         <td>2020-01-28</td>
                                         <td>09:55:00</td>
@@ -520,203 +516,207 @@
 
 
 <!-- END PAGE CONTAINER-->
-<!--start Account popup-->
-<div id="test-form-div ">
-    <div id="test-form" class="">
+<div id="overlay" style="z-index:4">
+    <!--start Account popup-->
+
+    <div id="test-form-div ">
+        <div id="test-form" class="">
+            <div class="form-container">
+                <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
+                <h4 align="center" class="text-primary">Profile View</h4><hr />
+                <form action="Homepage.html" method="post">
+                    <div class="form-group" align="center">
+                        <div class="image">
+                            <img src="~/images/img/user.png" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>User Name</label>
+                        <label class="form-control" name="fname" id="fname">Purshotham</label>
+                    </div>
+                    <div class="form-group">
+                        <label>User Email</label>
+                        <label class="form-control" name="email" id="fname">Pursh123@gmail.com</label>
+                    </div>
+                    <div class="form-group">
+                        <label>Mobile No</label>
+                        <label class="form-control" name="number" id="pwd">9653247815</label>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--close Account popup-->
+    <!--start setting popup-->
+
+    <div id="setting" class="">
         <div class="form-container">
             <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
-            <h4 align="center" class="text-primary">Profile View</h4><hr />
+            <h4 align="center" class="text-primary">Password Setting</h4><hr />
             <form action="Homepage.html" method="post">
-                <div class="form-group" align="center">
-                    <div class="image">
-                        <img src="~/images/img/user.png" />
-                    </div>
+                <div class="form-group">
+                    <label>Old Password</label>
+                    <input class="form-control" type="text" name="fname" id="fname" required>
                 </div>
                 <div class="form-group">
+                    <label>New Password</label>
+                    <input class="form-control" type="email" name="email" id="fname" required>
+                </div>
+                <div class="form-group">
+                    <label for="pwd">Confirm Password</label>
+                    <input class="form-control" type="tel" name="number" id="pwd" required>
+                </div>
+                <button type="submit" class="btn btn-block btn-primary" id="reg">SUBMIT </button><br>
+                <a href="#moresetting" class="pull-right" onclick="showmoresetting()">Set More Details</a>
+            </form>
+        </div>
+    </div>
+    <!--close setting popup-->
+    <!--start more setting popup-->
+
+    <div id="moresetting" class="">
+        <div class="form-container">
+            <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
+            <h4 align="center" class="text-primary">User Detail Setting</h4><hr />
+            <form action="Homepage.html" method="post">
+                <div class="form-group">
                     <label>User Name</label>
-                    <label class="form-control" name="fname" id="fname">Purshotham</label>
+                    <input class="form-control" type="text" name="fname" id="fname" required>
                 </div>
                 <div class="form-group">
                     <label>User Email</label>
-                    <label class="form-control" name="email" id="fname">Pursh123@gmail.com</label>
+                    <input class="form-control" type="email" name="email" id="fname" required>
+                </div>
+                <div class="form-group">
+                    <label>Address</label>
+                    <input class="form-control" type="email" name="email" id="fname" required>
                 </div>
                 <div class="form-group">
                     <label>Mobile No</label>
-                    <label class="form-control" name="number" id="pwd">9653247815</label>
+                    <input class="form-control" type="email" name="email" id="fname" required>
+                </div>
+                <button type="submit" class="btn btn-block btn-primary" id="reg">EDIT</button>
+            </form>
+        </div>
+    </div>
+    <!--close more setting popup-->
+
+    <div id="schedule" class="">
+        <div class="form-container">
+            <a class="pull-right" href="#viewroomschedule" onclick="hideschedule();"><i class="fa fa-close"></i></a>
+            <h4 align="center" class="text-primary">Schedule Room</h4><hr />
+            <form action="Homepage.html" method="post">
+                @*<div class="form-group">
+                    <label>Choose Date</label>
+                    <input class="form-control" type="date" name="date" id="date" required>
+                </div>*@
+                <div class="form-group">
+                    <label>Teacher Id</label>
+                    <input class="form-control" type="text" name="teacherid" id="teacherid" required>
+                </div>
+                <div class="form-group">
+                    <label>Time</label>
+                    @* <input class="form-control" type="text" name="email" id="fname" required>*@
+                    <select name="scheduleTime" class="form-control">
+                        <option value="9.00">9.00</option>
+                        <option value="9.55">9.55</option>
+                        <option value="11.05">11.05</option>
+                        <option value="01.00">01.00</option>
+                        <option value="02.00">02.00</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Subject</label>
+                    <input class="form-control" type="text" name="subject" id="subject" required>
+                </div>
+                @*<div class="form-group">
+                    <label>Room Id</label>
+                    <input class="form-control" type="text" name="roomid" id="roomid" required>
+                </div>*@
+                <div class="form-group">
+                    <label>Batch</label>
+                    @*  <input class="form-control" type="time" name="batch" id="batch" required>*@
+                    <select name="scheduleTime" class="form-control">
+                        <option value="B1">B1</option>
+                        <option value="B2">B2</option>
+                        <option value="B3">B3</option>
+                        <option value="B4">B4</option>
+                        <option value="B5">B5</option>
+                    </select>
                 </div>
 
+                <button type="submit" class="btn btn-block btn-primary" id="roomupdate">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+
+    <div id="add" class="">
+        <div class="form-container">
+            <a class="pull-right" onclick="hideoverlay();" href=" "><i class="fa fa-close"></i></a>
+            <h4 align="center" class="text-primary">Add Room</h4><hr />
+            <form action="" method="post">
+                <div class="form-group">
+                    <label>Room Name</label>
+                    <input class="form-control" type="text" name="fname" id="rname" required>
+                </div>
+
+                <button type="submit" class="btn btn-block btn-primary" id="addRoom">ADD</button>
+            </form>
+        </div>
+    </div>
+
+
+    <div id="addSchedule" class="">
+        <div class="form-container">
+            <a class="pull-right" href="#viewroomschedule" onclick="hidechangeschedule();"><i class="fa fa-close"></i></a>
+            <h4 align="center" class="text-primary">Room Schedule</h4><hr />
+            <form action="Homepage.html" method="post">
+                <div class="form-group">
+                    <label>Choose Date</label>
+                    <input class="form-control" type="date" name="date" id="date" required>
+                </div>
+                <div class="form-group">
+                    <label>Teacher Id</label>
+                    <input class="form-control" type="text" name="teacherid" id="teacherid" required>
+                </div>
+                <div class="form-group">
+                    <label>Time</label>
+                    @* <input class="form-control" type="text" name="email" id="fname" required>*@
+                    <select name="scheduleTime" class="form-control">
+                        <option value="9.00">9.00</option>
+                        <option value="9.55">9.55</option>
+                        <option value="11.05">11.05</option>
+                        <option value="01.00">01.00</option>
+                        <option value="02.00">02.00</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Subject</label>
+                    <input class="form-control" type="text" name="subject" id="subject" required>
+                </div>
+                @*<div class="form-group">
+                    <label>Room Id</label>
+                    <input class="form-control" type="text" name="roomid" id="roomid" required>
+                </div>*@
+                <div class="form-group">
+                    <label>Batch</label>
+                    @*  <input class="form-control" type="time" name="batch" id="batch" required>*@
+                    <select name="scheduleTime" class="form-control">
+                        <option value="B1">B1</option>
+                        <option value="B2">B2</option>
+                        <option value="B3">B3</option>
+                        <option value="B4">B4</option>
+                        <option value="B5">B5</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-block btn-primary" id="roomupdate">ADD</button>
             </form>
         </div>
     </div>
 </div>
-<!--close Account popup-->
-<!--start setting popup-->
-<div id="setting" class="">
-    <div class="form-container">
-        <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
-        <h4 align="center" class="text-primary">Password Setting</h4><hr />
-        <form action="Homepage.html" method="post">
-            <div class="form-group">
-                <label>Old Password</label>
-                <input class="form-control" type="text" name="fname" id="fname" required>
-            </div>
-            <div class="form-group">
-                <label>New Password</label>
-                <input class="form-control" type="email" name="email" id="fname" required>
-            </div>
-            <div class="form-group">
-                <label for="pwd">Confirm Password</label>
-                <input class="form-control" type="tel" name="number" id="pwd" required>
-            </div>
-            <button type="submit" class="btn btn-block btn-primary" id="reg">SUBMIT </button><br>
-            <a href="#moresetting" class="pull-right" onclick="showmoresetting()">Set More Details</a>
-        </form>
-    </div>
-</div>
-<!--close setting popup-->
-<!--start more setting popup-->
-<div id="moresetting" class="">
-    <div class="form-container">
-        <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
-        <h4 align="center" class="text-primary">User Detail Setting</h4><hr />
-        <form action="Homepage.html" method="post">
-            <div class="form-group">
-                <label>User Name</label>
-                <input class="form-control" type="text" name="fname" id="fname" required>
-            </div>
-            <div class="form-group">
-                <label>User Email</label>
-                <input class="form-control" type="email" name="email" id="fname" required>
-            </div>
-            <div class="form-group">
-                <label>Address</label>
-                <input class="form-control" type="email" name="email" id="fname" required>
-            </div>
-            <div class="form-group">
-                <label>Mobile No</label>
-                <input class="form-control" type="email" name="email" id="fname" required>
-            </div>
-            <button type="submit" class="btn btn-block btn-primary" id="reg">EDIT</button>
-        </form>
-    </div>
-</div>
-<!--close more setting popup-->
-
-<div id="schedule" class="">
-    <div class="form-container">
-        <a class="pull-right" href="#viewroomschedule" onclick="hidechangeschedule();"><i class="fa fa-close"></i></a>
-        <h4 align="center" class="text-primary">Schedule Room</h4><hr />
-        <form action="Homepage.html" method="post">
-            <div class="form-group">
-                <label>Choose Date</label>
-                <input class="form-control" type="date" name="date" id="date" required>
-            </div>
-            <div class="form-group">
-                <label>Teacher Id</label>
-                <input class="form-control" type="text" name="teacherid" id="teacherid" required>
-            </div>
-            <div class="form-group">
-                <label>Time</label>
-                @* <input class="form-control" type="text" name="email" id="fname" required>*@
-                <select name="scheduleTime" class="form-control">
-                    <option value="9.00">9.00</option>
-                    <option value="9.55">9.55</option>
-                    <option value="11.05">11.05</option>
-                    <option value="01.00">01.00</option>
-                    <option value="02.00">02.00</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>Subject</label>
-                <input class="form-control" type="text" name="subject" id="subject" required>
-            </div>
-            <div class="form-group">
-                <label>Room Id</label>
-                <input class="form-control" type="text" name="roomid" id="roomid" required>
-            </div>
-            <div class="form-group">
-                <label>Batch</label>
-                @*  <input class="form-control" type="time" name="batch" id="batch" required>*@
-                <select name="scheduleTime" class="form-control">
-                    <option value="B1">B1</option>
-                    <option value="B2">B2</option>
-                    <option value="B3">B3</option>
-                    <option value="B4">B4</option>
-                    <option value="B5">B5</option>
-                </select>
-            </div>
-
-            <button type="submit" class="btn btn-block btn-primary" id="roomupdate">Save Changes</button>
-        </form>
-    </div>
-</div>
-
-
-        <div id="add" class="">
-            <div class="form-container">
-                <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
-                <h4 align="center" class="text-primary">Add Room</h4><hr />
-                <form action="" method="post">
-                    <div class="form-group">
-                        <label>Room Name</label>
-                        <input class="form-control" type="text" name="fname" id="rname" required>
-                    </div>
-
-                    <button type="submit" class="btn btn-block btn-primary" id="addRoom">ADD</button>
-                </form>
-            </div>
-        </div>
-
-
-        <div id="addSchedule" class="">
-            <div class="form-container">
-                <a class="pull-right" href="#viewroomschedule" onclick="hidechangeschedule();"><i class="fa fa-close"></i></a>
-                <h4 align="center" class="text-primary">Room Schedule</h4><hr />
-                <form action="Homepage.html" method="post">
-                    <div class="form-group">
-                        <label>Choose Date</label>
-                        <input class="form-control" type="date" name="date" id="date" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Teacher Id</label>
-                        <input class="form-control" type="text" name="teacherid" id="teacherid" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Time</label>
-                        @* <input class="form-control" type="text" name="email" id="fname" required>*@
-                        <select name="scheduleTime" class="form-control">
-                            <option value="9.00">9.00</option>
-                            <option value="9.55">9.55</option>
-                            <option value="11.05">11.05</option>
-                            <option value="01.00">01.00</option>
-                            <option value="02.00">02.00</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Subject</label>
-                        <input class="form-control" type="text" name="subject" id="subject" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Room Id</label>
-                        <input class="form-control" type="text" name="roomid" id="roomid" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Batch</label>
-                        @*  <input class="form-control" type="time" name="batch" id="batch" required>*@
-                        <select name="scheduleTime" class="form-control">
-                            <option value="B1">B1</option>
-                            <option value="B2">B2</option>
-                            <option value="B3">B3</option>
-                            <option value="B4">B4</option>
-                            <option value="B5">B5</option>
-                        </select>
-                    </div>
-
-                    <button type="submit" class="btn btn-block btn-primary" id="roomupdate">ADD</button>
-                </form>
-            </div>
-        </div>
-
         <!-- Jquery JS-->
         <script src="~/vendor/jquery-3.2.1.min.js"></script>
         <!-- Bootstrap JS-->
@@ -780,39 +780,44 @@
                 $('#test-form').animate({ top: '15%' }, 500);
                 $('#test-form-div').animate({ top: '20%' }, 500);
                 $('.account-dropdown').hide();
+                document.getElementById("overlay").style.display = "block";
             }
             function hidetest() {
                 $('#test-form').animate({ top: '-500%' }, 500);
+                document.getElementById("overlay").style.display = "none";
             }
 
             function showsetting() {
                 $('#setting').animate({ top: '15%' }, 500);
                 $('.account-dropdown').hide();
+                document.getElementById("overlay").style.display = "block";
             }
             function hidesetting() {
                 $('#setting').animate({ top: '-500%' }, 500);
+                document.getElementById("overlay").style.display = "none";
             }
 
             function showmoresetting() {
                 $('#moresetting').animate({ top: '15%' }, 500);
                 $('.account-dropdown').hide();
+                document.getElementById("overlay").style.display = "block";
             }
             function hidemoresetting() {
                 $('#moresetting').animate({ top: '-500%' }, 500);
+                document.getElementById("overlay").style.display = "none";
             }
 
 
             function showschedule() {
                 $('#schedule').animate({ top: '12%' }, 500);
-                //$('.account-dropdown').hide();
+                document.getElementById("overlay").style.display = "block";
             }
             function hideschedule() {
                 $('#schedule').animate({ top: '-500%' }, 500);
+                document.getElementById("overlay").style.display = "none";
             }
 
-            function hidechangeschedule() {
-                $('#addSchedule').animate({ top: '-500%' }, 500);
-            }
+            
             
             function showviewschedule() {
                 $("#viewroom").hide();
@@ -821,14 +826,29 @@
 
             function showadd() {
                 $('#add').animate({ top: '12%' }, 500);
+                document.getElementById("overlay").style.display = "block";
             }
 
             function showaddSchedule() {
                 $('#addSchedule').animate({ top: '12%' }, 500);
+                document.getElementById("overlay").style.display = "block";
+
+            }
+            function hidechangeschedule() {
+                $('#addSchedule').animate({ top: '-500%' }, 500);
+                document.getElementById("overlay").style.display = "none";
             }
 
             function hideadd() {
                 $('#add').animate({ top: '-500%' }, 500);
+            }
+
+            function on() {
+                document.getElementById("overlay").style.display = "block";
+            }
+
+            function off() {
+                document.getElementById("overlay").style.display = "none";
             }
         </script>
 
@@ -843,7 +863,19 @@
                         border-radius: 5px;
                         padding: 35px;
                     }
-
+                    #overlay {
+                        position: fixed; /* Sit on top of the page content */
+                        display: none; /* Hidden by default */
+                        width: 100%; /* Full width (cover the whole page) */
+                        height: 100%; /* Full height (cover the whole page) */
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+                        z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+                        cursor: pointer; /* Add a pointer on hover */
+                    }
                     #setting {
                         position: fixed;
                         top: -500%;
