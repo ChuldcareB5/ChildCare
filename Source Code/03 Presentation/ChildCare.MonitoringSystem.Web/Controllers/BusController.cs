@@ -28,5 +28,10 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
         {
             return View();
         }
-    }
+		public ActionResult<List<BusModel>> GetBusDetail()
+		{
+			var bus = this.busBusiness.Getbus();
+			return bus;
+		}
+	}
 }

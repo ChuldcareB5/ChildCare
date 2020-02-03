@@ -39,5 +39,31 @@ namespace ChildCare.MonitoringSystem.Business
 			busScheduleModel.BusScheduleId = busScheduleEntity.BusScheduleId;
 			return busScheduleModel;
 		}
+
+
+		public List<BusScheduleModel> GetbusSchedule()
+		{
+			var busScheduleEntity = this.busScheduleRepository.GetAll();
+
+			var busSchedule = new List<BusScheduleModel>();
+
+			//foreach (var b in busScheduleEntity)
+			//{
+			//	bus.Add(new BusModel()
+			//	{
+			//		BusId = b.BusId,
+			//		BusName = b.BusName,
+			//		//StudentImg = student.StudentImg,
+			//		//StudentAddress = student.StudentAddress,
+			//		//StudentGender = student.StudentGender,
+			//		//StudentDob = student.StudentDob,
+			//		//FatherName = student.FatherName,
+			//		//MotherName = student.MotherName,
+			//		//ParentId = student.ParentId
+			//	});
+			//}
+
+			return busSchedule;
+		}
 	}
 }

@@ -12,6 +12,7 @@ namespace ChildCare.MonitoringSystem.Business
 	{
 		private readonly IRepository<Bus> busRepository;//Connect User Repository
 		private readonly IUnitOfWork unitOfWork;
+		private List<StudentModel> students;
 
 		public BusBusiness(IUnitOfWork unitOfWork)
 		{
@@ -35,6 +36,32 @@ namespace ChildCare.MonitoringSystem.Business
 			busModel.BusId = busEntity.BusId;
 
 			return busModel;
+		}
+
+
+		public List<BusModel> Getbus()
+		{
+			var busEntity = this.busRepository.GetAll();
+
+			var bus = new List<BusModel>();
+
+			foreach (var b in busEntity)
+			{
+				bus.Add(new BusModel()
+				{
+					BusId = b.BusId,
+					BusName = b.BusName,
+					//StudentImg = student.StudentImg,
+					//StudentAddress = student.StudentAddress,
+					//StudentGender = student.StudentGender,
+					//StudentDob = student.StudentDob,
+					//FatherName = student.FatherName,
+					//MotherName = student.MotherName,
+					//ParentId = student.ParentId
+				});
+			}
+
+			return bus;
 		}
 	}
 }

@@ -412,12 +412,13 @@
 
 
 <!-- link that opens popup -->
-<div id="overlay" onclick="exit();">
+<div id="overlay" >
     <!-- login form  start -->
-    <div id="loginpopup">
+    <div id="loginpopup" onclick="">
+        <i class="fa fa-close pull-right" onclick="exit();"></i>
         <div class="form-container">
             <br />
-            <h3 align="center"><strong class="text-primary">Login Form</strong></h3><hr /><br />
+            <h2 align="center"><strong class="text-primary">Login Form</strong></h2><hr /><br />
             @*<form action="Homepage.html" method="post">*@
             <div class="col-xl-12">
                 @*<label>User Name</label>*@
@@ -431,20 +432,20 @@
                 @*<label for="pwd">Confirm Password</label>*@
                 <button type="button" class="btn btn-block btn-primary" id="loginbtn" style="font-family: 'Baskerville Old Face';">Login </button>
             </div><br />
-
-            <a href="#forgotpasspopup" class="pull-right" onclick="showforgotpasspopup();" style=" font-family: 'Berlin Sans FB', sans-serif;">Forgot Password</a>
-            @*</form>*@
+            <a class="pull-right text-primary" onclick="showforgotpasspopup();" style=" font-family: 'Berlin Sans FB', sans-serif; text-decoration:underline">Forgot Password</a>
         </div>
     </div>
+    </div>
+<!-- login form  end -->
 
-    <!-- login form  end -->
-    <!-- login form  start -->
+<!-- login form  start -->
+<div id="overlay1" >
     <div id="forgotpasspopup">
+        <i class="fa fa-close pull-right" onclick="exit1();"></i>
         <i class="fa fa-lock fa-4x" style="margin-left:45%" content: "\f023"></i>
         <div class="form-container">
             <br />
-
-            <h3 align="center"><strong class="text-primary">Forgot Password ?</strong></h3><hr /><br />
+            <h2 align="center"><strong class="text-primary">Forgot Password ?</strong></h2><hr /><br />
             @*<form action="Homepage.html" method="post">*@
             <div class="col-xl-12">
                 @*<label>User Name</label>*@
@@ -457,10 +458,11 @@
             @*</form>*@
         </div>
     </div>
-
-    <!-- login form  end -->
+<!-- login form  end -->
 </div>
+
 <script src="~/js/jquery.min.js"></script>
+
 <!-- JS here -->
 <script src="~/js/js1/vendor/modernizr-3.5.0.min.js"></script>
 <script src="~/js/js1/vendor/jquery-1.12.4.min.js"></script>
@@ -480,6 +482,7 @@
 <script src="~/js/js1/jquery.magnific-popup.min.js"></script>
 <script src="~/js/js1/plugins.js"></script>
 <script src="~/js/js1/gijgo.min.js"></script>
+
 <!--contact js-->
 <script src="~/js/js1/contact.js"></script>
 <script src="~/js/js1/jquery.ajaxchimp.min.js"></script>
@@ -489,10 +492,9 @@
 <script src="~/js/js1/main.js"></script>
 
 <script>
+
     $(document).ready(function () {
-
         $('#loginbtn').click(function () {
-
             var uname = $('#username').val();
             var upassword = $('#pass').val();
 
@@ -508,7 +510,6 @@
                     UserPassword: upassword,
                 },
                 success: function (result) {
-
                     if (result == 0) {
                         alert('Username or password invalid');
                         location.reload(true);
@@ -524,6 +525,8 @@
             });
         });
     });
+
+
     $('#datepicker').datepicker({
         iconsLibrary: 'fontawesome',
         icons: {
@@ -536,9 +539,6 @@
             rightIcon: '<span class="fa fa-caret-down"></span>'
         }
     });
-    //$(document).ready(function () {
-    //    $('.js-example-basic-multiple').select2();
-    //});
 
     function showloginpopup() {
         $('#loginpopup').animate({ top: '23%' }, 500);
@@ -553,16 +553,27 @@
     function showforgotpasspopup() {
         $('#forgotpasspopup').animate({ top: '26%' }, 500);
         $('#loginpopup').hide();
+        document.getElementById("overlay1").style.display = "block";
     }
     function hideforgotpasspopup() {
         $('#forgotpasspopup').animate({ top: '-500%' }, 500);
+        document.getElementById("overlay1").style.display = "none";
     }
 
 
     function exit() {
-        $('#overlay').overlay.close();
-        //$('#forgotpasspopup').hide();
-        //document.getElementById("overlay").style.display = "none";
+        //$('#overlay').overlay.close();
+        //$('#loginpopup').hide();
+        document.getElementById("overlay").style.display = "none";
+        //location.reload();
+
+
+    }
+
+    function exit1() {
+        document.getElementById("overlay1").style.display = "none";
+        location.reload();
+
     }
 </script>
 
@@ -599,6 +610,18 @@
         background-size: cover;
     }
 </style>
+@*<script>
+    
+    var modal = document.getElementById('loginpopup');
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+        
+    }
+</script>*@
+
+
 
 <style>
     #loginpopup {
@@ -623,9 +646,9 @@
         padding: 20px;
     }
 
-    /*h2 {
+    h2 {
         font-family: 'Baskerville Old Face', sans-serif;
-    }*/
+    }
 
     #username, #pass, #femail {
         width: 100%;
@@ -749,6 +772,22 @@
         z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
         cursor: pointer; /* Add a pointer on hover */
 
+    }
+
+
+
+    #overlay1 {
+        position: fixed; /* Sit on top of the page content */
+        display: none; /* Hidden by default */
+        width: 100%; /* Full width (cover the whole page) */
+        height: 100%; /* Full height (cover the whole page) */
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+        z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+        cursor: pointer; /* Add a pointer on hover */
     }
 </style>
 

@@ -38,6 +38,7 @@ namespace ChildCare.MonitoringSystem.Business
 				FatherName = studentModel.FatherName,
 				MotherName = studentModel.MotherName,
 				ParentId= studentModel.ParentId,
+				Batch= studentModel.Batch,
 				CreatedBy = -1,
 				CreatedOn = DateTime.UtcNow,
 				UpdatedBy = -1,
@@ -49,6 +50,31 @@ namespace ChildCare.MonitoringSystem.Business
 			studentModel.StudentId = studentEntity.StudentId;
 
 			return studentModel;
+		}
+
+
+		public List<StudentModel> GetStudents()
+		{
+			var studentsEntity = this.studentRepository.GetAll();
+
+			var students = new List<StudentModel>();
+
+			foreach (var student in studentsEntity)
+			{
+				students.Add(new StudentModel()
+				{
+					StudentName = student.StudentName,
+					StudentImg = student.StudentImg,
+					StudentAddress = student.StudentAddress,
+					StudentGender = student.StudentGender,
+					StudentDob = student.StudentDob,
+					FatherName = student.FatherName,
+					MotherName = student.MotherName,
+					ParentId = student.ParentId
+				});
+			}
+
+			return students;
 		}
 	}
 }

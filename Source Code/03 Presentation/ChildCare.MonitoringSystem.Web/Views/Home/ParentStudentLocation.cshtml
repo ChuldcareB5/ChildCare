@@ -1,7 +1,8 @@
-﻿@{
-    ViewData["Title"] = "Camera";
-    Layout = null;
+﻿
+@{
+    ViewData["Title"] = "ParentStudetLocation";
 }
+
 
 <head>
     <!-- Fontfaces CSS-->
@@ -21,6 +22,7 @@
     <link href="~/vendor/slick/slick.css" rel="stylesheet" media="all">
     <link href="~/vendor/select2/select2.min.css" rel="stylesheet" media="all">
     <link href="~/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+    <link href="~/vendor/vector-map/jqvmap.min.css" rel="stylesheet" media="all">
     <link href="~/vendor/vector-map/jqvmap.min.css" rel="stylesheet" media="all">
     <!-- Main CSS-->
     <link href="~/css/theme.css" rel="stylesheet" media="all">
@@ -65,10 +67,10 @@
                     </li>
 
                     @*<li>
-                            <a href="~/Home/Calender1">
-                                <i class="fas fa-calendar-alt"></i>Calendar
-                            </a>
-                        </li>*@
+                        <a href="~/Home/Calender1">
+                            <i class="fas fa-calendar-alt"></i>Calendar
+                        </a>
+                    </li>*@
                     <li>
                         <a href="~/Home/ParentStudentLocation">
                             <i class="fas fa-map-marker-alt"></i>Location
@@ -110,10 +112,10 @@
 
 
                     @*<li>
-                            <a href="~/Home/Calender1">
-                                <i class="fas fa-calendar-alt"></i>Calendar
-                            </a>
-                        </li>*@
+                        <a href="~/Home/Calender1">
+                            <i class="fas fa-calendar-alt"></i>Calendar
+                        </a>
+                    </li>*@
                     <li>
                         <a href="~/Home/ParentStudentLocation">
                             <i class="fas fa-map-marker-alt"></i>Location
@@ -127,89 +129,94 @@
     <!-- PAGE CONTAINER-->
     <div class="page-container">
         <!-- HEADER DESKTOP-->
-        <header class="header-desktop">
-            <div class="section__content section__content--p30">
-                <div class="container-fluid">
-                    <div class="header-wrap ">
-                        <form class="form-header" action="" method="POST">
-                            <input class="au-input au-input--h65" type="text" name="search" placeholder="Search" />
-                            <button class="au-btn--submit" type="submit">
-                                <i class="zmdi zmdi-search"></i>
-                            </button>
-                        </form>&nbsp;&nbsp;&nbsp;
-                        <div class="header-button">
-                            <div class="noti__item js-item-menu">
-                                <i class="zmdi zmdi-comment-more"></i>
-                                <span class="quantity">1</span>
-                                <div class="mess-dropdown js-dropdown">
-                                    <div class="mess__title">
-                                        <p>You have 2 news message</p>
-                                    </div>
-                                    <div class="mess__item">
-                                        <div class="image img-cir img-40">
-                                            <img src="~/images/icon/avatar-06.jpg" alt="Michelle Moreno" />
-                                        </div>
-                                        <div class="content">
-                                            <h6>Michelle Moreno</h6>
-                                            <p>Have sent a photo</p>
-                                            <span class="time">3 min ago</span>
-                                        </div>
-                                    </div>
-                                    <div class="mess__item">
-                                        <div class="image img-cir img-40">
-                                            <img src="~/images/icon/avatar-04.jpg" alt="Diane Myers" />
-                                        </div>
-                                        <div class="content">
-                                            <h6>Diane Myers</h6>
-                                            <p>You are now connected on message</p>
-                                            <span class="time">Yesterday</span>
-                                        </div>
-                                    </div>
-                                    <div class="mess__footer">
-                                        <a href="#">View all messages</a>
-                                    </div>
-                                </div>
-                            </div>
 
-                            <div class="account-wrap">
-                                <div class="account-item clearfix js-item-menu">
-                                    <div class="image">
-                                        <img src="~/images/img/user.png" style="width:80%; height:80%" alt="John Doe" />
-                                    </div>
-                                    @*<div class="content">
-                                        <a class="js-acc-btn" href="#">purshotham</a>
-                                    </div>*@
-                                    <div class="account-dropdown js-dropdown">
-                                        <div class="info clearfix">
-                                            <div class="image">
-                                                <a href="#">
-                                                    <img src="~/images/img/user.png" />
-                                                </a>
+        <div class="page-container">
+            <!-- HEADER DESKTOP-->
+
+            <header class="header-desktop">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="header-wrap ">
+                            <form class="form-header" action="" method="POST">
+                                <input class="au-input au-input--h65" type="text" name="search" placeholder="Search" />
+                                <button class="au-btn--submit" type="submit">
+                                    <i class="zmdi zmdi-search"></i>
+                                </button>
+                            </form>&nbsp;&nbsp;&nbsp;
+                            <div class="header-button">
+                                <div class="noti__item js-item-menu">
+                                    <i class="zmdi zmdi-comment-more"></i>
+                                    <span class="quantity">1</span>
+                                    <div class="mess-dropdown js-dropdown">
+                                        <div class="mess__title">
+                                            <p>You have 2 news message</p>
+                                        </div>
+                                        <div class="mess__item">
+                                            <div class="image img-cir img-40">
+                                                <img src="~/images/icon/avatar-06.jpg" alt="Michelle Moreno" />
                                             </div>
                                             <div class="content">
-                                                <h5 class="name">
-                                                    <a href="#">purshotham</a>
-                                                </h5>
-                                                <span class="email">purshotham123@gmail.com</span>
+                                                <h6>Michelle Moreno</h6>
+                                                <p>Have sent a photo</p>
+                                                <span class="time">3 min ago</span>
                                             </div>
                                         </div>
-                                        <div class="account-dropdown__body">
-                                            <div class="account-dropdown__item">
-                                                <a href="#test-form" onclick="showtest()">
-                                                    <i class="zmdi zmdi-account"></i>Account
-                                                </a>
+                                        <div class="mess__item">
+                                            <div class="image img-cir img-40">
+                                                <img src="~/images/icon/avatar-04.jpg" alt="Diane Myers" />
                                             </div>
-                                            <div class="account-dropdown__item">
-                                                <a href="#setting" onclick="showsetting()">
-                                                    <i class="zmdi zmdi-settings"></i>Setting
-                                                </a>
+                                            <div class="content">
+                                                <h6>Diane Myers</h6>
+                                                <p>You are now connected on message</p>
+                                                <span class="time">Yesterday</span>
                                             </div>
+                                        </div>
+                                        <div class="mess__footer">
+                                            <a href="#">View all messages</a>
+                                        </div>
+                                    </div>
+                                </div>
 
+                                <div class="account-wrap">
+                                    <div class="account-item clearfix js-item-menu">
+                                        <div class="image">
+                                            <img src="~/images/img/user.png" style="width:80%; height:80%" alt="John Doe" />
                                         </div>
-                                        <div class="account-dropdown__footer">
-                                            <a href="#">
-                                                <i class="zmdi zmdi-power"></i>Logout
-                                            </a>
+                                        @*<div class="content">
+                                            <a class="js-acc-btn" href="#">purshotham</a>
+                                        </div>*@
+                                        <div class="account-dropdown js-dropdown">
+                                            <div class="info clearfix">
+                                                <div class="image">
+                                                    <a href="#">
+                                                        <img src="~/images/img/user.png" />
+                                                    </a>
+                                                </div>
+                                                <div class="content">
+                                                    <h5 class="name">
+                                                        <a href="#">purshotham</a>
+                                                    </h5>
+                                                    <span class="email">purshotham123@gmail.com</span>
+                                                </div>
+                                            </div>
+                                            <div class="account-dropdown__body">
+                                                <div class="account-dropdown__item">
+                                                    <a href="#test-form" onclick="showtest()">
+                                                        <i class="zmdi zmdi-account"></i>Account
+                                                    </a>
+                                                </div>
+                                                <div class="account-dropdown__item">
+                                                    <a href="#setting" onclick="showsetting()">
+                                                        <i class="zmdi zmdi-settings"></i>Setting
+                                                    </a>
+                                                </div>
+
+                                            </div>
+                                            <div class="account-dropdown__footer">
+                                                <a href="#">
+                                                    <i class="zmdi zmdi-power"></i>Logout
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -217,63 +224,124 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </header>
+            </header>
+
+            <!-- HEADER DESKTOP-->
+            <!-- MAIN CONTENT-->
+
+        </div>
         <!-- HEADER DESKTOP-->
         <!-- MAIN CONTENT-->
         <div class="main-content">
             @*<div class="section__content section__content--p30">*@
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12">
-                        <!-- DATA TABLE -->
-                        <div class="row">
-                            <div class="col-md-6">
-                                <h2 class="title-5 m-b-30" style="color:blue;">Student View</h2>
+       
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- MAP DATA-->
+                    <div class="map-data m-b-40">
+                        <h3 class="title-3 m-b-30">
+                            <i class="zmdi zmdi-map"></i>Student Tracking Map
+                        </h3>
+                        <div class="filters">
+                            <div class="rs-select2--dark rs-select2--md m-r-10 rs-select2--border">
+                                @*<select class="js-select2" name="property">
+                                    <option selected="selected"> Enter Bus ID</option>
+                                    <option value="">1</option>
+                                    <option value="">2</option>
+                                </select>*@
+                                <div class="dropDownSelect2"></div>
                             </div>
-                            <div class="col-md-6">
-                                @*<div class="input-group">
-                                    <input  class="text-center" style="border:solid #F5F5F5;border-radius:5px;" type="text" id="studid" name="studid" placeholder="SearchBy StudentId">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-primary">
-                                            <i class="fa fa-search"></i>
-                                        </button>
-                                    </div>
-                                </div>*@
 
-                            </div>
                         </div>
-
-
-                        <div class="row">
-                            <div class="col-lg-11">
-                                <div class="au-card m-b-30">
-                                    <div class="au-card-inner">
-
-                                        <video width="100%" controls>
-                                            <source src="~/video/class.mp4" type="video/mp4">
-                                            <source src="~/video/class.mp4" type="video/mp4">
-
-
-                                        </video>
-
-
-
-
-                                    </div>
-                                </div>
-
-                            </div>
+                        <div class="map-wrap">
+                            <div class="vmap" id="vmap1"></div>
                         </div>
-                        <!-- END DATA TABLE -->
                     </div>
+                    <!-- END MAP DATA-->
                 </div>
             </div>
+            @*<div class="row">
+                <div class="col-md-6">
+                    <!-- MAP DATA-->
+                    <div class="map-data m-b-40">
+                        <h3 class="title-3 m-b-30">
+                            <i class="zmdi zmdi-map"></i>Europe
+                        </h3>
+                        <div class="map-wrap">
+                            <div class="vmap" id="vmap1"></div>
+                        </div>
+                    </div>
+                    <!-- END MAP DATA-->
+                </div>
+                <div class="col-md-6">
+                    <!-- MAP DATA-->
+                    <div class="map-data m-b-40">
+                        <h3 class="title-3 m-b-30">
+                            <i class="zmdi zmdi-map"></i>USA
+                        </h3>
+                        <div class="map-wrap">
+                            <div class="vmap" id="vmap2"></div>
+                        </div>
+                    </div>
+                    <!-- END MAP DATA-->
+                </div>
+                <div class="col-md-6">
+                    <!-- MAP DATA-->
+                    <div class="map-data m-b-40">
+                        <h3 class="title-3 m-b-30">
+                            <i class="zmdi zmdi-map"></i>Germany
+                        </h3>
+                        <div class="map-wrap">
+                            <div class="vmap" id="vmap3"></div>
+                        </div>
+                    </div>
+                    <!-- END MAP DATA-->
+                </div>
+                <div class="col-md-6">
+                    <!-- MAP DATA-->
+                    <div class="map-data m-b-40">
+                        <h3 class="title-3 m-b-30">
+                            <i class="zmdi zmdi-map"></i>France
+                        </h3>
+                        <div class="map-wrap">
+                            <div class="vmap" id="vmap4"></div>
+                        </div>
+                    </div>
+                    <!-- END MAP DATA-->
+                </div>
+                <div class="col-md-6">
+                    <!-- MAP DATA-->
+                    <div class="map-data m-b-40">
+                        <h3 class="title-3 m-b-30">
+                            <i class="zmdi zmdi-map"></i>Russia
+                        </h3>
+                        <div class="map-wrap">
+                            <div class="vmap" id="vmap5"></div>
+                        </div>
+                    </div>
+                    <!-- END MAP DATA-->
+                </div>
+                <div class="col-md-6">
+                    <!-- MAP DATA-->
+                    <div class="map-data m-b-40">
+                        <h3 class="title-3 m-b-30">
+                            <i class="zmdi zmdi-map"></i>Brazil
+                        </h3>
+                        <div class="map-wrap">
+                            <div class="vmap" id="vmap6"></div>
+                        </div>
+                    </div>
+                    <!-- END MAP DATA-->
+                    <!-- END PAGE CONTAINER-->
+                </div>
+            </div>*@
+
         </div>
     </div>
     <!-- END MAIN CONTENT-->
     <!-- END PAGE CONTAINER-->
 </div>
+
 
 
 <!--start Account popup-->
@@ -306,7 +374,6 @@
     </div>
 </div>
 <!--close Account popup-->
-
 <!--start setting popup-->
 <div id="setting" class="">
     <div class="form-container">
@@ -331,7 +398,6 @@
     </div>
 </div>
 <!--close setting popup-->
-
 <!--start more setting popup-->
 <div id="moresetting" class="">
     <div class="form-container">
@@ -359,8 +425,6 @@
     </div>
 </div>
 <!--close more setting popup-->
-
-
 <!-- Jquery JS-->
 <script src="~/vendor/jquery-3.2.1.min.js"></script>
 <!-- Bootstrap JS-->
@@ -379,8 +443,18 @@
 <script src="~/vendor/circle-progress/circle-progress.min.js"></script>
 <script src="~/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
 <script src="~/vendor/chartjs/Chart.bundle.min.js"></script>
-<script src="~/vendor/select2/select2.min.js">
-</script>
+<script src="~/vendor/select2/select2.min.js"></script>
+<script src="~/vendor/vector-map/jquery.vmap.js"></script>
+<script src="~/vendor/vector-map/jquery.vmap.min.js"></script>
+<script src="~/vendor/vector-map/jquery.vmap.sampledata.js"></script>
+<script src="~/vendor/vector-map/jquery.vmap.world.js"></script>
+<script src="~/vendor/vector-map/jquery.vmap.brazil.js"></script>
+<script src="~/vendor/vector-map/jquery.vmap.europe.js"></script>
+<script src="~/vendor/vector-map/jquery.vmap.france.js"></script>
+<script src="~/vendor/vector-map/jquery.vmap.germany.js"></script>
+<script src="~/vendor/vector-map/jquery.vmap.russia.js"></script>
+<script src="~/vendor/vector-map/jquery.vmap.usa.js"></script>
+
 
 <!-- Main JS-->
 <script src="~/js/main.js"></script>
@@ -411,7 +485,6 @@
         $('#moresetting').animate({ top: '-500%' }, 500);
     }
 </script>
-
 <style>
     #test-form {
         position: fixed;
@@ -454,41 +527,6 @@
         min-width: 1500px;
         min-height: 1500px;
         background-color: black;
-    }
-
-
-
-    form.example input[type=text] {
-        padding: 8px;
-        font-size: 17px;
-        border: 1px solid grey;
-        float: left;
-        width: 72%;
-        height: 60%;
-        background: white;
-    }
-
-    form.example button {
-        float: left;
-        width: 20%;
-        height: 70%;
-        padding: 10px;
-        background: #2196F3;
-        color: white;
-        font-size: 17px;
-        border: 1px solid grey;
-        border-left: none;
-        cursor: pointer;
-    }
-
-        form.example button:hover {
-            background: #0b7dda;
-        }
-
-    form.example::after {
-        content: "";
-        clear: both;
-        display: table;
     }
 </style>
 
