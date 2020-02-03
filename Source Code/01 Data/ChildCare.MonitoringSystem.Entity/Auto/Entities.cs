@@ -74,7 +74,7 @@ namespace ChildCare.MonitoringSystem.Entity
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.34.1.0")]
     public partial class MessageBoard: BaseEntity, IAuditable, ISoftDelete
     {
-        public int MsgId { get; set; } // MsgId (Primary key)
+        public int MessageBoardId { get; set; } // MessageBoardId (Primary key)
         public int ToMsg { get; set; } // ToMsg
         public int FromMsg { get; set; } // FromMsg
         public int MsgStatus { get; set; } // MsgStatus
@@ -243,7 +243,7 @@ namespace ChildCare.MonitoringSystem.Entity
     {
         public int StudentId { get; set; } // StudentId (Primary key)
         public string StudentName { get; set; } // StudentName (length: 100)
-        public byte[] StudentImg { get; set; } // StudentImg (length: 2147483647)
+        public string StudentImg { get; set; } // StudentImg (length: 2147483647)
         public string StudentAddress { get; set; } // StudentAddress (length: 200)
         public string StudentGender { get; set; } // StudentGender (length: 10)
         public System.DateTime StudentIDob { get; set; } // StudentIDob
@@ -273,7 +273,6 @@ namespace ChildCare.MonitoringSystem.Entity
         /// Parent User pointed by [Student].([ParentId]) (FK_Student_User)
         /// </summary>
         public virtual User User { get; set; } // FK_Student_User
-        public object StudentDob { get; set; }
 
         public Student()
         {

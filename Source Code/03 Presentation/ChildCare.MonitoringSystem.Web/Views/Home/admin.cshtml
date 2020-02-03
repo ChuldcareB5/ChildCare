@@ -6,22 +6,22 @@
 <head>
     <!-- Fontfaces CSS-->
     <link href="~/css/font-face.css" rel="stylesheet" media="all">
-    <link href="~/css/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
-    <link href="~/css/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
-    <link href="~/css/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="~/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="~/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="~/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
 
     <!-- Bootstrap CSS-->
-    <link href="~/css/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+    <link href="~/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
 
     <!-- Vendor ~/CSS-->
-    <link href="~/css/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
-    <link href="~/css/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
-    <link href="~/css/vendor/wow/animate.css" rel="stylesheet" media="all">
-    <link href="~/css/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
-    <link href="~/css/vendor/slick/slick.css" rel="stylesheet" media="all">
-    <link href="~/css/vendor/select2/select2.min.css" rel="stylesheet" media="all">
-    <link href="~/css/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
-    <link href="~/css/vendor/vector-map/jqvmap.min.css" rel="stylesheet" media="all">
+    <link href="~/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+    <link href="~/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+    <link href="~/vendor/wow/animate.css" rel="stylesheet" media="all">
+    <link href="~/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+    <link href="~/vendor/slick/slick.css" rel="stylesheet" media="all">
+    <link href="~/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="~/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+    <link href="~/vendor/vector-map/jqvmap.min.css" rel="stylesheet" media="all">
     <!-- Main CSS-->
     <link href="~/css/theme.css" rel="stylesheet" media="all">
 </head>
@@ -830,87 +830,117 @@
     <div class="form-container">
         <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
         <h2 align="center" class="text-primary">User Detail Setting</h2><hr />
-        <form action="Homepage.html" method="post">
+        @*<form action="" method="post">*@
             <div class="form-group">
                 <label>User Name</label>
-                <input class="form-control" type="text" name="fname" id="fname" required>
+                <input class="form-control" type="text" name="fname" id="uname" required>
             </div>
             <div class="form-group">
                 <label>User Email</label>
-                <input class="form-control" type="email" name="email" id="fname" required>
+                <input class="form-control" type="email" name="email" id="uemail" required>
             </div>
             <div class="form-group">
                 <label>Address</label>
-                <input class="form-control" type="email" name="email" id="fname" required>
+                <input class="form-control" type="text" name="email" id="uaddress" required>
             </div>
             <div class="form-group">
                 <label>Mobile No</label>
-                <input class="form-control" type="email" name="email" id="fname" required>
+                <input class="form-control" type="text" name="email" id="umobileno" required>
             </div>
-            <button type="submit" class="btn btn-block btn-primary" id="reg">EDIT</button>
-        </form>
+            <button type="submit" class="btn btn-block btn-primary" id="teachereditprofile">EDIT</button>
+        @*</form>*@
     </div>
 </div>
 <!--close more setting popup-->
 <!-- Jquery JS-->
-<script src="~/css/vendor/jquery-3.2.1.min.js"></script>
+<script src="~/vendor/jquery-3.2.1.min.js"></script>
 <!-- Bootstrap JS-->
-<script src="~/css/vendor/bootstrap-4.1/popper.min.js"></script>
-<script src="~/css/vendor/bootstrap-4.1/bootstrap.min.js"></script>
+<script src="~/vendor/bootstrap-4.1/popper.min.js"></script>
+<script src="~/vendor/bootstrap-4.1/bootstrap.min.js"></script>
 <!-- Vendor JS       -->
-<script src="~/css/vendor/slick/slick.min.js">
+<script src="~/vendor/slick/slick.min.js">
 </script>
-<script src="~/css/vendor/wow/wow.min.js"></script>
-<script src="~/css/vendor/animsition/animsition.min.js"></script>
-<script src="~/css/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+<script src="~/vendor/wow/wow.min.js"></script>
+<script src="~/vendor/animsition/animsition.min.js"></script>
+<script src="~/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
 </script>
-<script src="~/css/vendor/counter-up/jquery.waypoints.min.js"></script>
-<script src="~/css/vendor/counter-up/jquery.counterup.min.js">
+<script src="~/vendor/counter-up/jquery.waypoints.min.js"></script>
+<script src="~/vendor/counter-up/jquery.counterup.min.js">
 </script>
-<script src="~/css/vendor/circle-progress/circle-progress.min.js"></script>
-<script src="~/css/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
-<script src="~/css/vendor/chartjs/Chart.bundle.min.js"></script>
-<script src="~/css/vendor/select2/select2.min.js"></script>
-<script src="~/css/vendor/vector-map/jquery.vmap.js"></script>
-<script src="~/css/vendor/vector-map/jquery.vmap.min.js"></script>
-<script src="~/css/vendor/vector-map/jquery.vmap.sampledata.js"></script>
-<script src="~/css/vendor/vector-map/jquery.vmap.world.js"></script>
-<script src="~/css/vendor/vector-map/jquery.vmap.brazil.js"></script>
-<script src="~/css/vendor/vector-map/jquery.vmap.europe.js"></script>
-<script src="~/css/vendor/vector-map/jquery.vmap.france.js"></script>
-<script src="~/css/vendor/vector-map/jquery.vmap.germany.js"></script>
-<script src="~/css/vendor/vector-map/jquery.vmap.russia.js"></script>
-<script src="~/css/vendor/vector-map/jquery.vmap.usa.js"></script>
+<script src="~/vendor/circle-progress/circle-progress.min.js"></script>
+<script src="~/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+<script src="~/vendor/chartjs/Chart.bundle.min.js"></script>
+<script src="~/vendor/select2/select2.min.js"></script>
+<script src="~/vendor/vector-map/jquery.vmap.js"></script>
+<script src="~/vendor/vector-map/jquery.vmap.min.js"></script>
+<script src="~/vendor/vector-map/jquery.vmap.sampledata.js"></script>
+<script src="~/vendor/vector-map/jquery.vmap.world.js"></script>
+<script src="~/vendor/vector-map/jquery.vmap.brazil.js"></script>
+<script src="~/vendor/vector-map/jquery.vmap.europe.js"></script>
+<script src="~/vendor/vector-map/jquery.vmap.france.js"></script>
+<script src="~/vendor/vector-map/jquery.vmap.germany.js"></script>
+<script src="~/vendor/vector-map/jquery.vmap.russia.js"></script>
+<script src="~/vendor/vector-map/jquery.vmap.usa.js"></script>
 
 <!-- Main JS-->
 <script src="~/js/main.js"></script>
-
-
 <script>
-    function showtest() {
-        $('#test-form').animate({ top: '15%' }, 500);
-        $('#test-form-div').animate({ top: '20%' }, 500);
+    $(document).ready(function () {
+        $("#teachereditprofile").click(function () {
+            var uname = $("#uname").val();
+            var uemail = $("#uemail").val();
+            var uaddress = $("#uaddress").val();
+            var umobileno = $("#umobileno").val();
+            alert(uname);
+            alert(uemail);
+            alert(uaddress);
+            alert(umobileno);
+            $.ajax({
+                url: '/User/TeacherEditProfile',
+                type: 'post',
+                dataType: 'json',
+                data:
+                {
+                    UserName: uname,
+                    UserEmail: uemail,
+                    UserAddress: uaddress,
+                    UserMobileNo: umobileno,
+                },
+                success: function (result) {
+
+                    alert("hii");
+
+                },
+
+            });
+        });
+
+    });
+
+        function showtest() {
+            $('#test-form').animate({ top: '15%' }, 500);
+        $('#test-form-div').animate({top: '20%' }, 500);
         $('.account-dropdown').hide();
     }
     function hidetest() {
-        $('#test-form').animate({ top: '-500%' }, 500);
-    }
+            $('#test-form').animate({ top: '-500%' }, 500);
+        }
 
     function showsetting() {
-        $('#setting').animate({ top: '15%' }, 500);
+            $('#setting').animate({ top: '15%' }, 500);
         $('.account-dropdown').hide();
     }
     function hidesetting() {
-        $('#setting').animate({ top: '-500%' }, 500);
-    }
+            $('#setting').animate({ top: '-500%' }, 500);
+        }
 
     function showmoresetting() {
-        $('#moresetting').animate({ top: '15%' }, 500);
+            $('#moresetting').animate({ top: '15%' }, 500);
         $('.account-dropdown').hide();
     }
     function hidemoresetting() {
-        $('#moresetting').animate({ top: '-500%' }, 500);
-    }
+            $('#moresetting').animate({ top: '-500%' }, 500);
+        }
 </script>
 <style>
     #test-form {

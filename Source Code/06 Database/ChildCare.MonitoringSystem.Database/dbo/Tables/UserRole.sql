@@ -13,7 +13,8 @@
 );
 
 
+
+
 GO
-CREATE NONCLUSTERED INDEX [IX_UserRole]
-    ON [dbo].[UserRole]([UserId] ASC);
+
 
