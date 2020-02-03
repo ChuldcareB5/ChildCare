@@ -1,5 +1,6 @@
 ﻿using ChildCare.MonitoringSystem.Common;
 using ChildCare.MonitoringSystem.Web.Infrastructure;
+using ChildCare.MonitoringSystem.Web.Middlewares;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -45,7 +46,7 @@ namespace ChildCare.MonitoringSystem.Web
             })
             .AddCookie(options =>
             {
-                options.LoginPath = "/Account/Login";
+                options.LoginPath = "/Account/LogIn";
             }); ;
         }
 
@@ -68,7 +69,7 @@ namespace ChildCare.MonitoringSystem.Web
 
             app.UseAuthentication();
 
-            //app.UseApplicationMiddleware();
+            app.UseApplicationMiddleware();
 
             app.UseCookiePolicy();
 
