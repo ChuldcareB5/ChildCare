@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Home Page";
     Layout = null;
 }
@@ -12,17 +11,13 @@
     <!-- Fontfaces CSS-->
     <link rel="stylesheet" href="~/css/css/themify-icons.css">
     <link href="~/css/font-face.css" rel="stylesheet" media="all">
-    @*<link href="~/css/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
-        <link href="~/css/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
-        <link href="~/css/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">*@
     <link href="~/css/style1.css" rel="stylesheet">
-    <!-- <link rel="manifest" href="site.webmanifest"> -->
     <link rel="shortcut icon" type="image/x-icon" href="~/img1/favicon.png">
     <!-- Place favicon.ico in the root directory -->
     <!-- CSS here -->
     <link rel="stylesheet" href="~/css/css/bootstrap.min.css">
     <link rel="stylesheet" href="~/css/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="~/css/css/magnific-popup.css">
+    @*<link rel="stylesheet" href="~/css/css/magnific-popup.css">*@
     <link rel="stylesheet" href="~/css/css/font-awesome.min.css">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -34,10 +29,7 @@
     <link rel="stylesheet" href="~/css/css/slicknav.css">
     <link rel="stylesheet" href="~/css/css/style.css">
 
-    <script src="~/js/Userscript.js"></script>
 
-    <style>
-    </style>
 </head>
 
 <!-- header-start -->
@@ -72,25 +64,18 @@
         </div>
         <div id="sticky-header" class="main-header-area">
             <div class="container">
-
                 <div class="row align-items-center">
-            
                     <div class="logo">
                         <a href="index.html">
-
                             <img src="~/images/img/Logopic3a.jpg" style="width:40px; height:50px;" alt="">
-
                         </a>
                     </div>
-
-   
                     <h2 style="font-family:'Baskerville Old Face';">Child Care System</h2>
-
                     <div class="col-xl-9 ">
                         <div class="main-menu  d-none d-lg-block">
                             <nav>
                                 <ul id="navigation">
-                                    <li><a class="active" href="#home">Home</a></li>
+                                    <li><a class="active" onclick="showsetting()" href="#setting">Home</a></li>
                                     <li>
                                         <a>Campus <i class="fa fa-angle-down"></i></a>
                                         <ul class="submenu">
@@ -98,14 +83,12 @@
                                             <li><a href="/Home/PlayGround">Playground</a></li>
                                         </ul>
                                     </li>
-
                                     <li><a href="/Home/About">About</a></li>
                                     <li><a href="/Home/Contact">Contact</a></li>
                                 </ul>
                             </nav>
                         </div>
                     </div>
-
                     <div class="col-12">
                         <div class="mobile_menu d-block d-lg-none"></div>
                     </div>
@@ -116,76 +99,59 @@
 </header>
 <!-- header-end -->
 <!-- slider_area_start -->
-<div class="slider_area" >
-        <div class="slider_active owl-carousel" >
-            <div class="single_slider  d-flex align-items-center slider_bg_2" style="height:80%">
-
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="slider_text">
-
-                               <h3>
-                                   <span  style="color:white; font-family:'Berlin Sans FB'">Child care</span> <br>
-
-                               </h3>
-                                <p>
-                                    Providing a quality childcare service in qan environment <br /> which is safe, caring and stimulating.
-                                </p>
-
-                                <a class="popup-with-form boxed-btn3" href="#test-form">Click here to Login</a>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <!-- Slide One - Set the background image for this slide in the line below -->
+        <div class="carousel-item active" style="background-image: url('/images/img/Home1.jpg')">
+            <div style="margin-left:12%" class="">
+                <h1>
+                    <span style="color:white;font-family:'Berlin Sans FB'; font-size:70px;">Child care</span>
+                </h1><br />
+                <p>
+                    Providing a quality childcare service in qan environment <br /> which is safe, caring and stimulating.
+                </p><br /><br />
+                <button style="margin-left:30%" class="loginbtn" onclick="showloginpopup()" href="#loginpopup"><strong>Click Here to Login</strong></button>
             </div>
-            <div class="single_slider  d-flex align-items-center slider_bg_1"  style="height:80%">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="slider_text ">
-                                <h3>
-                                    <span  style="color:white; font-family:'Berlin Sans FB'">Child care</span> <br>
-                             
-                                </h3>
-                                <p>
-                                    If Child cannot learn in the way we teach, <br> we must teach in a way the child can learn.
-                                </p>
-                                <a class="popup-with-form boxed-btn3" href="#test-form">Click here to Login</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        </div>
+        <!-- Slide Two - Set the background image for this slide in the line below -->
+        <div class="carousel-item" style="background-image: url('/images/img/Home3.jpg')">
+            <div style="margin-left:12%" class="">
+                <h1>
+                    <span style="color:white;font-family:'Berlin Sans FB'; font-size:70px;">Child care</span>
+                </h1><br />
+                <p>
+                    Providing a quality childcare service in qan environment <br /> which is safe, caring and stimulating.
+                </p><br /><br />
+                <button style="margin-left:30%" class="loginbtn" onclick="showloginpopup()" href="#setting"><strong>Click Here to Login</strong></button>
             </div>
-            <div class="single_slider  d-flex align-items-center slider_bg_3"  style="height:80%">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="slider_text ">
-                                <h3>
-                                    <span style="color:white; font-family:'Berlin Sans FB'">Child care</span> <br>
-
-                           
-                                </h3>
-                                <p>
-                                    We must become what we wish to teach.
-                                </p>
-                                <a class="popup-with-form boxed-btn3" href="#test-form">Click here to Login</a>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        </div>
+        <!-- Slide Three - Set the background image for this slide in the line below -->
+        <div class="carousel-item" style="background-image: url('/images/img/Home6.jpg')">
+            <div style="margin-left:12%" class="">
+                <h1>
+                    <span style="color:white;font-family:'Berlin Sans FB'; font-size:70px;">Child care</span>
+                </h1><br />
+                <p>
+                    Providing a quality childcare service in qan environment <br /> which is safe, caring and stimulating.
+                </p><br /><br />
+                <button style="margin-left:30%" class="loginbtn" onclick="showloginpopup()" href="#setting"><strong>Click Here to Login</strong></button>
             </div>
         </div>
     </div>
-
-
-
-
-
-
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
 
 
 <!-- slider_area_end -->
@@ -197,22 +163,18 @@
                 <div class="single_service">
                     <div class="icon">
                         <i class="fa fa-user-secret"></i>
-
                     </div>
                     <h3> 50 Teachers</h3>
                     <p>Safety  must be the priority for any children care service provider.</p>
-          
                 </div>
             </div>
             <div class="col-xl-4 col-md-4">
                 <div class="single_service">
                     <div class="icon">
                         <i class="fa fa-users"></i>
-
                     </div>
                     <h3>300 students</h3>
                     <p>Safety  must be the priority for any children care service provider.</p>
-            
                 </div>
             </div>
             <div class="col-xl-4 col-md-4">
@@ -222,7 +184,6 @@
                     </div>
                     <h3>15 ClassRoom</h3>
                     <p>afety  must be the priority for any children care service provider.</p>
-               
                 </div>
             </div>
         </div>
@@ -259,7 +220,6 @@
                         <li> <i class="zmdi zmdi-arrow-left"></i> Duis aute irure dolor in reprehenderit in voluptate.</li>
                         <li> <i class="zmdi zmdi-arrow-left"></i> Voluptatem quia voluptas sit aspernatur. </li>
                     </ul>
-  
                 </div>
             </div>
         </div>
@@ -317,13 +277,10 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
     </div>
 </div>
 <!-- offers_area_end -->
-
 <!-- business_expert_area_start  -->
 <div class="business_expert_area">
     <div class="business_tabs_area">
@@ -335,13 +292,10 @@
                             <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
                                aria-selected="true">Campus</a>
                         </li>
-
                         <li class="nav-item">
                             <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
                                aria-selected="false">ClassRoom</a>
                         </li>
-
-
                         <li class="nav-item">
                             <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
                                aria-selected="false">Ground</a>
@@ -349,14 +303,12 @@
                     </ul>
                 </div>
             </div>
-
         </div>
     </div>
     <div class="container">
         <div class="border_bottom">
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-
                     <div class="row align-items-center">
                         <div class="col-xl-6 col-md-6">
                             <div class="business_info">
@@ -427,11 +379,10 @@
     </div>
 </div>
 <!-- business_expert_area_end  -->
-
 <!-- Start footer -->
 <footer id="mu-footer">
     <!-- start footer top -->
-    <div class="mu-footer-top"  style="display:flex; ">
+    <div class="mu-footer-top" style="display:flex; ">
         <div class="container">
             <div class="mu-footer-top-area">
                 <div class="row">
@@ -443,7 +394,7 @@
                                 <p>Phone: +(824) 226786</p>
                                 <p>Website: WWW.childcare.in</p>
                                 <p>Email: childcare@gmail.com</p>
-                             
+
                             </address>
                         </div>
                     </div>
@@ -451,7 +402,7 @@
             </div>
         </div>
         <div style="width:40%;">
-            <a href="#" class="fa fa-facebook fac" ></a>
+            <a href="#" class="fa fa-facebook fac"></a>
             <a href="#" class="fa fa-twitter"></a>
             <a href="#" class="fa fa-google"></a>
         </div>
@@ -461,34 +412,57 @@
 
 
 <!-- link that opens popup -->
-<!-- form itself end-->
-<form id="test-form" class="white-popup-block mfp-hide">
-    <div class="popup_box ">
-        <div class="popup_inner">
-            <h3>Login</h3>
-            <form action="#">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <input type="text" id="userid" placeholder="UserName">
-                    </div>
-                    <div class="col-xl-12">
-                        <input type="text" id="pass" placeholder="Password">
-                    </div>
-
-                    <div class="col-xl-12">
-                        <button type="submit" >LOGIN</button>
-                    </div>
-
-                </div>
-                <a href="/Home/Dashboard" class="text-primary pull-right">Forgot Password</a>
-
-            </form>
-         
+<div id="overlay" >
+    <!-- login form  start -->
+    <div id="loginpopup" onclick="">
+        <i class="fa fa-close pull-right" onclick="exit();"></i>
+        <div class="form-container">
+            <br />
+            <h2 align="center"><strong class="text-primary">Login Form</strong></h2><hr /><br />
+            @*<form action="Homepage.html" method="post">*@
+            <div class="col-xl-12">
+                @*<label>User Name</label>*@
+                <input class="form-control" placeholder="User Name" type="text" name="uname" id="username" autocomplete="off" required>
+            </div><br />
+            <div class="col-xl-12">
+                @*<label>New Password</label>*@
+                <input class="form-control" placeholder="Password" type="password" name="pass" id="pass" required>
+            </div><br />
+            <div class="col-xl-12">
+                @*<label for="pwd">Confirm Password</label>*@
+                <button type="button" class="btn btn-block btn-primary" id="loginbtn" style="font-family: 'Baskerville Old Face';">Login </button>
+            </div><br />
+            <a class="pull-right text-primary" onclick="showforgotpasspopup();" style=" font-family: 'Berlin Sans FB', sans-serif; text-decoration:underline">Forgot Password</a>
         </div>
     </div>
-  
-</form>
-<!-- form itself end -->
+    </div>
+<!-- login form  end -->
+
+<!-- login form  start -->
+<div id="overlay1" >
+    <div id="forgotpasspopup">
+        <i class="fa fa-close pull-right" onclick="exit1();"></i>
+        <i class="fa fa-lock fa-4x" style="margin-left:45%" content: "\f023"></i>
+        <div class="form-container">
+            <br />
+            <h2 align="center"><strong class="text-primary">Forgot Password ?</strong></h2><hr /><br />
+            @*<form action="Homepage.html" method="post">*@
+            <div class="col-xl-12">
+                @*<label>User Name</label>*@
+                <input class="form-control" placeholder="User Email" type="email" name="email" id="femail" autocomplete="off" required>
+            </div><br />
+            <div class="col-xl-12">
+                @*<label for="pwd">Confirm Password</label>*@
+                <button type="button" class="btn btn-block btn-primary" id="send" style="font-family: 'Baskerville Old Face';">Send </button>
+            </div><br />
+            @*</form>*@
+        </div>
+    </div>
+<!-- login form  end -->
+</div>
+
+<script src="~/js/jquery.min.js"></script>
+
 <!-- JS here -->
 <script src="~/js/js1/vendor/modernizr-3.5.0.min.js"></script>
 <script src="~/js/js1/vendor/jquery-1.12.4.min.js"></script>
@@ -508,15 +482,51 @@
 <script src="~/js/js1/jquery.magnific-popup.min.js"></script>
 <script src="~/js/js1/plugins.js"></script>
 <script src="~/js/js1/gijgo.min.js"></script>
+
 <!--contact js-->
 <script src="~/js/js1/contact.js"></script>
 <script src="~/js/js1/jquery.ajaxchimp.min.js"></script>
 <script src="~/js/js1/jquery.form.js"></script>
 <script src="~/js/js1/jquery.validate.min.js"></script>
 <script src="~/js/js1/mail-script.js"></script>
-
 <script src="~/js/js1/main.js"></script>
+
 <script>
+
+    $(document).ready(function () {
+        $('#loginbtn').click(function () {
+            var uname = $('#username').val();
+            var upassword = $('#pass').val();
+
+            alert(uname);
+            alert(upassword);
+
+            $.ajax({
+                url: '/User/UserLogin',
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    UserName: uname,
+                    UserPassword: upassword,
+                },
+                success: function (result) {
+                    if (result == 0) {
+                        alert('Username or password invalid');
+                        location.reload(true);
+                    } else if (result == 2) {
+                        alert('parent');
+                        window.location.href = "/Home/Mainpage";
+
+                    } else if (result == 1) {
+                        alert('Teacher')
+                        window.location.href = "/Home/Dashboard";
+                    }
+                },
+            });
+        });
+    });
+
+
     $('#datepicker').datepicker({
         iconsLibrary: 'fontawesome',
         icons: {
@@ -528,33 +538,44 @@
         icons: {
             rightIcon: '<span class="fa fa-caret-down"></span>'
         }
+    });
 
-    });
-    $(document).ready(function () {
-        $('.js-example-basic-multiple').select2();
-    });
+    function showloginpopup() {
+        $('#loginpopup').animate({ top: '23%' }, 500);
+        document.getElementById("overlay").style.display = "block";
+    }
+    function hideloginpopup() {
+        $('#loginpopup').animate({ top: '-500%' }, 500);
+        document.getElementById("overlay").style.display = "none";
+    }
+
+
+    function showforgotpasspopup() {
+        $('#forgotpasspopup').animate({ top: '26%' }, 500);
+        $('#loginpopup').hide();
+        document.getElementById("overlay1").style.display = "block";
+    }
+    function hideforgotpasspopup() {
+        $('#forgotpasspopup').animate({ top: '-500%' }, 500);
+        document.getElementById("overlay1").style.display = "none";
+    }
+
+
+    function exit() {
+        //$('#overlay').overlay.close();
+        //$('#loginpopup').hide();
+        document.getElementById("overlay").style.display = "none";
+        //location.reload();
+
+
+    }
+
+    function exit1() {
+        document.getElementById("overlay1").style.display = "none";
+        location.reload();
+
+    }
 </script>
-
-
-<script>
-    $('#datepicker').datepicker({
-        iconsLibrary: 'fontawesome',
-        icons: {
-            rightIcon: '<span class="fa fa-caret-down"></span>'
-        }
-    });
-    $('#datepicker2').datepicker({
-        iconsLibrary: 'fontawesome',
-        icons: {
-            rightIcon: '<span class="fa fa-caret-down"></span>'
-        }
-
-    });
-    $(document).ready(function () {
-        $('.js-example-basic-multiple').select2();
-    });
-</script>
-
 
 <style>
     .carousel-inner .carousel-item.active,
@@ -577,15 +598,99 @@
     .carousel-inner .carousel-item-left {
         transform: translateX(5%);
     }
+
+
+    .carousel-item {
+        height: 80vh;
+        min-height: 350px;
+        background: no-repeat center center scroll;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
 </style>
+@*<script>
+    
+    var modal = document.getElementById('loginpopup');
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+        
+    }
+</script>*@
+
+
 
 <style>
+    #loginpopup {
+        position: fixed;
+        top: -500%;
+        width: 45%;
+        margin-left: 27%;
+        background-color: white;
+        /*/*box-shadow: 2px 3px 10px grey;*/
+        border-radius: 10px;
+        padding: 20px;
+    }
 
-        .fa:hover {
-            opacity: 0.7;
-        }
+    #forgotpasspopup {
+        position: fixed;
+        top: -500%;
+        width: 45%;
+        margin-left: 27%;
+        background-color: white;
+        /*box-shadow: 2px 3px 10px grey;*/
+        border-radius: 10px;
+        padding: 20px;
+    }
 
-    .fac{
+    h2 {
+        font-family: 'Baskerville Old Face', sans-serif;
+    }
+
+    #username, #pass, #femail {
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+        border: 2px solid #ccc;
+        appearance: unset;
+        -moz-appearance: unset;
+        -webkit-appearance: unset;
+        -o-appearance: unset;
+        -ms-appearance: unset;
+        outline: none;
+        -moz-outline: none;
+        -webkit-outline: none;
+        -o-outline: none;
+        -ms-outline: none;
+        border-radius: 27.5px;
+        -o-border-radius: 27.5px;
+        -ms-border-radius: 27.5px;
+        -moz-border-radius: 27.5px;
+        -webkit-border-radius: 27.5px;
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        background: rgba(255, 255, 255, 0.2)
+    }
+
+    #loginbtn, #send {
+        padding: 10px;
+        box-shadow: 2px 3px 8px slategrey;
+        border-radius: 27.5px;
+    }
+
+    #username:focus, #pass:focus {
+        border: 2px solid #999;
+    }
+
+    .fa:hover {
+        opacity: 0.7;
+    }
+
+    .fac {
         padding: 20px;
         font-size: 30px;
         width: 65px;
@@ -619,6 +724,70 @@
         border-radius: 50%;
         background: #dd4b39;
         color: white;
+    }
+
+
+
+
+    .loginbtn {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        background-color: Highlight;
+        color: black;
+        font-size: 16px;
+        padding: 16px 40px;
+        border: 1px solid blue;
+        cursor: pointer;
+        border-radius: 5px;
+        text-align: center;
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+
+        .loginbtn:hover {
+            background-color: transparent;
+            border: 1px solid black;
+            color: darkblue;
+            /*transition: 0.0000001s;*/
+        }
+
+    strong {
+        color: black;
+    }
+
+
+
+    #overlay 
+    {
+        position: fixed; /* Sit on top of the page content */
+        display: none; /* Hidden by default */
+        width: 100%; /* Full width (cover the whole page) */
+        height: 100%; /* Full height (cover the whole page) */
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+        z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+        cursor: pointer; /* Add a pointer on hover */
+
+    }
+
+
+
+    #overlay1 {
+        position: fixed; /* Sit on top of the page content */
+        display: none; /* Hidden by default */
+        width: 100%; /* Full width (cover the whole page) */
+        height: 100%; /* Full height (cover the whole page) */
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+        z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+        cursor: pointer; /* Add a pointer on hover */
     }
 </style>
 

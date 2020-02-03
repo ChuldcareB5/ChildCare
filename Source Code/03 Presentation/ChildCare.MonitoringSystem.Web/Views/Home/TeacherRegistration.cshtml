@@ -100,8 +100,13 @@
                         </ul>
                     </li>
                     <li>
+                        <a href="~/Home/RoomSchedule">
+                            <i class="fas fa-home"></i>Room Schedule
+                        </a>
+                    </li>
+                    <li>
                         <a href="~/Home/BusSchedule">
-                            <i class="fas fa-times"></i>Bus Schedule
+                            <i class="fas fa-bus"></i>Bus Schedule
                         </a>
                     </li>
                 </ul>
@@ -174,8 +179,13 @@
                         </ul>
                     </li>
                     <li>
+                        <a href="~/Home/RoomSchedule">
+                            <i class="fas fa-home"></i>Room Schedule
+                        </a>
+                    </li>
+                    <li>
                         <a href="~/Home/BusSchedule">
-                            <i class="fas fa-times"></i>Bus Schedule
+                            <i class="fas fa-bus"></i>Bus Schedule
                         </a>
                     </li>
                 </ul>
@@ -229,46 +239,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                @*<div class="noti__item js-item-menu">
-                                        <i class="zmdi zmdi-email"></i>
-                                        <span class="quantity">1</span>
-                                        <div class="email-dropdown js-dropdown">
-                                            <div class="email__title">
-                                                <p>You have 3 New Emails</p>
-                                            </div>
-                                            <div class="email__item">
-                                                <div class="image img-cir img-40">
-                                                    <img src="~/images/icon/avatar-06.jpg" alt="Cynthia Harvey" />
-                                                </div>
-                                                <div class="content">
-                                                    <p>Meeting about new dashboard...</p>
-                                                    <span>Cynthia Harvey, 3 min ago</span>
-                                                </div>
-                                            </div>
-                                            <div class="email__item">
-                                                <div class="image img-cir img-40">
-                                                    <img src="~/images/icon/avatar-05.jpg" alt="Cynthia Harvey" />
-                                                </div>
-                                                <div class="content">
-                                                    <p>Meeting about new dashboard...</p>
-                                                    <span>Cynthia Harvey, Yesterday</span>
-                                                </div>
-                                            </div>
-                                            <div class="email__item">
-                                                <div class="image img-cir img-40">
-                                                    <img src="~/images/icon/avatar-04.jpg" alt="Cynthia Harvey" />
-                                                </div>
-                                                <div class="content">
-                                                    <p>Meeting about new dashboard...</p>
-                                                    <span>Cynthia Harvey, April 12,,2018</span>
-                                                </div>
-                                            </div>
-                                            <div class="email__footer">
-                                                <a href="#">See all emails</a>
-                                            </div>
-                                        </div>
-                                    </div>*@
 
                                 <div class="noti__item js-item-menu">
                                     <i class="zmdi zmdi-notifications"></i>
@@ -367,7 +337,7 @@
                         <strong align="center">Teacher Registration Form</strong>
                     </div>
                     <div class="card-body card-block" style="padding:60px;">
-                        <form action="" method="post" class="" style="width:100%;">
+                        <form action="" method="post" id="TeacherForm" style="width:100%;">
                             <div class="form-group">
                                 <label for="mname" class=" form-control-label">User Name</label>
                                 <div class="input-group">
@@ -414,7 +384,7 @@
                         <button type="submit" id="teacherlogin" class="btn btn-primary ">
                             Submit
                         </button>
-                        <button type="reset" class="btn btn-success ">
+                        <button type="reset" onclick="reset();" class="btn btn-success ">
                             Reset
                         </button>
                     </div>
@@ -536,6 +506,7 @@
 
 <!-- Main JS-->
 <script src="~/js/main.js"></script>
+
 <script>
     $(document).ready(function () {
         $("#teacherlogin").click(function () {
@@ -560,7 +531,7 @@
                 },
                 success: function (result) {
 
-                    alert("hii");
+                    alert("Successfully inserted User");
 
                 },
 
@@ -592,8 +563,12 @@
     }
     function hidemoresetting() {
         $('#moresetting').animate({ top: '-500%' }, 500);
+    } 
+    function reset() {
+        document.getElementById('TeacherForm').reset();
     }
 </script>
+
 <style>
     #test-form {
         position: fixed;
@@ -661,12 +636,11 @@
         cursor: pointer;
     }
 
-        form.example button:hover {
-            background: #0b7dda;
-        }
+    form.example button:hover {
+        background: #0b7dda;
+    }
 
     form.example::after {
-        content: "";
         clear: both;
         display: table;
     }

@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ChildCare.MonitoringSystem.Business;
+using ChildCare.MonitoringSystem.Entity;
 using ChildCare.MonitoringSystem.Model;
-using ChildCare.MonitoringSystem.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,7 +12,9 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 {
     public class UserController : Controller
     {
+		
 		private readonly UserBusiness userBusiness;
+		
 
 		public UserController(UserBusiness userBusiness)
 		{
@@ -28,11 +30,11 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 		public ActionResult<Int32> AddParent(UserModel usermodel)
 		{
 			var user = this.userBusiness.AddParent(usermodel);
-            var us = user.UserId;
-			return user.UserId;
+			var userId = user.UserId;
+			return user.UserId; ;
 		}
-        [HttpPost]
-        public ActionResult<UserModel> AddTeacher(UserModel usermodel)
+
+		public ActionResult<UserModel> AddTeacher(UserModel usermodel)
 		{
 			var user = this.userBusiness.AddTeacher(usermodel);
 			return user;

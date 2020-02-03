@@ -1,4 +1,4 @@
-﻿
+﻿@*@model ChildCare.MonitoringSystem.Model.BusScheduleModel*@
 @{
     ViewData["Title"] = "BusSchedule";
 }
@@ -26,6 +26,7 @@
     <!-- Main CSS-->
     <link href="~/css/theme.css" rel="stylesheet" media="all">
 </head>
+
 <div class="page-wrapper">
     <!-- HEADER MOBILE-->
     <header class="header-mobile d-block d-lg-none">
@@ -77,11 +78,7 @@
                             <i class="fas fa-camera"></i>Student Camera View
                         </a>
                     </li>
-                    @*<li>
-                            <a href="~/Home/Calender">
-                                <i class="fas fa-calendar-alt"></i>Calendar
-                            </a>
-                        </li>*@
+
                     <li class="has-sub">
                         <a class="js-arrow">
                             <i class="fa fa-location-arrow"></i>Location
@@ -96,6 +93,16 @@
                                 <a asp-area="" asp-controller="Home" asp-action="BusTracking">Student Location</a>
                             </li>
                         </ul>
+                    </li>
+                    <li>
+                        <a href="~/Home/RoomSchedule">
+                            <i class="fas fa-home"></i>Room Schedule
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/Home/BusSchedule">
+                            <i class="fas fa-bus"></i>Bus Schedule
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -129,7 +136,6 @@
                             <li>
                                 <a asp-area="" asp-controller="Home" asp-action="Form1">Teacher Registration</a>
                             </li>
-
                         </ul>
                     </li>
                     <li>
@@ -142,14 +148,6 @@
                             <i class="fas fa-camera"></i>Student Camera View
                         </a>
                     </li>
-
-
-
-                    @*<li>
-            <a href="~/Home/Calender">
-                <i class="fas fa-calendar-alt"></i>Calendar
-            </a>
-        </li>*@
                     <li class="has-sub">
                         <a class="js-arrow">
                             <i class="far fa-location-arrow"></i>Location
@@ -167,8 +165,13 @@
                         </ul>
                     </li>
                     <li>
+                        <a href="~/Home/RoomSchedule">
+                            <i class="fas fa-home"></i>Room Schedule
+                        </a>
+                    </li>
+                    <li>
                         <a href="~/Home/BusSchedule">
-                            <i class="fas fa-times"></i>Bus Schedule
+                            <i class="fas fa-bus"></i>Bus Schedule
                         </a>
                     </li>
                 </ul>
@@ -222,45 +225,6 @@
                                     </div>
                                 </div>
 
-                                @*<div class="noti__item js-item-menu">
-                                    <i class="zmdi zmdi-email"></i>
-                                    <span class="quantity">1</span>
-                                    <div class="email-dropdown js-dropdown">
-                                        <div class="email__title">
-                                            <p>You have 3 New Emails</p>
-                                        </div>
-                                        <div class="email__item">
-                                            <div class="image img-cir img-40">
-                                                <img src="~/images/icon/avatar-06.jpg" alt="Cynthia Harvey" />
-                                            </div>
-                                            <div class="content">
-                                                <p>Meeting about new dashboard...</p>
-                                                <span>Cynthia Harvey, 3 min ago</span>
-                                            </div>
-                                        </div>
-                                        <div class="email__item">
-                                            <div class="image img-cir img-40">
-                                                <img src="~/images/icon/avatar-05.jpg" alt="Cynthia Harvey" />
-                                            </div>
-                                            <div class="content">
-                                                <p>Meeting about new dashboard...</p>
-                                                <span>Cynthia Harvey, Yesterday</span>
-                                            </div>
-                                        </div>
-                                        <div class="email__item">
-                                            <div class="image img-cir img-40">
-                                                <img src="~/images/icon/avatar-04.jpg" alt="Cynthia Harvey" />
-                                            </div>
-                                            <div class="content">
-                                                <p>Meeting about new dashboard...</p>
-                                                <span>Cynthia Harvey, April 12,,2018</span>
-                                            </div>
-                                        </div>
-                                        <div class="email__footer">
-                                            <a href="#">See all emails</a>
-                                        </div>
-                                    </div>
-                                </div>*@
 
                                 <div class="noti__item js-item-menu">
                                     <i class="zmdi zmdi-notifications"></i>
@@ -353,13 +317,13 @@
         <!-- MAIN CONTENT-->
         <div class="main-content">
             @*<div class="section__content section__content--p30">*@
-            <button class="btn btn-primary col-lg-1 pull-right" style="margin-right:5%;"onclick="showadd();">+ ADD</button><br />
+            <button class="btn btn-primary col-lg-1 pull-right" style="margin-right:5%;" onclick="showadd();">+ ADD</button><br />
             <button class="btn btn-danger col-lg-1 pull-right" style="margin-right:5%;">- DELETE</button>
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="table-responsive table-responsive-data2" style="overflow:auto">
-                            <table class="table table-data2">
+                            <table class="table table-data2" id="bus">
                                 <thead>
                                     <tr>
                                         <th>
@@ -370,72 +334,72 @@
                                         <th></th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr class="tr-shadow">
-                                        <td>
-                                            <label class="au-checkbox">
-                                                <input type="checkbox">
-                                                <span class="au-checkmark"></span>
-                                            </label>
-                                        </td>
-                                        <td>1</td>
-                                        <td>
-                                            Bus1
-                                        </td>
-                                        <td>
-                                            <div class="table-data-feature">
-                                                <button onclick="show();" title="Send Message" class="btn btn-primary">
-                                                    <a onclick="showschedule()">
-                                                        Schedule
-                                                    </a>
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="tr-shadow">
-                                        <td>
-                                            <label class="au-checkbox">
-                                                <input type="checkbox">
-                                                <span class="au-checkmark"></span>
-                                            </label>
-                                        </td>
-                                        <td>2</td>
-                                        <td>
-                                            Bus2
-                                        </td>
-                                        <td>
-                                            <div class="table-data-feature">
-                                                <button onclick="show();" title="Send Message" class="btn btn-primary">
-                                                    <a onclick="showschedule()">
-                                                        Schedule
-                                                    </a>
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="tr-shadow">
-                                        <td>
-                                            <label class="au-checkbox">
-                                                <input type="checkbox">
-                                                <span class="au-checkmark"></span>
-                                            </label>
-                                        </td>
-                                        <td>3</td>
-                                        <td>
-                                            Bus3
-                                        </td>
-                                        <td>
-                                            <div class="table-data-feature">
-                                                <button onclick="show();" title="Send Message" class="btn btn-primary">
-                                                    <a onclick="showschedule()">
-                                                        Schedule
-                                                    </a>
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                @*<tbody>
+                                        <tr class="tr-shadow">
+                                            <td>
+                                                <label class="au-checkbox">
+                                                    <input type="checkbox">
+                                                    <span class="au-checkmark"></span>
+                                                </label>
+                                            </td>
+                                            <td>1</td>
+                                            <td>
+                                                Bus1
+                                            </td>
+                                            <td>
+                                                <div class="table-data-feature">
+                                                    <button onclick="show();" title="Send Message" class="btn btn-primary">
+                                                        <a onclick="showschedule()">
+                                                            Schedule
+                                                        </a>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="tr-shadow">
+                                            <td>
+                                                <label class="au-checkbox">
+                                                    <input type="checkbox">
+                                                    <span class="au-checkmark"></span>
+                                                </label>
+                                            </td>
+                                            <td>2</td>
+                                            <td>
+                                                Bus2
+                                            </td>
+                                            <td>
+                                                <div class="table-data-feature">
+                                                    <button onclick="show();" title="Send Message" class="btn btn-primary">
+                                                        <a onclick="showschedule()">
+                                                            Schedule
+                                                        </a>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="tr-shadow">
+                                            <td>
+                                                <label class="au-checkbox">
+                                                    <input type="checkbox">
+                                                    <span class="au-checkmark"></span>
+                                                </label>
+                                            </td>
+                                            <td>3</td>
+                                            <td>
+                                                Bus3
+                                            </td>
+                                            <td>
+                                                <div class="table-data-feature">
+                                                    <button onclick="show();" title="Send Message" class="btn btn-primary">
+                                                        <a onclick="showschedule()">
+                                                            Schedule
+                                                        </a>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
 
-                                </tbody>
+                                    </tbody>*@
                             </table>
                         </div>
                     </div>
@@ -445,334 +409,462 @@
 
             </div>
         </div>
-
-        <!-- END MAIN CONTENT-->
-        <!-- END PAGE CONTAINER-->
-        <!--start Account popup-->
-        <div id="test-form-div ">
-            <div id="test-form" class="">
-                <div class="form-container">
-                    <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
-                    <h4 align="center" class="text-primary">Profile View</h4><hr />
-                    <form action="Homepage.html" method="post">
-                        <div class="form-group" align="center">
-                            <div class="image">
-                                <img src="~/images/img/user.png" />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label >User Name</label>
-                            <label class="form-control" name="fname" id="fname">Purshotham</label>
-                        </div>
-                        <div class="form-group">
-                            <label >User Email</label>
-                            <label class="form-control" name="email" id="fname">Pursh123@gmail.com</label>
-                        </div>
-                        <div class="form-group">
-                            <label >Mobile No</label>
-                            <label class="form-control" name="number" id="pwd">9653247815</label>
-                        </div>
-
-                    </form>
+    </div>
+    <!-- END MAIN CONTENT-->
+</div>
+<!-- END PAGE CONTAINER-->
+<!--start Account popup-->
+<div id="test-form-div ">
+    <div id="test-form" class="">
+        <div class="form-container">
+            <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
+            <h4 align="center" class="text-primary">Profile View</h4><hr />
+            <form action="Homepage.html" method="post">
+                <div class="form-group" align="center">
+                    <div class="image">
+                        <img src="~/images/img/user.png" />
+                    </div>
                 </div>
-            </div>
+                <div class="form-group">
+                    <label>User Name</label>
+                    <label class="form-control" name="fname" id="fname">Purshotham</label>
+                </div>
+                <div class="form-group">
+                    <label>User Email</label>
+                    <label class="form-control" name="email" id="fname">Pursh123@gmail.com</label>
+                </div>
+                <div class="form-group">
+                    <label>Mobile No</label>
+                    <label class="form-control" name="number" id="pwd">9653247815</label>
+                </div>
+
+            </form>
         </div>
-        <!--close Account popup-->
-        <!--start setting popup-->
-        <div id="setting" class="">
-            <div class="form-container">
-                <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
-                <h4 align="center" class="text-primary">Password Setting</h4><hr />
-                <form action="Homepage.html" method="post">
-                    <div class="form-group">
-                        <label>Old Password</label>
-                        <input class="form-control" type="text" name="fname" id="fname" required>
-                    </div>
-                    <div class="form-group">
-                        <label>New Password</label>
-                        <input class="form-control" type="email" name="email" id="fname" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="pwd">Confirm Password</label>
-                        <input class="form-control" type="tel" name="number" id="pwd" required>
-                    </div>
-                    <button type="submit" class="btn btn-block btn-primary" id="reg">SUBMIT </button><br>
-                    <a href="#moresetting" class="pull-right" onclick="showmoresetting()">Set More Details</a>
-                </form>
+    </div>
+</div>
+<!--close Account popup-->
+<!--start setting popup-->
+<div id="setting" class="">
+    <div class="form-container">
+        <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
+        <h4 align="center" class="text-primary">Password Setting</h4><hr />
+        <form action="Homepage.html" method="post">
+            <div class="form-group">
+                <label>Old Password</label>
+                <input class="form-control" type="text" name="fname" id="fname" required>
             </div>
-        </div>
-        <!--close setting popup-->
-        <!--start more setting popup-->
-        <div id="moresetting" class="">
-            <div class="form-container">
-                <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
-                <h4 align="center" class="text-primary">User Detail Setting</h4><hr />
-                <form action="Homepage.html" method="post">
-                    <div class="form-group">
-                        <label>User Name</label>
-                        <input class="form-control" type="text" name="fname" id="fname" required>
-                    </div>
-                    <div class="form-group">
-                        <label>User Email</label>
-                        <input class="form-control" type="email" name="email" id="fname" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Address</label>
-                        <input class="form-control" type="email" name="email" id="fname" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Mobile No</label>
-                        <input class="form-control" type="email" name="email" id="fname" required>
-                    </div>
-                    <button type="submit" class="btn btn-block btn-primary" id="reg">EDIT</button>
-                </form>
+            <div class="form-group">
+                <label>New Password</label>
+                <input class="form-control" type="email" name="email" id="fname" required>
             </div>
-        </div>
-        <!--close more setting popup-->
-
-
-        <div id="schedule" class="">
-            <div class="form-container">
-                <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
-                <h4 align="center" class="text-primary">Bus Schedule</h4><hr />
-                <form action="Homepage.html" method="post">
-                    <div class="form-group">
-                        <label>Bus Id</label>
-                        <input class="form-control" type="text" name="fname" id="fname" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Driver Name</label>
-                        <input class="form-control" type="text" name="email" id="fname" required>
-                    </div>
-                    <div class="form-group">
-                        <label>To</label>
-                        <input class="form-control" type="text" name="email" id="fname" required>
-                    </div>
-                    <div class="form-group">
-                        <label>From</label>
-                        <input class="form-control" type="text" name="email" id="fname" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Time</label>
-                        <input class="form-control" type="time" name="email" id="fname" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Date</label>
-                        <input class="form-control" type="date" name="email" id="fname" required>
-                    </div>
-                    <button type="submit" class="btn btn-block btn-primary" id="reg">UPDATE</button>
-                </form>
+            <div class="form-group">
+                <label for="pwd">Confirm Password</label>
+                <input class="form-control" type="tel" name="number" id="pwd" required>
             </div>
-        </div>
-
-
-        <div id="add" class="">
-            <div class="form-container">
-                <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
-                <h4 align="center" class="text-primary">Add Bus</h4><hr />
-                <form action="Homepage.html" method="post">
-                    <div class="form-group">
-                        <label>Bus Name</label>
-                        <input class="form-control" type="text" name="fname" id="fname" required>
-                    </div>
-                    <div class="form-group">
-                        <label>To</label>
-                        <input class="form-control" type="text" name="email" id="fname" required>
-                    </div>
-                    <div class="form-group">
-                        <label>From</label>
-                        <input class="form-control" type="text" name="email" id="fname" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Time</label>
-                        <input class="form-control" type="time" name="email" id="fname" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Date</label>
-                        <input class="form-control" type="date" name="email" id="fname" required>
-                    </div>
-                    <button type="submit" class="btn btn-block btn-primary" id="reg">UPDATE</button>
-                </form>
+            <button type="submit" class="btn btn-block btn-primary" id="reg">SUBMIT </button><br>
+            <a href="#moresetting" class="pull-right" onclick="showmoresetting()">Set More Details</a>
+        </form>
+    </div>
+</div>
+<!--close setting popup-->
+<!--start more setting popup-->
+<div id="moresetting" class="">
+    <div class="form-container">
+        <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
+        <h4 align="center" class="text-primary">User Detail Setting</h4><hr />
+        <form action="Homepage.html" method="post">
+            <div class="form-group">
+                <label>User Name</label>
+                <input class="form-control" type="text" name="fname" id="fname" required>
             </div>
-        </div>
-        <!-- Jquery JS-->
-        <script src="~/vendor/jquery-3.2.1.min.js"></script>
-        <!-- Bootstrap JS-->
-        <script src="~/vendor/bootstrap-4.1/popper.min.js"></script>
-        <script src="~/vendor/bootstrap-4.1/bootstrap.min.js"></script>
-        <!-- Vendor JS       -->
-        <script src="~/vendor/slick/slick.min.js">
-        </script>
-        <script src="~/vendor/wow/wow.min.js"></script>
-        <script src="~/vendor/animsition/animsition.min.js"></script>
-        <script src="~/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
-        </script>
-        <script src="~/vendor/counter-up/jquery.waypoints.min.js"></script>
-        <script src="~/vendor/counter-up/jquery.counterup.min.js">
-        </script>
-        <script src="~/vendor/circle-progress/circle-progress.min.js"></script>
-        <script src="~/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
-        <script src="~/vendor/chartjs/Chart.bundle.min.js"></script>
-        <script src="~/vendor/select2/select2.min.js"></script>
-        <script src="~/vendor/vector-map/jquery.vmap.js"></script>
-        <script src="~/vendor/vector-map/jquery.vmap.min.js"></script>
-        <script src="~/vendor/vector-map/jquery.vmap.sampledata.js"></script>
-        <script src="~/vendor/vector-map/jquery.vmap.world.js"></script>
-        <script src="~/vendor/vector-map/jquery.vmap.brazil.js"></script>
-        <script src="~/vendor/vector-map/jquery.vmap.europe.js"></script>
-        <script src="~/vendor/vector-map/jquery.vmap.france.js"></script>
-        <script src="~/vendor/vector-map/jquery.vmap.germany.js"></script>
-        <script src="~/vendor/vector-map/jquery.vmap.russia.js"></script>
-        <script src="~/vendor/vector-map/jquery.vmap.usa.js"></script>
+            <div class="form-group">
+                <label>User Email</label>
+                <input class="form-control" type="email" name="email" id="fname" required>
+            </div>
+            <div class="form-group">
+                <label>Address</label>
+                <input class="form-control" type="email" name="email" id="fname" required>
+            </div>
+            <div class="form-group">
+                <label>Mobile No</label>
+                <input class="form-control" type="email" name="email" id="fname" required>
+            </div>
+            <button type="submit" class="btn btn-block btn-primary" id="reg">EDIT</button>
+        </form>
+    </div>
+</div>
+<!--close more setting popup-->
+
+<div id="schedule" class="">
+    <div class="form-container">
+        <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
+        <h4 align="center" class="text-primary">Bus Schedule</h4><hr />
+        <form action="Homepage.html" method="post">
+            @*<div class="form-group">
+                    <label>Bus Id</label>
+                    <input class="form-control" type="text" name="bId" id="bId" required>
+                </div>*@
+            <div class="form-group">
+                <label>Driver Name</label>
+                @*@Html.TextBoxFor(x => x.BusScheduleDriverName)*@
+                @*<input class="form-control" type="text" name="bdriverName" id="" value="@Model.BusScheduleDriverName" required>*@
+            </div>
+            <div class="form-group">
+                <label>To</label>
+                @*<input class="form-control" type="text" name="to" id="to" value="@Model.ToBusSchedule" required>*@
+            </div>
+            <div class="form-group">
+                <label>From</label>
+                @*<input class="form-control" type="text" name="from" id="from" value="@Model.FromBusSchedule" required>*@
+            </div>
+            <div class="form-group">
+                <label>Time</label>
+                @*<input class="form-control" type="time" name="time" id="time" value="@Model.BusScheduleTime" required>*@
+            </div>
+            <div class="form-group">
+                <label>Date</label>
+                @*<input class="form-control" type="date" name="date" id="date" value="@Model.BusScheduleDate" required>*@
+            </div>
+            <button type="submit" class="btn btn-block btn-primary" id="">UPDATE</button>
+        </form>
+    </div>
+</div>
+
+<div id="add" class="">
+    <div class="form-container">
+        <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
+        <h4 align="center" class="text-primary">Add Bus</h4><hr />
+        <form method="post">
+            <div class="form-group">
+                <label>Bus Name</label>
+                <input class="form-control" type="text" name="bname" id="bname" required>
+            </div>
+            <div class="form-group">
+                <label>Bus DriverName</label>
+                <input class="form-control" type="text" name="dname" id="dName" required>
+            </div>
+            <div class="form-group">
+                <label>To</label>
+                <input class="form-control" type="text" name="email" id="bto" required>
+            </div>
+            <div class="form-group">
+                <label>From</label>
+                <input class="form-control" type="text" name="email" id="bfrom" required>
+            </div>
+            <div class="form-group">
+                <label>Time</label>
+                <input class="form-control" type="time" name="email" id="btime" required>
+            </div>
+            <div class="form-group">
+                <label>Date</label>
+                <input class="form-control" type="date" name="email" id="bdate" required>
+            </div>
+            <button type="submit" class="btn btn-block btn-primary" id="busupdate">Add</button>
+        </form>
+    </div>
+</div>
+
+<!-- Jquery JS-->
+<script src="~/vendor/jquery-3.2.1.min.js"></script>
+<!-- Bootstrap JS-->
+<script src="~/vendor/bootstrap-4.1/popper.min.js"></script>
+<script src="~/vendor/bootstrap-4.1/bootstrap.min.js"></script>
+<!-- Vendor JS       -->
+<script src="~/vendor/slick/slick.min.js">
+</script>
+<script src="~/vendor/wow/wow.min.js"></script>
+<script src="~/vendor/animsition/animsition.min.js"></script>
+<script src="~/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+</script>
+<script src="~/vendor/counter-up/jquery.waypoints.min.js"></script>
+<script src="~/vendor/counter-up/jquery.counterup.min.js">
+</script>
+<script src="~/vendor/circle-progress/circle-progress.min.js"></script>
+<script src="~/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+<script src="~/vendor/chartjs/Chart.bundle.min.js"></script>
+<script src="~/vendor/select2/select2.min.js"></script>
+<script src="~/vendor/vector-map/jquery.vmap.js"></script>
+<script src="~/vendor/vector-map/jquery.vmap.min.js"></script>
+<script src="~/vendor/vector-map/jquery.vmap.sampledata.js"></script>
+<script src="~/vendor/vector-map/jquery.vmap.world.js"></script>
+<script src="~/vendor/vector-map/jquery.vmap.brazil.js"></script>
+<script src="~/vendor/vector-map/jquery.vmap.europe.js"></script>
+<script src="~/vendor/vector-map/jquery.vmap.france.js"></script>
+<script src="~/vendor/vector-map/jquery.vmap.germany.js"></script>
+<script src="~/vendor/vector-map/jquery.vmap.russia.js"></script>
+<script src="~/vendor/vector-map/jquery.vmap.usa.js"></script>
+<!-- Main JS-->
+<script src="~/js/main.js"></script>
+
+<script>
+    function showtest() {
+        $('#test-form').animate({ top: '15%' }, 500);
+        $('#test-form-div').animate({ top: '20%' }, 500);
+        $('.account-dropdown').hide();
+    }
+    function hidetest() {
+        $('#test-form').animate({ top: '-500%' }, 500);
+    }
+
+    function showsetting() {
+        $('#setting').animate({ top: '15%' }, 500);
+        $('.account-dropdown').hide();
+    }
+    function hidesetting() {
+        $('#setting').animate({ top: '-500%' }, 500);
+    }
+
+    function showmoresetting() {
+        $('#moresetting').animate({ top: '15%' }, 500);
+        $('.account-dropdown').hide();
+    }
+    function hidemoresetting() {
+        $('#moresetting').animate({ top: '-500%' }, 500);
+    }
 
 
-        <!-- Main JS-->
-        <script src="~/js/main.js"></script>
+    function showschedule() {
+     
+        
+        $('#schedule').animate({ top: '12%' }, 500);
+        $('.account-dropdown').hide();
 
-        <script>
-            function showtest() {
-                $('#test-form').animate({ top: '15%' }, 500);
-                $('#test-form-div').animate({ top: '20%' }, 500);
-                $('.account-dropdown').hide();
-            }
-            function hidetest() {
-                $('#test-form').animate({ top: '-500%' }, 500);
-            }
+    }
+    function hideschedule() {
+        $('#schedule').animate({ top: '-500%' }, 500);
+    }
 
-            function showsetting() {
-                $('#setting').animate({ top: '15%' }, 500);
-                $('.account-dropdown').hide();
-            }
-            function hidesetting() {
-                $('#setting').animate({ top: '-500%' }, 500);
-            }
-
-            function showmoresetting() {
-                $('#moresetting').animate({ top: '15%' }, 500);
-                $('.account-dropdown').hide();
-            }
-            function hidemoresetting() {
-                $('#moresetting').animate({ top: '-500%' }, 500);
-            }
+    function showadd() {
+        $('#add').animate({ top: '12%' }, 500);
+        $('.account-dropdown').hide();
+    }
+    function hideadd() {
+        $('#add').animate({ top: '-500%' }, 500);
+    }
+</script>
 
 
-            function showschedule() {
-                $('#schedule').animate({ top: '12%' }, 500);
-                $('.account-dropdown').hide();
-            }
-            function hideschedule() {
-                $('#schedule').animate({ top: '-500%' }, 500);
-            }
+<script>
+    $(document).ready(function () {
+        $("#busupdate").click(function () {
 
-            function showadd() {
-                $('#add').animate({ top: '12%' }, 500);
-                $('.account-dropdown').hide();
-            }
-            function hideadd() {
-                $('#add').animate({ top: '-500%' }, 500);
-            }
-        </script>
-        <style>
-            #test-form {
-                position: fixed;
-                top: -500%;
-                width: 35%;
-                margin-left: 12%;
-                background-color: white;
-                box-shadow: 2px 3px 8px slategrey;
-                border-radius: 5px;
-                padding: 35px;
-            }
+            var dName = $("#dName").val();
+            var bto = $("#bto").val();
+            var bfrom = $("#bfrom").val();
+            var btime = $("#btime").val();
+            var bdate = $("#bdate").val();
+            var bname = $("#bname").val();
 
-            #setting {
-                position: fixed;
-                top: -500%;
-                width: 35%;
-                margin-left: 12%;
-                background-color: white;
-                box-shadow: 2px 3px 8px slategrey;
-                border-radius: 5px;
-                padding: 35px;
-            }
+            alert(dName);
+            alert(bto);
+            //alert(bfrom);
+            //alert(btime);
+            //alert(bdate);
+            //alert(bname);
+            $.ajax({
+                url: '/Bus/AddBus',
+                type: 'post',
+                dataType: 'json',
+                data:
+                {
+                    BusName: bname,
+                },
+                //debugger
+                success: function (result) {
+                    alert("Successfully inserted Bus");
+                    var busId = result;
+                    $.ajax({
+                        url: '/BusSchedule/AddBusSchedule',
+                        type: 'post',
+                        dataType: 'json',
+                        data:
+                        {
+                            BusScheduleDriverName: dName,
+                            ToBusSchedule: bto,
+                            FromBusSchedule: bfrom,
+                            BusScheduleTime: btime,
+                            BusScheduleDate: bdate,
+                            BusId: busId,
+                        },
+                        success: function (result) {
+                            alert("Successfully inserted Bus schedule");
+                        },
+                    }); alert("hello");
+                },
+            }); alert("hiii");
+        });
+    });
+</script>
 
-            #moresetting {
-                position: fixed;
-                top: -500%;
-                width: 35%;
-                margin-left: 12%;
-                background-color: white;
-                box-shadow: 2px 3px 8px slategrey;
-                border-radius: 5px;
-                padding: 35px;
-            }
+<script>
+    $(document).ready(function () {
 
-            #schedule {
-                position: fixed;
-                top: -500%;
-                width: 35%;
-                margin-left: 12%;
-                background-color: white;
-                box-shadow: 2px 3px 8px slategrey;
-                border-radius: 5px;
-                padding: 35px;
-                overflow: auto;
-            }
+        $.ajax({
+            url: '/Bus/GetBusDetail',
+            type: 'get',
+            dataType: 'json',
+            success: function (result) {
+                //debugger
+                if (result) {
+                    var bus = ' <tbody>';
+                    for (var i = 0; i < result.length; i++) {
 
-            #add {
-                position: fixed;
-                top: -500%;
-                width: 35%;
-                margin-left: 12%;
-                background-color: white;
-                box-shadow: 2px 3px 8px slategrey;
-                border-radius: 5px;
-                padding: 35px;
-                overflow: auto;
-            }
+                        bus += '<tr class="tr-shadow"><td><label class="au-checkbox"><input type="checkbox"><span class="au-checkmark"></span></label></td><td class="ds" value="' + result[i].busId + '">' + result[i].busId + '</td><td>' + result[i].busName + '</td><td><div class="table-data-feature"><button onclick="show();" title="Send Message" class="btn btn-primary"><a onclick="showschedule(result[i].busId ); ">Schedule</a></button></div></td></tr><script>  $(".ds").click(function () {alert("hi")});</script>';
 
-            #test-form-div {
-                position: fixed;
-                top: -500%;
-                max-width: 1500px;
-                max-height: 1500px;
-                min-width: 1500px;
-                min-height: 1500px;
-                background-color: black;
-            }
+                    }
+                    bus += '</tbody>'
 
-            form.example input[type=text] {
-                padding: 8px;
-                font-size: 17px;
-                border: 1px solid grey;
-                float: left;
-                width: 70%;
-                height: 60%;
-                background: white;
-            }
+                    $('#bus').append(bus);
 
-            form.example button {
-                float: left;
-                width: 20%;
-                height: 70%;
-                padding: 5px;
-                background: #2196F3;
-                color: white;
-                font-size: 17px;
-                border: 1px solid grey;
-                border-left: none;
-                cursor: pointer;
-            }
-
-                form.example button:hover {
-                    background: #0b7dda;
+                }
+                else {
+                    alert("failed to get data");
                 }
 
-            form.example::after {
-                content: "";
-                clear: both;
-                display: table;
-            }
-        </style>
+            },
+
+        });
+        //});
+
+    });
+</script>
+
+@*<script>
+    $(document).ready(function () {
+
+        $.ajax({
+            url: '/BusSchedule/GetBusScheduleDetail',
+            type: 'get',
+            dataType: 'json',
+            success: function (result) {
+
+                
+                //debugger
+                //if (result) {
+                //    var bus = ' <tbody>';
+                //    for (var i = 0; i < result.length; i++) {
+
+                //        bus += '<tr class="tr-shadow"><td><label class="au-checkbox"><input type="checkbox"><span class="au-checkmark"></span></label></td><td>' + result[i].busId + '</td><td>' + result[i].busName + '</td><td><div class="table-data-feature"><button onclick="show();" title="Send Message" class="btn btn-primary"><a onclick="showschedule()">Schedule</a></button></div></td></tr>';
+
+                //    }
+                //    bus += '</tbody>'
+
+                //    $('#schedule').append(bus);
+
+                //}
+                //else {
+                //    alert("failed to get data");
+                //}
+
+            },
+
+        });
+        //});
+
+    });
+</script>*@
+
+<style>
+    #test-form {
+        position: fixed;
+        top: -500%;
+        width: 35%;
+        margin-left: 30%;
+        background-color: white;
+        box-shadow: 2px 3px 8px slategrey;
+        border-radius: 5px;
+        padding: 35px;
+    }
+
+    #setting {
+        position: fixed;
+        top: -500%;
+        width: 35%;
+        margin-left: 30%;
+        background-color: white;
+        box-shadow: 2px 3px 8px slategrey;
+        border-radius: 5px;
+        padding: 35px;
+    }
+
+    #moresetting {
+        position: fixed;
+        top: -500%;
+        width: 35%;
+        margin-left: 30%;
+        background-color: white;
+        box-shadow: 2px 3px 8px slategrey;
+        border-radius: 5px;
+        padding: 35px;
+    }
+
+    #schedule {
+        position: fixed;
+        top: -500%;
+        width: 35%;
+        margin-left: 30%;
+        background-color: white;
+        box-shadow: 2px 3px 8px slategrey;
+        border-radius: 5px;
+        padding: 35px;
+        overflow: auto;
+    }
+
+    #add {
+        position: fixed;
+        top: -500%;
+        width: 35%;
+        margin-left: 30%;
+        background-color: white;
+        box-shadow: 2px 3px 8px slategrey;
+        border-radius: 5px;
+        padding: 35px;
+        overflow: auto;
+    }
+
+    #test-form-div {
+        position: fixed;
+        top: -500%;
+        max-width: 1500px;
+        max-height: 1500px;
+        min-width: 1500px;
+        min-height: 1500px;
+        background-color: black;
+    }
+
+    form.example input[type=text] {
+        padding: 8px;
+        font-size: 17px;
+        border: 1px solid grey;
+        float: left;
+        width: 70%;
+        height: 60%;
+        background: white;
+    }
+
+    form.example button {
+        float: left;
+        width: 20%;
+        height: 70%;
+        padding: 5px;
+        background: #2196F3;
+        color: white;
+        font-size: 17px;
+        border: 1px solid grey;
+        border-left: none;
+        cursor: pointer;
+    }
+
+        form.example button:hover {
+            background: #0b7dda;
+        }
+
+    form.example::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+</style>
 
 
 
