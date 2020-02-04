@@ -400,76 +400,79 @@
                             </div>
                             @*<label><input type="radio" name="gender" class="gender" value="0">Male</label>
         <label><input type="radio" name="gender" class="gender" value="1"> Female</label>*@
-                            <label>Gender  </label>
-
-                            <input type="radio" name="gender" value="male" />Male
-                            <input type="radio" name="gender" value="female" />Female
-                            <input type="radio" name="gender" value="others" />Others
-
-
                             <div class="form-group">
-                                <label for="dob" class=" form-control-label">Date-Of-Birth *</label>
-                                <input type="date" id="dob" name="dob" class="form-control" required />
 
-                            </div>
-                            <div class="form-group">
-                                <label for="fname" class=" form-control-label">Father Name/Guardian Name *</label>
-                                <input type="text" id="fname" name="fname" class="form-control" required />
+                                <label>Gender  </label>
 
-                            </div>
-                            <div class="form-group">
-                                <label for="mname" class=" form-control-label">Mother Name </label>
-                                <input type="text" id="mname" name="mname" class="form-control" />
-
-                            </div>
-                            <div class="form-group">
-                                <label for="mname" class=" form-control-label">User Name *</label>
-                                <div class="input-group">
-                                    @*@Html.TextBoxFor(x => x.UserName)*@
-                                    <input type="text" id="uname" name="UserName" placeholder="Username" class="form-control" required>
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-user"></i>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="nf-email" class=" form-control-label">Email *</label>
-                                <div class="input-group">
-                                    <input type="email" id="uemail" name="nf-email" placeholder="Enter Email.." class="form-control" required>
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-envelope"></i>
-                                    </div>
+                                <input  class="gender"  type="radio" name="gender" value="male" />Male
+                                <input class="gender"   type="radio" name="gender" value="female"  />Female
+                                <input class="gender"  type="radio" name="gender" value="others" />Others
                                 </div>
 
 
-                            </div>
-                            <div class="form-group">
-                                <label for="nf-password" class=" form-control-label">Password *</label>
-                                <div class="input-group">
-                                    <input type="password" id="upassword" name="nf-password" placeholder="Enter Password.." class="form-control" required>
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-asterisk"></i>
+                                <div class="form-group">
+                                    <label for="dob" class=" form-control-label">Date-Of-Birth *</label>
+                                    <input type="date" id="dob" name="dob" class="form-control" required />
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="fname" class=" form-control-label">Father Name/Guardian Name *</label>
+                                    <input type="text" id="fname" name="fname" class="form-control" required />
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="mname" class=" form-control-label">Mother Name </label>
+                                    <input type="text" id="mname" name="mname" class="form-control" />
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="mname" class=" form-control-label">User Name *</label>
+                                    <div class="input-group">
+                                        @*@Html.TextBoxFor(x => x.UserName)*@
+                                        <input type="text" id="uname" name="UserName" placeholder="Username" class="form-control" required>
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-user"></i>
+
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="mobileno" class=" form-control-label">Mobile Number</label>
-                                <input type="tel" id="umobileno" name="mobileno" class="form-control" />
+                                <div class="form-group">
+                                    <label for="nf-email" class=" form-control-label">Email *</label>
+                                    <div class="input-group">
+                                        <input type="email" id="uemail" name="nf-email" placeholder="Enter Email.." class="form-control" required>
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-envelope"></i>
+                                        </div>
+                                    </div>
 
-                            </div>
 
-                            <div class="form-group">
-                                <label>Batch</label>
-                                @*  <input class="form-control" type="time" name="batch" id="batch" required>*@
-                                <select name="scheduleTime" id="sbatch" class="form-control">
-                                    <option value="B1">B1</option>
-                                    <option value="B2">B2</option>
-                                    <option value="B3">B3</option>
-                                    <option value="B4">B4</option>
-                                    <option value="B5">B5</option>
-                                </select>
-                            </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nf-password" class=" form-control-label">Password *</label>
+                                    <div class="input-group">
+                                        <input type="password" id="upassword" name="nf-password" placeholder="Enter Password.." class="form-control" required>
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-asterisk"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="mobileno" class=" form-control-label">Mobile Number</label>
+                                    <input type="tel" id="umobileno" name="mobileno" class="form-control" />
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Batch</label>
+                                    @*  <input class="form-control" type="time" name="batch" id="batch" required>*@
+                                    <select name="scheduleTime" id="sbatch" class="form-control">
+                                        <option value="B1">B1</option>
+                                        <option value="B2">B2</option>
+                                        <option value="B3">B3</option>
+                                        <option value="B4">B4</option>
+                                        <option value="B5">B5</option>
+                                    </select>
+                                </div>
 
                         </form>
                 
@@ -608,6 +611,12 @@
             //debugger
            // var gender = $("[type='radio']: checked").val();
             //var gender = $("input[name='gender']: checked").val();
+            //var gender = $('.gender').val();
+            if ($("input[type='radio'].gender").is(':checked')) {
+                var card_type = $("input[type='radio'].gender:checked").val();
+                alert(card_type);
+            }
+
             var dob = $("#dob").val();
             var fname = $("#fname").val();
             var mname = $("#mname").val();
@@ -618,45 +627,45 @@
             var batch = $("#sbatch").val();
 
             alert(name);
-            alert(gender);
+            alert(iid);
 
-            $.ajax({
-                url: '/User/AddParent',
-                type: 'post',
-                dataType: 'json',
-                data: {
-                    UserName: uname,
-                    UserEmail: uemail,
-                    UserPassword: upassword,
-                    UserMobileNo: umobileno,
-                },
-                success: function (result) {
-                    alert("Parent Added");
-                    var parentId = result;
-                    $.ajax({
+            //$.ajax({
+            //    url: '/User/AddParent',
+            //    type: 'post',
+            //    dataType: 'json',
+            //    data: {
+            //        UserName: uname,
+            //        UserEmail: uemail,
+            //        UserPassword: upassword,
+            //        UserMobileNo: umobileno,
+            //    },
+            //    success: function (result) {
+            //        alert("Parent Added");
+            //        var parentId = result;
+            //        $.ajax({
 
-                        url: '/Student/AddStudent',
-                        type: 'post',
-                        dataType: 'json',
-                        data:
-                        {
-                            StudentName: name,
-                            StudentImg: img,
-                            StudentAddress: address,
-                            StudentGender: gender,
-                            StudentDob: dob,
-                            FatherName: fname,
-                            MotherName: mname,
-                            ParentId: parentId,
-                            Batch:batch,
-                        },
-                        success: function (result) {
+            //            url: '/Student/AddStudent',
+            //            type: 'post',
+            //            dataType: 'json',
+            //            data:
+            //            {
+            //                StudentName: name,
+            //                StudentImg: img,
+            //                StudentAddress: address,
+            //                StudentGender: gender,
+            //                StudentDob: dob,
+            //                FatherName: fname,
+            //                MotherName: mname,
+            //                ParentId: parentId,
+            //                Batch:batch,
+            //            },
+            //            success: function (result) {
 
-                            alert("Student Added");
-                        },
-                    }); 
-                },
-            }); 
+            //                alert("Student Added");
+            //            },
+            //        }); 
+            //    },
+            ////}); 
         });
     });
     function showtest() {

@@ -744,8 +744,7 @@
     </div>
     <div class="form-group row">
         <label for="gender" class="col-sm-4 col-form-label">Gender *</label><br>
-        <input type="radio" id="gender" name="gender" />Male
-        <input type="radio" id="gender" name="gender"> Female
+        <input type="text" id="gender" name="gender" />Male
     </div>
     <div class="form-group row">
         <label for="inputPassword" class="col-sm-4 col-form-label">Date Of Birth</label>
@@ -756,7 +755,7 @@
     <div class="form-group row">
         <label for="inputPassword" class="col-sm-4 col-form-label">Father/Guardian Name</label>
         <div class="col-sm-8">
-            <input type="datetime" class="form-control" id="fname" />
+            <input type="datetime" class="form-control" id="ffname" />
         </div>
     </div>
     <div class="form-group row">
@@ -805,8 +804,8 @@
                      var bat = ' <tbody>';
                      for (var i = 0; i < result.length; i++) {
 
-                         
-                         bat += '<tr class="tr-shadow"><td><label class="au-checkbox"><input type="checkbox"><span class="au-checkmark"></span></label></td><td>' + (i + 1) + '</td><td>' + result[i].studentName + '</td><td class="desc"><img src="' + result[i].studentImg + '"/></td><td>' + result[i].studentAddress + '</td><td>' + result[i].studentGender + '</td><td>' + result[i].studentDob + '</td><td>' + result[i].fatherName + '</td><td>' + result[i].motherName + '</td><td><div class="table-data-feature"><button onclick="show();" class="item" data-toggle="tooltip" data-placement="top" title="Send Message"><a onclick="showsetting1();"><i class="zmdi zmdi-mail-send"></i></a></button><button class="item" data-toggle="tooltip" data-placement="top" title="Edit"><a onclick="showedit('+result[i]+')"><i class="zmdi zmdi-edit"></i></a></button><button class="item"  data-toggle="tooltip" data-placement="top" title="Delete"><a onclick="disp('+result[i].studentId+')"><i class="zmdi zmdi-delete"></i></a></button></div></td></tr>';
+
+                         bat += '<tr class="tr-shadow"><td><label class="au-checkbox"><input type="checkbox"><span class="au-checkmark"></span></label></td><td>' + (i + 1) + '</td><td>' + result[i].studentName + '</td><td class="desc"><img src="' + result[i].studentImg + '"/></td><td>' + result[i].studentAddress + '</td><td>' + result[i].studentGender + '</td><td>' + result[i].studentDob + '</td><td>' + result[i].fatherName + '</td><td>' + result[i].motherName + '</td><td><div class="table-data-feature"><button onclick="show();" class="item" data-toggle="tooltip" data-placement="top" title="Send Message"><a onclick="showsetting1();"><i class="zmdi zmdi-mail-send"></i></a></button><button class="item" data-toggle="tooltip" data-placement="top" title="Edit"><a onclick="showedit('+result[i].studentId+')"><i class="zmdi zmdi-edit"></i></a></button><button class="item"  data-toggle="tooltip" data-placement="top" title="Delete"><a onclick="disp('+result[i].studentId+')"><i class="zmdi zmdi-delete"></i></a></button></div></td></tr>';
  
                      }
                      bat += '</tbody>';
@@ -831,7 +830,23 @@
 <script>
     function disp(a) {
         alert(a);
-        //alert("hi");
+        var delid = a;
+        $.ajax({
+
+            url: '/Student/StudentDeleteId',
+            type: 'post',
+            dataType: 'json',
+            data:
+            {
+                id: delid,
+            },
+            success: function (result) {
+
+                alert("deleted");
+                location.reload();
+            },
+        });
+        
     }
    
     
@@ -848,12 +863,36 @@
 
     function showedit(b) {
         debugger
+        alert(b);
         $('#edit').animate({ top: '13%' }, 500);
-        document.getElementById('sname').value = b.studentName;
-   
+        var stdid = b;
+        //document.getElementById('Address').value = c;
+        alert(stdid);
 
+        $.ajax({
 
+            url: '/Student/StudentGetById',
+            type: 'get',
+            dataType: 'json',
+            data:
+            {
+                id: stdid,
+            },
+            success: function (result) {
+                debugger
+                document.getElementById('sname').value = result.studentName;
+                document.getElementById('Address').value = result.studentAddress;
+                document.getElementById('gender').value = result.studentGender;
+                document.getElementById('dob').value = result.studentDob;
+                document.getElementById('ffname').value = result.fatherName;
+                document.getElementById('mname').value = result.motherName;
+                document.getElementById('uname').value = result.user.userName;
+                document.getElementById('email').value = result.user.userEmail;
+                //alert("Student Added");
+            },
+        });
     }
+
     function hideedit() {
         $('#edit').animate({ top: '-500%' }, 500);
     }
@@ -885,36 +924,7 @@
 </script>
 
 <script>
-    $(document).ready(function () {
 
-        $.ajax({
-            url: '/Student/GetStudentDetail',
-            type: 'get',
-            dataType: 'json',
-            success: function (result) {
-                //debugger
-                if (result) {
-                    var bat = ' <tbody>';
-                    for (var i = 0; i < result.length; i++) {
-
-                        bat += '<tr class="tr-shadow"><td><label class="au-checkbox"><input type="checkbox"><span class="au-checkmark"></span></label></td><td>' + (i + 1) + '</td><td>' + result[i].studentName + '</td><td class="desc"> < img src ="' + result[i].studentImg + '"/> </td><td>' + result[i].studentAddress + '</td><td>' + result[i].studentGender + '</td><td>' + result[i].studentDob + '</td><td>' + result[i].fatherName + '</td><td>' + result[i].motherName + '</td><td><div class="table-data-feature"> <button onclick="show();" class="item" data-toggle="tooltip" data-placement="top" title="Send Message"><a onclick="showsetting1()"><i class="zmdi zmdi-mail-send"></i></a></button><button class="item" data-toggle="tooltip" data-placement="top" title="Edit"><a onclick="showedit()"><i class="zmdi zmdi-edit"></i></a></button><button class="item" data-toggle="tooltip" data-placement="top" title="Delete"><a onclick="alert("Deleted Successfully")"><i class="zmdi zmdi-delete"></i></a></button></div></td></tr>';
-
-                    }
-                    bat += '</tbody>'
-
-                    $('#df').append(bat);
-
-                }
-                else {
-                    alert("failed to get data");
-                }
-
-            },
-
-        });
-        //});
-
-    });
 </script>
 
 <style>
