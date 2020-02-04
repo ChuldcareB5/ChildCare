@@ -53,12 +53,11 @@ namespace ChildCare.MonitoringSystem.Business
 			return studentModel;
 		}
 
+        public List<StudentModel> GetStudents()
+        {
+            var studentsEntity = this.studentRepository.GetAll();
 
-		public List<StudentModel> GetStudents()
-		{
-			var studentsEntity = this.studentRepository.GetAll();
-
-			var students = new List<StudentModel>();
+            var students = new List<StudentModel>();
 
 			foreach (var student in studentsEntity)
 			{
