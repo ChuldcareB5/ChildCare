@@ -25,5 +25,17 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
             var userId = room.RoomId;
             return room.RoomId; ;
         }
+
+        public ActionResult<List<RoomModel>> GetRoom()
+        {
+            var rooms = this.roomBusiness.GetRoom();
+            return rooms;
+        }
+
+        public ActionResult<List<RoomScheduleModel>> GetRoomSchedule()
+        {
+            var roomschedules = this.roomBusiness.GetRoomSchedule();
+            return roomschedules;
+        }
     }
 }

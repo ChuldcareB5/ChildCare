@@ -31,5 +31,78 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 			var students = this.studentBusiness.GetStudents();
 			return students;
 		}
+
+
+		public ActionResult<StudentModel> StudentGetById(int id)
+		{
+			var students = this.studentBusiness.StudentGetById(id);
+			return students;
+		}
+
+
+
+		public ActionResult<StudentModel> StudentUpdate(StudentModel studentModel)
+		{
+			var students = this.studentBusiness.StudentUpdate(studentModel);
+			return students;
+		}
+
+		public ActionResult<Int32> StudentDeleteId(int id)
+		{
+			var students = this.studentBusiness.DeleteId(id);
+			return students;
+		}
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
