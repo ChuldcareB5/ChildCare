@@ -1,4 +1,5 @@
-﻿using ChildCare.MonitoringSystem.Core.Constraints;
+﻿using AutoMapper;
+using ChildCare.MonitoringSystem.Core.Constraints;
 using ChildCare.MonitoringSystem.Entity;
 using ChildCare.MonitoringSystem.Model;
 using ChildCare.MonitoringSystem.Repository;
@@ -30,7 +31,8 @@ namespace ChildCare.MonitoringSystem.Business
 
 			var studentEntity = new Student()
 			{
-				StudentName = studentModel.StudentName,
+                
+                StudentName = studentModel.StudentName,
 				StudentImg = studentModel.StudentImg,
 				StudentAddress = studentModel.StudentAddress,
 				StudentGender = studentModel.StudentGender,
@@ -63,7 +65,8 @@ namespace ChildCare.MonitoringSystem.Business
 			{
 				students.Add(new StudentModel()
 				{
-					StudentName = student.StudentName,
+                    StudentId = student.StudentId,
+                    StudentName = student.StudentName,
 					StudentImg = student.StudentImg,
 					StudentAddress = student.StudentAddress,
 					StudentGender = student.StudentGender,
@@ -76,5 +79,12 @@ namespace ChildCare.MonitoringSystem.Business
 
 			return students;
 		}
-	}
+        public StudentModel StudentGetById(int id)
+        {
+
+            var student = this.studentRepository.GetBy(x => x.StudentId == id, x => x.User).SingleOrDefault();
+            return Mapper.Map<StudentModel>(student);
+        }
+    }
+    
 }

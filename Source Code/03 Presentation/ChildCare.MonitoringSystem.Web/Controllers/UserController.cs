@@ -26,7 +26,7 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 			return this.userBusiness.GetUserById(userId);
 		}
 
-		[HttpPost]
+	
 		public ActionResult<Int32> AddParent(UserModel usermodel)
 		{
 			var user = this.userBusiness.AddParent(usermodel);

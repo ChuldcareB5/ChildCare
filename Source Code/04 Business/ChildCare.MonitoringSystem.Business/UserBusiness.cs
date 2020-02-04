@@ -59,7 +59,7 @@ namespace ChildCare.MonitoringSystem.Business
                 StudentImg = studentModel.StudentImg,
                 StudentAddress = studentModel.StudentAddress,
                 StudentGender = studentModel.StudentGender,
-                StudentIDob = studentModel.StudentIDob,
+                StudentDob = studentModel.StudentDob,
                 FatherName = studentModel.FatherName,
                 MotherName = studentModel.MotherName,
                 ParentId = studentModel.ParentId,
