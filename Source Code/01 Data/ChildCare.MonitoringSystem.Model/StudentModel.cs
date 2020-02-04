@@ -11,10 +11,12 @@ namespace ChildCare.MonitoringSystem.Model
         public string StudentImg { get; set; } // StudentImg (length: 100)
         public string StudentAddress { get; set; } // StudentAddress (length: 200)
         public string StudentGender { get; set; } // StudentGender (length: 100)
-        public System.DateTime StudentDob { get; set; } // StudentDob
+        public DateTime StudentDob { get; set; } // StudentDob
         public string FatherName { get; set; } // FatherName (length: 100)
         public string MotherName { get; set; } // MotherName (length: 100)
 		public int ParentId { get; set; } // ParentId(foreign key)
 		public string Batch { get; set; } // Batch (length: 100)
+
+		public UserModel User { get; set; } // FK_Student_User
 	}
 }
