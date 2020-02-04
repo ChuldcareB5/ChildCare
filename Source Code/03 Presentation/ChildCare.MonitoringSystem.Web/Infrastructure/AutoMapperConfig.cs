@@ -12,7 +12,8 @@ namespace ChildCare.MonitoringSystem.Web.Infrastructure
             Mapper.Initialize(cfg =>
             {
                 // Entity to Model
-                cfg.CreateMap<User, UserModel>();
+                cfg.CreateMap<User, UserModel>()
+                    .ForMember(x => x.Role, opt => opt.MapFrom(x => new RoleModel() { RoleId = x.UserRole.First().RoleId }));
                 cfg.CreateMap<Role, RoleModel>();
 
                 // Model to Entity

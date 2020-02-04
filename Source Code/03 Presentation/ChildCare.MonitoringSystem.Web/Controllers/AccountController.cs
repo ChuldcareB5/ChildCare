@@ -39,7 +39,7 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
                         {
                             new Claim(ClaimTypes.Name, user.UserName),
                             new Claim(ClaimTypes.NameIdentifier, user.UserId.ToString()),
-                            //new Claim(ClaimTypes.Role, string.Join(",", user.Role.RoleName))
+                            new Claim(ClaimTypes.Role, user.Role.RoleId.ToString())
                         };
 
                         var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);

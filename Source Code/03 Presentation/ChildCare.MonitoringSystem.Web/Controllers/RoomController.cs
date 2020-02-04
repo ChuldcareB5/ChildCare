@@ -1,5 +1,6 @@
 ﻿using ChildCare.MonitoringSystem.Business;
 using ChildCare.MonitoringSystem.Model;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace ChildCare.MonitoringSystem.Web.Controllers
 {
+    [Authorize(Roles = "2")]
     public class RoomController:Controller
     {
         private readonly RoomBusiness roomBusiness;
