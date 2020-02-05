@@ -400,82 +400,85 @@
                             </div>
                             @*<label><input type="radio" name="gender" class="gender" value="0">Male</label>
         <label><input type="radio" name="gender" class="gender" value="1"> Female</label>*@
-                            <label>Gender  </label>
-
-                            <input type="radio"class="gender" name="gender" value="male" />Male
-                            <input type="radio"class="gender" name="gender" value="female" />Female
-                            <input type="radio"class="gender" name="gender" value="others" />Others
-
-
                             <div class="form-group">
-                                <label for="dob" class=" form-control-label">Date-Of-Birth *</label>
-                                <input type="date" id="dob" name="dob" class="form-control" required />
+                                <label>Gender  </label>
+                                <input type="radio" class="mygender" name="gender" value="others" />Others
+                                <input type="radio" class="mygender" name="gender" value="female" />Female
+                                <input type="radio" class="mygender" name="gender" value="male" />Male
 
-                            </div>
-                            <div class="form-group">
-                                <label for="fname" class=" form-control-label">Father Name/Guardian Name *</label>
-                                <input type="text" id="fname" name="fname" class="form-control" required />
+                            <input type="radio" name="gender" value="male" />Male
+                            <input type="radio" name="gender" value="female" />Female
+                            <input type="radio" name="gender" value="others" />Others
 
-                            </div>
-                            <div class="form-group">
-                                <label for="mname" class=" form-control-label">Mother Name </label>
-                                <input type="text" id="mname" name="mname" class="form-control" />
+                                <div class="form-group">
+                                    <label for="dob" class=" form-control-label">Date-Of-Birth *</label>
+                                    <input type="date" id="dob" name="dob" class="form-control" required />
 
-                            </div>
-                            <div class="form-group">
-                                <label for="mname" class=" form-control-label">User Name *</label>
-                                <div class="input-group">
-                                    @*@Html.TextBoxFor(x => x.UserName)*@
-                                    <input type="text" id="uname" name="UserName" placeholder="Username" class="form-control" required>
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-user"></i>
+                                </div>
+                                <div class="form-group">
+                                    <label for="fname" class=" form-control-label">Father Name/Guardian Name *</label>
+                                    <input type="text" id="fname" name="fname" class="form-control" required />
 
+                                </div>
+                                <div class="form-group">
+                                    <label for="mname" class=" form-control-label">Mother Name </label>
+                                    <input type="text" id="mname" name="mname" class="form-control" />
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="mname" class=" form-control-label">User Name *</label>
+                                    <div class="input-group">
+                                        @*@Html.TextBoxFor(x => x.UserName)*@
+                                        <input type="text" id="uname" name="UserName" placeholder="Username" class="form-control" required>
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-user"></i>
+
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="nf-email" class=" form-control-label">Email *</label>
-                                <div class="input-group">
-                                    <input type="email" id="uemail" name="nf-email" placeholder="Enter Email.." class="form-control" required>
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-envelope"></i>
+                                <div class="form-group">
+                                    <label for="nf-email" class=" form-control-label">Email *</label>
+                                    <div class="input-group">
+                                        <input type="email" id="uemail" name="nf-email" placeholder="Enter Email.." class="form-control" required>
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-envelope"></i>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="nf-password" class=" form-control-label">Password *</label>
+                                    <div class="input-group">
+                                        <input type="password" id="upassword" name="nf-password" placeholder="Enter Password.." class="form-control" required>
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-asterisk"></i>
+                                        </div>
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <label for="mobileno" class=" form-control-label">Mobile Number</label>
+                                    <input type="tel" id="umobileno" name="mobileno" class="form-control" />
 
-
-                            </div>
-                            <div class="form-group">
-                                <label for="nf-password" class=" form-control-label">Password *</label>
-                                <div class="input-group">
-                                    <input type="password" id="upassword" name="nf-password" placeholder="Enter Password.." class="form-control" required>
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-asterisk"></i>
-                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="mobileno" class=" form-control-label">Mobile Number</label>
-                                <input type="tel" id="umobileno" name="mobileno" class="form-control" />
 
-                            </div>
-
-                            <div class="form-group">
-                                <label>Batch</label>
-                                @*  <input class="form-control" type="time" name="batch" id="batch" required>*@
-                                <select name="scheduleTime" id="sbatch" class="form-control">
-                                    <option value="B1">B1</option>
-                                    <option value="B2">B2</option>
-                                    <option value="B3">B3</option>
-                                    <option value="B4">B4</option>
-                                    <option value="B5">B5</option>
-                                </select>
-                            </div>
+                                <div class="form-group">
+                                    <label>Batch</label>
+                                    @*  <input class="form-control" type="time" name="batch" id="batch" required>*@
+                                    <select name="scheduleTime" id="sbatch" class="form-control">
+                                        <option value="B1">B1</option>
+                                        <option value="B2">B2</option>
+                                        <option value="B3">B3</option>
+                                        <option value="B4">B4</option>
+                                        <option value="B5">B5</option>
+                                    </select>
+                                </div>
 
                         </form>
                 
                     </div>
                     <div class="card-footer">
-                        <button type="button" id="userlogin" class="btn btn-primary ">
+                        <button type="button" id="userlogin" class="btn btn-primary " >
                             Submit
                         </button>
                         <button type="reset" onclick="reset()" class="btn btn-success ">
@@ -604,7 +607,9 @@
             var name = $("#name").val();
             var img = $("#img").val();
             var address = $("#address").val();
-            //var gender = $("").val();
+            //var gender = $(".mygender").val();
+            //var ele = document.getElementsByClassName('mygender');
+            //var gender = $(ele).val();
             //debugger
            // var gender = $("[type='radio']: checked").val();
             //var gender = $("input[name='gender']: checked").val();
@@ -662,6 +667,7 @@
                 },
             }); 
         });
+
     });
     function showtest() {
         $('#test-form').animate({ top: '15%' }, 500);
@@ -691,6 +697,18 @@
     {
         document.getElementById('studentForm').reset();
     }
+
+
+
+    //function displayRadioValue() {
+    //    var ele = document.getElementsByName('gender');
+
+    //    for (i = 0; i < ele.length; i++) {
+    //        if (ele[i].checked)
+    //            document.getElementById("result").innerHTML
+    //                = "Gender: " + ele[i].value;
+    //    }
+    //} 
 </script>
 <style>
     #test-form {
