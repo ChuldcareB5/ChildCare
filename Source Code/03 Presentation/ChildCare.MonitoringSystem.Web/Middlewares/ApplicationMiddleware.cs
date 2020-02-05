@@ -36,12 +36,7 @@ namespace ChildCare.MonitoringSystem.Web.Middlewares
                     context.Items.Add(Constants.UserId, userId);
                 }
 
-                //if (context.User.Claims.Any(x => x.Type == Constants.StudentId))
-                //{
-                //    applicationContext.StudentId = Convert.ToInt32(context.User.Claims.First(x => x.Type == Constants.ClientId).Value);
-                //}
-
-                //applicationContext.UserEmail = context.User.Claims.SingleOrDefault(x => x.Type == ClaimTypes.Email)?.Value;
+                applicationContext.UserName = context.User.Claims.SingleOrDefault(x => x.Type == ClaimTypes.Name)?.Value;
             }
 
             await this.next.Invoke(context);

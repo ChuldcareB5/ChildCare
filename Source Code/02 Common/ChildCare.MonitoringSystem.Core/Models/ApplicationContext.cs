@@ -9,5 +9,7 @@ namespace ChildCare.MonitoringSystem.Core.Models
         public int StudentId { get; set; } = -1;
 
         public int UserId { get; set; } = -1;
+
+        public string UserName { get; set; }
     }
 }
