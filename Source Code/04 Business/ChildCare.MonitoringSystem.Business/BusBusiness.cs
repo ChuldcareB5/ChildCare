@@ -1,9 +1,11 @@
-﻿using ChildCare.MonitoringSystem.Core.Constraints;
+﻿using AutoMapper;
+using ChildCare.MonitoringSystem.Core.Constraints;
 using ChildCare.MonitoringSystem.Entity;
 using ChildCare.MonitoringSystem.Model;
 using ChildCare.MonitoringSystem.Repository;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace ChildCare.MonitoringSystem.Business
@@ -63,5 +65,39 @@ namespace ChildCare.MonitoringSystem.Business
 
 			return bus;
 		}
-	}
+        public BusModel BusGetById(int id)
+        {
+            try
+            {
+                var busdetails = this.busRepository.GetBy(x => x.BusId == id, x => x.BusSchedule).SingleOrDefault();
+               var chec=Mapper.Map<BusModel>(busdetails);
+                return chec;
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+           
+        }
+        public BusModel UpdateBusSchedule(BusModel busModel)
+        {
+            var busupdate = this.busRepository.GetBy(x => x.BusId == busModel.BusId, x => x.BusSchedule).SingleOrDefault();
+
+        
+
+            
+
+
+
+
+
+            this.unitOfWork.Save();
+
+            return busModel;
+
+
+
+
+        }
+    }
 }
