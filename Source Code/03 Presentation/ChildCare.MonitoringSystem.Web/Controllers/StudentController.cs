@@ -37,9 +37,10 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 			return students;
 		}
 
+       
 
 
-		public ActionResult<StudentModel> StudentUpdate(StudentModel studentModel)
+        public ActionResult<StudentModel> StudentUpdate(StudentModel studentModel)
 		{
 			var students = this.studentBusiness.StudentUpdate(studentModel);
 			return students;

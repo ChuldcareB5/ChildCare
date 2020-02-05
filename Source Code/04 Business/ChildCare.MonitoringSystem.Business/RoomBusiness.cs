@@ -4,6 +4,7 @@ using ChildCare.MonitoringSystem.Model;
 using ChildCare.MonitoringSystem.Repository;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace ChildCare.MonitoringSystem.Business
@@ -60,8 +61,9 @@ namespace ChildCare.MonitoringSystem.Business
 
         public List<RoomScheduleModel> GetRoomSchedule()
         {
+            //var roomEntity = this.roomScheduleRepository.GetAll().GroupBy(x=>x.RoomScheduleTime);
+            //return AutoMapper.Mapper.Map<List<RoomScheduleModel>>(roomEntity);
             var roomEntity = this.roomScheduleRepository.GetAll();
-
             var rooms = new List<RoomScheduleModel>();
 
             foreach (var room in roomEntity)

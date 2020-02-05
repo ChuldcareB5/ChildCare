@@ -324,7 +324,7 @@
             @*<div class="section__content section__content--p30">*@
             <button class="btn btn-primary col-lg-1 pull-right" style="margin-right:5%;" onclick="showadd();">+ ADD</button><br/>
             <button class="btn btn-danger col-lg-1 pull-right" style="margin-right:5%;">- DELETE</button><br />
-            <button class="btn btn-danger col-lg-1 pull-right" style="margin-right:5%;" onclick="showviewschedule()"><i class="fa fa-eye"></i> View</button>
+          @*  <button class="btn btn-danger col-lg-1 pull-right" style="margin-right:5%;" onclick="showviewschedule()"><i class="fa fa-eye"></i> View</button>*@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
@@ -684,16 +684,19 @@
                     <label>Teacher Id</label>
                     <input class="form-control" type="text" name="teacherid" id="roomTeacherId" required>
                 </div>
+               
                 <div class="form-group">
                     <label>Time</label>
                     @* <input class="form-control" type="text" name="email" id="fname" required>*@
-                    <select name="scheduleTime" id="roomScheduleTime" class="form-control">
+                    <input class="form-control" type="time" name="time" id="roomScheduleTime" required>
+
+                    @*<select name="scheduleTime" id="roomScheduleTime" class="form-control">
                         <option value="9.00">9.00</option>
                         <option value="9.55">9.55</option>
                         <option value="11.05">11.05</option>
                         <option value="01.00">01.00</option>
                         <option value="02.00">02.00</option>
-                    </select>
+                    </select>*@
                 </div>
                 <div class="form-group">
                     <label>Subject</label>
@@ -755,7 +758,7 @@
 <script>
     $(document).ready(function () {
         $("#viewroomschedule").hide();
-
+      ///////  GetRoom
         $.ajax({
             url: '/Room/GetRoom',
             type: 'get',
@@ -765,10 +768,13 @@
                 if (result) {
                     var bat = ' <tbody>';
                     for (var i = 0; i < result.length; i++) {
+                        //<button class="btn btn-danger col-lg-1 pull-right" style="margin-right:5%;" onclick="showviewschedule()"><i class="fa fa-eye"></i> View</button>
 
 
 
-                        bat += '<tr class="tr-shadow">< td > <label class="au-checkbox"><input type="checkbox"><span class="au-checkmark"></span></label></td><td>' + (i + 1) + '</td><td>' + result[i].roomId + '</td> <td>' + result[i].roomName + '</td> <td><div class="table-data-feature"></div></td></tr > ';
+                        
+                        bat += '<tr class="tr-shadow">< td > <label class="au-checkbox"><input type="checkbox"><span class="au-checkmark"></span></label></td><td>' + (i + 1) + '</td><td>' +
+                            result[i].roomId + '</td> <td>' + result[i].roomName + '</td><td><button class="btn btn-danger" style="margin-left:-200px" onclick="showviewschedule('+result[i].roomId+')"><i class="fa fa-eye"></i>View Schedules</button></td></tr > ';
 
 
                     }
@@ -785,29 +791,29 @@
 
         });
 
-        $.ajax({
-            url: '/Room/GetRoomSchedule',
-            type: 'get',
-            dataType: 'json',
-            success: function (result) {
-                //debugger
-                if (result) {
-                    var bat = ' <tbody>';
-                    for (var i = 0; i < result.length; i++) {
-                        bat += '<tr class="tr-shadow">< td > <label class="au-checkbox"><input type="checkbox"><span class="au-checkmark"></span></label></td><td>' + (i + 1) + '</td><td>' + result[i].roomScheduleId + '</td><td>' + result[i].teacherId + '</td> <td>' + result[i].roomScheduleDate + '</td> <td>' + result[i].roomScheduleTime + '</td><td>' + result[i].roomScheduleSubject + '</td><td>' + result[i].roomId + '</td><td><div class="table-data-feature"></div></td></tr > ';
-                    }
-                    bat += '</tbody>'
+        //$.ajax({
+        //    url: '/Room/GetRoomSchedule',
+        //    type: 'get',
+        //    dataType: 'json',
+        //    success: function (result) {
+        //        //debugger
+        //        if (result) {
+        //            var bat = ' <tbody>';
+        //            for (var i = 0; i < result.length; i++) {
+        //                bat += '<tr class="tr-shadow">< td > <label class="au-checkbox"><input type="checkbox"><span class="au-checkmark"></span></label></td><td>' + (i + 1) + '</td><td>' + result[i].roomScheduleId + '</td><td>' + result[i].teacherId + '</td> <td>' + result[i].roomScheduleDate + '</td> <td>' + result[i].roomScheduleTime + '</td><td>' + result[i].roomScheduleSubject + '</td><td>' + result[i].roomId + '</td><td><div class="table-data-feature"></div></td></tr > ';
+        //            }
+        //            bat += '</tbody>'
 
-                    $('#getRoomSchedule').append(bat);
+        //            $('#getRoomSchedule').append(bat);
 
-                }
-                else {
-                    alert("failed to get data");
-                }
+        //        }
+        //        else {
+        //            alert("failed to get data");
+        //        }
 
-            },
+        //    },
 
-        });
+        //});
 
         $("#addRoom").click(function () {
             var rname = $("#rname").val();
@@ -835,6 +841,7 @@
             var rdate = $("#roomScheduleDate").val();
             var rteacherid = $("#roomTeacherId").val();
             var rtime = $("#roomScheduleTime").val();
+        
             var rsub = $("#roomScheduleSubject").val();
             var rid = $("#roomId").val();
             var rbatch = $("#batch").val();
@@ -845,14 +852,19 @@
             //alert(rteacherid);
             alert(rbatch);
 
-
             $.ajax({
-                url: '/Student/GetStudentByBatch',
+                url: '/RoomSchedule/AddStudentScheduleByBatch',
                 type: 'get',
                 dataType: 'json',
                 data:
                 {
-                    Batch: rbatch,
+                      RoomScheduleId : rdate,
+                      TeacherId : rteacherid,
+                      RoomScheduleDate : rdate,
+                      RoomScheduleTime : rtime,
+                      RoomScheduleSubject : rsub,      
+                      RoomId : rid,
+                      Batch: rbatch,
                 },
 
                 success: function (result) {
@@ -913,9 +925,38 @@
 
 
 
-    function showviewschedule() {
+    function showviewschedule(roomid) {
         $("#viewroom").hide();
-        $("#viewroomschedule").show();
+       
+        alert(roomid);
+        $.ajax({
+            url: '/RoomSchedule/GetRoomSchedule',
+            type: 'get',
+            dataType: 'json',
+            data:
+            {
+                RoomId: roomid
+            },
+            success: function (result) {
+                //debugger
+                 $("#viewroomschedule").show();
+                if (result) {
+                    var bat = ' <tbody>';
+                    for (var i = 0; i < result.length; i++) {
+                        bat += '<tr class="tr-shadow">< td > <label class="au-checkbox"><input type="checkbox"><span class="au-checkmark"></span></label></td><td>' + (i + 1) + '</td><td>' + result[i].roomScheduleId + '</td><td>' + result[i].teacherId + '</td> <td>' + result[i].roomScheduleDate + '</td> <td>' + result[i].roomScheduleTime + '</td><td>' + result[i].roomScheduleSubject + '</td><td><button class="btn btn-danger" style="margin-left:0px" onclick="showviewschedule(' + result[i].roomId +')"><i class="fa fa-eye"></i>View Students</button></td></tr > ';
+                    }
+                    bat += '</tbody>'
+
+                    $('#getRoomSchedule').append(bat);
+
+                }
+                else {
+                    alert("failed to get data");
+                }
+
+            },
+
+        });
     }
 
     function showadd() {
