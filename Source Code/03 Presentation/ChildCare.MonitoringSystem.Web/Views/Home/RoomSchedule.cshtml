@@ -323,7 +323,7 @@
         <div class="main-content" id="viewroom">
             @*<div class="section__content section__content--p30">*@
             <button class="btn btn-primary col-lg-1 pull-right" style="margin-right:5%;" onclick="showadd();">+ ADD</button><br/>
-            <button class="btn btn-danger col-lg-1 pull-right" style="margin-right:5%;">- DELETE</button><br />
+            @*<button class="btn btn-danger col-lg-1 pull-right" style="margin-right:5%;" onclick="deleteroom();">- DELETE</button><br />*@
             <button class="btn btn-danger col-lg-1 pull-right" style="margin-right:5%;" onclick="showviewschedule()"><i class="fa fa-eye"></i> View</button>
             <div class="container-fluid">
                 <div class="row">
@@ -420,7 +420,7 @@
             @*<h2 align="center">View Room Schedule</h2>*@
             <hr /><br /><br />
             <button class="btn btn-primary col-lg-1 pull-right" style="margin-right:5%;" onclick="showaddSchedule();">+ ADD</button><br />
-            <button class="btn btn-danger col-lg-1 pull-right" style="margin-right:5%;">- DELETE</button>
+            @*<button class="btn btn-danger col-lg-1 pull-right" style="margin-right:5%;">- DELETE</button>*@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
@@ -768,7 +768,7 @@
 
 
 
-                        bat += '<tr class="tr-shadow">< td > <label class="au-checkbox"><input type="checkbox"><span class="au-checkmark"></span></label></td><td>' + (i + 1) + '</td><td>' + result[i].roomId + '</td> <td>' + result[i].roomName + '</td> <td><div class="table-data-feature"></div></td></tr > ';
+                        bat += '<tr class="tr-shadow">< td > <label class="au-checkbox"><input type="checkbox"><span class="au-checkmark"></span></label></td><td>' + (i + 1) + '</td><td>' + result[i].roomId + '</td> <td>' + result[i].roomName + '</td> <td><div class="table-data-feature"><button class="item"  data-toggle="tooltip" data-placement="top" title="Delete"><a onclick="deleteroom(' + result[i].roomId + ')"><i class="zmdi zmdi-delete"></i></a></button></div></td></tr > ';
 
 
                     }
@@ -794,7 +794,7 @@
                 if (result) {
                     var bat = ' <tbody>';
                     for (var i = 0; i < result.length; i++) {
-                        bat += '<tr class="tr-shadow">< td > <label class="au-checkbox"><input type="checkbox"><span class="au-checkmark"></span></label></td><td>' + (i + 1) + '</td><td>' + result[i].roomScheduleId + '</td><td>' + result[i].teacherId + '</td> <td>' + result[i].roomScheduleDate + '</td> <td>' + result[i].roomScheduleTime + '</td><td>' + result[i].roomScheduleSubject + '</td><td>' + result[i].roomId + '</td><td><div class="table-data-feature"></div></td></tr > ';
+                        bat += '<tr class="tr-shadow">< td > <label class="au-checkbox"><input type="checkbox"><span class="au-checkmark"></span></label></td><td>' + (i + 1) + '</td><td>' + result[i].roomScheduleId + '</td><td>' + result[i].teacherId + '</td> <td>' + result[i].roomScheduleDate + '</td> <td>' + result[i].roomScheduleTime + '</td><td>' + result[i].roomScheduleSubject + '</td><td>' + result[i].roomId + '</td><td><div class="table-data-feature"><button class="item"  data-toggle="tooltip" data-placement="top" title="Delete"><a onclick="deleteroomschedule(' + result[i].roomScheduleId + ')"><i class="zmdi zmdi-delete"></i></a></button></div></td></tr > ';
                     }
                     bat += '</tbody>'
 
@@ -943,6 +943,50 @@
 
     function off() {
         document.getElementById("overlay").style.display = "none";
+    }
+
+
+
+    function deleteroom(a) {
+        alert(a);
+        var delid = a;
+        $.ajax({
+
+            url: '/Room/RoomDeleteId',
+            type: 'post',
+            dataType: 'json',
+            data:
+            {
+                id: delid,
+            },
+            success: function (result) {
+
+                alert("deleted");
+                location.reload();
+            },
+        });
+    }
+
+
+
+    function deleteroomschedule(a) {
+        alert(a);
+        var delid = a;
+        $.ajax({
+
+            url: '/RoomSchedule/RoomScheduleDeleteId',
+            type: 'post',
+            dataType: 'json',
+            data:
+            {
+                id: delid,
+            },
+            success: function (result)
+            {
+                alert(" RoomSchedule deleted");
+                location.reload();
+            },
+        });
     }
 </script>
 

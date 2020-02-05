@@ -8,5 +8,8 @@ namespace ChildCare.MonitoringSystem.Model
 	{
 		public int BusId { get; set; } // BusId (Primary key)
 		public string BusName { get; set; } // BusName (length: 100)
+
+
+		public List<BusScheduleModel> BusSchedule { get; set; }
 	}
 }
