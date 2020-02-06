@@ -6,6 +6,7 @@ using ChildCare.MonitoringSystem.Repository;
 using ChildCare.MonitoringSystem.Model;
 using System.Linq;
 using ChildCare.MonitoringSystem.Core.Constraints;
+using ChildCare.MonitoringSystem.Common.Extensions;
 
 namespace ChildCare.MonitoringSystem.Business
 {
@@ -25,6 +26,12 @@ namespace ChildCare.MonitoringSystem.Business
             this.studentRepository = unitOfWork.GetRepository<IRepository<Student>>();//Get User From Repository
 
             this.unitOfWork = unitOfWork;//Instantiate unitOfWork Variable
+		}
+
+		public UserModel GetUser(string userName, string password)
+		{
+			var user = this.userRepository.GetBy(x => x.UserName == userName && x.UserPassword == password, x => x.UserRole).SingleOrDefault();
+			return user.MapTo<UserModel>();
 		}
 
 		public UserModel GetUserById(int userId)
