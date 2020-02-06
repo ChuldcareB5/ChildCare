@@ -1,9 +1,11 @@
-﻿using ChildCare.MonitoringSystem.Core.Constraints;
+﻿using AutoMapper;
+using ChildCare.MonitoringSystem.Core.Constraints;
 using ChildCare.MonitoringSystem.Entity;
 using ChildCare.MonitoringSystem.Model;
 using ChildCare.MonitoringSystem.Repository;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace ChildCare.MonitoringSystem.Business
@@ -64,6 +66,83 @@ namespace ChildCare.MonitoringSystem.Business
 			//}
 
 			return busSchedule;
+		}
+
+
+		public List<BusScheduleModel> Getbus()
+		{
+			try
+			{
+				var busEntity = this.busScheduleRepository.GetAll(x=>x.Bus);
+				var result=Mapper.Map<List<BusScheduleModel>>(busEntity);
+				return result;
+
+			}
+			catch(Exception e)
+			{
+				throw e;
+			}
+			
+			//var bus = new List<BusSchedule>();
+
+			//foreach (var b in busEntity)
+			//{
+			//	bus.Add(new BusScheduleModel()
+			//	{
+			//		BusId = b.BusId,
+			//		BusName = b.Bus.BusName,
+
+			//		BusScheduleId=b.BusScheduleId,
+			//		ToBusSchedule=b.ToBusSchedule,
+			//		FromBusSchedule=b.FromBusSchedule,
+			//		BusScheduleDate=b.BusScheduleDate,
+			//		BusScheduleTime=b.BusScheduleTime,
+			//		BusScheduleDriverName=b.BusScheduleDriverName,
+
+			//		//StudentImg = student.StudentImg,
+			//		//StudentAddress = student.StudentAddress,
+			//		//StudentGender = student.StudentGender,
+			//		//StudentDob = student.StudentDob,
+			//		//FatherName = student.FatherName,
+			//		//MotherName = student.MotherName,
+			//		//ParentId = student.ParentId
+			//	});
+			//}
+
+			//return bus;
+		}
+
+
+		public BusScheduleModel BusGetById(int id)
+		{
+			try
+			{
+				var busdetails = this.busScheduleRepository.GetBy(x => x.BusScheduleId == id, x => x.Bus).SingleOrDefault();
+				var chec = Mapper.Map<BusScheduleModel>(busdetails);
+
+				return chec;
+			}
+			catch (Exception e)
+			{
+				throw e;
+			}
+		}
+
+		public BusScheduleModel BusScheduleUpdate(BusScheduleModel busScheduleModel)
+		{
+			var busupdate = this.busScheduleRepository.GetBy(x => x.BusScheduleId == busScheduleModel.BusScheduleId, x => x.Bus).SingleOrDefault();
+
+			busupdate.BusScheduleDriverName = busScheduleModel.BusScheduleDriverName;
+			busupdate.ToBusSchedule = busScheduleModel.ToBusSchedule;
+			busupdate.FromBusSchedule = busScheduleModel.FromBusSchedule;
+			busupdate.BusScheduleTime = busScheduleModel.BusScheduleTime;
+			busupdate.BusScheduleDate = busScheduleModel.BusScheduleDate;
+			busupdate.Bus.BusName = busScheduleModel.Bus.BusName;
+
+			this.unitOfWork.Save();
+
+			return busScheduleModel;
+
 		}
 	}
 }

@@ -4,6 +4,7 @@ using ChildCare.MonitoringSystem.Model;
 using ChildCare.MonitoringSystem.Repository;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace ChildCare.MonitoringSystem.Business
@@ -80,5 +81,16 @@ namespace ChildCare.MonitoringSystem.Business
 
             return rooms;
         }
-    }
+
+
+		public Int32 DeleteId(int id)
+		{
+
+			var roomid = this.roomRepository.GetBy(x => x.RoomId == id).SingleOrDefault();
+			roomid.IsDeleted = true;
+			this.unitOfWork.Save();
+			return roomid != null ? 0 : 1;
+
+		}
+	}
 }

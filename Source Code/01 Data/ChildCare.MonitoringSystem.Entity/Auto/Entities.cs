@@ -244,7 +244,7 @@ namespace ChildCare.MonitoringSystem.Entity
     {
         public int StudentId { get; set; } // StudentId (Primary key)
         public string StudentName { get; set; } // StudentName (length: 100)
-        public string StudentImg { get; set; } // StudentImg (length: 200)
+        public string StudentImg { get; set; } // StudentImg (length: 100)
         public string StudentAddress { get; set; } // StudentAddress (length: 200)
         public string StudentGender { get; set; } // StudentGender (length: 100)
         public System.DateTime StudentDob { get; set; } // StudentDob

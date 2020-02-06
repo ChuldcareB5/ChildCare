@@ -13,6 +13,7 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
     public class RoomController:Controller
     {
         private readonly RoomBusiness roomBusiness;
+ 
 
         public RoomController(RoomBusiness roomBusiness)
         {
@@ -37,5 +38,14 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
             var roomschedules = this.roomBusiness.GetRoomSchedule();
             return roomschedules;
         }
-    }
+
+
+		public ActionResult<Int32> RoomDeleteId(int id)
+		{
+			var students = this.roomBusiness.DeleteId(id);
+			return students;
+		}
+
+
+	}
 }
