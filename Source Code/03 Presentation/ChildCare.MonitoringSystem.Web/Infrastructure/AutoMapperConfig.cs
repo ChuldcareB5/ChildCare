@@ -15,11 +15,15 @@ namespace ChildCare.MonitoringSystem.Web.Infrastructure
                 cfg.CreateMap<User, UserModel>()
                     .ForMember(x => x.Role, opt => opt.MapFrom(x => new RoleModel() { RoleId = x.UserRole.First().RoleId }));
                 cfg.CreateMap<Role, RoleModel>();
+				cfg.CreateMap<BusSchedule, BusScheduleModel>()
+				 .ForMember(dest => dest.BusName, opt => opt.MapFrom(src => src.Bus.BusName));
 
-                // Model to Entity
-                cfg.CreateMap<UserModel, User>();
+
+				// Model to Entity
+				cfg.CreateMap<UserModel, User>();
                 cfg.CreateMap<RoleModel, Role>();
-            });
+				cfg.CreateMap<BusScheduleModel, BusSchedule>();
+			});
         }
 
     }

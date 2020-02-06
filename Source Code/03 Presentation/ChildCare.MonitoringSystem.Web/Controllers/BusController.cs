@@ -26,34 +26,17 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 			var BusId = bus.BusId;
 			return BusId; 
 		}
+
 		public IActionResult Index()
         {
             return View();
         }
-		public ActionResult<List<BusModel>> GetBusDetail()
-		{
-			var bus = this.busBusiness.Getbus();
-			return bus;
-		}
+
 
 		public ActionResult<Int32> BusDeleteId(int id)
 		{
 			var bus = this.busBusiness.DeleteId(id);
 			return bus;
 		}
-
-
-		public ActionResult<BusModel> BusGetById(int id)
-		{
-			var bus = this.busBusiness.BusGetById(id);
-			return bus;
-		}
-
-
-		//public ActionResult<List<BusModel>> BusScheduleUpdate(BusModel busModel)
-		//{
-		//	var bus = this.busBusiness.BusScheduleUpdate(busModel);
-		//	return bus;
-		//}
 	}
 }

@@ -41,30 +41,7 @@ namespace ChildCare.MonitoringSystem.Business
 		}
 
 
-		public List<BusModel> Getbus()
-		{
-			var busEntity = this.busRepository.GetAll();
 
-			var bus = new List<BusModel>();
-
-			foreach (var b in busEntity)
-			{
-				bus.Add(new BusModel()
-				{
-					BusId = b.BusId,
-					BusName = b.BusName,
-					//StudentImg = student.StudentImg,
-					//StudentAddress = student.StudentAddress,
-					//StudentGender = student.StudentGender,
-					//StudentDob = student.StudentDob,
-					//FatherName = student.FatherName,
-					//MotherName = student.MotherName,
-					//ParentId = student.ParentId
-				});
-			}
-
-			return bus;
-		}
 
 
 		public Int32 DeleteId(int id)
@@ -76,29 +53,16 @@ namespace ChildCare.MonitoringSystem.Business
 			return busid != null ? 0 : 1;
 
 		}
-		public BusModel BusGetById(int id)
+		
+		public List<BusModel> BusScheduleUpdate(BusModel busModel)
 		{
-			try
-			{
-				var busdetails = this.busRepository.GetBy(x => x.BusId == id, x => x.BusSchedule).SingleOrDefault();
-				var chec = Mapper.Map<BusModel>(busdetails);
-				return chec;
-			}
-			catch (Exception e)
-			{
-				throw e;
-			}
-
-		}
-		//public List<BusModel> BusScheduleUpdate(BusModel busModel)
-		//{
-			//var busupdate = this.busRepository.GetBy(x => x.BusId == busModel.BusId, x => x.BusSchedule).SingleOrDefault();
+			var busupdate = this.busRepository.GetBy(x => x.BusId == busModel.BusId, x => x.BusSchedule).SingleOrDefault();
 			//var model = new BusModel();
 			//busupdate.BusName = busModel.BusName;
-			//foreach(var item in busupdate.BusSchedule)
 			//{
 			//	model.BusSchedule.p
-			//}
+			//}	foreach (var item in busupdate.BusSchedule)
+		
 			//busupdate.BusSchedule.BusScheduleDriverName = busModel.BusSchedule.BusScheduleDriverName;
 			//busupdate.StudentAddress = busModel.StudentAddress;
 			//busupdate.StudentGender = busModel.StudentGender;
@@ -111,8 +75,9 @@ namespace ChildCare.MonitoringSystem.Business
 
 
 			//this.unitOfWork.Save();
+			return null;
 
-			
+
 			//var studentsEntity = this.studentRepository.GetAll();
 
 			//var bus = new List<BusModel>();
@@ -134,6 +99,6 @@ namespace ChildCare.MonitoringSystem.Business
 			//}
 
 			//return students;
-		//}
 		}
+	}
 }
