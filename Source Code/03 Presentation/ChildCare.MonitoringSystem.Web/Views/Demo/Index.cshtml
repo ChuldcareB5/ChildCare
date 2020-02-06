@@ -1,0 +1,20 @@
+﻿@model DemoViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<form asp-action="SaveDemo" enctype="multipart/form-data">
+    <div class="form-group">
+        <input asp-for="Name" />
+    </div>
+    <div class="form-group">
+        <input asp-for="ProfilePic" type="file" />
+    </div>
+    <div class="form-group">
+        <button type="submit">Save Demo</button>
+    </div>
+</form>
+
+<a href="@Url.Action("ViewImage")">View First Image</a>

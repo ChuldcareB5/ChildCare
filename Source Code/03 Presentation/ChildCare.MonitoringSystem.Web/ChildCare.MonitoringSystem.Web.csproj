@@ -23,6 +23,7 @@
   <ItemGroup>
     <Folder Include="Infrastructure\" />
     <Folder Include="Middlewares\" />
+    <Folder Include="wwwroot\profilepics\" />
   </ItemGroup>
 
   <ItemGroup>
