@@ -326,9 +326,6 @@
                             <table class="table table-data2" id="bus">
                                 <thead>
                                     <tr>
-                                        <th>
-                                            #
-                                        </th>
                                         <th>Bus Id</th>
                                         <th>Bus Name</th>
                                         <th></th>
@@ -700,10 +697,7 @@
 
                 alert(dName);
                 alert(bto);
-                //alert(bfrom);
-                //alert(btime);
-                //alert(bdate);
-                //alert(bname);
+
                 $.ajax({
                     url: '/Bus/AddBus',
                     type: 'post',
@@ -739,7 +733,7 @@
 
 
             $("#BusScheduleupdate").click(function () {
-                debugger
+                //debugger
                 var id = $('#BusScheduleupdate').val();
                 var budschedulerid = $('#budschedulerid').val();
                 var busname = $('#busname').val();
@@ -748,13 +742,6 @@
                 var from = $('#busfrom').val();
                 var time = $('#bustime').val();
                 var date = $('#busdate').val();
-                //var studentdob = $('#sdob').val();
-                //var fathername = $('#ffname').val();
-                //var mothername = $('#mname').val();
-                //var batch = $('#batch').val();
-                //var uname = $('#uname').val();
-                //var email = $('#email').val();
-                //var umobileno = $('#umobileno').val();
 
                 alert(id);
                 alert(drivername);
@@ -809,9 +796,10 @@
                     //debugger
                     if (result) {
                         var bus = ' <tbody>';
-                        for (var i = 0; i < result.length; i++) {
+                        for (var i = 0; i < result.length; i++)
+                        {
 
-                            bus += '<tr class="tr-shadow"><td><label class="au-checkbox"><input type="checkbox"><span class="au-checkmark"></span></label></td><td class="ds" value="' + result[i].busId + '">' + result[i].busId + '</td><td>' + result[i].busName + '</td><td><div class="table-data-feature"><button onclick="show();" title="Send Message" class="btn btn-primary"><a onclick="showschedule(' + result[i].busId + ' ); ">Schedule</a></button><button class="item"  data-toggle="tooltip" data-placement="top" title="Delete"><a onclick="deleteBus(' + result[i].busId + ')"><i class="zmdi zmdi-delete"></i></a></button></div></td></tr>';
+                            bus +='<tr class="tr-shadow"><td class="ds" value="' + result[i].busId + '">' + result[i].busId + '</td><td>' + result[i].busName + '</td><td><div class="table-data-feature"><button onclick="show();" title="Send Message" class="btn btn-primary"><a onclick="showschedule(' + result[i].busId + ' ); ">Schedule</a></button></div></td></tr>';
 
                         }
                         bus += '</tbody>'

@@ -100,12 +100,12 @@
                     </li>
                     <li>
                         <a href="~/Home/RoomSchedule">
-                            <i class="fas fa-times"></i>Room Schedule
+                            <i class="fas fa-home"></i>Room Schedule
                         </a>
                     </li>
                     <li>
                         <a href="~/Home/BusSchedule">
-                            <i class="fas fa-times"></i>Bus Schedule
+                            <i class="fas fa-bus"></i>Bus Schedule
                         </a>
                     </li>
                 </ul>
@@ -170,12 +170,12 @@
                     </li>
                     <li>
                         <a href="~/Home/RoomSchedule">
-                            <i class="fas fa-times"></i>Room Schedule
+                            <i class="fas fa-home"></i>Room Schedule
                         </a>
                     </li>
                     <li>
                         <a href="~/Home/BusSchedule">
-                            <i class="fas fa-times"></i>Bus Schedule
+                            <i class="fas fa-bus"></i>Bus Schedule
                         </a>
                     </li>
                 </ul>
@@ -794,7 +794,7 @@
                 if (result) {
                     var bat = ' <tbody>';
                     for (var i = 0; i < result.length; i++) {
-                        bat += '<tr class="tr-shadow">< td > <label class="au-checkbox"><input type="checkbox"><span class="au-checkmark"></span></label></td><td>' + (i + 1) + '</td><td>' + result[i].roomScheduleId + '</td><td>' + result[i].teacherId + '</td> <td>' + result[i].roomScheduleDate + '</td> <td>' + result[i].roomScheduleTime + '</td><td>' + result[i].roomScheduleSubject + '</td><td>' + result[i].roomId + '</td><td><div class="table-data-feature"><button class="item"  data-toggle="tooltip" data-placement="top" title="Delete"><a onclick="deleteroomschedule(' + result[i].roomScheduleId + ')"><i class="zmdi zmdi-delete"></i></a></button></div></td></tr > ';
+                        bat += '<tr class="tr-shadow"><td>' + (i + 1) + '</td><td>' + result[i].roomScheduleId + '</td><td>' + result[i].teacherId + '</td> <td>' + result[i].roomScheduleDate + '</td> <td>' + result[i].roomScheduleTime + '</td><td>' + result[i].roomScheduleSubject + '</td><td>' + result[i].roomId + '</td><td><div class="table-data-feature"><button class="item"  data-toggle="tooltip" data-placement="top" title="Delete"><a onclick="deleteroomschedule(' + result[i].roomScheduleId + ')"><i class="zmdi zmdi-delete"></i></a></button></div></td></tr > ';
                     }
                     bat += '</tbody>'
 

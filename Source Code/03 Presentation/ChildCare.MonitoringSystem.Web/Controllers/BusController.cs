@@ -48,10 +48,10 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 		}
 
 
-		public ActionResult<List<BusModel>> BusScheduleUpdate(BusModel busModel)
-		{
-			var bus = this.busBusiness.BusScheduleUpdate(busModel);
-			return bus;
-		}
+		//public ActionResult<List<BusModel>> BusScheduleUpdate(BusModel busModel)
+		//{
+		//	var bus = this.busBusiness.BusScheduleUpdate(busModel);
+		//	return bus;
+		//}
 	}
 }
