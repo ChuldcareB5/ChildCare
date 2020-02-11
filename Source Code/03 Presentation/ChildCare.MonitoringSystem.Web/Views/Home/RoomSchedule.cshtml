@@ -322,9 +322,9 @@
         <!-- MAIN CONTENT-->
         <div class="main-content" id="viewroom">
             @*<div class="section__content section__content--p30">*@
-            <button class="btn btn-primary col-lg-1 pull-right" style="margin-right:5%;" onclick="showadd();">+ ADD</button><br/>
+            <button class="btn btn-primary col-lg-1 pull-right" style="margin-right:5%;" onclick="showadd();">+ ADD</button><br />
             <button class="btn btn-danger col-lg-1 pull-right" style="margin-right:5%;">- DELETE</button><br />
-          @*  <button class="btn btn-danger col-lg-1 pull-right" style="margin-right:5%;" onclick="showviewschedule()"><i class="fa fa-eye"></i> View</button>*@
+            @*  <button class="btn btn-danger col-lg-1 pull-right" style="margin-right:5%;" onclick="showviewschedule()"><i class="fa fa-eye"></i> View</button>*@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
@@ -341,71 +341,71 @@
                                     </tr>
                                 </thead>
                                 @*<tbody>
-                                <tr class="tr-shadow">
-                                    <td>
-                                        <label class="au-checkbox">
-                                            <input type="checkbox">
-                                            <span class="au-checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td>1</td>
-                                    <td>
-                                        Bus1
-                                    </td>
-                                    <td>
-                                        <div class="table-data-feature">
-                                            <button onclick="show();" title="Send Message" class="btn btn-primary">
-                                                <a onclick="showviewschedule()">
-                                                    Schedule
-                                                </a>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr class="tr-shadow">
-                                    <td>
-                                        <label class="au-checkbox">
-                                            <input type="checkbox">
-                                            <span class="au-checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td>2</td>
-                                    <td>
-                                        Bus2
-                                    </td>
-                                    <td>
-                                        <div class="table-data-feature">
-                                            <button onclick="show();" title="Send Message" class="btn btn-primary">
-                                                <a onclick="showviewschedule()">
-                                                    Schedule
-                                                </a>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr class="tr-shadow">
-                                    <td>
-                                        <label class="au-checkbox">
-                                            <input type="checkbox">
-                                            <span class="au-checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td>3</td>
-                                    <td>
-                                        Bus3
-                                    </td>
-                                    <td>
-                                        <div class="table-data-feature">
-                                            <button onclick="show();" title="Send Message" class="btn btn-primary">
-                                                <a onclick="showviewschedule()">
-                                                    Schedule
-                                                </a>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
+                                    <tr class="tr-shadow">
+                                        <td>
+                                            <label class="au-checkbox">
+                                                <input type="checkbox">
+                                                <span class="au-checkmark"></span>
+                                            </label>
+                                        </td>
+                                        <td>1</td>
+                                        <td>
+                                            Bus1
+                                        </td>
+                                        <td>
+                                            <div class="table-data-feature">
+                                                <button onclick="show();" title="Send Message" class="btn btn-primary">
+                                                    <a onclick="showviewschedule()">
+                                                        Schedule
+                                                    </a>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="tr-shadow">
+                                        <td>
+                                            <label class="au-checkbox">
+                                                <input type="checkbox">
+                                                <span class="au-checkmark"></span>
+                                            </label>
+                                        </td>
+                                        <td>2</td>
+                                        <td>
+                                            Bus2
+                                        </td>
+                                        <td>
+                                            <div class="table-data-feature">
+                                                <button onclick="show();" title="Send Message" class="btn btn-primary">
+                                                    <a onclick="showviewschedule()">
+                                                        Schedule
+                                                    </a>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="tr-shadow">
+                                        <td>
+                                            <label class="au-checkbox">
+                                                <input type="checkbox">
+                                                <span class="au-checkmark"></span>
+                                            </label>
+                                        </td>
+                                        <td>3</td>
+                                        <td>
+                                            Bus3
+                                        </td>
+                                        <td>
+                                            <div class="table-data-feature">
+                                                <button onclick="show();" title="Send Message" class="btn btn-primary">
+                                                    <a onclick="showviewschedule()">
+                                                        Schedule
+                                                    </a>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
 
-                            </tbody>*@
+                                </tbody>*@
                             </table>
                         </div>
                     </div>
@@ -420,7 +420,7 @@
             @*<h2 align="center">View Room Schedule</h2>*@
             <hr /><br /><br />
             <button class="btn btn-primary col-lg-1 pull-right" style="margin-right:5%;" onclick="showaddSchedule();">+ ADD</button><br />
-            <button class="btn btn-danger col-lg-1 pull-right" style="margin-right:5%;">- DELETE</button>
+            <button class="btn btn-danger col-lg-1 pull-right" id="std" style="margin-right:5%;">- DELETE</button>
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
@@ -508,6 +508,37 @@
                                     </tr>
 
                                 </tbody>*@
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        @*////////////////*@
+        <div class="main-content" id="viewstudentschedule">
+            <h2 align="center">View Student Schedule</h2>
+            <hr /><br /><br />
+            <button class="btn btn-primary col-lg-1 pull-right" style="margin-right:5%;" onclick="showaddSchedule();">+ ADD</button><br />
+            <button class="btn btn-danger col-lg-1 pull-right" style="margin-right:5%;">- DELETE</button>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive table-responsive-data2" style="overflow:auto">
+                            <table class="table table-data2" id="getstudentSchedule">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            #
+                                        </th>
+                                        <th>Student  Id</th>
+                                        <th>Student Image Id</th>
+                                        <th>Student Name</th>
+                                        <th>Student Batch</th>
+                                       
+                                    </tr>
+                                </thead>
                             </table>
                         </div>
                     </div>
@@ -758,6 +789,8 @@
 <script>
     $(document).ready(function () {
         $("#viewroomschedule").hide();
+        $("#viewstudentschedule").hide();
+
       ///////  GetRoom
         $.ajax({
             url: '/Room/GetRoom',
@@ -927,8 +960,10 @@
 
     function showviewschedule(roomid) {
         $("#viewroom").hide();
+        $("#viewstudentschedule").hide();
+
        
-        alert(roomid);
+        //alert(roomid);
         $.ajax({
             url: '/RoomSchedule/GetRoomSchedule',
             type: 'get',
@@ -938,16 +973,62 @@
                 RoomId: roomid
             },
             success: function (result) {
-                //debugger
+                
                  $("#viewroomschedule").show();
                 if (result) {
                     var bat = ' <tbody>';
                     for (var i = 0; i < result.length; i++) {
-                        bat += '<tr class="tr-shadow">< td > <label class="au-checkbox"><input type="checkbox"><span class="au-checkmark"></span></label></td><td>' + (i + 1) + '</td><td>' + result[i].roomScheduleId + '</td><td>' + result[i].teacherId + '</td> <td>' + result[i].roomScheduleDate + '</td> <td>' + result[i].roomScheduleTime + '</td><td>' + result[i].roomScheduleSubject + '</td><td><button class="btn btn-danger" style="margin-left:0px" onclick="showviewschedule(' + result[i].roomId +')"><i class="fa fa-eye"></i>View Students</button></td></tr > ';
+                        
+                       
+                        //showstudentschedule(' + result[i].roomId + ')
+
+                        bat += '<tr class="tr-shadow">< td > <label class="au-checkbox"><input type="checkbox"><span class="au-checkmark"></span></label></td><td>' + (i + 1) + '</td><td>' + result[i].roomScheduleId + '</td><td>' + result[i].teacherId + '</td> <td>' + result[i].roomScheduleDate + '</td> <td>' + result[i].roomScheduleTime + '</td><td>' + result[i].roomScheduleSubject + '</td><td><button  class="btn btn-danger" style="margin-left:0px" onclick="showstudentschedule(' + result[i].roomId + ','+result[i].roomScheduleId+');"><i class="fa fa - eye"></i>View Students</button></td></tr > ';
+                       
                     }
                     bat += '</tbody>'
 
                     $('#getRoomSchedule').append(bat);
+
+                }
+                else {
+                    alert("failed to get data");
+                }
+
+            },
+
+        });
+    }
+
+
+
+
+    function showstudentschedule(roomid,roomsheduleid) {
+        $("#viewroom").hide();
+        $("#viewroomschedule").hide();
+        
+
+        //alert(roomsheduleid);
+        
+        $.ajax({
+            url: '/RoomSchedule/GetRoomStudents',
+            type: 'get',
+            dataType: 'json',
+            data:
+            {
+                RoomId: roomid,
+                RoomSheduleId: roomsheduleid,
+            },
+            success: function (result) {
+               
+                $("#viewstudentschedule").show();
+                if (result) {
+                    var bat = ' <tbody>';
+                    for (var i = 0; i < result.length; i++) {
+                        bat += '<tr class="tr-shadow">< td > <label class="au-checkbox"><input type="checkbox"><span class="au-checkmark"></span></label></td><td>' + (i + 1) + '</td><td>' + result[i].studentId + '</td><td class="desc"><img src="' + result[i].studentImg + '"/></td> <td>' + result[i].studentName+ '</td> <td>' + result[i].batch + '</td><td> ';
+                    }
+                    bat += '</tbody>'
+
+                    $('#getstudentSchedule').append(bat);
 
                 }
                 else {

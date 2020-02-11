@@ -21,12 +21,19 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
             var roomsche = this.roomScheduleBuisness.AddStudentScheduleByBatches(roomschedule, batch);
             return null;
         }
-     
+
 
         public ActionResult<List<RoomScheduleModel>> GetRoomSchedule(int RoomId)
         {
             var rooms = this.roomScheduleBuisness.GetRoomSchedule(RoomId);
             return rooms;
+        }
+
+        public ActionResult<List<StudentModel>> GetRoomStudents(int RoomId, int RoomSheduleId)
+        {
+            var rooms = this.roomScheduleBuisness.GetRoomStudents(RoomId, RoomSheduleId);
+            return rooms;
+
         }
     }
 }

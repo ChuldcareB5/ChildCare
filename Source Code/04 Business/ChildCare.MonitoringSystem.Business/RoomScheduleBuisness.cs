@@ -49,10 +49,10 @@ namespace ChildCare.MonitoringSystem.Business
             try {
 
                 var room1 = this.roomscheduleRepository.GetBy(x => x.RoomId == RoomId);
-                var rooms1 = this.roomscheduleRepository.GetBy(x => x.RoomId == RoomId).GroupBy(x => x.RoomScheduleTime).ToList();
-                var room2 = this.roomscheduleRepository.GetBy(x => x.RoomId == RoomId).Select(x => x.RoomScheduleTime);
-                var room3 = this.roomscheduleRepository.GetBy(x => x.RoomId == RoomId).Select(x=>x.RoomScheduleTime).Distinct();
-                //var room4 = this.roomscheduleRepository.GetBy(x => x.RoomId == RoomId).Select(x => ).Distinct();
+                //var rooms1 = this.roomscheduleRepository.GetBy(x => x.RoomId == RoomId).GroupBy(x => x.RoomScheduleTime).ToList();
+                //var room2 = this.roomscheduleRepository.GetBy(x => x.RoomId == RoomId).Select(x => x.RoomScheduleTime);
+                //var room3 = this.roomscheduleRepository.GetBy(x => x.RoomId == RoomId).Select(x=>x.RoomScheduleTime).Distinct();
+                ////var room4 = this.roomscheduleRepository.GetBy(x => x.RoomId == RoomId).Select(x => ).Distinct();
                 //var room3 = this.roomscheduleRepository.GetBy(x => x.RoomId == RoomId).SelectMany(x => x);
                 var rooms = new List<String>();
                 var roo = new List<RoomScheduleModel>();
@@ -66,7 +66,7 @@ namespace ChildCare.MonitoringSystem.Business
                     {
                         roo.Add(new RoomScheduleModel()
                         {
-                            RoomScheduleId = room.RoomId,
+                            RoomScheduleId = room.RoomScheduleId,
                             TeacherId = room.TeacherId,
                             RoomScheduleDate = room.RoomScheduleDate,
                             RoomScheduleTime = room.RoomScheduleTime,
@@ -129,6 +129,44 @@ namespace ChildCare.MonitoringSystem.Business
             //}
 
             //return null;
+        }
+        ///GetRoomStudents
+        public List<StudentModel> GetRoomStudents(int RoomId,int RoomSheduleId)
+        {
+            try
+            {
+                var times = this.roomscheduleRepository.GetBy(x => x.RoomId == RoomId && x.RoomScheduleId == RoomSheduleId).First();
+              
+                var students = this.roomscheduleRepository.GetBy(x => x.RoomId == RoomId && x.RoomScheduleTime==times.RoomScheduleTime,x=>x.Student);
+
+               
+                var room = new List<StudentModel>();
+                foreach (var student in students)
+                {
+                    var studentdetails = this.studentRepository.GetBy(x => x.StudentId == student.StudentId).First();
+                    room.Add(new StudentModel()
+                        {
+                        StudentId = studentdetails.StudentId,
+                        StudentName = studentdetails.StudentName,
+                        StudentImg = studentdetails.StudentImg,
+                        StudentAddress = studentdetails.StudentAddress,
+                        StudentGender = studentdetails.StudentGender,
+                        StudentDob = studentdetails.StudentDob,
+                        FatherName = studentdetails.FatherName,
+                        MotherName = studentdetails.MotherName,
+                        ParentId = studentdetails.ParentId,
+                        Batch=studentdetails.Batch,
+
+                    });
+                }
+                return room;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+           
         }
     }
 }
