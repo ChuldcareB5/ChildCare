@@ -103,59 +103,11 @@ namespace ChildCare.MonitoringSystem.Business
 			studentupdate.User.UserName = studentModel.User.UserName;
 			studentupdate.User.UserEmail = studentModel.User.UserEmail;
 			studentupdate.User.UserMobileNo = studentModel.User.UserMobileNo;
-			//product.OeNo = model.OeNo;
-			//product.Description = model.Description;
-			//product.PartTypeId = model.PartTypeId;
-			//product.UnitWeight = model.UnitWeight;
-			//product.PartInfo = model.PartInfo;
-			//product.InBundles = model.InBundles;
-			//product.NetDealorPrice = model.NetDealorPrice;
-			//product.ListPrice = model.ListPrice;
-			//product.GroupCode = model.GroupCode;
-			//product.IsAssembly = model.IsAssembly;
 
 			this.unitOfWork.Save();
 
 			return studentModel;
 
-
-
-			////var student = this.studentRepository.Add(x => x.StudentId == id, x => x.User).SingleOrDefault();
-			////return Mapper.Map<StudentModel>(student);
-
-			//var studentEntity = new Student()
-			//{
-			//	StudentId=studentModel.StudentId,
-			//	StudentName = studentModel.StudentName,
-			//	StudentImg = studentModel.StudentImg,
-			//	StudentAddress = studentModel.StudentAddress,
-			//	StudentGender = studentModel.StudentGender,
-			//	StudentDob = studentModel.StudentDob,
-			//	FatherName = studentModel.FatherName,
-			//	MotherName = studentModel.MotherName,
-			//	ParentId = studentModel.ParentId,
-			//	Batch = studentModel.Batch,
-				
-
-			//	CreatedBy = -1,
-			//	CreatedOn = DateTime.UtcNow,
-			//	UpdatedBy = -1,
-			//	UpdatedOn = DateTime.UtcNow
-			//};
-
-			//var userEntity = new User()
-			//{
-			//	UserName = studentModel.User.UserName,
-			//	UserEmail = studentModel.User.UserEmail,
-			//	UserMobileNo = studentModel.User.UserMobileNo,
-			//};
-
-			//this.studentRepository.Update(studentEntity);
-			//this.userRepository.Update(userEntity);
-			//this.unitOfWork.Save();
-			////studentModel.StudentId = studentEntity.StudentId;
-
-			//return studentModel;
 		}
 
 

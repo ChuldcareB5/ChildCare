@@ -333,24 +333,24 @@
                                                 <h5 class="name">
                                                     <a href="#">purshotham</a>
                                                 </h5>
-                                                <span class="email">purshotham123@gmail.com/span>
+                                                <span class="email">purshotham123@gmail.com</span>
                                             </div>
                                         </div>
                                         <div class="account-dropdown__body">
                                             <div class="account-dropdown__item">
-                                                <a href="#test-form" onclick="showtest()">
+                                                <a onclick="showtest()">
                                                     <i class="zmdi zmdi-account"></i>Account
                                                 </a>
                                             </div>
                                             <div class="account-dropdown__item">
-                                                <a href="#setting" onclick="showsetting()">
+                                                <a onclick="showsetting()">
                                                     <i class="zmdi zmdi-settings"></i>Setting
                                                 </a>
                                             </div>
 
                                         </div>
                                         <div class="account-dropdown__footer">
-                                            <a href="#">
+                                            <a href="/Home/">
                                                 <i class="zmdi zmdi-power"></i>Logout
                                             </a>
                                         </div>
@@ -370,44 +370,44 @@
                 <div class="row">
                     <div class="col-md-12">
                         <!-- DATA TABLE -->
-                        <h2 class="title-5 m-b-35" style="color:blue;">Rooms</h2>
+                        <h2 class="title-5 m-b-35" style="color:blue;">Student Details</h2>
                         @*<div class="table-data__tool">
-            <div class="table-data__tool-left">
-                <div class="rs-select2--light rs-select2--md">
-                    <select class="js-select2" name="property">
-                        <option selected="selected">Filter</option>
-                        <option value="">By Class</option>
-                        <option value="">By Name</option>
-                    </select>
-                    <div class="dropDownSelect2"></div>
-                </div>
-                @*<div class="rs-select2--light rs-select2--sm">
-                        <select class="js-select2" name="time">
-                            <option selected="selected">Today</option>
-                            <option value="">3 Days</option>
-                            <option value="">1 Week</option>
-                        </select>
-                        <div class="dropDownSelect2"></div>
-                    </div>
-                <button class="au-btn-filter">
-                    <i class="zmdi zmdi-filter-list"></i>Show All
+                                <div class="table-data__tool-left">
+                                    <div class="rs-select2--light rs-select2--md">
+                                        <select class="js-select2" name="property">
+                                            <option selected="selected">Filter</option>
+                                            <option value="">By Class</option>
+                                            <option value="">By Name</option>
+                                        </select>
+                                        <div class="dropDownSelect2"></div>
+                                    </div>
+                                    @*<div class="rs-select2--light rs-select2--sm">
+                                            <select class="js-select2" name="time">
+                                                <option selected="selected">Today</option>
+                                                <option value="">3 Days</option>
+                                                <option value="">1 Week</option>
+                                            </select>
+                                            <div class="dropDownSelect2"></div>
+                                        </div>
+                                    <button class="au-btn-filter">
+                                        <i class="zmdi zmdi-filter-list"></i>Show All
 
-                </button>
-            </div>
-            <div class="table-data__tool-right">
-                <button class="au-btn au-btn-icon au-btn--green au-btn--small">
-                    <i class="zmdi zmdi-plus"></i>Add item
-                </button>
-                <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
-                    <select class="js-select2" name="type">
-                        <option selected="selected">Export</option>
-                        <option value="">Option 1</option>
-                        <option value="">Option 2</option>
-                    </select>
-                    <div class="dropDownSelect2"></div>
-                </div>
-            </div>
-        </div>*@
+                                    </button>
+                                </div>
+                                <div class="table-data__tool-right">
+                                    <button class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                        <i class="zmdi zmdi-plus"></i>Add item
+                                    </button>
+                                    <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
+                                        <select class="js-select2" name="type">
+                                            <option selected="selected">Export</option>
+                                            <option value="">Option 1</option>
+                                            <option value="">Option 2</option>
+                                        </select>
+                                        <div class="dropDownSelect2"></div>
+                                    </div>
+                                </div>
+                            </div>*@
                         <div class="rs-select2--dark rs-select2--sm rs-select2--dark2" style="width:15%">
                             <select class="js-select2" name="type">
                                 <optgroup label="Ground Floor">
@@ -429,13 +429,10 @@
 
 
                         <br /><br /><br />
-                        <div class="table-responsive table-responsive-data2" style="overflow:scroll">
+                        <div class="table-responsive table-responsive-data2" style="overflow:auto">
                             <table class="table table-data2" id="df">
                                 <thead>
                                     <tr>
-                                        <th>
-                                            #
-                                        </th>
                                         <th>Id</th>
                                         <th>Name</th>
                                         <th>Image</th>
@@ -587,85 +584,208 @@
 
 <!--===========================-->
 <!--start Account popup-->
-<div id="test-form-div ">
-    <div id="test-form" class="">
-        <div class="form-container">
-            <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
-            <h2 align="center" class="text-primary">Profile View</h2><hr />
-            <form action="Homepage.html" method="post">
-                <div class="form-group" align="center">
-                    <div class="image">
-                        <img src="~/images/img/user.png" />
+<div id="overlay" style="z-index:4">
+    <div id="test-form-div ">
+        <div id="test-form" class="">
+            <div class="form-container">
+                <a class="pull-right" onclick="hidetest();"><i class="fa fa-close"></i></a>
+                <h2 align="center" class="text-primary">Profile View</h2><hr />
+                <form action="Homepage.html" method="post">
+                    <div class="form-group" align="center">
+                        <div class="image">
+                            <img src="~/images/img/user.png" />
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label class="text-primary">User Name</label>
-                    <label class="form-control" name="fname" id="fname">Purshotham</label>
-                </div>
-                <div class="form-group">
-                    <label class="text-primary">User Email</label>
-                    <label class="form-control" name="email" id="fname">Pursh123@gmail.com</label>
-                </div>
-                <div class="form-group">
-                    <label class="text-primary">Mobile No</label>
-                    <label class="form-control" name="number" id="pwd">9653247815</label>
-                </div>
+                    <div class="form-group">
+                        <label class="text-primary">User Name</label>
+                        <label class="form-control" name="fname" id="fname">Purshotham</label>
+                    </div>
+                    <div class="form-group">
+                        <label class="text-primary">User Email</label>
+                        <label class="form-control" name="email" id="fname">Pursh123@gmail.com</label>
+                    </div>
+                    <div class="form-group">
+                        <label class="text-primary">Mobile No</label>
+                        <label class="form-control" name="number" id="pwd">9653247815</label>
+                    </div>
 
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--close Account popup-->
+    <!--start setting popup-->
+    <div id="setting" class="">
+        <div class="form-container">
+            <a class="pull-right" onclick="hidesetting();"><i class="fa fa-close"></i></a>
+            <h2 align="center" class="text-primary">Password Setting</h2><hr />
+            <form action="Homepage.html" method="post">
+                <div class="form-group">
+                    <label>Old Password</label>
+                    <input class="form-control" type="text" name="fname" id="fname" required>
+                </div>
+                <div class="form-group">
+                    <label>New Password</label>
+                    <input class="form-control" type="email" name="email" id="fname" required>
+                </div>
+                <div class="form-group">
+                    <label for="pwd">Confirm Password</label>
+                    <input class="form-control" type="tel" name="number" id="pwd" required>
+                </div>
+                <button type="submit" class="btn btn-block btn-primary" id="reg">SUBMIT </button><br>
+                <a href="#moresetting" class="pull-right" onclick="showmoresetting()">Set More Details</a>
             </form>
         </div>
     </div>
-</div>
-<!--close Account popup-->
-<!--start setting popup-->
-<div id="setting" class="">
-    <div class="form-container">
-        <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
-        <h2 align="center" class="text-primary">Password Setting</h2><hr />
-        <form action="Homepage.html" method="post">
-            <div class="form-group">
-                <label>Old Password</label>
-                <input class="form-control" type="text" name="fname" id="fname" required>
+    <!--close setting popup-->
+    <!--start more setting popup-->
+    <div id="moresetting" class="">
+        <div class="form-container">
+            <a class="pull-right" onclick="hidemoresetting();"><i class="fa fa-close"></i></a>
+            <h2 align="center" class="text-primary">User Detail Setting</h2><hr />
+            <form action="Homepage.html" method="post">
+                <div class="form-group">
+                    <label>User Name</label>
+                    <input class="form-control" type="text" name="fname" id="fname" required>
+                </div>
+                <div class="form-group">
+                    <label>User Email</label>
+                    <input class="form-control" type="email" name="email" id="fname" required>
+                </div>
+                <div class="form-group">
+                    <label>Address</label>
+                    <input class="form-control" type="email" name="email" id="fname" required>
+                </div>
+                <div class="form-group">
+                    <label>Mobile No</label>
+                    <input class="form-control" type="email" name="email" id="fname" required>
+                </div>
+                <button type="submit" class="btn btn-block btn-primary" id="reg">EDIT</button>
+            </form>
+        </div>
+    </div>
+
+
+    <!--start setting popup-->
+    <div id="setting1" class="">
+        <a class="pull-right" onclick="hidesetting1();"><i class="fa fa-close"></i></a>
+        <h2 align="center">Send Message</h2><hr />
+        <div class="form-group row">
+            <label for="staticEmail" class="col-sm-4 col-form-label">Student Name</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="inputPassword" />
             </div>
-            <div class="form-group">
-                <label>New Password</label>
-                <input class="form-control" type="email" name="email" id="fname" required>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword" class="col-sm-4 col-form-label">To</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="inputPassword" />
             </div>
-            <div class="form-group">
-                <label for="pwd">Confirm Password</label>
-                <input class="form-control" type="tel" name="number" id="pwd" required>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword" class="col-sm-4 col-form-label">Message</label>
+            <div class="col-sm-8">
+                <textarea type="text" maxlength="3" class="form-control" id="inputPassword"></textarea>
             </div>
-            <button type="submit" class="btn btn-block btn-primary" id="reg">SUBMIT </button><br>
-            <a href="#moresetting" class="pull-right" onclick="showmoresetting()">Set More Details</a>
-        </form>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword" class="col-sm-4 col-form-label">Date and Time</label>
+            <div class="col-sm-8">
+                <input type="datetime" class="form-control" id="inputPassword" />
+            </div>
+        </div>
+        <div>
+            <button type="button" class="btn btn-outline-primary btn-block">Send</button>
+            <button type="button" class="btn btn-outline-success btn-block">Clear</button>
+        </div>
+    </div>
+    <!--close setting popup-->
+    <!--open edit popup-->
+    <div id="edit" class="" style="z-index:4">
+        <a class="pull-right" onclick="hideedit();"><i class="fa fa-close"></i></a>
+        <h2 align="center">Edit Details</h2><hr />
+        <div class="form-group row" hidden>
+            <label for="staticEmail" class="col-sm-4 col-form-label">Student Id</label>
+            <div class="col-sm-8">
+                <input type="text" id="sid" readonly>
+            </div>
+        </div>
+        
+        <div class="form-group row">
+            <label for="staticEmail" class="col-sm-4 col-form-label">Student Name</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="sname" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="staticEmail" class="col-sm-4 col-form-label">Student Image</label>
+            <div class="col-sm-8">
+                <input type="file" id="simg" name="nf-student-img" class="form-control" title="Choose Student Profile Picture">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword" class="col-sm-4 col-form-label">Address</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="Address" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="gender" class="col-sm-4 col-form-label">Gender *</label><br>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="gender" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword" class="col-sm-4 col-form-label">Date Of Birth</label>
+            <div class="col-sm-8">
+                <input type="datetime" class="form-control" id="sdob" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword" class="col-sm-4 col-form-label">Father Name</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="ffname" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword" class="col-sm-4 col-form-label">Mother Name</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="mname" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword" class="col-sm-4 col-form-label">Batch Name</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="batch" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword" class="col-sm-4 col-form-label">User Name</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="uname">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword" class="col-sm-4 col-form-label">Email</label>
+            <div class="col-sm-8">
+                <input type="datetime" class="form-control" id="email" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword" class="col-sm-4 col-form-label">Mobile Number</label>
+            <div class="col-sm-8">
+                <input type="tel" class="form-control" id="umobileno" />
+            </div>
+        </div>
+
+        <div>
+            <button type="button" class="btn btn-outline-primary btn-block" id="Studentupdate">UPDATE</button>
+            @*<button type="reset" class="btn btn-outline-success btn-block">Clear</button>*@
+        </div>
     </div>
 </div>
-<!--close setting popup-->
-<!--start more setting popup-->
-<div id="moresetting" class="">
-    <div class="form-container">
-        <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
-        <h2 align="center" class="text-primary">User Detail Setting</h2><hr />
-        <form action="Homepage.html" method="post">
-            <div class="form-group">
-                <label>User Name</label>
-                <input class="form-control" type="text" name="fname" id="fname" required>
-            </div>
-            <div class="form-group">
-                <label>User Email</label>
-                <input class="form-control" type="email" name="email" id="fname" required>
-            </div>
-            <div class="form-group">
-                <label>Address</label>
-                <input class="form-control" type="email" name="email" id="fname" required>
-            </div>
-            <div class="form-group">
-                <label>Mobile No</label>
-                <input class="form-control" type="email" name="email" id="fname" required>
-            </div>
-            <button type="submit" class="btn btn-block btn-primary" id="reg">EDIT</button>
-        </form>
-    </div>
-</div>
+
+
 <!--close more setting popup-->
 <!--===============================-->
 <!-- Jquery JS-->
@@ -692,123 +812,6 @@
 <!-- Main JS-->
 <script src="~/js/main.js"></script>
 
-<!--start setting popup-->
-<div id="setting1" class="">
-    <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
-    <h2 align="center">Send Message</h2><hr />
-    <div class="form-group row">
-        <label for="staticEmail" class="col-sm-4 col-form-label">Student Name</label>
-        <div class="col-sm-8">
-            <input type="text" class="form-control" id="inputPassword" />
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="inputPassword" class="col-sm-4 col-form-label">To</label>
-        <div class="col-sm-8">
-            <input type="text" class="form-control" id="inputPassword" />
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="inputPassword" class="col-sm-4 col-form-label">Message</label>
-        <div class="col-sm-8">
-            <textarea type="text" maxlength="3" class="form-control" id="inputPassword"></textarea>
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="inputPassword" class="col-sm-4 col-form-label">Date and Time</label>
-        <div class="col-sm-8">
-            <input type="datetime" class="form-control" id="inputPassword" />
-        </div>
-    </div>
-    <div>
-        <button type="button" class="btn btn-outline-primary btn-block">Send</button>
-        <button type="button" class="btn btn-outline-success btn-block">Clear</button>
-    </div>
-</div>
-<!--close setting popup-->
-<!--open edit popup-->
-<div id="edit" class="" style="z-index:4">
-    <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
-    <h2 align="center">Edit Details</h2><hr />
-    <div class="form-group row">
-        <label for="staticEmail" class="col-sm-4 col-form-label">Student Id</label>
-        <div class="col-sm-8">
-            <input type="text" class="form-control" id="sid" />
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="staticEmail" class="col-sm-4 col-form-label">Student Name</label>
-        <div class="col-sm-8">
-            <input type="text" class="form-control" id="sname" />
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="staticEmail" class="col-sm-4 col-form-label">Student Image</label>
-        <div class="col-sm-8">
-            <input type="file" id="simg" name="nf-student-img" class="form-control" title="Choose Student Profile Picture">
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="inputPassword" class="col-sm-4 col-form-label">Address</label>
-        <div class="col-sm-8">
-            <input type="text" class="form-control" id="Address" />
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="gender" class="col-sm-4 col-form-label">Gender *</label><br>
-        <div class="col-sm-8">
-            <input type="text" class="form-control" id="gender" />
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="inputPassword" class="col-sm-4 col-form-label">Date Of Birth</label>
-        <div class="col-sm-8">
-            <input type="datetime" class="form-control" id="sdob" />
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="inputPassword" class="col-sm-4 col-form-label">Father Name</label>
-        <div class="col-sm-8">
-            <input type="text" class="form-control" id="ffname" />
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="inputPassword" class="col-sm-4 col-form-label">Mother Name</label>
-        <div class="col-sm-8">
-            <input type="text" class="form-control" id="mname" />
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="inputPassword" class="col-sm-4 col-form-label">Batch Name</label>
-        <div class="col-sm-8">
-            <input type="text" class="form-control" id="batch" />
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="inputPassword" class="col-sm-4 col-form-label">User Name</label>
-        <div class="col-sm-8">
-            <input type="text" class="form-control" id="uname">
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="inputPassword" class="col-sm-4 col-form-label">Email</label>
-        <div class="col-sm-8">
-            <input type="datetime" class="form-control" id="email" />
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="inputPassword" class="col-sm-4 col-form-label">Mobile Number</label>
-        <div class="col-sm-8">
-            <input type="tel" class="form-control" id="umobileno" />
-        </div>
-    </div>
-
-    <div>
-        <button type="button" class="btn btn-outline-primary btn-block" id="Studentupdate">UPDATE</button>
-        @*<button type="reset" class="btn btn-outline-success btn-block">Clear</button>*@
-    </div>
-</div>
-
 <script>
     $(document).ready(function () {
         $.ajax({
@@ -821,11 +824,11 @@
                     var bat = ' <tbody>';
                     for (var i = 0; i < result.length; i++) {
 
-                         
-                         bat += '<tr class="tr-shadow"><td><label class="au-checkbox"><input type="checkbox"><span class="au-checkmark"></span></label></td><td>' + result[i].studentId+ '</td><td>' + result[i].studentName + '</td><td class="desc"><img src="' + result[i].studentImg + '"/></td><td>' + result[i].studentAddress + '</td><td>' + result[i].studentGender + '</td><td>' + result[i].studentDob + '</td><td>' + result[i].fatherName + '</td><td>' + result[i].motherName + '</td><td><div class="table-data-feature"><button onclick="show();" class="item" data-toggle="tooltip" data-placement="top" title="Send Message"><a onclick="showsetting1();"><i class="zmdi zmdi-mail-send"></i></a></button><button class="item" data-toggle="tooltip" data-placement="top" title="Edit"><a onclick="showedit('+result[i].studentId+')"><i class="zmdi zmdi-edit"></i></a></button><button class="item"  data-toggle="tooltip" data-placement="top" title="Delete"><a onclick="disp('+result[i].studentId+')"><i class="zmdi zmdi-delete"></i></a></button></div></td></tr>';
- 
-                     }
-                     bat += '</tbody>';
+
+                        bat += '<tr class="tr-shadow"><td>' + result[i].studentId + '</td><td>' + result[i].studentName + '</td><td class="desc"><img src="' + result[i].studentImg + '"/></td><td>' + result[i].studentAddress + '</td><td>' + result[i].studentGender + '</td><td>' + result[i].studentDob + '</td><td>' + result[i].fatherName + '</td><td>' + result[i].motherName + '</td><td><div class="table-data-feature"><button onclick="show();" class="item" data-toggle="tooltip" data-placement="top" title="Send Message"><a onclick="showsetting1();"><i class="zmdi zmdi-mail-send"></i></a></button><button class="item" data-toggle="tooltip" data-placement="top" title="Edit"><a onclick="showedit(' + result[i].studentId + ');"><i class="zmdi zmdi-edit"></i></a></button><button class="item"  data-toggle="tooltip" data-placement="top" title="Delete"><a onclick="disp(' + result[i].studentId + ')"><i class="zmdi zmdi-delete"></i></a></button></div></td></tr>';
+
+                    }
+                    bat += '</tbody>';
 
                     $('#df').append(bat);
 
@@ -856,44 +859,44 @@
         var uname = $('#uname').val();
         var email = $('#email').val();
         var umobileno = $('#umobileno').val();
-;
+        ;
         alert(studentid);
         alert(address);
         alert(email);
 
         var User = {
-            
-             UserName: uname,
-             UserEmail: email,
-             UserMobileNo: umobileno,
+
+            UserName: uname,
+            UserEmail: email,
+            UserMobileNo: umobileno,
         }
 
 
         $.ajax({
 
-                url: '/Student/StudentUpdate',
-                type: 'post',
-                dataType: 'json',
-                data: {
-                    studentId: studentid,
-                    StudentName: studentname,
-                    StudentImg: studentimg,
-                    StudentAddress: address,
-                    StudentGender: gender,
-                    StudentDob: studentdob,
-                    FatherName: fathername,
-                    MotherName: mothername,                 
-                    Batch: batch,
-                    User: User,
-                    //User.userName: uname,
-                    //User.userEmail: email,
-                    //UserMobileNo: umobileno,
-                },
-                success: function (result) {
-                    alert("Updated successfully");
-                    location.reload();
-                },
-            });
+            url: '/Student/StudentUpdate',
+            type: 'post',
+            dataType: 'json',
+            data: {
+                studentId: studentid,
+                StudentName: studentname,
+                StudentImg: studentimg,
+                StudentAddress: address,
+                StudentGender: gender,
+                StudentDob: studentdob,
+                FatherName: fathername,
+                MotherName: mothername,
+                Batch: batch,
+                User: User,
+                //User.userName: uname,
+                //User.userEmail: email,
+                //UserMobileNo: umobileno,
+            },
+            success: function (result) {
+                alert("Updated successfully");
+                location.reload();
+            },
+        });
     });
 </script>
 
@@ -907,18 +910,21 @@
     function showsetting1() {
 
         $('#setting1').animate({ top: '13%' }, 500);
+        document.getElementById("overlay").style.display = "block";
 
 
     }
     function hidesetting1() {
         $('#setting1').animate({ top: '-500%' }, 500);
+        document.getElementById("overlay").style.display = "none";
+        location.reload();
     }
 
     function showedit(id) {
-        $('#edit').animate({ top: '13%' }, 500);
+        $('#edit').animate({ top: '8%' }, 500);
         var stdid = id;
         //document.getElementById('Address').value = c;
-        alert(stdid);
+        //alert(stdid);
 
         $.ajax({
             url: '/Student/StudentGetById',
@@ -943,10 +949,16 @@
                 document.getElementById('umobileno').value = result.user.userMobileNo;
             },
         });
+     
+        document.getElementById("overlay").style.display = "block";
     }
 
 
+ 
+
+
     function disp(a) {
+        document.getElementById("overlay").style.display = "block";
         alert(a);
         var delid = a;
         $.ajax({
@@ -969,31 +981,42 @@
 
     function hideedit() {
         $('#edit').animate({ top: '-500%' }, 500);
+        document.getElementById("overlay").style.display = "none";
+        location.reload();
     }
 
     function showtest() {
         $('#test-form').animate({ top: '15%' }, 500);
         $('#test-form-div').animate({ top: '20%' }, 500);
         $('.account-dropdown').hide();
+        document.getElementById("overlay").style.display = "block";
     }
     function hidetest() {
         $('#test-form').animate({ top: '-500%' }, 500);
+        document.getElementById("overlay").style.display = "none";
+        location.reload();
     }
 
     function showsetting() {
         $('#setting').animate({ top: '15%' }, 500);
         $('.account-dropdown').hide();
+        document.getElementById("overlay").style.display = "block";
     }
     function hidesetting() {
         $('#setting').animate({ top: '-500%' }, 500);
+        document.getElementById("overlay").style.display = "none";
+        location.reload();
     }
 
     function showmoresetting() {
         $('#moresetting').animate({ top: '15%' }, 500);
         $('.account-dropdown').hide();
+        document.getElementById("overlay").style.display = "block";
     }
     function hidemoresetting() {
         $('#moresetting').animate({ top: '-500%' }, 500);
+        document.getElementById("overlay").style.display = "none";
+        location.reload();
     }
 </script>
 @*<script>
@@ -1030,6 +1053,22 @@
     </script>*@
 
 <style>
+
+    #overlay {
+        position: fixed; /* Sit on top of the page content */
+        display: none; /* Hidden by default */
+        width: 100%; /* Full width (cover the whole page) */
+        height: 100%; /* Full height (cover the whole page) */
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+        z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+        cursor: pointer; /* Add a pointer on hover */
+        overflow:auto;
+    }
+
     #setting1 {
         position: absolute;
         top: -500%;
@@ -1045,13 +1084,13 @@
     #edit {
         position: absolute;
         top: -500%;
-        width: 43%;
+        width: 40%;
         margin-left: 30%;
         background-color: white;
         box-shadow: 2px 3px 8px slategrey;
         border-radius: 5px;
         padding: 15px;
-        overflow: auto;
+        /*overflow: scroll;*/
     }
 
     #test-form {
@@ -1125,7 +1164,7 @@
         }
 
     form.example::after {
-        content: "";
+        /*content: "";*/
         clear: both;
         display: table;
     }

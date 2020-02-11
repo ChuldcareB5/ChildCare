@@ -29,6 +29,7 @@ namespace ChildCare.MonitoringSystem.Repository
             services.AddRepository<IRepository<Room>, Repository<Room>>();
             services.AddRepository<IRepository<RoomSchedule>, Repository<RoomSchedule>>();
 			services.AddRepository<IRepository<MessageBoard>, Repository<MessageBoard>>();
+	
 		}
     }
 }
