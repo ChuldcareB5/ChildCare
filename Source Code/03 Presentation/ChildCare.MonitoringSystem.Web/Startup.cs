@@ -77,7 +77,7 @@ namespace ChildCare.MonitoringSystem.Web
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=StudentDetails}/{id?}");
+                    template: "{controller=Account}/{action=Login}/{id?}");
             });
 
             AutoMapperConfig.Bootstrap();

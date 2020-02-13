@@ -1,0 +1,16 @@
+﻿@model DemoDataViewModel
+
+@{
+    ViewData["Title"] = "View";
+}
+
+<h2>First Image Viwer</h2>
+
+@if (Model.ProfilePicPath == null)
+{
+    <span>No Image to display!</span>
+}
+else
+{
+    <img src="@Model.ProfilePicPath" />
+}

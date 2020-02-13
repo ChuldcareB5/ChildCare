@@ -26,13 +26,16 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 			var BusId = bus.BusId;
 			return BusId; 
 		}
+
 		public IActionResult Index()
         {
             return View();
         }
-		public ActionResult<List<BusModel>> GetBusDetail()
+
+
+		public ActionResult<Int32> BusDeleteId(int id)
 		{
-			var bus = this.busBusiness.Getbus();
+			var bus = this.busBusiness.DeleteId(id);
 			return bus;
 		}public ActionResult<BusModel> BusGetById(int id)
 		{

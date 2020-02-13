@@ -102,15 +102,11 @@ namespace ChildCare.MonitoringSystem.Business
 			studentupdate.User.UserName = studentModel.User.UserName;
 			studentupdate.User.UserEmail = studentModel.User.UserEmail;
 			studentupdate.User.UserMobileNo = studentModel.User.UserMobileNo;
-	
 
 			this.unitOfWork.Save();
 
 			return studentModel;
 
-
-
-			
 		}
 
 

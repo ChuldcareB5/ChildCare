@@ -13,6 +13,7 @@ namespace ChildCare.MonitoringSystem.Model
 		public System.TimeSpan BusScheduleTime { get; set; } // BusScheduleTime
 		public System.DateTime BusScheduleDate { get; set; } // BusScheduleDate
 		public int BusId { get; set; } // BusId
-        //public BusModel Bus { get; set; } // FK_BusSchedule_Bus
-    }
+		public string BusName { get; set; } // BusName (length: 100)
+		public BusModel Bus { get; set; }
+	}
 }

@@ -41,29 +41,64 @@ namespace ChildCare.MonitoringSystem.Business
 		}
 
 
-		public List<BusModel> Getbus()
+
+
+
+		public Int32 DeleteId(int id)
 		{
-			var busEntity = this.busRepository.GetAll();
 
-			var bus = new List<BusModel>();
+			var busid = this.busRepository.GetBy(x => x.BusId == id).SingleOrDefault();
+			busid.IsDeleted = true;
+			this.unitOfWork.Save();
+			return busid != null ? 0 : 1;
 
-			foreach (var b in busEntity)
-			{
-				bus.Add(new BusModel()
-				{
-					BusId = b.BusId,
-					BusName = b.BusName,
-					//StudentImg = student.StudentImg,
-					//StudentAddress = student.StudentAddress,
-					//StudentGender = student.StudentGender,
-					//StudentDob = student.StudentDob,
-					//FatherName = student.FatherName,
-					//MotherName = student.MotherName,
-					//ParentId = student.ParentId
-				});
-			}
+		}
+		
+		public List<BusModel> BusScheduleUpdate(BusModel busModel)
+		{
+			var busupdate = this.busRepository.GetBy(x => x.BusId == busModel.BusId, x => x.BusSchedule).SingleOrDefault();
+			//var model = new BusModel();
+			//busupdate.BusName = busModel.BusName;
+			//{
+			//	model.BusSchedule.p
+			//}	foreach (var item in busupdate.BusSchedule)
+		
+			//busupdate.BusSchedule.BusScheduleDriverName = busModel.BusSchedule.BusScheduleDriverName;
+			//busupdate.StudentAddress = busModel.StudentAddress;
+			//busupdate.StudentGender = busModel.StudentGender;
+			//busupdate.StudentDob = busModel.StudentDob;
+			//busupdate.FatherName = busModel.FatherName;
+			//busupdate.MotherName = busModel.MotherName;
+			//busupdate.User.UserName = busModel.User.UserName;
+			//busupdate.User.UserEmail = busModel.User.UserEmail;
+			//busupdate.User.UserMobileNo = busModel.User.UserMobileNo;
 
-			return bus;
+
+			//this.unitOfWork.Save();
+			return null;
+
+
+			//var studentsEntity = this.studentRepository.GetAll();
+
+			//var bus = new List<BusModel>();
+
+			//foreach (var bus in busupdate)
+			//{
+			//	students.Add(new StudentModel()
+			//	{
+			//		StudentId = student.StudentId,
+			//		StudentName = student.StudentName,
+			//		StudentImg = student.StudentImg,
+			//		StudentAddress = student.StudentAddress,
+			//		StudentGender = student.StudentGender,
+			//		StudentDob = student.StudentDob,
+			//		FatherName = student.FatherName,
+			//		MotherName = student.MotherName,
+			//		ParentId = student.ParentId
+			//	});
+			//}
+
+			//return students;
 		}
         public BusModel BusGetById(int id)
         {

@@ -15,6 +15,7 @@ namespace ChildCare.MonitoringSystem.Business.Infrastructure
 			services.AddTransient<BusScheduleBusiness>();
 			services.AddTransient<RoomBusiness>();
 			services.AddTransient<MsgBusiness>();
+			services.AddTransient<RoomScheduleBusiness>();
 		}
     }
 }

@@ -47,6 +47,11 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 			return students;
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="id"></param>
+		/// <returns></returns>
 		public ActionResult<Int32> StudentDeleteId(int id)
 		{
 			var students = this.studentBusiness.DeleteId(id);
