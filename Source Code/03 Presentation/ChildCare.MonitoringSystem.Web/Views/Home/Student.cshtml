@@ -1,6 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Student";
     Layout = null;
+    var user = User.Claims.ToList();
 }
 
 <head>
@@ -267,28 +268,28 @@
                                                         <thead>
                                                             <tr>
 
-                                                                <td id="name"><strong>Name </strong></td>
-                                                                <td>xxx</td>
+                                                                <td><strong>Name </strong></td>
+                                                                <td><h6 id="name"></h6></td>
                                                             </tr>
                                                             <tr>
-                                                                <td id="address"><strong>Address </strong></td>
-                                                                <td>yyy</td>
+                                                                <td ><strong>Address </strong></td>
+                                                                <td><h6 id="address"></h6></td>
                                                             </tr>
                                                             <tr>
-                                                                <td id="gender"><strong>Gender </strong></td>
-                                                                <td>zzz</td>
+                                                                <td><strong>Gender </strong></td>
+                                                                <td><h6 id="gender"></h6></td>
                                                             </tr>
                                                             <tr>
-                                                                <td id="dob"><strong>DOB </strong></td>
-                                                                <td>aaa</td>
+                                                                <td><strong>DOB </strong></td>
+                                                                <td><h6 id="dob"></h6></td>
                                                             </tr>
                                                             <tr>
-                                                                <td id="father"><strong>Father / Guardian name</strong></td>
-                                                                <td>bbb</td>
+                                                                <td><strong>Father / Guardian name</strong></td>
+                                                                <td><h6 id="father"></h6></td>
                                                             </tr>
                                                             <tr>
-                                                                <td id="mother"><strong>Mother </strong></td>
-                                                                <td>ccc</td>
+                                                                <td ><strong>Mother </strong></td>
+                                                                <td><h6 id="mother"></h6></td>
                                                             </tr>
 
 
@@ -434,7 +435,33 @@
 </div>
 <!--close more setting popup-->
 
+<script>
+    $(document).ready(function () {
 
+        $.ajax({
+
+                    url: '/Student/CookieId',
+                    type: 'get',
+                    dataType: 'json',
+                 
+            success: function (result) {
+                        debugger
+
+                document.getElementById('name').innerHTML= result.studentName;
+                document.getElementById('address').innerHTML = result.studentAddress;
+                document.getElementById('gender').innerHTML = result.studentGender;
+                document.getElementById('dob').innerHTML = result.studentDob;
+                document.getElementById('father').innerHTML = result.fatherName;
+                document.getElementById('mother').innerHTML = result.motherName;
+                      
+                  
+                    },
+                });
+           
+        });
+
+   
+</script>
 <script>
     function showtest() {
         $('#test-form').animate({ top: '15%' }, 500);

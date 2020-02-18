@@ -86,6 +86,12 @@ namespace ChildCare.MonitoringSystem.Business
 			var student = this.studentRepository.GetBy(x => x.StudentId == id, x => x.User).SingleOrDefault();
 			return Mapper.Map<StudentModel>(student);
 		}
+        public StudentModel CookieId(int id)
+		{
+
+			var student = this.studentRepository.GetBy(x => x.ParentId == id).SingleOrDefault();
+			return Mapper.Map<StudentModel>(student);
+		}
 
 
 		public StudentModel StudentUpdate(StudentModel studentModel)
