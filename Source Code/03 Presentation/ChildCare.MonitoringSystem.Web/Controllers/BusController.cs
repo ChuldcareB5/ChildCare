@@ -19,6 +19,7 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 			this.busBusiness = busBusiness;
 		}
 
+
 		[HttpPost]
 		public ActionResult<Int32> AddBus(BusModel busmodel)
 		{
@@ -38,5 +39,10 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 			var bus = this.busBusiness.DeleteId(id);
 			return bus;
 		}
+
+		//public IActionResult BusSchedule()
+		//{
+		//	return View();
+		//}
 	}
 }

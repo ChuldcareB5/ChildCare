@@ -23,6 +23,22 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 			this.userBusiness = userBusiness;
 		}
 
+		public IActionResult Index()
+		{
+			return View();
+		}
+		public IActionResult Student()
+		{
+			return View();
+		}
+		public IActionResult Camera()
+		{
+			return View();
+		}
+		public IActionResult BusTracking()
+		{
+			return View();
+		}
 		public ActionResult<UserModel> Get(int userId)
 		{
 			return this.userBusiness.GetUserById(userId);

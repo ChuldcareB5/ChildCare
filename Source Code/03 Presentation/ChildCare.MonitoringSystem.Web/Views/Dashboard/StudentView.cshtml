@@ -1,0 +1,757 @@
+﻿
+@{
+    ViewData["Title"] = "StudentView";
+
+}
+
+
+@section LeftNavigation{
+    <partial name="_AdminLeftNavigation" />
+}
+
+<!-- MAIN CONTENT-->
+<div class="main-content">
+    @*<div class="section__content section__content--p30">*@
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- DATA TABLE -->
+                <h2 class="title-5 m-b-35" style="color:blue;">Student Details</h2>
+                @*<div class="table-data__tool">
+                        <div class="table-data__tool-left">
+                            <div class="rs-select2--light rs-select2--md">
+                                <select class="js-select2" name="property">
+                                    <option selected="selected">Filter</option>
+                                    <option value="">By Class</option>
+                                    <option value="">By Name</option>
+                                </select>
+                                <div class="dropDownSelect2"></div>
+                            </div>
+                            @*<div class="rs-select2--light rs-select2--sm">
+                                    <select class="js-select2" name="time">
+                                        <option selected="selected">Today</option>
+                                        <option value="">3 Days</option>
+                                        <option value="">1 Week</option>
+                                    </select>
+                                    <div class="dropDownSelect2"></div>
+                                </div>
+                            <button class="au-btn-filter">
+                                <i class="zmdi zmdi-filter-list"></i>Show All
+
+                            </button>
+                        </div>
+                        <div class="table-data__tool-right">
+                            <button class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                <i class="zmdi zmdi-plus"></i>Add item
+                            </button>
+                            <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
+                                <select class="js-select2" name="type">
+                                    <option selected="selected">Export</option>
+                                    <option value="">Option 1</option>
+                                    <option value="">Option 2</option>
+                                </select>
+                                <div class="dropDownSelect2"></div>
+                            </div>
+                        </div>
+                    </div>*@
+                <div class="rs-select2--dark rs-select2--sm rs-select2--dark2" style="width:15%">
+                    <select class="js-select2" name="type">
+                        <optgroup label="Ground Floor">
+                            <option value="">Class A</option>
+                            <option value="">Class B</option>
+                        </optgroup>
+                        <optgroup label="First Floor">
+                            <option value="">Class C</option>
+                            <option value="">Class D</option>
+                        </optgroup>
+                        <optgroup label="Second Floor">
+                            <option value="">Class E</option>
+                            <option value="">Class F</option>
+                        </optgroup>
+                    </select>
+                    <div class="dropDownSelect2"></div>
+                </div>
+
+
+
+                <br /><br /><br />
+                <div class="table-responsive table-responsive-data2" style="overflow:auto">
+                    <table class="table table-data2" id="df">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>Image</th>
+                                <th>Address</th>
+                                <th>Gender</th>
+                                <th>DOB</th>
+                                <th>FatherName</th>
+                                <th>MotherName</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        @*<tbody>
+                                <tr class="tr-shadow">
+                                    <td>
+                                        <label class="au-checkbox">
+                                            <input type="checkbox">
+                                            <span class="au-checkmark"></span>
+                                        </label>
+                                    </td>
+                                    <td>1</td>
+                                    <td>
+                                        Ram
+                                    </td>
+                                    <td class="desc">ram.jpg</td>
+                                    <td>Kavoor, Mangalore</td>
+                                    <td>
+                                        Male
+                                    </td>
+                                    <td>01-jan-2003</td>
+                                    <td>Ganesh</td>
+                                    <td>Vimala</td>
+                                    <td>
+                                        <div class="table-data-feature">
+                                            <button onclick="show();" class="item" data-toggle="tooltip" data-placement="top" title="Send Message">
+                                                <a onclick="showsetting1()">
+                                                    <i class="zmdi zmdi-mail-send">
+                                                    </i>
+                                                </a>
+                                            </button>
+                                            <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                <a onclick="showedit()">
+                                                    <i class="zmdi zmdi-edit"></i>
+                                                </a>
+                                            </button>
+                                            <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                <a onclick="alert('Deleted Successfully')">
+                                                    <i class="zmdi zmdi-delete"></i>
+                                                </a>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="tr-shadow">
+                                    <td>
+                                        <label class="au-checkbox">
+                                            <input type="checkbox">
+                                            <span class="au-checkmark"></span>
+                                        </label>
+                                    </td>
+                                    <td>2</td>
+                                    <td>
+                                        Ram
+                                    </td>
+                                    <td class="desc">ram.jpg</td>
+                                    <td>Kavoor, Mangalore</td>
+                                    <td>
+                                        Male
+                                    </td>
+                                    <td>01-jan-2003</td>
+                                    <td>Ganesh</td>
+                                    <td>Vimala</td>
+                                    <td>
+                                        <div class="table-data-feature">
+                                            <button onclick="show();" class="item" data-toggle="tooltip" data-placement="top" title="Send Message">
+                                                <a onclick="showsetting1()">
+                                                    <i class="zmdi zmdi-mail-send">
+                                                    </i>
+                                                </a>
+                                            </button>
+                                            <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                <a onclick="showedit()">
+                                                    <i class="zmdi zmdi-edit"></i>
+                                                </a>
+                                            </button>
+                                            <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                <a onclick="alert('Deleted Successfully')">
+                                                    <i class="zmdi zmdi-delete"></i>
+                                                </a>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="tr-shadow">
+                                    <td>
+                                        <label class="au-checkbox">
+                                            <input type="checkbox">
+                                            <span class="au-checkmark"></span>
+                                        </label>
+                                    </td>
+                                    <td>3</td>
+                                    <td>
+                                        Ram
+                                    </td>
+                                    <td class="desc">ram.jpg</td>
+                                    <td>Kavoor, Mangalore/td>
+                                    <td>
+                                        Male
+                                    </td>
+                                    <td>01-jan-2003</td>
+                                    <td>Ganesh</td>
+                                    <td>Vimala</td>
+                                    <td>
+                                        <div class="table-data-feature">
+                                            <button onclick="show();" class="item" data-toggle="tooltip" data-placement="top" title="Send Message">
+                                                <a onclick="showsetting1()">
+                                                    <i class="zmdi zmdi-mail-send">
+                                                    </i>
+                                                </a>
+                                            </button>
+                                            <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                <a onclick="showedit()">
+                                                    <i class="zmdi zmdi-edit"></i>
+                                                </a>
+                                            </button>
+                                            <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                <a onclick="alert('Deleted Successfully')">
+                                                    <i class="zmdi zmdi-delete"></i>
+                                                </a>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            </tbody>*@
+                    </table>
+                </div>
+                <!-- END DATA TABLE -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- END MAIN CONTENT-->
+<!--===========================-->
+<!--start Account popup-->
+<div id="overlay" style="z-index:4">
+    <div id="test-form-div ">
+        <div id="test-form" class="">
+            <div class="form-container">
+                <a class="pull-right" onclick="hidetest();"><i class="fa fa-close"></i></a>
+                <h2 align="center" class="text-primary">Profile View</h2><hr />
+                <form action="Homepage.html" method="post">
+                    <div class="form-group" align="center">
+                        <div class="image">
+                            <img src="~/images/img/user.png" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="text-primary">User Name</label>
+                        <label class="form-control" name="fname" id="fname">Purshotham</label>
+                    </div>
+                    <div class="form-group">
+                        <label class="text-primary">User Email</label>
+                        <label class="form-control" name="email" id="fname">Pursh123@gmail.com</label>
+                    </div>
+                    <div class="form-group">
+                        <label class="text-primary">Mobile No</label>
+                        <label class="form-control" name="number" id="pwd">9653247815</label>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--close Account popup-->
+    <!--start setting popup-->
+    <div id="setting" class="">
+        <div class="form-container">
+            <a class="pull-right" onclick="hidesetting();"><i class="fa fa-close"></i></a>
+            <h2 align="center" class="text-primary">Password Setting</h2><hr />
+            <form action="Homepage.html" method="post">
+                <div class="form-group">
+                    <label>Old Password</label>
+                    <input class="form-control" type="text" name="fname" id="fname" required>
+                </div>
+                <div class="form-group">
+                    <label>New Password</label>
+                    <input class="form-control" type="email" name="email" id="fname" required>
+                </div>
+                <div class="form-group">
+                    <label for="pwd">Confirm Password</label>
+                    <input class="form-control" type="tel" name="number" id="pwd" required>
+                </div>
+                <button type="submit" class="btn btn-block btn-primary" id="reg">SUBMIT </button><br>
+                <a href="#moresetting" class="pull-right" onclick="showmoresetting()">Set More Details</a>
+            </form>
+        </div>
+    </div>
+    <!--close setting popup-->
+    <!--start more setting popup-->
+    <div id="moresetting" class="">
+        <div class="form-container">
+            <a class="pull-right" onclick="hidemoresetting();"><i class="fa fa-close"></i></a>
+            <h2 align="center" class="text-primary">User Detail Setting</h2><hr />
+            <form action="Homepage.html" method="post">
+                <div class="form-group">
+                    <label>User Name</label>
+                    <input class="form-control" type="text" name="fname" id="fname" required>
+                </div>
+                <div class="form-group">
+                    <label>User Email</label>
+                    <input class="form-control" type="email" name="email" id="fname" required>
+                </div>
+                <div class="form-group">
+                    <label>Address</label>
+                    <input class="form-control" type="email" name="email" id="fname" required>
+                </div>
+                <div class="form-group">
+                    <label>Mobile No</label>
+                    <input class="form-control" type="email" name="email" id="fname" required>
+                </div>
+                <button type="submit" class="btn btn-block btn-primary" id="reg">EDIT</button>
+            </form>
+        </div>
+    </div>
+
+
+    <!--start setting popup-->
+    <div id="setting1" class="">
+        <a class="pull-right" onclick="hidesetting1();"><i class="fa fa-close"></i></a>
+        <h2 align="center">Send Message</h2><hr />
+        <div class="form-group row">
+            <label for="staticEmail" class="col-sm-4 col-form-label">Student Name</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="inputPassword" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword" class="col-sm-4 col-form-label">To</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="inputPassword" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword" class="col-sm-4 col-form-label">Message</label>
+            <div class="col-sm-8">
+                <textarea type="text" maxlength="3" class="form-control" id="inputPassword"></textarea>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword" class="col-sm-4 col-form-label">Date and Time</label>
+            <div class="col-sm-8">
+                <input type="datetime" class="form-control" id="inputPassword" />
+            </div>
+        </div>
+        <div>
+            <button type="button" class="btn btn-outline-primary btn-block">Send</button>
+            <button type="button" class="btn btn-outline-success btn-block">Clear</button>
+        </div>
+    </div>
+    <!--close setting popup-->
+    <!--open edit popup-->
+    <div id="edit" class="" style="z-index:4">
+        <a class="pull-right" onclick="hideedit();"><i class="fa fa-close"></i></a>
+        <h2 align="center">Edit Details</h2><hr />
+        <div class="form-group row" hidden>
+            <label for="staticEmail" class="col-sm-4 col-form-label">Student Id</label>
+            <div class="col-sm-8">
+                <input type="text" id="sid" readonly>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="staticEmail" class="col-sm-4 col-form-label">Student Name</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="sname" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="staticEmail" class="col-sm-4 col-form-label">Student Image</label>
+            <div class="col-sm-8">
+                <input type="file" id="simg" name="nf-student-img" class="form-control" title="Choose Student Profile Picture">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword" class="col-sm-4 col-form-label">Address</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="Address" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="gender" class="col-sm-4 col-form-label">Gender *</label><br>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="gender" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword" class="col-sm-4 col-form-label">Date Of Birth</label>
+            <div class="col-sm-8">
+                <input type="datetime" class="form-control" id="sdob" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword" class="col-sm-4 col-form-label">Father Name</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="ffname" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword" class="col-sm-4 col-form-label">Mother Name</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="mname" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword" class="col-sm-4 col-form-label">Batch Name</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="batch" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword" class="col-sm-4 col-form-label">User Name</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="uname">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword" class="col-sm-4 col-form-label">Email</label>
+            <div class="col-sm-8">
+                <input type="datetime" class="form-control" id="email" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword" class="col-sm-4 col-form-label">Mobile Number</label>
+            <div class="col-sm-8">
+                <input type="tel" class="form-control" id="umobileno" />
+            </div>
+        </div>
+
+        <div>
+            <button type="button" class="btn btn-outline-primary btn-block" id="Studentupdate">UPDATE</button>
+            @*<button type="reset" class="btn btn-outline-success btn-block">Clear</button>*@
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                url: '/Student/GetStudentDetail',
+                type: 'get',
+                dataType: 'json',
+                success: function (result) {
+                    //debugger
+                    if (result) {
+                        var bat = ' <tbody>';
+                        for (var i = 0; i < result.length; i++) {
+
+
+                            bat += '<tr class="tr-shadow"><td>' + result[i].studentId + '</td><td>' + result[i].studentName + '</td><td class="desc"><img src="' + result[i].studentImg + '"/></td><td>' + result[i].studentAddress + '</td><td>' + result[i].studentGender + '</td><td>' + result[i].studentDob + '</td><td>' + result[i].fatherName + '</td><td>' + result[i].motherName + '</td><td><div class="table-data-feature"><button onclick="show();" class="item" data-toggle="tooltip" data-placement="top" title="Send Message"><a onclick="showsetting1();"><i class="zmdi zmdi-mail-send"></i></a></button><button class="item" data-toggle="tooltip" data-placement="top" title="Edit"><a onclick="showedit(' + result[i].studentId + ');"><i class="zmdi zmdi-edit"></i></a></button><button class="item"  data-toggle="tooltip" data-placement="top" title="Delete"><a onclick="disp(' + result[i].studentId + ')"><i class="zmdi zmdi-delete"></i></a></button></div></td></tr>';
+
+                        }
+                        bat += '</tbody>';
+
+                        $('#df').append(bat);
+
+                    }
+                    else {
+                        alert("failed to get data");
+                    }
+
+                },
+
+
+            });
+
+            //});
+
+        });
+
+        $("#Studentupdate").click(function () {
+            var studentid = $('#sid').val();
+            var studentname = $('#sname').val();
+            var studentimg = $('#simg').val();
+            var address = $('#Address').val();
+            var gender = $('#gender').val();
+            var studentdob = $('#sdob').val();
+            var fathername = $('#ffname').val();
+            var mothername = $('#mname').val();
+            var batch = $('#batch').val();
+            var uname = $('#uname').val();
+            var email = $('#email').val();
+            var umobileno = $('#umobileno').val();
+            ;
+            alert(studentid);
+            alert(address);
+            alert(email);
+
+            var User = {
+
+                UserName: uname,
+                UserEmail: email,
+                UserMobileNo: umobileno,
+            }
+
+
+            $.ajax({
+
+                url: '/Student/StudentUpdate',
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    studentId: studentid,
+                    StudentName: studentname,
+                    StudentImg: studentimg,
+                    StudentAddress: address,
+                    StudentGender: gender,
+                    StudentDob: studentdob,
+                    FatherName: fathername,
+                    MotherName: mothername,
+                    Batch: batch,
+                    User: User,
+                    //User.userName: uname,
+                    //User.userEmail: email,
+                    //UserMobileNo: umobileno,
+                },
+                success: function (result) {
+                    alert("Updated successfully");
+                    location.reload();
+                },
+            });
+        });
+    </script>
+
+    <script>
+        //function disp(a) {
+        //    alert(a);
+        //    //alert("hi");
+        //}
+
+        function search(string) {
+            window.find(string);
+        }
+
+        function showsetting1() {
+
+            $('#setting1').animate({ top: '13%' }, 500);
+            document.getElementById("overlay").style.display = "block";
+        }
+        function hidesetting1() {
+            $('#setting1').animate({ top: '-500%' }, 500);
+            document.getElementById("overlay").style.display = "none";
+            location.reload();
+        }
+
+        function showedit(id) {
+            $('#edit').animate({ top: '8%' }, 500);
+            var stdid = id;
+            //document.getElementById('Address').value = c;
+            //alert(stdid);
+
+            $.ajax({
+                url: '/Student/StudentGetById',
+                type: 'get',
+                dataType: 'json',
+                data:
+                {
+                    id: stdid,
+                },
+                success: function (result) {
+                    document.getElementById('sid').value = result.studentId;
+                    document.getElementById('sname').value = result.studentName;
+                    //document.getElementById('simg').value = result.studentName;
+                    document.getElementById('Address').value = result.studentAddress;
+                    document.getElementById('gender').value = result.studentGender;
+                    document.getElementById('sdob').value = result.studentDob;
+                    document.getElementById('ffname').value = result.fatherName;
+                    document.getElementById('mname').value = result.motherName;
+                    document.getElementById('batch').value = result.batch;
+                    document.getElementById('uname').value = result.user.userName;
+                    document.getElementById('email').value = result.user.userEmail;
+                    document.getElementById('umobileno').value = result.user.userMobileNo;
+                },
+            });
+
+            document.getElementById("overlay").style.display = "block";
+        }
+
+
+
+
+
+        function disp(a) {
+            document.getElementById("overlay").style.display = "block";
+            alert(a);
+            var delid = a;
+            $.ajax({
+
+                url: '/Student/StudentDeleteId',
+                type: 'post',
+                dataType: 'json',
+                data:
+                {
+                    id: delid,
+                },
+                success: function (result) {
+
+                    alert("deleted");
+                    location.reload();
+                },
+            });
+
+        }
+
+        function hideedit() {
+            $('#edit').animate({ top: '-500%' }, 500);
+            document.getElementById("overlay").style.display = "none";
+            location.reload();
+        }
+
+        function showtest() {
+            $('#test-form').animate({ top: '15%' }, 500);
+            $('#test-form-div').animate({ top: '20%' }, 500);
+            $('.account-dropdown').hide();
+            document.getElementById("overlay").style.display = "block";
+        }
+        function hidetest() {
+            $('#test-form').animate({ top: '-500%' }, 500);
+            document.getElementById("overlay").style.display = "none";
+            location.reload();
+        }
+
+        function showsetting() {
+            $('#setting').animate({ top: '15%' }, 500);
+            $('.account-dropdown').hide();
+            document.getElementById("overlay").style.display = "block";
+        }
+        function hidesetting() {
+            $('#setting').animate({ top: '-500%' }, 500);
+            document.getElementById("overlay").style.display = "none";
+            location.reload();
+        }
+
+        function showmoresetting() {
+            $('#moresetting').animate({ top: '15%' }, 500);
+            $('.account-dropdown').hide();
+            document.getElementById("overlay").style.display = "block";
+        }
+        function hidemoresetting() {
+            $('#moresetting').animate({ top: '-500%' }, 500);
+            document.getElementById("overlay").style.display = "none";
+            location.reload();
+        }
+    </script>
+}
+
+@section Styles{
+    <style>
+
+        #overlay {
+            position: fixed; /* Sit on top of the page content */
+            display: none; /* Hidden by default */
+            width: 100%; /* Full width (cover the whole page) */
+            height: 100%; /* Full height (cover the whole page) */
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+            z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+            cursor: pointer; /* Add a pointer on hover */
+            overflow: auto;
+        }
+
+        #setting1 {
+            position: absolute;
+            top: -500%;
+            width: 36%;
+            margin-left: 30%;
+            background-color: white;
+            box-shadow: 2px 3px 8px slategrey;
+            border-radius: 5px;
+            padding: 35px;
+            overflow: auto
+        }
+
+        #edit {
+            position: absolute;
+            top: -500%;
+            width: 40%;
+            margin-left: 30%;
+            background-color: white;
+            box-shadow: 2px 3px 8px slategrey;
+            border-radius: 5px;
+            padding: 15px;
+            /*overflow: scroll;*/
+        }
+
+        #test-form {
+            position: fixed;
+            top: -500%;
+            width: 35%;
+            margin-left: 30%;
+            background-color: white;
+            box-shadow: 2px 3px 8px slategrey;
+            border-radius: 5px;
+            padding: 35px;
+        }
+
+        #setting {
+            position: fixed;
+            top: -500%;
+            width: 35%;
+            margin-left: 30%;
+            background-color: white;
+            box-shadow: 2px 3px 8px slategrey;
+            border-radius: 5px;
+            padding: 35px;
+        }
+
+        #moresetting {
+            position: fixed;
+            top: -500%;
+            width: 35%;
+            margin-left: 30%;
+            background-color: white;
+            box-shadow: 2px 3px 8px slategrey;
+            border-radius: 5px;
+            padding: 35px;
+        }
+
+        #test-form-div {
+            position: fixed;
+            top: -500%;
+            max-width: 1500px;
+            max-height: 1500px;
+            min-width: 1500px;
+            min-height: 1500px;
+            background-color: black;
+        }
+
+        form.example input[type=text] {
+            padding: 8px;
+            font-size: 17px;
+            border: 1px solid grey;
+            float: left;
+            width: 70%;
+            height: 60%;
+            background: white;
+        }
+
+        form.example button {
+            float: left;
+            width: 20%;
+            height: 70%;
+            padding: 10px;
+            background: #2196F3;
+            color: white;
+            font-size: 17px;
+            border: 1px solid grey;
+            border-left: none;
+            cursor: pointer;
+        }
+
+            form.example button:hover {
+                background: #0b7dda;
+            }
+
+        form.example::after {
+            /*content: "";*/
+            clear: both;
+            display: table;
+        }
+    </style>
+}

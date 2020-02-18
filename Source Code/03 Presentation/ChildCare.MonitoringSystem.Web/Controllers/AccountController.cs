@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
+
 namespace ChildCare.MonitoringSystem.Web.Controllers
 {
     public class AccountController : Controller
