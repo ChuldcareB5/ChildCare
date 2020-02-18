@@ -165,8 +165,14 @@ namespace ChildCare.MonitoringSystem.Business
             {
                 throw e;
             }
+        }
+        public Int32 DeleteId(int id)
+        {
+            var roomscheduleid = this.roomscheduleRepository.GetBy(x => x.RoomScheduleId == id).SingleOrDefault();
+            roomscheduleid.IsDeleted = true;
+            this.unitOfWork.Save();
+            return roomscheduleid != null ? 0 : 1;
 
-           
         }
     }
 }

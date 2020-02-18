@@ -6,12 +6,15 @@ using ChildCare.MonitoringSystem.Business;
 using ChildCare.MonitoringSystem.Entity;
 using ChildCare.MonitoringSystem.Model;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace ChildCare.MonitoringSystem.Web.Controllers
 {
-	[Authorize()]
+    
+    [Authorize()]
     public class UserController : Controller
     {
 		

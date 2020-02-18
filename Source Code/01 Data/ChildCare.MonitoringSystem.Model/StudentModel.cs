@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -18,5 +19,6 @@ namespace ChildCare.MonitoringSystem.Model
 		public string Batch { get; set; } // Batch (length: 100)
 
 		public UserModel User { get; set; } // FK_Student_User
-	}
+  
+    }
 }

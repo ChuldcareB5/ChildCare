@@ -382,7 +382,7 @@
                         @*@foreach (var item in Model.Student)
                             {*@
 
-                        <form id="studentForm">
+                        <form id="studentForm" enctype="multipart/form-data" >
                             <div class="form-group">
                                 <label for="nf-student" class=" form-control-label">Student Name *</label>
                                 <input type="text" id="name" name="nf-student" placeholder="Enter Student Name" title="Enter Student Name" class="form-control" required>
@@ -625,7 +625,7 @@
 
             alert(name);
             alert(gender);
-
+          
             $.ajax({
                 url: '/User/AddParent',
                 type: 'post',
@@ -638,9 +638,14 @@
                 },
                 success: function (result) {
                     alert("Parent Added");
+
+                    var DemoViewModel = {
+                        
+                    }
                     var parentId = result;
                     $.ajax({
 
+                        
                         url: '/Student/AddStudent',
                         type: 'post',
                         dataType: 'json',
@@ -654,7 +659,10 @@
                             FatherName: fname,
                             MotherName: mname,
                             ParentId: parentId,
-                            Batch:batch,
+                            Batch: batch,
+                            Name: name,
+                            ProfilePic: img,
+                            
                         },
                         success: function (result) {
 

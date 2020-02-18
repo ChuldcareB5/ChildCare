@@ -12,7 +12,12 @@ namespace ChildCare.MonitoringSystem.Business
 {
 	public class StudentBusiness
 	{
-		private readonly IRepository<User> userRepository;//Connect user Repository
+        private static List<string> uploadedImages = new List<string>();
+
+        
+        private readonly string profilePicPath = "profilepics";
+
+        private readonly IRepository<User> userRepository;//Connect user Repository
 		private readonly IUnitOfWork unitOfWork;
 
 		private readonly IRepository<Student> studentRepository;//Connect student Repository
