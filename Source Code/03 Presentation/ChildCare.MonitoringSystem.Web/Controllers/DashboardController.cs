@@ -55,6 +55,5 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 		{
 			return View();
 		}
-
 	}
 }

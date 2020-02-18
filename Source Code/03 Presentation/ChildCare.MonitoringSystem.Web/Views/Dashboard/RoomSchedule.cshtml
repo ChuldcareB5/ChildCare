@@ -5,13 +5,12 @@
 @section LeftNavigation{
     <partial name="_AdminLeftNavigation" />
 }
-
 <!-- MAIN CONTENT-->
 <div class="main-content" id="viewroom">
     @*<div class="section__content section__content--p30">*@
     <button class="btn btn-primary col-lg-1 pull-right" style="margin-right:5%;" onclick="showadd();">+ ADD</button><br />
-    @*<button class="btn btn-danger col-lg-1 pull-right" style="margin-right:5%;" onclick="deleteroom();">- DELETE</button><br />*@
-    <button class="btn btn-danger col-lg-1 pull-right" style="margin-right:5%;" onclick="showviewschedule()"><i class="fa fa-eye"></i> View</button>
+    <button class="btn btn-danger col-lg-1 pull-right" style="margin-right:5%;">- DELETE</button><br />
+    @*  <button class="btn btn-danger col-lg-1 pull-right" style="margin-right:5%;" onclick="showviewschedule()"><i class="fa fa-eye"></i> View</button>*@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
@@ -202,12 +201,11 @@
     </div>
 </div>
 
-@*////////////////*@
 <div class="main-content" id="viewstudentschedule">
     <h2 align="center">View Student Schedule</h2>
     <hr /><br /><br />
     <button class="btn btn-primary col-lg-1 pull-right" style="margin-right:5%;" onclick="showaddSchedule();">+ ADD</button><br />
-    <button class="btn btn-danger col-lg-1 pull-right" style="margin-right:5%;">- DELETE</button>
+    @*<button class="btn btn-danger col-lg-1 pull-right" style="margin-right:5%;">- DELETE</button>*@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
@@ -232,7 +230,6 @@
     </div>
 </div>
 
-<!-- END MAIN CONTENT-->
 <!-- END PAGE CONTAINER-->
 <div id="overlay" style="z-index:4">
     <!--start Account popup-->
@@ -396,16 +393,19 @@
                     <label>Teacher Id</label>
                     <input class="form-control" type="text" name="teacherid" id="roomTeacherId" required>
                 </div>
+
                 <div class="form-group">
                     <label>Time</label>
                     @* <input class="form-control" type="text" name="email" id="fname" required>*@
-                    <select name="scheduleTime" id="roomScheduleTime" class="form-control">
-                        <option value="9.00">9.00</option>
-                        <option value="9.55">9.55</option>
-                        <option value="11.05">11.05</option>
-                        <option value="01.00">01.00</option>
-                        <option value="02.00">02.00</option>
-                    </select>
+                    <input class="form-control" type="time" name="time" id="roomScheduleTime" required>
+
+                    @*<select name="scheduleTime" id="roomScheduleTime" class="form-control">
+                            <option value="9.00">9.00</option>
+                            <option value="9.55">9.55</option>
+                            <option value="11.05">11.05</option>
+                            <option value="01.00">01.00</option>
+                            <option value="02.00">02.00</option>
+                        </select>*@
                 </div>
                 <div class="form-group">
                     <label>Subject</label>
@@ -434,10 +434,13 @@
 </div>
 
 @section Scripts{
+
     <script>
         $(document).ready(function () {
             $("#viewroomschedule").hide();
-            //GetRoom
+            $("#viewstudentschedule").hide();
+            debugger
+            ///////  GetRoom
             $.ajax({
                 url: '/Room/GetRoom',
                 type: 'get',
@@ -447,8 +450,15 @@
                     if (result) {
                         var bat = ' <tbody>';
                         for (var i = 0; i < result.length; i++) {
+                            //<button class="btn btn-danger col-lg-1 pull-right" style="margin-right:5%;" onclick="showviewschedule()"><i class="fa fa-eye"></i> View</button>
 
-                            bat += '<tr class="tr-shadow">< td > <label class="au-checkbox"><input type="checkbox"><span class="au-checkmark"></span></label></td><td>' + (i + 1) + '</td><td>' + result[i].roomId + '</td> <td>' + result[i].roomName + '</td><td><button class="btn btn-danger" style="margin-left:-200px" onclick="showviewschedule(' + result[i].roomId + ')"><i class="fa fa-eye"></i>View Schedules</button></td></tr > ';
+
+
+
+                            bat += '<tr class="tr-shadow">< td > <label class="au-checkbox"><input type="checkbox"><span class="au-checkmark"></span></label></td><td>' + (i + 1) + '</td><td>' +
+                                result[i].roomId + '</td> <td>' + result[i].roomName + '</td><td><button class="btn btn-danger" style="margin-left:-200px" onclick="showviewschedule(' + result[i].roomId + ')"><i class="fa fa-eye"></i>View Schedules</button></td></tr > ';
+
+
                         }
                         bat += '</tbody>'
 
@@ -463,7 +473,6 @@
 
             });
 
-
             $.ajax({
                 url: '/Room/GetRoomSchedule',
                 type: 'get',
@@ -473,7 +482,7 @@
                     if (result) {
                         var bat = ' <tbody>';
                         for (var i = 0; i < result.length; i++) {
-                            bat += '<tr class="tr-shadow">< td > <label class="au-checkbox"><input type="checkbox"><span class="au-checkmark"></span></label></td><td>' + (i + 1) + '</td><td>' + result[i].roomScheduleId + '</td><td>' + result[i].teacherId + '</td> <td>' + result[i].roomScheduleDate + '</td> <td>' + result[i].roomScheduleTime + '</td><td>' + result[i].roomScheduleSubject + '</td><td><button  class="btn btn-danger" style="margin-left:0px" onclick="showstudentschedule(' + result[i].roomId + ',' + result[i].roomScheduleId + ');"><i class="fa fa - eye"></i>View Students</button></td></tr > ';
+                            bat += '<tr class="tr-shadow">< td > <label class="au-checkbox"><input type="checkbox"><span class="au-checkmark"></span></label></td><td>' + (i + 1) + '</td><td>' + result[i].roomScheduleId + '</td><td>' + result[i].teacherId + '</td> <td>' + result[i].roomScheduleDate + '</td> <td>' + result[i].roomScheduleTime + '</td><td>' + result[i].roomScheduleSubject + '</td><td>' + result[i].roomId + '</td><td><div class="table-data-feature"></div></td></tr > ';
                         }
                         bat += '</tbody>'
 
@@ -514,6 +523,7 @@
                 var rdate = $("#roomScheduleDate").val();
                 var rteacherid = $("#roomTeacherId").val();
                 var rtime = $("#roomScheduleTime").val();
+
                 var rsub = $("#roomScheduleSubject").val();
                 var rid = $("#roomId").val();
                 var rbatch = $("#batch").val();
@@ -524,13 +534,18 @@
                 //alert(rteacherid);
                 alert(rbatch);
 
-
                 $.ajax({
-                    url: '/Student/GetStudentByBatch',
+                    url: '/RoomSchedule/AddStudentScheduleByBatch',
                     type: 'get',
                     dataType: 'json',
                     data:
                     {
+                        RoomScheduleId: rdate,
+                        TeacherId: rteacherid,
+                        RoomScheduleDate: rdate,
+                        RoomScheduleTime: rtime,
+                        RoomScheduleSubject: rsub,
+                        RoomId: rid,
                         Batch: rbatch,
                     },
 
@@ -590,9 +605,6 @@
             document.getElementById("overlay").style.display = "none";
         }
 
-        function search(string) {
-            window.find(string);
-        }
 
 
         function showviewschedule(roomid) {
@@ -637,32 +649,7 @@
         }
 
 
-        function showadd() {
-            $('#add').animate({ top: '12%' }, 500);
-            document.getElementById("overlay").style.display = "block";
-        }
 
-        function showaddSchedule() {
-            $('#addSchedule').animate({ top: '12%' }, 500);
-            document.getElementById("overlay").style.display = "block";
-
-        }
-        function hidechangeschedule() {
-            $('#addSchedule').animate({ top: '-500%' }, 500);
-            document.getElementById("overlay").style.display = "none";
-        }
-
-        function hideadd() {
-            $('#add').animate({ top: '-500%' }, 500);
-        }
-
-        function on() {
-            document.getElementById("overlay").style.display = "block";
-        }
-
-        function off() {
-            document.getElementById("overlay").style.display = "none";
-        }
 
         function showstudentschedule(roomid, roomsheduleid) {
             $("#viewroom").hide();
@@ -702,52 +689,37 @@
             });
         }
 
-
-        function deleteroom(a) {
-            alert(a);
-            var delid = a;
-            $.ajax({
-
-                url: '/Room/RoomDeleteId',
-                type: 'post',
-                dataType: 'json',
-                data:
-                {
-                    id: delid,
-                },
-                success: function (result) {
-
-                    alert("deleted");
-                    location.reload();
-                },
-            });
+        function showadd() {
+            $('#add').animate({ top: '12%' }, 500);
+            document.getElementById("overlay").style.display = "block";
         }
 
+        function showaddSchedule() {
+            $('#addSchedule').animate({ top: '12%' }, 500);
+            document.getElementById("overlay").style.display = "block";
 
+        }
+        function hidechangeschedule() {
+            $('#addSchedule').animate({ top: '-500%' }, 500);
+            document.getElementById("overlay").style.display = "none";
+        }
 
-        function deleteroomschedule(a) {
-            alert(a);
-            var delid = a;
-            $.ajax({
+        function hideadd() {
+            $('#add').animate({ top: '-500%' }, 500);
+        }
 
-                url: '/RoomSchedule/RoomScheduleDeleteId',
-                type: 'post',
-                dataType: 'json',
-                data:
-                {
-                    id: delid,
-                },
-                success: function (result) {
-                    alert(" RoomSchedule deleted");
-                    location.reload();
-                },
-            });
+        function on() {
+            document.getElementById("overlay").style.display = "block";
+        }
+
+        function off() {
+            document.getElementById("overlay").style.display = "none";
         }
     </script>
 }
 
-
 @section Styles{
+
     <style>
         #test-form {
             position: fixed;
