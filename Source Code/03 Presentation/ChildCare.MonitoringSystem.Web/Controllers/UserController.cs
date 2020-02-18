@@ -28,7 +28,8 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 			return View();
 		}
 		public IActionResult Student()
-		{
+
+        {
 			return View();
 		}
 		public IActionResult Camera()

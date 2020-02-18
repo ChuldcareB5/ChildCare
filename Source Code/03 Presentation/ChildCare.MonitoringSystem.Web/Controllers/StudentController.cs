@@ -1,4 +1,5 @@
 ﻿using ChildCare.MonitoringSystem.Business;
+using ChildCare.MonitoringSystem.Core.Models;
 using ChildCare.MonitoringSystem.Model;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -12,11 +13,13 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 	[Authorize()]
 	public class StudentController :Controller
 	{
+        private readonly ApplicationContext applicationContext; 
 		private readonly StudentBusiness studentBusiness;
 
-		public StudentController(StudentBusiness studentBusiness)
+		public StudentController(StudentBusiness studentBusiness,ApplicationContext applicationContext)
 		{
 			this.studentBusiness = studentBusiness;
+            this.applicationContext = applicationContext;
 		}
 
 
@@ -37,13 +40,18 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 
 		public ActionResult<StudentModel> StudentGetById(int id)
 		{
-			var students = this.studentBusiness.StudentGetById(id);
+			var students = this.studentBusiness.StudentGetById(applicationContext.UserId);
 			return students;
 		}
+        public ActionResult<StudentModel> CookieId()
+        {
+            var students = this.studentBusiness.CookieId(applicationContext.UserId);
+            return students;
+        }
 
 
 
-		public ActionResult<StudentModel> StudentUpdate(StudentModel studentModel)
+        public ActionResult<StudentModel> StudentUpdate(StudentModel studentModel)
 		{
 			var students = this.studentBusiness.StudentUpdate(studentModel);
 			return students;
