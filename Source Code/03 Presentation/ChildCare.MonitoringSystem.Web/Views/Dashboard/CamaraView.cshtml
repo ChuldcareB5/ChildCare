@@ -1,0 +1,250 @@
+﻿
+@{
+    ViewData["Title"] = "CamaraView";
+}
+
+
+@section LeftNavigation{
+    <partial name="_AdminLeftNavigation" />
+}
+<!-- MAIN CONTENT-->
+<div class="main-content">
+    @*<div class="section__content section__content--p30">*@
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- DATA TABLE -->
+                <h2 class="title-5 m-b-35" style="color:blue;">Rooms</h2>
+                @*<div class="table-data__tool">
+                        <div class="table-data__tool-left">
+                            <div class="rs-select2--light rs-select2--md">
+                                <select class="js-select2" name="property">
+                                    <option selected="selected">Filter</option>
+                                    <option value="">By Class</option>
+                                    <option value="">By Name</option>
+                                </select>
+                                <div class="dropDownSelect2"></div>
+                            </div>
+                            @*<div class="rs-select2--light rs-select2--sm">
+                                    <select class="js-select2" name="time">
+                                        <option selected="selected">Today</option>
+                                        <option value="">3 Days</option>
+                                        <option value="">1 Week</option>
+                                    </select>
+                                    <div class="dropDownSelect2"></div>
+                                </div>
+                            <button class="au-btn-filter">
+                                <i class="zmdi zmdi-filter-list"></i>Show All
+
+                            </button>
+                        </div>
+                        <div class="table-data__tool-right">
+                            <button class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                <i class="zmdi zmdi-plus"></i>Add item
+                            </button>
+                            <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
+                                <select class="js-select2" name="type">
+                                    <option selected="selected">Export</option>
+                                    <option value="">Option 1</option>
+                                    <option value="">Option 2</option>
+                                </select>
+                                <div class="dropDownSelect2"></div>
+                            </div>
+                        </div>
+                    </div>*@
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="rs-select2--dark rs-select2--sm rs-select2--dark2" style="width:30%">
+                            <select id="UrlList" onchange="nav()" class="js-select2" name="type">
+                                <option selected="selected">Ground Floor </option>
+                                <option value="@Url.Action("onclicks","Home")">Class A</option>
+                                <option value="">Class B</option>
+                                <option value="">Play Room1</option>
+                            </select>
+                            <div class="dropDownSelect2"></div>
+                        </div>
+
+                        <div class="rs-select2--dark rs-select2--sm rs-select2--dark2 " style="width:30%">
+                            <select class="js-select2" name="type">
+                                <option selected="selected">First Floor </option>
+                                <option value="">Class C</option>
+                                <option value="">Class D</option>
+                                <option value="">Room1</option>
+                                <option value="">Room2</option>
+                                <option value="">Play Room2</option>
+                            </select>
+                            <div class="dropDownSelect2"></div>
+                        </div>
+
+                        <div class="rs-select2--dark rs-select2--sm rs-select2--dark2" style="width:30%">
+                            <select class="js-select2" name="type">
+                                <option selected="selected">second Floor </option>
+                                <option value="">Library</option>
+                                <option value="">Class E</option>
+                                <option value="">Room3</option>
+                                <option value="">Play Room3</option>
+                            </select>
+                            <div class="dropDownSelect2"></div>
+                        </div>
+                    </div>
+                  
+                        <div style="display:flex; height:30%; margin-left:10%;">
+                            <input class="au-input au-input--h65" id="" type="text" name="search" placeholder="Search" style="border: 1px solid grey" />
+                            <button class="text-primary" type="button" onclick="search(document.getElementById('search').value)" style="width:50px;background-color:blue">
+                                <i class="zmdi zmdi-search" style="color:white;"></i>
+                            </button>
+                        </div>&nbsp;&nbsp;&nbsp;
+                    <br />
+                    <br /><br />
+                    <div class="col-lg-6">
+                        <div class="au-card m-b-30">
+                            <div class="au-card-inner">
+                                <video width="400" controls>
+                                    <source src="~/video/class.mp4" type="video/mp4">
+                                    <source src="~/video/class.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="au-card m-b-30">
+                            <div class="au-card-inner">
+
+                                <br />
+                                <video width="400" controls>
+                                    <source src="~/video/class.mp4" type="video/mp4">
+                                    <source src="~/video/class.mp4" type="video/mp4">
+                               </video>
+                            </div>
+                        </div>
+                    </div>
+
+                    @*</div>*@
+                    <!-- END DATA TABLE -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END MAIN CONTENT-->
+
+@section Scripts{
+    <script>
+
+        function search(string) {
+            window.find(string);
+        }
+
+        function nav() {
+            window.location.href = document.getElementById("UrlList").value;
+        }
+
+        function showtest() {
+            $('#test-form').animate({ top: '15%' }, 500);
+            $('#test-form-div').animate({ top: '20%' }, 500);
+            $('.account-dropdown').hide();
+        }
+        function hidetest() {
+            $('#test-form').animate({ top: '-500%' }, 500);
+        }
+
+        function showsetting() {
+            $('#setting').animate({ top: '15%' }, 500);
+            $('.account-dropdown').hide();
+        }
+        function hidesetting() {
+            $('#setting').animate({ top: '-500%' }, 500);
+        }
+
+        function showmoresetting() {
+            $('#moresetting').animate({ top: '15%' }, 500);
+            $('.account-dropdown').hide();
+        }
+        function hidemoresetting() {
+            $('#moresetting').animate({ top: '-500%' }, 500);
+        }
+    </script>
+}
+
+
+@section Styles{
+    <style>
+        #test-form {
+            position: fixed;
+            top: -500%;
+            width: 35%;
+            margin-left: 30%;
+            background-color: white;
+            box-shadow: 2px 3px 8px slategrey;
+            border-radius: 5px;
+            padding: 35px;
+        }
+
+        #setting {
+            position: fixed;
+            top: -500%;
+            width: 35%;
+            margin-left: 30%;
+            background-color: white;
+            box-shadow: 2px 3px 8px slategrey;
+            border-radius: 5px;
+            padding: 35px;
+        }
+
+        #moresetting {
+            position: fixed;
+            top: -500%;
+            width: 35%;
+            margin-left: 30%;
+            background-color: white;
+            box-shadow: 2px 3px 8px slategrey;
+            border-radius: 5px;
+            padding: 35px;
+        }
+
+        #test-form-div {
+            position: fixed;
+            top: -500%;
+            max-width: 1500px;
+            max-height: 1500px;
+            min-width: 1500px;
+            min-height: 1500px;
+            background-color: black;
+        }
+
+
+
+        form.example input[type=text] {
+            padding: 8px;
+            font-size: 17px;
+            border: 1px solid grey;
+            float: left;
+            width: 72%;
+            height: 60%;
+            background: white;
+        }
+
+        form.example button {
+            float: left;
+            width: 20%;
+            height: 70%;
+            padding: 10px;
+            background: #2196F3;
+            color: white;
+            font-size: 17px;
+            border: 1px solid grey;
+            border-left: none;
+            cursor: pointer;
+        }
+
+            form.example button:hover {
+                background: #0b7dda;
+            }
+
+        form.example::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+    </style>
+}

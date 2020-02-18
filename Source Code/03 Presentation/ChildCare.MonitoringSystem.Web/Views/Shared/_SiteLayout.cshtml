@@ -1,0 +1,364 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>ChildCareSystem | User Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Fontfaces CSS-->
+    <link rel="stylesheet" href="~/css/css/themify-icons.css">
+    <link href="~/css/font-face.css" rel="stylesheet" media="all">
+    <link href="~/css/style1.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="~/img1/favicon.png">
+    <!-- Place favicon.ico in the root directory -->
+    <!-- CSS here -->
+    <link rel="stylesheet" href="~/css/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/css/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/css/css/nice-select.css">
+    <link rel="stylesheet" href="~/css/css/flaticon.css">
+    <link rel="stylesheet" href="~/css/css/gijgo.css">
+    <link rel="stylesheet" href="~/css/css/animate.css">
+    <link rel="stylesheet" href="~/css/css/slicknav.css">
+    <link rel="stylesheet" href="~/css/css/style.css">
+
+    <style>
+        .carousel-inner .carousel-item.active,
+        .carousel-inner .carousel-item-next,
+        .carousel-inner .carousel-item-prev {
+            display: flex;
+        }
+
+        .carousel-inner .carousel-item-right.active,
+        .carousel-inner .carousel-item-next {
+            transform: translateX(95%);
+        }
+
+        .carousel-inner .carousel-item-left.active,
+        .carousel-inner .carousel-item-prev {
+            transform: translateX(-95%);
+        }
+
+        .carousel-inner .carousel-item-right,
+        .carousel-inner .carousel-item-left {
+            transform: translateX(5%);
+        }
+
+
+        .carousel-item {
+            height: 80vh;
+            min-height: 350px;
+            background: no-repeat center center scroll;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+    </style>
+    <style>
+        #loginpopup {
+            position: fixed;
+            top: -500%;
+            width: 45%;
+            margin-left: 27%;
+            background-color: white;
+            /*/*box-shadow: 2px 3px 10px grey;*/
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        #forgotpasspopup {
+            position: fixed;
+            top: -500%;
+            width: 45%;
+            margin-left: 27%;
+            background-color: white;
+            /*box-shadow: 2px 3px 10px grey;*/
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        h2 {
+            font-family: 'Baskerville Old Face', sans-serif;
+        }
+
+        #username, #pass, #femail {
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            border: 2px solid #ccc;
+            appearance: unset;
+            -moz-appearance: unset;
+            -webkit-appearance: unset;
+            -o-appearance: unset;
+            -ms-appearance: unset;
+            outline: none;
+            -moz-outline: none;
+            -webkit-outline: none;
+            -o-outline: none;
+            -ms-outline: none;
+            border-radius: 27.5px;
+            -o-border-radius: 27.5px;
+            -ms-border-radius: 27.5px;
+            -moz-border-radius: 27.5px;
+            -webkit-border-radius: 27.5px;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            background: rgba(255, 255, 255, 0.2)
+        }
+
+        #loginbtn, #send {
+            padding: 10px;
+            box-shadow: 2px 3px 8px slategrey;
+            border-radius: 27.5px;
+        }
+
+        #username:focus, #pass:focus {
+            border: 2px solid #999;
+        }
+
+        .fa:hover {
+            opacity: 0.7;
+        }
+
+        .fac {
+            padding: 20px;
+            font-size: 30px;
+            width: 65px;
+            text-align: center;
+            text-decoration: none;
+            margin: 5px 2px;
+            border-radius: 50%;
+            background: #3B5998;
+            color: white;
+        }
+
+        .fa-twitter {
+            padding: 20px;
+            font-size: 30px;
+            width: 65px;
+            text-align: center;
+            text-decoration: none;
+            margin: 5px 2px;
+            border-radius: 50%;
+            background: #55ACEE;
+            color: white;
+        }
+
+        .fa-google {
+            padding: 20px;
+            font-size: 30px;
+            width: 65px;
+            text-align: center;
+            text-decoration: none;
+            margin: 5px 2px;
+            border-radius: 50%;
+            background: #dd4b39;
+            color: white;
+        }
+
+
+
+
+        .loginbtn {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            background-color: Highlight;
+            color: black;
+            font-size: 16px;
+            padding: 16px 40px;
+            border: 1px solid blue;
+            cursor: pointer;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+        }
+
+            .loginbtn:hover {
+                background-color: transparent;
+                border: 1px solid black;
+                color: darkblue;
+                /*transition: 0.0000001s;*/
+            }
+
+        strong {
+            color: black;
+        }
+
+
+
+        #overlay {
+            position: fixed; /* Sit on top of the page content */
+            display: none; /* Hidden by default */
+            width: 100%; /* Full width (cover the whole page) */
+            height: 100%; /* Full height (cover the whole page) */
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+            z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+            cursor: pointer; /* Add a pointer on hover */
+        }
+
+
+
+        #overlay1 {
+            position: fixed; /* Sit on top of the page content */
+            display: none; /* Hidden by default */
+            width: 100%; /* Full width (cover the whole page) */
+            height: 100%; /* Full height (cover the whole page) */
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+            z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+            cursor: pointer; /* Add a pointer on hover */
+        }
+    </style>
+</head>
+<body>
+    <partial name="_CookieConsentPartial" />
+
+    <!-- header-start -->
+    <header>
+        <div class="header-area">
+            <div class="header-top_area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-6 col-md-6 ">
+                            <div class="social_media_links">
+                                <a href="#">
+                                    <i class="fa fa-linkedin"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa fa-google-plus"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-md-6">
+                            <div class="short_contact_list">
+                                <ul>
+                                    <li><a href="#"> <i class="fa fa-envelope"></i> ChildCaresys.com</a></li>
+                                    <li><a href="#"> <i class="fa fa-phone"></i> +91 9972074304</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="sticky-header" class="main-header-area">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="logo">
+                            <a href="index.html">
+                                <img src="~/images/img/Logopic3a.jpg" style="width:40px; height:50px;" alt="">
+                            </a>
+                        </div>
+                        <h2 style="font-family:'Baskerville Old Face';">Child Care System</h2>
+                        <div class="col-xl-9 ">
+                            <div class="main-menu  d-none d-lg-block">
+                                <nav>
+                                    <ul id="navigation">
+                                        @*<li><a class="active" onclick="showsetting()" href="#setting">Home</a></li>*@
+                                        <li><a class="active" href="/Home/">Home</a></li>
+                                        <li>
+                                            <a>Campus <i class="fa fa-angle-down"></i></a>
+                                            <ul class="submenu">
+                                                <li><a href="/Home/ClassRooms">Classroom</a></li>
+                                                <li><a href="/Home/PlayGround">Playground</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="/Home/About">About</a></li>
+                                        <li><a href="/Home/Contact">Contact</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-end -->
+
+    @RenderBody()
+
+    <!-- Start footer -->
+    <footer id="mu-footer">
+        <!-- start footer top -->
+        <div class="mu-footer-top" style="display:flex; ">
+            <div class="container">
+                <div class="mu-footer-top-area">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-6 col-sm-6">
+                            <div class="mu-footer-widget" style="margin-left:5%">
+                                <h4>Contact</h4>
+                                <address>
+                                    <p>3rd Cross Section , Kanur, Mangalore, India</p>
+                                    <p>Phone: +(824) 226786</p>
+                                    <p>Website: WWW.childcare.in</p>
+                                    <p>Email: childcare@gmail.com</p>
+
+                                </address>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="width:40%;">
+                <a href="#" class="fa fa-facebook fac"></a>
+                <a href="#" class="fa fa-twitter"></a>
+                <a href="#" class="fa fa-google"></a>
+            </div>
+        </div>
+        <!-- end footer top -->
+    </footer>
+
+    <script src="~/js/jquery.min.js"></script>
+
+    <!-- JS here -->
+    <script src="~/js/js1/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="~/js/js1/vendor/jquery-1.12.4.min.js"></script>
+    <script src="~/js/js1/popper.min.js"></script>
+    <script src="~/js/js1/bootstrap.min.js"></script>
+    <script src="~/js/js1/owl.carousel.min.js"></script>
+    <script src="~/js/js1/isotope.pkgd.min.js"></script>
+    <script src="~/js/js1/ajax-form.js"></script>
+    <script src="~/js/js1/waypoints.min.js"></script>
+    <script src="~/js/js1/jquery.counterup.min.js"></script>
+    <script src="~/js/js1/imagesloaded.pkgd.min.js"></script>
+    <script src="~/js/js1/scrollIt.js"></script>
+    <script src="~/js/js1/jquery.scrollUp.min.js"></script>
+    <script src="~/js/js1/wow.min.js"></script>
+    <script src="~/js/js1/nice-select.min.js"></script>
+    <script src="~/js/js1/jquery.slicknav.min.js"></script>
+    <script src="~/js/js1/jquery.magnific-popup.min.js"></script>
+    <script src="~/js/js1/plugins.js"></script>
+    <script src="~/js/js1/gijgo.min.js"></script>
+
+    <!--contact js-->
+    <script src="~/js/js1/contact.js"></script>
+    <script src="~/js/js1/jquery.ajaxchimp.min.js"></script>
+    <script src="~/js/js1/jquery.form.js"></script>
+    <script src="~/js/js1/jquery.validate.min.js"></script>
+    <script src="~/js/js1/mail-script.js"></script>
+    <script src="~/js/js1/main.js"></script>
+
+    @RenderSection("Scripts", required: false)
+
+
+</body>
+</html>

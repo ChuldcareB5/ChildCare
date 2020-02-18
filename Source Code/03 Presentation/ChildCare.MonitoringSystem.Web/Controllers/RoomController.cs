@@ -20,7 +20,8 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
             this.roomBusiness = roomBusiness;
         }
 
-        public ActionResult<Int32> AddRoom(RoomModel roomModel)
+
+		public ActionResult<Int32> AddRoom(RoomModel roomModel)
         {
             var room = this.roomBusiness.AddRoom(roomModel);
             var userId = room.RoomId;
@@ -45,6 +46,12 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 			var students = this.roomBusiness.DeleteId(id);
 			return students;
 		}
+
+
+		//public IActionResult RoomSchedule()
+		//{
+		//	return View();
+		//}
 
 
 	}
