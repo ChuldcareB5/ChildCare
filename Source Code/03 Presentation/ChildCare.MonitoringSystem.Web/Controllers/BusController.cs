@@ -19,6 +19,7 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 			this.busBusiness = busBusiness;
 		}
 
+
 		[HttpPost]
 		public ActionResult<Int32> AddBus(BusModel busmodel)
 		{

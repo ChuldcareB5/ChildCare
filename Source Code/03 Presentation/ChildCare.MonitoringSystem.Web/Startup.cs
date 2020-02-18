@@ -47,7 +47,7 @@ namespace ChildCare.MonitoringSystem.Web
             .AddCookie(options =>
             {
                 options.LoginPath = "/Account/LogIn";
-            }); ;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -77,7 +77,7 @@ namespace ChildCare.MonitoringSystem.Web
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Student}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
 
             AutoMapperConfig.Bootstrap();

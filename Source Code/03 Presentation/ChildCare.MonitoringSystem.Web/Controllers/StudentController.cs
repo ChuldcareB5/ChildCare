@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace ChildCare.MonitoringSystem.Web.Controllers
 {
 	[Authorize()]
-	public class StudentController
+	public class StudentController :Controller
 	{
         private readonly ApplicationContext applicationContext; 
 		private readonly StudentBusiness studentBusiness;
@@ -21,6 +21,8 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 			this.studentBusiness = studentBusiness;
             this.applicationContext = applicationContext;
 		}
+
+
 
 		public ActionResult<StudentModel> AddStudent(StudentModel studentmodel)
 		{

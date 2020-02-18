@@ -1,0 +1,163 @@
+﻿<header class="header-mobile d-block d-lg-none">
+    <div class="header-mobile__bar">
+        <div class="container-fluid">
+            <div class="header-mobile-inner">
+                <a class="logo" href="index.html">
+
+                </a>
+                <button class="hamburger hamburger--slider" type="button">
+                    <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar-mobile">
+        <div class="container-fluid">
+            <ul class="navbar-mobile__list list-unstyled">
+                <li class="has-sub">
+                    <a asp-area="" asp-controller="Dashboard" asp-action="Index">
+                        <i class="fas fa-tachometer-alt"></i>Dashboard
+                    </a>
+                </li>
+                <li class="has-sub">
+                    <a class="js-arrow">
+                        <i class="far fa-edit"></i>Registration
+                    </a>
+                    <ul class="list-unstyled navbar__sub-list js-sub-list">
+                        <li>
+                            <a asp-area="" asp-controller="Student" asp-action="StudentRegistration">Parent Registration</a>
+                        </li>
+
+                    </ul>
+                    <ul class="list-unstyled navbar__sub-list js-sub-list">
+                        <li>
+                            <a asp-area="" asp-controller="User" asp-action="TeacherRegistration">Teacher Registration</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a asp-area="" asp-controller="Student" asp-action="StudentView">
+                        <i class="fas fa-user"></i>Student View
+                    </a>
+                </li>
+                <li>
+                    <a asp-area="" asp-controller="Student" asp-action="CamaraView">
+                        <i class="fas fa-camera"></i>Student Camera View
+                    </a>
+                </li>
+                @*<li>
+                        <a href="~/Home/Calender">
+                            <i class="fas fa-calendar-alt"></i>Calendar
+                        </a>
+                    </li>*@
+                <li class="has-sub">
+                    <a class="js-arrow">
+                        <i class="fa fa-location-arrow"></i>Location
+                    </a>
+                    <ul class="list-unstyled navbar__sub-list js-sub-list">
+                        <li>
+                            <a asp-area="" asp-controller="User" asp-action="BusTracking">Bus Location</a>
+                        </li>
+                    </ul>
+                    <ul class="list-unstyled navbar__sub-list js-sub-list">
+                        <li>
+                            <a asp-area="" asp-controller="User" asp-action="BusTracking">Student Location</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a asp-area="" asp-controller="Room" asp-action="RoomSchedule">
+                        <i class="fas fa-home"></i>Room Schedule
+                    </a>
+                </li>
+                <li>
+                    <a asp-area="" asp-controller="Bus" asp-action="BusSchedule">
+                        <i class="fas fa-bus"></i>Bus Schedule
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<!-- END HEADER MOBILE-->
+<!-- MENU SIDEBAR-->
+<aside class="menu-sidebar d-none d-lg-block">
+    <div class="logo" style="background-color:white;">
+        <p style="font-family: 'Britannic Bold'; font-size: 20px; margin-left:10%"><img src="~/images/img/Logopic3a.jpg" style="width: 26%; height:40%;" />ChildCare System</p>
+    </div>
+    <div class="menu-sidebar__content js-scrollbar1">
+        <nav class="navbar-sidebar">
+            <ul class="list-unstyled navbar__list">
+                <li class="active has-sub">
+                    <a asp-area="" asp-controller="Dashboard" asp-action="Index">
+                        <i class="fas fa-edit"></i>Dashboard
+                    </a>
+                </li>
+                <li class="has-sub">
+
+                    <a class="js-arrow">
+                        <i class="far fa-edit"></i>Registration
+                    </a>
+                    <ul class="list-unstyled navbar__sub-list js-sub-list">
+                        <li>
+                            <a asp-area="" asp-controller="Dashboard" asp-action="StudentRegistration">Parent Registration</a>
+                        </li>
+                    </ul>
+                    <ul class="list-unstyled navbar__sub-list js-sub-list">
+                        <li>
+                            <a asp-area="" asp-controller="Dashboard" asp-action="TeacherRegistration">Teacher Registration</a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li>
+                    <a asp-area="" asp-controller="Dashboard" asp-action="StudentView">
+                        <i class="fas fa-user"></i>Student View
+                    </a>
+                </li>
+                <li>
+                    <a asp-area="" asp-controller="Dashboard" asp-action="CamaraView">
+                        <i class="fas fa-camera"></i>Student Camera View
+                    </a>
+                </li>
+
+
+
+                @*<li>
+                        <a href="~/Home/Calender">
+                            <i class="fas fa-calendar-alt"></i>Calendar
+                        </a>
+                    </li>*@
+                <li class="has-sub">
+                    <a class="js-arrow">
+                        <i class="far fa-location-arrow"></i>Location
+                    </a>
+                    <ul class="list-unstyled navbar__sub-list js-sub-list">
+                        <li>
+                            <a asp-area="" asp-controller="User" asp-action="BusTracking">Bus Location</a>
+                        </li>
+
+                    </ul>
+                    <ul class="list-unstyled navbar__sub-list js-sub-list">
+                        <li>
+                            <a asp-area="" asp-controller="User" asp-action="BusTracking">Student Location</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a asp-area="" asp-controller="Dashboard" asp-action="RoomSchedule">
+                        <i class="fas fa-home"></i>Room Schedule
+                    </a>
+                </li>
+                <li>
+                    <a asp-area="" asp-controller="Dashboard" asp-action="BusSchedule">
+                        <i class="fas fa-bus"></i>Bus Schedule
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</aside>
+<!-- END MENU SIDEBAR-->
