@@ -19,12 +19,13 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
     {
 		
 		private readonly UserBusiness userBusiness;
-		
+        private readonly StudentBusiness studentBusiness;
 
-		public UserController(UserBusiness userBusiness)
+		public UserController(UserBusiness userBusiness,StudentBusiness studentBusiness)
 		{
 			this.userBusiness = userBusiness;
-		}
+            this.studentBusiness = studentBusiness;
+        }
 
 		public IActionResult Index()
 		{

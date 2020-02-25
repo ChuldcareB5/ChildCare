@@ -27,72 +27,7 @@
                                 <th></th>
                             </tr>
                         </thead>
-                        @*<tbody>
-                                <tr class="tr-shadow">
-                                    <td>
-                                        <label class="au-checkbox">
-                                            <input type="checkbox">
-                                            <span class="au-checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td>1</td>
-                                    <td>
-                                        Bus1
-                                    </td>
-                                    <td>
-                                        <div class="table-data-feature">
-                                            <button onclick="show();" title="Send Message" class="btn btn-primary">
-                                                <a onclick="showviewschedule()">
-                                                    Schedule
-                                                </a>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr class="tr-shadow">
-                                    <td>
-                                        <label class="au-checkbox">
-                                            <input type="checkbox">
-                                            <span class="au-checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td>2</td>
-                                    <td>
-                                        Bus2
-                                    </td>
-                                    <td>
-                                        <div class="table-data-feature">
-                                            <button onclick="show();" title="Send Message" class="btn btn-primary">
-                                                <a onclick="showviewschedule()">
-                                                    Schedule
-                                                </a>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr class="tr-shadow">
-                                    <td>
-                                        <label class="au-checkbox">
-                                            <input type="checkbox">
-                                            <span class="au-checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td>3</td>
-                                    <td>
-                                        Bus3
-                                    </td>
-                                    <td>
-                                        <div class="table-data-feature">
-                                            <button onclick="show();" title="Send Message" class="btn btn-primary">
-                                                <a onclick="showviewschedule()">
-                                                    Schedule
-                                                </a>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
 
-                            </tbody>*@
                     </table>
                 </div>
             </div>
@@ -107,11 +42,11 @@
     @*<h2 align="center">View Room Schedule</h2>*@
     <hr /><br /><br />
     <button class="btn btn-primary col-lg-1 pull-right" style="margin-right:5%;" onclick="showaddSchedule();">+ ADD</button><br />
-    <button class="btn btn-danger col-lg-1 pull-right" id="std" style="margin-right:5%;">- DELETE</button>
+    
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <div class="table-responsive table-responsive-data2" style="overflow:auto">
+                <div class="table-responsive table-responsive-data2" style="">
                     <table class="table table-data2" id="getRoomSchedule">
                         <thead>
                             <tr>
@@ -126,75 +61,7 @@
                                 <th>Room Id</th>
                             </tr>
                         </thead>
-                        @*<tbody>
-                                <tr class="tr-shadow">
-                                    <td>
-                                        <label class="au-checkbox">
-                                            <input type="checkbox">
-                                            <span class="au-checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td>1</td>
-                                    <td>2</td>
-                                    <td>2020-01-28</td>
-                                    <td>11:55:00</td>
-                                    <td>Kannada</td>
-                                    <td>
-                                        <div class="table-data-feature">
-                                            <button onclick="show();" title="Send Message" class="btn btn-primary">
-                                                <a onclick="showschedule()">
-                                                    Change
-                                                </a>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr class="tr-shadow">
-                                    <td>
-                                        <label class="au-checkbox">
-                                            <input type="checkbox">
-                                            <span class="au-checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td>2</td>
-                                    <td>3</td>
-                                    <td>2020-01-28</td>
-                                    <td>09:00:00</td>
-                                    <td>Kannada</td>
-                                    <td>
-                                        <div class="table-data-feature">
-                                            <button onclick="show();" title="Send Message" class="btn btn-primary">
-                                                <a onclick="showschedule()">
-                                                    Change
-                                                </a>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr class="tr-shadow">
-                                    <td>
-                                        <label class="au-checkbox">
-                                            <input type="checkbox">
-                                            <span class="au-checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td>3</td>
-                                    <td>4</td>
-                                    <td>2020-01-28</td>
-                                    <td>09:55:00</td>
-                                    <td>English</td>
-                                    <td>
-                                        <div class="table-data-feature">
-                                            <button onclick="show();" title="Send Message" class="btn btn-primary">
-                                                <a onclick="showschedule()">
-                                                    Change
-                                                </a>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                            </tbody>*@
+                      
                     </table>
                 </div>
             </div>
@@ -207,7 +74,7 @@
     <h2 align="center">View Student Schedule</h2>
     <hr /><br /><br />
     <button class="btn btn-primary col-lg-1 pull-right" style="margin-right:5%;" onclick="showaddSchedule();">+ ADD</button><br />
-    <button class="btn btn-danger col-lg-1 pull-right" style="margin-right:5%;">- DELETE</button>
+   
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
@@ -448,7 +315,7 @@
                         var bat = ' <tbody>';
                         for (var i = 0; i < result.length; i++) {
 
-                            bat += '<tr class="tr-shadow">< td > <label class="au-checkbox"><input type="checkbox"><span class="au-checkmark"></span></label></td><td>' + (i + 1) + '</td><td>' + result[i].roomId + '</td> <td>' + result[i].roomName + '</td><td><button class="btn btn-danger" style="margin-left:-200px" onclick="showviewschedule(' + result[i].roomId + ')"><i class="fa fa-eye"></i>View Schedules</button></td></tr > ';
+                            bat += '<tr class="tr-shadow">< td > <label class="au-checkbox"><input type="checkbox"><span class="au-checkmark"></span></label></td><td>' + (i + 1) + '</td><td>' + result[i].roomId + '</td> <td>' + result[i].roomName + '</td><td><button class="btn btn-danger" style="margin-left:-10px ;width:100%;height:50%" onclick="showviewschedule(' + result[i].roomId + ')"><i class="fa fa-eye"></i>View Schedules</button></td></tr > ';
                         }
                         bat += '</tbody>'
 
@@ -464,29 +331,29 @@
             });
 
 
-            $.ajax({
-                url: '/Room/GetRoomSchedule',
-                type: 'get',
-                dataType: 'json',
-                success: function (result) {
-                    //debugger
-                    if (result) {
-                        var bat = ' <tbody>';
-                        for (var i = 0; i < result.length; i++) {
-                            bat += '<tr class="tr-shadow">< td > <label class="au-checkbox"><input type="checkbox"><span class="au-checkmark"></span></label></td><td>' + (i + 1) + '</td><td>' + result[i].roomScheduleId + '</td><td>' + result[i].teacherId + '</td> <td>' + result[i].roomScheduleDate + '</td> <td>' + result[i].roomScheduleTime + '</td><td>' + result[i].roomScheduleSubject + '</td><td><button  class="btn btn-danger" style="margin-left:0px" onclick="showstudentschedule(' + result[i].roomId + ',' + result[i].roomScheduleId + ');"><i class="fa fa - eye"></i>View Students</button></td></tr > ';
-                        }
-                        bat += '</tbody>'
+            //$.ajax({
+            //    url: '/Room/GetRoomSchedule',
+            //    type: 'get',
+            //    dataType: 'json',
+            //    success: function (result) {
+            //        //debugger
+            //        if (result) {
+            //            var bat = ' <tbody>';
+            //            for (var i = 0; i < result.length; i++) {
+            //                bat += '<tr class="tr-shadow">< td > <label class="au-checkbox"><input type="checkbox"><span class="au-checkmark"></span></label></td><td>' + (i + 1) + '</td><td>' + result[i].roomScheduleId + '</td><td>' + result[i].teacherId + '</td> <td>' + result[i].roomScheduleDate + '</td> <td>' + result[i].roomScheduleTime + '</td><td>' + result[i].roomScheduleSubject + '</td><td><button  class="btn btn-danger" style="margin-left:0px" onclick="showstudentschedule(' + result[i].roomId + ',' + result[i].roomScheduleId + ');"><i class="fa fa - eye"></i>View Students</button></td></tr > ';
+            //            }
+            //            bat += '</tbody>'
 
-                        $('#getRoomSchedule').append(bat);
+            //            $('#getRoomSchedule').append(bat);
 
-                    }
-                    else {
-                        alert("failed to get data");
-                    }
+            //        }
+            //        else {
+            //            alert("failed to get data");
+            //        }
 
-                },
+            //    },
 
-            });
+            //});
 
             $("#addRoom").click(function () {
                 var rname = $("#rname").val();
@@ -526,11 +393,17 @@
 
 
                 $.ajax({
-                    url: '/Student/GetStudentByBatch',
+                    url: '/RoomSchedule/AddStudentScheduleByBatch',
                     type: 'get',
                     dataType: 'json',
                     data:
                     {
+                        RoomScheduleId: rdate,
+                        TeacherId: rteacherid,
+                        RoomScheduleDate: rdate,
+                        RoomScheduleTime: rtime,
+                        RoomScheduleSubject: rsub,
+                        RoomId: rid,
                         Batch: rbatch,
                     },
 
@@ -686,7 +559,7 @@
                     if (result) {
                         var bat = ' <tbody>';
                         for (var i = 0; i < result.length; i++) {
-                            bat += '<tr class="tr-shadow">< td > <label class="au-checkbox"><input type="checkbox"><span class="au-checkmark"></span></label></td><td>' + (i + 1) + '</td><td>' + result[i].studentId + '</td><td class="desc"><img src="' + result[i].studentImg + '"/></td> <td>' + result[i].studentName + '</td> <td>' + result[i].batch + '</td><td> ';
+                            bat += '<tr class="tr-shadow"><td>' + (i + 1) + '</td><td>' + result[i].studentId + '</td><td class=""><img src="' + result[i].studentImg + '" style="width:20%;height:10%"/></td> <td>' + result[i].studentName + '</td> <td>' + result[i].batch + '</td><td> ';
                         }
                         bat += '</tbody>'
 

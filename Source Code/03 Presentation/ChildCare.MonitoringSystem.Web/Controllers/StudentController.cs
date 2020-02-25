@@ -27,6 +27,7 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
             this.environment = environment;
         }
 
+
 		public ActionResult<StudentModel> AddStudent(StudentModel studentmodel, DemoViewModel demoViewModel)
 		{
             string imageName = Guid.NewGuid().ToString() + Path.GetExtension(demoViewModel.ProfilePic.FileName);
@@ -42,9 +43,13 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
             var student = this.studentBusiness.AddStudent(studentmodel);
 			return student;
 		}
-
-
-		public ActionResult<List<StudentModel>> GetStudentDetail()
+        public ActionResult<StudentModel> StudentRegister(StudentDetail studentDetail)
+        {
+            
+            return null;
+        }
+        
+        public ActionResult<List<StudentModel>> GetStudentDetail()
 		{
 			var students = this.studentBusiness.GetStudents();
 			return students;
