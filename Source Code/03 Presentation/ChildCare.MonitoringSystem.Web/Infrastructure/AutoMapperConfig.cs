@@ -2,6 +2,7 @@
 using ChildCare.MonitoringSystem.Entity;
 using ChildCare.MonitoringSystem.Model;
 using System.Linq;
+using ChildCare.MonitoringSystem.Common.Extensions;
 
 namespace ChildCare.MonitoringSystem.Web.Infrastructure
 {
@@ -13,16 +14,21 @@ namespace ChildCare.MonitoringSystem.Web.Infrastructure
             {
                 // Entity to Model
                 cfg.CreateMap<User, UserModel>()
-                    .ForMember(x => x.Role, opt => opt.MapFrom(x => new RoleModel() { RoleId = x.UserRole.First().RoleId }));
+                    .ForMember(x => x.Role, opt => opt.MapFrom(x => new RoleModel() { RoleId = x.UserRole.FirstOrDefault() != null ? x.UserRole.First().RoleId : -1 }));
                 cfg.CreateMap<Role, RoleModel>();
-				cfg.CreateMap<BusSchedule, BusScheduleModel>()
+
+                cfg.CreateMap<Student, StudentModel>()
+                    .ForMember(x => x.Parent, opt => opt.MapFrom(x => x.User.MapTo<UserModel>()));
+
+                cfg.CreateMap<BusSchedule, BusScheduleModel>()
 				 .ForMember(dest => dest.BusName, opt => opt.MapFrom(src => src.Bus.BusName));
 
 
 				// Model to Entity
 				cfg.CreateMap<UserModel, User>();
                 cfg.CreateMap<RoleModel, Role>();
-				cfg.CreateMap<BusScheduleModel, BusSchedule>();
+                cfg.CreateMap<StudentModel, Student>();
+                cfg.CreateMap<BusScheduleModel, BusSchedule>();
 			});
         }
 

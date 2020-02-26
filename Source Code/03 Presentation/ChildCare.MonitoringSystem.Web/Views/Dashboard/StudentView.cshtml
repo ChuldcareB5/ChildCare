@@ -238,15 +238,15 @@
                     </div>
                     <div class="form-group">
                         <label class="text-primary">User Name</label>
-                        <label class="form-control" name="fname" id="fname">Purshotham</label>
+                        <label class="form-control" name="fname" id="fname"></label>
                     </div>
                     <div class="form-group">
                         <label class="text-primary">User Email</label>
-                        <label class="form-control" name="email" id="fname">Pursh123@gmail.com</label>
+                        <label class="form-control" name="email" id="email"></label>
                     </div>
                     <div class="form-group">
                         <label class="text-primary">Mobile No</label>
-                        <label class="form-control" name="number" id="pwd">9653247815</label>
+                        <label class="form-control" name="number" id="pwd"></label>
                     </div>
 
                 </form>
@@ -313,29 +313,35 @@
         <div class="form-group row">
             <label for="staticEmail" class="col-sm-4 col-form-label">Student Name</label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" id="inputPassword" />
+                <input type="text" class="form-control" id="studname" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword" class="col-sm-4 col-form-label">From</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="from" />
             </div>
         </div>
         <div class="form-group row">
             <label for="inputPassword" class="col-sm-4 col-form-label">To</label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" id="inputPassword" />
+                <input type="text" class="form-control" id="tostudid" />
             </div>
         </div>
         <div class="form-group row">
             <label for="inputPassword" class="col-sm-4 col-form-label">Message</label>
             <div class="col-sm-8">
-                <textarea type="text" maxlength="3" class="form-control" id="inputPassword"></textarea>
+                <textarea type="text" maxlength="30" class="form-control" id="msg"></textarea>
             </div>
         </div>
         <div class="form-group row">
             <label for="inputPassword" class="col-sm-4 col-form-label">Date and Time</label>
             <div class="col-sm-8">
-                <input type="datetime" class="form-control" id="inputPassword" />
+                <input type="datetime" class="form-control" id="date" />
             </div>
         </div>
         <div>
-            <button type="button" class="btn btn-outline-primary btn-block">Send</button>
+            <button type="button" id="sendbtn" class="btn btn-outline-primary btn-block">Send</button>
             <button type="button" class="btn btn-outline-success btn-block">Clear</button>
         </div>
     </div>
@@ -439,7 +445,7 @@
                         for (var i = 0; i < result.length; i++) {
 
 
-                            bat += '<tr class="tr-shadow"><td>' + result[i].studentId + '</td><td>' + result[i].studentName + '</td><td class="desc"><img src="' + result[i].studentImg + '"/></td><td>' + result[i].studentAddress + '</td><td>' + result[i].studentGender + '</td><td>' + result[i].studentDob + '</td><td>' + result[i].fatherName + '</td><td>' + result[i].motherName + '</td><td><div class="table-data-feature"><button onclick="show();" class="item" data-toggle="tooltip" data-placement="top" title="Send Message"><a onclick="showsetting1();"><i class="zmdi zmdi-mail-send"></i></a></button><button class="item" data-toggle="tooltip" data-placement="top" title="Edit"><a onclick="showedit(' + result[i].studentId + ');"><i class="zmdi zmdi-edit"></i></a></button><button class="item"  data-toggle="tooltip" data-placement="top" title="Delete"><a onclick="disp(' + result[i].studentId + ')"><i class="zmdi zmdi-delete"></i></a></button></div></td></tr>';
+                            bat += '<tr class="tr-shadow"><td>' + result[i].studentId + '</td><td>' + result[i].studentName + '</td><td class="desc"><img src="' + result[i].studentImg + '"/></td><td>' + result[i].studentAddress + '</td><td>' + result[i].studentGender + '</td><td>' + result[i].studentDob + '</td><td>' + result[i].fatherName + '</td><td>' + result[i].motherName + '</td><td><div class="table-data-feature"><button onclick="show();" class="item" data-toggle="tooltip" data-placement="top" title="Send Message"><a onclick="showsetting1(' + result[i].studentId+');"><i class="zmdi zmdi-mail-send"></i></a></button><button class="item" data-toggle="tooltip" data-placement="top" title="Edit"><a onclick="showedit(' + result[i].studentId + ');"><i class="zmdi zmdi-edit"></i></a></button><button class="item"  data-toggle="tooltip" data-placement="top" title="Delete"><a onclick="disp(' + result[i].studentId + ')"><i class="zmdi zmdi-delete"></i></a></button></div></td></tr>';
 
                         }
                         bat += '</tbody>';
@@ -458,6 +464,30 @@
 
             //});
 
+        });
+        $("#sendbtn").click(function () {
+        
+            var from = $("#from").val();
+            var tostudid = $("#tostudid").val();
+            var msg = $("#msg").val();
+        $.ajax({
+            url: '/MessageBoard/SendMessage',
+            type: 'post',
+            dataType: 'json',
+            data:
+            {
+                FromMsg: from,
+                ToMsg: tostudid,
+                Msg: msg,
+            },
+            success: function (result) {
+
+                alert("Message send successfully");
+                location.reload();
+
+            },
+
+            });
         });
 
         $("#Studentupdate").click(function () {
@@ -524,9 +554,25 @@
             window.find(string);
         }
 
-        function showsetting1() {
+        function showsetting1(id) {
 
+            var stdid = id;
             $('#setting1').animate({ top: '13%' }, 500);
+            $.ajax({
+                url: '/Student/StudentGetById',
+                type: 'get',
+                dataType: 'json',
+                data:
+                {
+                    id: stdid,
+                },
+                success: function (result) {
+                    document.getElementById('studname').value = result.studentName;
+                        document.getElementById('tostudid').value =  result.studentId;
+                   
+                    
+                },
+            });
             document.getElementById("overlay").style.display = "block";
         }
         function hidesetting1() {

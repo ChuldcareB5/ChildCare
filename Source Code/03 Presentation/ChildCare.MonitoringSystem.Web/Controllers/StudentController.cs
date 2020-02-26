@@ -40,12 +40,12 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 
 		public ActionResult<StudentModel> StudentGetById(int id)
 		{
-			var students = this.studentBusiness.StudentGetById(applicationContext.UserId);
+			var students = this.studentBusiness.StudentGetById(id);
 			return students;
 		}
-        public ActionResult<StudentModel> CookieId()
+        public ActionResult<StudentModel> GetUsersStudentInfo()
         {
-            var students = this.studentBusiness.CookieId(applicationContext.UserId);
+            var students = this.studentBusiness.GetUsersStudentInfo(applicationContext.UserId);
             return students;
         }
 

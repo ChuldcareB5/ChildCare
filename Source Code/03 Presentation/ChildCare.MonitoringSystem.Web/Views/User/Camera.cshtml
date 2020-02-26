@@ -1,7 +1,7 @@
-﻿@{
+﻿@*@{
     ViewData["Title"] = "Camera";
 
-}
+}*@
 
 @section LeftNavigation{
     <partial name="_UserLeftNavigation" />
@@ -60,8 +60,8 @@
             </div>
         </div>
         <!-- END MAIN CONTENT-->
-        <!--start Account popup-->
-        <div id="overlay" style="z-index:4">
+       <!--start Account popup-->
+        @*<div id="overlay" style="z-index:4">
             <div id="test-form-div ">
                 <div id="test-form" class="">
                     <div class="form-container">
@@ -75,15 +75,15 @@
                             </div>
                             <div class="form-group">
                                 <label class="text-primary">User Name</label>
-                                <label class="form-control" name="fname" id="fname">Purshotham</label>
+                                <label class="form-control" name="fname" id="uname"></label>
                             </div>
                             <div class="form-group">
                                 <label class="text-primary">User Email</label>
-                                <label class="form-control" name="email" id="fname">Pursh123@gmail.com</label>
+                                <label class="form-control" name="email" id="email"></label>
                             </div>
                             <div class="form-group">
                                 <label class="text-primary">Mobile No</label>
-                                <label class="form-control" name="number" id="pwd">9653247815</label>
+                                <label class="form-control" name="number" id="mob"></label>
                             </div>
 
                         </form>
@@ -142,7 +142,7 @@
                 </div>
             </div>
             <!--close more setting popup-->
-        </div>
+        </div>*@
 
 
 @section Scripts{
@@ -151,91 +151,12 @@
             window.find(string);
         }
 
-        function showtest() {
-            $('#test-form').animate({ top: '15%' }, 500);
-            $('#test-form-div').animate({ top: '20%' }, 500);
-            $('.account-dropdown').hide();
-        }
-        function hidetest() {
-            $('#test-form').animate({ top: '-500%' }, 500);
-        }
-
-        function showsetting() {
-            $('#setting').animate({ top: '15%' }, 500);
-            $('.account-dropdown').hide();
-        }
-        function hidesetting() {
-            $('#setting').animate({ top: '-500%' }, 500);
-        }
-
-        function showmoresetting() {
-            $('#moresetting').animate({ top: '15%' }, 500);
-            $('.account-dropdown').hide();
-        }
-        function hidemoresetting() {
-            $('#moresetting').animate({ top: '-500%' }, 500);
-        }
+        
     </script>
 }
 @section Styles{
     <style>
-        #overlay {
-            position: fixed; /* Sit on top of the page content */
-            display: none; /* Hidden by default */
-            width: 100%; /* Full width (cover the whole page) */
-            height: 100%; /* Full height (cover the whole page) */
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0,0,0,0.5); /* Black background with opacity */
-            z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
-            cursor: pointer; /* Add a pointer on hover */
-            overflow: auto;
-        }
-
-        #test-form {
-            position: fixed;
-            top: -500%;
-            width: 35%;
-            margin-left: 30%;
-            background-color: white;
-            box-shadow: 2px 3px 8px slategrey;
-            border-radius: 5px;
-            padding: 35px;
-        }
-
-        #setting {
-            position: fixed;
-            top: -500%;
-            width: 35%;
-            margin-left: 30%;
-            background-color: white;
-            box-shadow: 2px 3px 8px slategrey;
-            border-radius: 5px;
-            padding: 35px;
-        }
-
-        #moresetting {
-            position: fixed;
-            top: -500%;
-            width: 35%;
-            margin-left: 30%;
-            background-color: white;
-            box-shadow: 2px 3px 8px slategrey;
-            border-radius: 5px;
-            padding: 35px;
-        }
-
-        #test-form-div {
-            position: fixed;
-            top: -500%;
-            max-width: 1500px;
-            max-height: 1500px;
-            min-width: 1500px;
-            min-height: 1500px;
-            background-color: black;
-        }
+        
 
 
 
