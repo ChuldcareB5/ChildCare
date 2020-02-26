@@ -19,7 +19,7 @@
                 @*@foreach (var item in Model.Student)
                     {*@
 
-                <form asp-controller="Dashboard" asp-action="StudentRegister" id="studentForm" enctype="multipart/form-data">
+                <form asp-controller="Dashboard" asp-action="StudentRegistration" id="studentForm" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="nf-student" class=" form-control-label">Student Name *</label>
                         <input asp-for="StudentName" type="text" placeholder="Enter Student Name" title="Enter Student Name" class="form-control" required>
@@ -114,6 +114,7 @@
                     <button type="reset" onclick="reset()" class="btn btn-success ">
                         Reset
                     </button>
+                    <span asp-validation-for="ErrorMessage" class="text-danger"></span>
                 </form>
 
             </div>
