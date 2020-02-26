@@ -17,6 +17,6 @@ namespace ChildCare.MonitoringSystem.Model
         public int ParentId { get; set; } // ParentId
         public string Batch { get; set; } // Batch (length: 100)
 
-        public UserModel Parent { get; set; } // FK_Student_User
+		public UserModel Parent { get; set; } // FK_Student_User
 	}
 }

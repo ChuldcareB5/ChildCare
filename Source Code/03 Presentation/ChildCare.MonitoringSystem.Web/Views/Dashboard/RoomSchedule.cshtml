@@ -11,7 +11,7 @@
     @*<div class="section__content section__content--p30">*@
     <button class="btn btn-primary col-lg-1 pull-right" style="margin-right:5%;" onclick="showadd();">+ ADD</button><br />
     @*<button class="btn btn-danger col-lg-1 pull-right" style="margin-right:5%;" onclick="deleteroom();">- DELETE</button><br />*@
-    <button class="btn btn-danger col-lg-1 pull-right" style="margin-right:5%;" onclick="showviewschedule()"><i class="fa fa-eye"></i> View</button>
+    @*<button class="btn btn-danger col-lg-1 pull-right" style="margin-right:5%;" onclick="showviewschedule()"><i class="fa fa-eye"></i> View</button>*@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
@@ -25,74 +25,10 @@
                                 <th>Room Id</th>
                                 <th>Room Name</th>
                                 <th></th>
+                                <th></th>
                             </tr>
                         </thead>
-                        @*<tbody>
-                                <tr class="tr-shadow">
-                                    <td>
-                                        <label class="au-checkbox">
-                                            <input type="checkbox">
-                                            <span class="au-checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td>1</td>
-                                    <td>
-                                        Bus1
-                                    </td>
-                                    <td>
-                                        <div class="table-data-feature">
-                                            <button onclick="show();" title="Send Message" class="btn btn-primary">
-                                                <a onclick="showviewschedule()">
-                                                    Schedule
-                                                </a>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr class="tr-shadow">
-                                    <td>
-                                        <label class="au-checkbox">
-                                            <input type="checkbox">
-                                            <span class="au-checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td>2</td>
-                                    <td>
-                                        Bus2
-                                    </td>
-                                    <td>
-                                        <div class="table-data-feature">
-                                            <button onclick="show();" title="Send Message" class="btn btn-primary">
-                                                <a onclick="showviewschedule()">
-                                                    Schedule
-                                                </a>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr class="tr-shadow">
-                                    <td>
-                                        <label class="au-checkbox">
-                                            <input type="checkbox">
-                                            <span class="au-checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td>3</td>
-                                    <td>
-                                        Bus3
-                                    </td>
-                                    <td>
-                                        <div class="table-data-feature">
-                                            <button onclick="show();" title="Send Message" class="btn btn-primary">
-                                                <a onclick="showviewschedule()">
-                                                    Schedule
-                                                </a>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                            </tbody>*@
+                        
                     </table>
                 </div>
             </div>
@@ -107,11 +43,11 @@
     @*<h2 align="center">View Room Schedule</h2>*@
     <hr /><br /><br />
     <button class="btn btn-primary col-lg-1 pull-right" style="margin-right:5%;" onclick="showaddSchedule();">+ ADD</button><br />
-    <button class="btn btn-danger col-lg-1 pull-right" id="std" style="margin-right:5%;">- DELETE</button>
+    @*<button class="btn btn-danger col-lg-1 pull-right" id="std" style="margin-right:5%;">- DELETE</button>*@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <div class="table-responsive table-responsive-data2" style="overflow:auto">
+                <div class="table-responsive table-responsive-data2">
                     <table class="table table-data2" id="getRoomSchedule">
                         <thead>
                             <tr>
@@ -206,8 +142,8 @@
 <div class="main-content" id="viewstudentschedule">
     <h2 align="center">View Student Schedule</h2>
     <hr /><br /><br />
-    <button class="btn btn-primary col-lg-1 pull-right" style="margin-right:5%;" onclick="showaddSchedule();">+ ADD</button><br />
-    <button class="btn btn-danger col-lg-1 pull-right" style="margin-right:5%;">- DELETE</button>
+    @*<button class="btn btn-primary col-lg-1 pull-right" style="margin-right:5%;" onclick="showaddSchedule();">+ ADD</button><br />*@
+    @*<button class="btn btn-danger col-lg-1 pull-right" style="margin-right:5%;">- DELETE</button>*@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
@@ -234,7 +170,7 @@
 
 <!-- END MAIN CONTENT-->
 <!-- END PAGE CONTAINER-->
-<div id="overlay" style="z-index:4">
+<div id="overlay" style="z-index:4;">
     <!--start Account popup-->
     <div id="test-form-div ">
         <div id="test-form" class="">
@@ -387,7 +323,7 @@
         <div class="form-container">
             <a class="pull-right" href="#viewroomschedule" onclick="hidechangeschedule();"><i class="fa fa-close"></i></a>
             <h4 align="center" class="text-primary">Add Room Schedule</h4><hr />
-            <form action="" method="post">
+            <form method="post" >
                 <div class="form-group">
                     <label>Choose Date</label>
                     <input class="form-control" type="date" name="date" id="roomScheduleDate" required>
@@ -436,21 +372,24 @@
 @section Scripts{
     <script>
         $(document).ready(function () {
+            debugger;
             $("#viewroomschedule").hide();
             $("#viewstudentschedule").hide();
 
             //GetRoom
+            $("#viewstudentschedule").hide();
+            
             $.ajax({
                 url: '/Room/GetRoom',
                 type: 'get',
                 dataType: 'json',
                 success: function (result) {
-                    //debugger
+                    debugger
                     if (result) {
                         var bat = ' <tbody>';
                         for (var i = 0; i < result.length; i++) {
 
-                            bat += '<tr class="tr-shadow">< td > <label class="au-checkbox"><input type="checkbox"><span class="au-checkmark"></span></label></td><td>' + (i + 1) + '</td><td>' + result[i].roomId + '</td> <td>' + result[i].roomName + '</td><td><button class="btn btn-danger" style="margin-left:-200px" onclick="showviewschedule(' + result[i].roomId + ')"><i class="fa fa-eye"></i>View Schedules</button></td></tr > ';
+                            bat += '<tr class="tr-shadow">< td > <label class="au-checkbox"><input type="checkbox"><span class="au-checkmark"></span></label></td><td>' + (i + 1) + '</td><td>' + result[i].roomId + '</td> <td>' + result[i].roomName + '</td><td><div class="table-data-feature"><button class="btn btn-danger" style="margin-left:-200px" onclick="showviewschedule(' + result[i].roomId + ')"><i class="fa fa-eye"></i>View Schedules</button></td><td><div class="table-data-feature"><button class="item"  data-toggle="tooltip" data-placement="top" title="Delete"><a onclick="deleteroom(' + result[i].roomId + ')"><i class="zmdi zmdi-delete"></i></a></button></td></div></tr > ';
                         }
                         bat += '</tbody>'
 
@@ -466,29 +405,29 @@
             });
 
 
-            $.ajax({
-                url: '/Room/GetRoomSchedule',
-                type: 'get',
-                dataType: 'json',
-                success: function (result) {
-                    //debugger
-                    if (result) {
-                        var bat = ' <tbody>';
-                        for (var i = 0; i < result.length; i++) {
-                            bat += '<tr class="tr-shadow">< td > <label class="au-checkbox"><input type="checkbox"><span class="au-checkmark"></span></label></td><td>' + (i + 1) + '</td><td>' + result[i].roomScheduleId + '</td><td>' + result[i].teacherId + '</td> <td>' + result[i].roomScheduleDate + '</td> <td>' + result[i].roomScheduleTime + '</td><td>' + result[i].roomScheduleSubject + '</td><td><button  class="btn btn-danger" style="margin-left:0px" onclick="showstudentschedule(' + result[i].roomId + ',' + result[i].roomScheduleId + ');"><i class="fa fa - eye"></i>View Students</button></td></tr > ';
-                        }
-                        bat += '</tbody>'
+            //$.ajax({
+            //    url: '/Room/GetRoomSchedule',
+            //    type: 'get',
+            //    dataType: 'json',
+            //    success: function (result) {
+            //        //debugger
+            //        if (result) {
+            //            var bat = ' <tbody>';
+            //            for (var i = 0; i < result.length; i++) {
+            //                bat += '<tr class="tr-shadow">< td > <label class="au-checkbox"><input type="checkbox"><span class="au-checkmark"></span></label></td><td>' + (i + 1) + '</td><td>' + result[i].roomScheduleId + '</td><td>' + result[i].teacherId + '</td> <td>' + result[i].roomScheduleDate + '</td> <td>' + result[i].roomScheduleTime + '</td><td>' + result[i].roomScheduleSubject + '</td><td><button  class="btn btn-danger" style="margin-left:0px" onclick="showstudentschedule(' + result[i].roomId + ',' + result[i].roomScheduleId + ');"><i class="fa fa - eye"></i>View Students</button></td></tr > ';
+            //            }
+            //            bat += '</tbody>'
 
-                        $('#getRoomSchedule').append(bat);
+            //            $('#getRoomSchedule').append(bat);
 
-                    }
-                    else {
-                        alert("failed to get data");
-                    }
+            //        }
+            //        else {
+            //            alert("failed to get data");
+            //        }
 
-                },
+            //    },
 
-            });
+            //});
 
             $("#addRoom").click(function () {
                 var rname = $("#rname").val();
@@ -538,7 +477,7 @@
 
                     success: function (result) {
                         alert(result);
-                        alert("Successfully inserted Room");
+                        alert("Successfully inserted Room");   
 
                     },
 
@@ -645,7 +584,7 @@
         }
 
         function showaddSchedule() {
-            $('#addSchedule').animate({ top: '12%' }, 500);
+            $('#addSchedule').animate({ top: '4%' }, 500);
             document.getElementById("overlay").style.display = "block";
 
         }
