@@ -90,7 +90,7 @@ namespace ChildCare.MonitoringSystem.Business
 			//st.StudentImg = Path.GetFileName(st.StudentImg);
 			return st;
 		}
-        public StudentModel CookieId(int id)
+        public StudentModel GetUsersStudentInfo(int id)
 		{
 
 			var student = this.studentRepository.GetBy(x => x.ParentId == id, x=>x.User).SingleOrDefault();

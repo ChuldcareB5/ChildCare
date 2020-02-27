@@ -334,14 +334,15 @@
                 </div>
                 <div class="form-group">
                     <label>Time</label>
+                    <input class="form-control" type="time" name="roomScheduleTime" id="roomScheduleTime" required>
                     @* <input class="form-control" type="text" name="email" id="fname" required>*@
-                    <select name="scheduleTime" id="roomScheduleTime" class="form-control">
-                        <option value="9.00">9.00</option>
-                        <option value="9.55">9.55</option>
-                        <option value="11.05">11.05</option>
-                        <option value="01.00">01.00</option>
-                        <option value="02.00">02.00</option>
-                    </select>
+                    @*<select name="scheduleTime" id="roomScheduleTime" class="form-control">
+            <option value="9.00">9.00</option>
+            <option value="9.55">9.55</option>
+            <option value="11.05">11.05</option>
+            <option value="01.00">01.00</option>
+            <option value="02.00">02.00</option>
+        </select>*@
                 </div>
                 <div class="form-group">
                     <label>Subject</label>
@@ -374,6 +375,8 @@
         $(document).ready(function () {
             debugger;
             $("#viewroomschedule").hide();
+            $("#viewstudentschedule").hide();
+
             //GetRoom
             $("#viewstudentschedule").hide();
             
@@ -465,12 +468,17 @@
 
 
                 $.ajax({
-                    url: '/Student/GetStudentByBatch',
+                    url: '/RoomSchedule/AddStudentScheduleByBatch',
                     type: 'get',
                     dataType: 'json',
                     data:
                     {
-                        Batch: rbatch,
+                        TeacherId: rteacherid,
+                        RoomScheduleDate: rdate,
+                        RoomScheduleTime: rtime,
+                        RoomScheduleSubject: rsub,
+                        RoomId: rid,
+                        batch: rbatch,
                     },
 
                     success: function (result) {

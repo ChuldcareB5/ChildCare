@@ -22,6 +22,7 @@ namespace ChildCare.MonitoringSystem.Web.Models
 		public string UserEmail { get; set; } // UserEmail (length: 100)
 		public string UserPassword { get; set; } // UserPassword (length: 100)
 		public string UserMobileNo { get; set; } // UserMobileNo (length: 12)
+        public string ErrorMessage { get; set; }
 
-	}
+    }
 }

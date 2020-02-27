@@ -53,14 +53,11 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 		public ActionResult<StudentModel> StudentGetById(int id)
 		{
 			var students = this.studentBusiness.StudentGetById(id);
-			//string studentimage = Path.GetFileName(students.StudentImg);
-			//string savePath = Path.Combine(environment.WebRootPath, this.profilePicPath, studentimage);
-			//students.StudentImg = savePath;
 			return students;
 		}
-        public ActionResult<StudentModel> CookieId()
+        public ActionResult<StudentModel> GetUsersStudentInfo()
         {
-            var students = this.studentBusiness.CookieId(applicationContext.UserId);
+            var students = this.studentBusiness.GetUsersStudentInfo(applicationContext.UserId);
             return students;
         }
 
