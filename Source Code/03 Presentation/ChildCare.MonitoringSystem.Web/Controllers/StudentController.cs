@@ -94,7 +94,6 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 			userModel.UserName = studentModel.UserName;
 			userModel.UserName = studentModel.UserName;
 			userModel.UserEmail = studentModel.UserEmail;
-			//userModel.UserPassword = studentDetail.UserPassword;
 			userModel.UserMobileNo = studentModel.UserMobileNo;
 
 			var student = this.studentBusiness.StudentUpdate(studentModel1, userModel);
