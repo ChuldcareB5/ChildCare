@@ -18,19 +18,44 @@ namespace ChildCare.MonitoringSystem.Business
 		private readonly IUnitOfWork unitOfWork;
 		//private readonly IHostingEnvironment environment;
 		private readonly IRepository<Student> studentRepository;//Connect student Repository
+		private readonly IRepository<RoomSchedule> roomscheduleRepository;//Connect student Repository
+		private readonly IRepository<StudentBusSchedule> studentbusscheduleRepository;//Connect student Repository
+		private readonly IRepository<BusSchedule> busscheduleRepository;//Connect student Repository
 
 		public StudentBusiness(IUnitOfWork unitOfWork)
 		{
 			this.userRepository = unitOfWork.GetRepository<IRepository<User>>();//Get User From Repository
 			this.studentRepository = unitOfWork.GetRepository<IRepository<Student>>();//Get User From Repository
+			this.roomscheduleRepository = unitOfWork.GetRepository<IRepository<RoomSchedule>>();//Get User From Repository
+			this.studentbusscheduleRepository = unitOfWork.GetRepository<IRepository<StudentBusSchedule>>();//Get User From Repository
+			this.busscheduleRepository = unitOfWork.GetRepository<IRepository<BusSchedule>>();//Get User From Repository
 			this.unitOfWork = unitOfWork;//Instantiate unitOfWork Variable
 		}
 
 		public StudentModel AddStudent(StudentModel studentModel)
 		{
+			//var busscheduleid = this.studentbusscheduleRepository.GetAll();
+
+			//var students = new List<StudentModel>();
+
+			//foreach (var student in busscheduleid)
+			//{
+			//	students.Add(new StudentModel()
+			//	{
+			//		StudentId = student.StudentId,
+			//		StudentName = student.BusScheduleId,
+			//		StudentImg = student.StudentImg,
+			//		StudentAddress = student.StudentAddress,
+			//		StudentGender = student.StudentGender,
+			//		StudentDob = student.StudentDob,
+			//		FatherName = student.FatherName,
+			//		MotherName = student.MotherName,
+			//		ParentId = student.ParentId
+			//	});
+			//}
 			/* this.AddStudent(studentModel, 2);*///Return from method named AddUser where parent id is 2(function call)
-
-
+			//var busscheduleid = this.studentbusscheduleRepository.GetBy(x => x.StudentId == studentModel.StudentId).SingleOrDefault();
+			var scheduleid = this.busscheduleRepository.GetBy(x => x.BusId == studentModel.BusId).SingleOrDefault();
 			var studentEntity = new Student()
 			{
 				StudentName = studentModel.StudentName,
@@ -42,12 +67,23 @@ namespace ChildCare.MonitoringSystem.Business
 				MotherName = studentModel.MotherName,
 				ParentId = studentModel.ParentId,
 				Batch = studentModel.Batch,
+		
 				CreatedBy = -1,
 				CreatedOn = DateTime.UtcNow,
 				UpdatedBy = -1,
 				UpdatedOn = DateTime.UtcNow
 			};
-
+			//var studentbusschedule = new StudentBusSchedule()
+			//{
+			//	BusScheduleId = scheduleid.BusScheduleId,
+			//	StudentId = busscheduleid.StudentId,
+			//	CreatedBy = -1,
+			//	CreatedOn = DateTime.UtcNow,
+			//	UpdatedBy = -1,
+			//	UpdatedOn = DateTime.UtcNow
+			//};
+			//this.studentbusscheduleRepository.Add(studentbusschedule);
+			this.unitOfWork.Save();
 			this.studentRepository.Add(studentEntity);
 			this.unitOfWork.Save();
 			studentModel.StudentId = studentEntity.StudentId;
@@ -124,7 +160,11 @@ namespace ChildCare.MonitoringSystem.Business
 		{
 
 			var studentid = this.studentRepository.GetBy(x => x.StudentId == id).SingleOrDefault();
+			var roomscheduleid = this.roomscheduleRepository.GetBy(x => x.StudentId == id).SingleOrDefault();
+			var studentbusscheduleid = this.studentbusscheduleRepository.GetBy(x => x.StudentId == id).SingleOrDefault();
 			studentid.IsDeleted = true;
+			//roomscheduleid.IsDeleted = true;
+			//studentbusscheduleid.IsDeleted = true;
 			this.unitOfWork.Save();
 			return studentid != null ? 0 : 1;
 

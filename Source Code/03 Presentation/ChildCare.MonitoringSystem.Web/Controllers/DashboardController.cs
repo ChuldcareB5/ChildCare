@@ -84,6 +84,7 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
                 uploadedImages.Add(imageName);
                 imageName = "/profilepics/" + imageName;
                 StudentModel studentModel = new StudentModel();
+                BusScheduleModel busScheduleModel = new BusScheduleModel();
                 UserModel userModel = new UserModel();
                 userModel.UserName = studentDetail.UserName;
                 userModel.UserEmail = studentDetail.UserEmail;
@@ -99,7 +100,10 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
                 studentModel.MotherName = studentDetail.MotherName;
                 studentModel.ParentId = user.UserId;
                 studentModel.Batch = studentDetail.Batch;
-                ModelState.AddModelError(nameof(StudentDetail.ErrorMessage), "Register Successfully");
+         
+
+				ModelState.AddModelError(nameof(StudentDetail.ErrorMessage), "Register Successfully");
+				
                 var student = this.studentBusiness.AddStudent(studentModel);
             }
             catch

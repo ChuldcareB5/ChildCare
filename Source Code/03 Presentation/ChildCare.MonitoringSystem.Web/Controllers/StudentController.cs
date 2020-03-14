@@ -95,7 +95,6 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 
 			var student = this.studentBusiness.StudentUpdate(studentModel1, userModel);
 			return RedirectToAction("StudentView", "Dashboard");
-
 			//return null;
 		}
 
