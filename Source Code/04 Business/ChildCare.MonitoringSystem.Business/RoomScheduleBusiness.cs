@@ -103,8 +103,8 @@ namespace ChildCare.MonitoringSystem.Business
 		///GetRoomStudents
 		public List<StudentModel> GetRoomStudents(int RoomId, int RoomSheduleId)
 		{
-			//try
-			//{
+			try  
+			{
 				var times = this.roomScheduleRepository.GetBy(x => x.RoomId == RoomId && x.RoomScheduleId == RoomSheduleId).First();
 
 				var students = this.roomScheduleRepository.GetBy(x => x.RoomId == RoomId && x.RoomScheduleTime == times.RoomScheduleTime, x => x.Student);

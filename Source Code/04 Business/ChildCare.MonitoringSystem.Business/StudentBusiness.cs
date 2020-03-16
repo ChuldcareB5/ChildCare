@@ -132,9 +132,16 @@ namespace ChildCare.MonitoringSystem.Business
 			var student = this.studentRepository.GetBy(x => x.ParentId == id, x=>x.User).SingleOrDefault();
 			return Mapper.Map<StudentModel>(student);
 		}
+        public Int32 GetStudentIdByUserId(int id)
+        {
+
+            var student = this.studentRepository.GetBy(x => x.ParentId == id).SingleOrDefault();
+            var studid = student.StudentId;
+            return studid;
+        }
 
 
-		public StudentModel StudentUpdate(StudentModel studentModel,UserModel userModel)
+        public StudentModel StudentUpdate(StudentModel studentModel,UserModel userModel)
 		{
 			var studentupdate = this.studentRepository.GetBy(x => x.StudentId == studentModel.StudentId, x=> x.User).SingleOrDefault();
 			studentupdate.StudentName = studentModel.StudentName;

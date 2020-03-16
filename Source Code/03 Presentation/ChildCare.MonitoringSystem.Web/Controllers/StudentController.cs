@@ -60,9 +60,15 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
             var students = this.studentBusiness.GetUsersStudentInfo(applicationContext.UserId);
             return students;
         }
+        public ActionResult<Int32> GetStudentIdByUserId()
+        {
+            var studentid = this.studentBusiness.GetStudentIdByUserId(applicationContext.UserId);
+            return studentid;
+        }
 
 
-		[HttpPost]
+
+        [HttpPost]
         public ActionResult<StudentDetail> StudentUpdate(StudentDetail studentModel,String oldimage)
 		{
 		
