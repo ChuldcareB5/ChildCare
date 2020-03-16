@@ -83,7 +83,7 @@ namespace ChildCare.MonitoringSystem.Business
 			//	UpdatedOn = DateTime.UtcNow
 			//};
 			//this.studentbusscheduleRepository.Add(studentbusschedule);
-			this.unitOfWork.Save();
+
 			this.studentRepository.Add(studentEntity);
 			this.unitOfWork.Save();
 			studentModel.StudentId = studentEntity.StudentId;

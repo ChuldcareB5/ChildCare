@@ -7,6 +7,7 @@ using ChildCare.MonitoringSystem.Model;
 using System.Linq;
 using ChildCare.MonitoringSystem.Core.Constraints;
 using ChildCare.MonitoringSystem.Common.Extensions;
+using AutoMapper;
 
 namespace ChildCare.MonitoringSystem.Business
 {
@@ -105,5 +106,29 @@ namespace ChildCare.MonitoringSystem.Business
 
 
         }
-    }
+		public UserModel GetTeacher()
+		{
+			//	var teacherEntity = this.userRepository.GetAll();
+
+			//	var users = new UserModel();
+
+			//	foreach (var teacher in teacherEntity)
+			//	{
+			//		users.Add(new UserModel()
+			//		{
+			//			UserId = teacher.UserId,
+			//			UserName = teacher.UserName,
+			//			UserEmail = teacher.UserEmail,
+			//			UserMobileNo = teacher.UserMobileNo,		
+			//		});
+			//	}
+			
+			
+			var roles = this.roleRepository.GetAll();
+			
+			var parentRoleId = roles.First(x => x.RoleName == "Teacher").RoleId;
+			//var teacher = this.userRepository.GetAll().Contains(parentRoleId);
+			return null;
+		}
+	}
 }

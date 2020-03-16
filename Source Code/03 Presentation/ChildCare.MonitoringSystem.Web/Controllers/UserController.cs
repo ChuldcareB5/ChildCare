@@ -59,7 +59,11 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 			return user;
 		}
 
-		
+		public ActionResult<UserModel> GetUserDetail()
+		{
+			var students = this.userBusiness.GetTeacher();
+			return students;
+		}
 
 		[HttpPost]
 		public IActionResult StudentLogin(UserModel userModel)

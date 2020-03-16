@@ -26,13 +26,11 @@
                                 <i class="zmdi zmdi-account-o"></i>
                             </div>
                             <div class="text">
-                                <h2>1368</h2>
+                                <h2>1000+</h2>
                                 <span>Total number of students</span>
                             </div>
                         </div>
-                        <div class="overview-chart">
-                            <canvas id="widgetChart1"></canvas>
-                        </div>
+                      
                     </div>
                 </div>
             </div>
@@ -42,15 +40,13 @@
                         <div class="overview-box clearfix">
                             <div class="icon">
                                 <i class="zmdi zmdi-videocam"></i>
-                            </div>
+                            </div><br />
                             <div class="text">
-                                <h2>38</h2>
+                                <h2>30+</h2>
                                 <span>Total cameras</span>
                             </div>
                         </div>
-                        <div class="overview-chart">
-                            <canvas id="widgetChart2"></canvas>
-                        </div>
+                      
                     </div>
                 </div>
             </div>
@@ -60,15 +56,13 @@
                         <div class="overview-box clearfix">
                             <div class="icon">
                                 <i class="zmdi zmdi-laptop"></i>
-                            </div>
+                            </div><br />
                             <div class="text">
-                                <h2>1,086</h2>
+                                <h2>50+</h2>
                                 <span>Total ClassRooms</span>
                             </div>
                         </div>
-                        <div class="overview-chart">
-                            <canvas id="widgetChart3"></canvas>
-                        </div>
+                     
                     </div>
                 </div>
             </div>
@@ -78,20 +72,18 @@
                         <div class="overview-box clearfix">
                             <div class="icon">
                                 <i class="zmdi zmdi-bus"></i>
-                            </div>
+                            </div><br />
                             <div class="text">
-                                <h2>13</h2>
+                                <h2>40+</h2>
                                 <span>Total No.of Buses</span>
                             </div>
                         </div>
-                        <div class="overview-chart">
-                            <canvas id="widgetChart4"></canvas>
-                        </div>
+               
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row">
+        @*<div class="row">
             <div class="col-lg-6">
                 <div class="au-card recent-report">
                     <div class="au-card-inner">
@@ -101,7 +93,7 @@
 
                         </div>
                         <div class="recent-report__chart">
-                            @* write content here *@
+                           
                             <!-- MAP DATA-->
                             <div class="map-data m-b-40">
                                 <h3 class="title-3 m-b-30">
@@ -136,7 +128,7 @@
                                             <span>services</span>
                                         </div>
                                     </div>
-                                </div>*@
+                                </div>
                             <div class="col-xl-6">
                                 <div class="percent-chart">
 
@@ -164,25 +156,24 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>*@
         <div class="row">
             <div class="col-lg-9">
-                <h2 class="title-1 m-b-25">Student info   </h2>
+                <h2 class="title-1 m-b-25">Teacher info   </h2>
                 <div class="table-responsive table--no-card m-b-40">
-                    <table class="table table-borderless table-striped table-earning">
+                    <table class="table table-borderless table-striped table-earning" id="teacherinfo">
                         <thead>
                             <tr>
-                                <th>Student Id</th>
-                                <th>Student Name</th>
-                                <th>Address</th>
-                                <th class="text-right">Section</th>
-                                <th class="text-right">Father Name</th>
-                                <th class="text-right">Mothername</th>
+                                <th>Teacher Id</th>
+                                <th>Teacher Name</th>
+                                <th>Teacher Email</th>
+                                <th>Teacher Mob</th>
+                              
                             </tr>
                         </thead>
                         <tbody>
 
-                            <tr>
+                            @*<tr>
                                 <td>1</td>
                                 <td>Raj</td>
                                 <td>Street X 64Gb Grey</td>
@@ -221,7 +212,7 @@
                                 <td class="text-right">2nd A</td>
                                 <td class="text-right">Kamal</td>
                                 <td class="text-right">Rama</td>
-                            </tr>
+                            </tr>*@
                         </tbody>
                     </table>
                 </div>
@@ -551,7 +542,39 @@
 
 @section Scripts{
     <script>
-        $(document).ready(function () {
+     
+            $(document).ready(function () {
+                $.ajax({
+                    url: '/User/GetUserDetail',
+                    type: 'get',
+                    dataType: 'json',
+                    //data: data,
+                    success: function (result) {
+
+                        if (result) {
+                            var bat = ' <tbody>';
+                            for (var i = 0; i < result.length; i++) {
+
+                                bat += '<tr class="tr-shadow"><td>' + result[i].userId + '</td><td>' + result[i].UserName + '</td><td class="desc"><img src="' + result[i].UserEmail + '"/></td><td>' + result[i].UserMobileNo + '</td><td><div class="table-data-feature"><button class="item" data-toggle="tooltip" data-placement="top" title="Send Message"><a onclick="showsetting1(' + result[i].studentId + ');"><i class="zmdi zmdi-mail-send"></i></a></button><button class="item" data-toggle="tooltip" data-placement="top" title="Edit"><a onclick="showedit(' + result[i].studentId + ');"><i class="zmdi zmdi-edit"></i></a></button><button class="item"  data-toggle="tooltip" data-placement="top" title="Delete"><a onclick="disp(' + result[i].studentId + ')"><i class="zmdi zmdi-delete"></i></a></button></div></td></tr>';
+
+                            }
+                            bat += '</tbody>';
+
+                            $('#teacherinfo').append(bat);
+
+                        }
+                        else {
+                            alert("failed to get data");
+                        }
+
+                    },
+
+
+                });
+    
+
+        
+
             $("#teachereditprofile").click(function () {
                 var uname = $("#uname").val();
                 var uemail = $("#uemail").val();
