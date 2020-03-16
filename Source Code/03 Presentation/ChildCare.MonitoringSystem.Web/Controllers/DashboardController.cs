@@ -23,7 +23,8 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 		private readonly UserBusiness userBusiness;
 		private readonly string profilePicPath = "profilepics";
 		private static List<string> uploadedImages = new List<string>();
-		private readonly IHostingEnvironment environment;
+		private readonly IHostingEnvironment environment;
+
 		public DashboardController(StudentBusiness studentBusiness, UserBusiness userBusiness, IHostingEnvironment environment)
 		{
 			this.studentBusiness = studentBusiness;

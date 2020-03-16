@@ -103,7 +103,7 @@ namespace ChildCare.MonitoringSystem.Business
 			{
 				client.EnableSsl = true;
 				client.UseDefaultCredentials = false;
-				client.Credentials = new NetworkCredential(Fromemailid,pass );
+				client.Credentials = new NetworkCredential(Fromemailid,pass);
 				client.Host = "smtp.gmail.com";
 				client.Port = 587;
 				client.DeliveryMethod = SmtpDeliveryMethod.Network;

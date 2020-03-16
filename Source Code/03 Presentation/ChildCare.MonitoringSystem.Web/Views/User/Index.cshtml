@@ -1,13 +1,15 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+var user = User.Claims.ToList();
 }
 
 @section LeftNavigation{
-    <partial name="_UserLeftNavigation" />
+<partial name="_UserLeftNavigation" />
 }
 
-    <!-- MAIN CONTENT-->
-    <div class="main-content">
+<!-- MAIN CONTENT-->
+<div class="main-content">
+    <div class="section__content section__content--p30">
         <div class="container-fluid">
             <br />
             <div class="row" style="text-align:center; margin-left:16%;">
@@ -73,10 +75,11 @@
             </div>
         </div>
     </div>
+</div>
 
 <!-- END MAIN CONTENT-->
 
-<div id="overlay" style="z-index:4">
+<div id="overlay1" style="z-index:4">
     <div id="senddiv" class="">
         <a class="pull-right" onclick="hidepopup1();"><i class="fa fa-close"></i></a>
         <h2 align="center">Send Message</h2><hr />
@@ -98,39 +101,52 @@
                 <textarea type="text" class="form-control" id="msg"></textarea>
             </div>
         </div>
-      
+
         <div>
             <button type="button" class="btn btn-outline-primary btn-block" id="sendbtn">Send</button>
             <button type="button" class="btn btn-outline-success btn-block" onclick="Clearfield();">Clear</button>
         </div>
     </div>
 
-    
+
 </div>
 
 
 
 @section Scripts{
-    <script>
+<script>
         function search(string) {
             window.find(string);
-        } 
+        }
 
         function Clearfield() {
             document.getElementById('from').value = "";
             document.getElementById('to').value = "";
             document.getElementById('msg').value = "";
         }
-    </script>
+</script>
 
-    <script>
+<script>
         $(document).ready(function () {
+                    $.ajax({
+                    url: '/Student/GetStudentIdByUserId',
+                    type: 'get',
+                    dataType: 'json',
+
+                    success: function (result) {
+            document.getElementById('from').value =result;
+
+                    },
+
+                });
+
+
             $("#sendbtn").click(function () {
                 var frommsg = $("#from").val();
                 var tomsg = $("#to").val();
                 var msg = $("#msg").val();
-                //alert(tomsg);
-                //alert(compemail);
+                alert(tomsg);
+                
                 $.ajax({
                     url: '/MessageBoard/SendParentMessage',
                     type: 'post',
@@ -154,30 +170,48 @@
 
         function showpopup() {
             $('#senddiv').animate({ top: '23%' }, 500);
-            document.getElementById("overlay").style.display = "block";
+            document.getElementById("overlay1").style.display = "block";
 
         }
-        
+        function hidepopup() {
+            $('#senddiv').animate({ top: '-500%' }, 500);
+            document.getElementById("overlay1").style.display = "none";
+        }
         function hidepopup1() {
             $('#senddiv').animate({ top: '-500%' }, 500);
-            document.getElementById("overlay").style.display = "none";
+            document.getElementById("overlay1").style.display = "none";
         }
-    </script>
+</script>
     }
 
     @section Styles{
-        <style>
+<style>
+    #overlay1 {
+        position: fixed; /* Sit on top of the page content */
+        display: none; /* Hidden by default */
+        width: 100%; /* Full width (cover the whole page) */
+        height: 100%; /* Full height (cover the whole page) */
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+        z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+        cursor: pointer; /* Add a pointer on hover */
+        overflow: auto;
+    }
 
-            #senddiv {
-                position: fixed;
-                top: -500%;
-                width: 32%;
-                margin-left: 32%;
-                background-color: white;
-                box-shadow: 2px 3px 10px grey;
-                border-radius: 5px;
-                padding: 20px;
-            }
-        </style>
+
+    #senddiv {
+        position: fixed;
+        top: -500%;
+        width: 32%;
+        margin-left: 32%;
+        background-color: white;
+        box-shadow: 2px 3px 10px grey;
+        border-radius: 5px;
+        padding: 20px;
+    }
+</style>
     }
 

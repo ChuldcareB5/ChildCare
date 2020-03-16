@@ -1,5 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Dashboard";
+
 }
 
 @section LeftNavigation{
@@ -169,60 +170,20 @@
             <div class="col-lg-9">
                 <h2 class="title-1 m-b-25">Student info   </h2>
                 <div class="table-responsive table--no-card m-b-40">
-                    <table class="table table-borderless table-striped table-earning">
+                    <table class="table table-borderless table-striped table-earning" id="studentInfo">
                         <thead>
                             <tr>
                                 <th>Student Id</th>
                                 <th>Student Name</th>
                                 <th>Address</th>
-                                <th class="text-right">Section</th>
+                                
                                 <th class="text-right">Father Name</th>
                                 <th class="text-right">Mothername</th>
                             </tr>
                         </thead>
-                        <tbody>
-
-                            <tr>
-                                <td>1</td>
-                                <td>Raj</td>
-                                <td>Street X 64Gb Grey</td>
-                                <td class="text-right">6th  A</td>
-                                <td class="text-right">Madav</td>
-                                <td class="text-right">Mina</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Mithun</td>
-                                <td>manglore S8 Black</td>
-                                <td class="text-right">2nd A</td>
-                                <td class="text-right">Kamal</td>
-                                <td class="text-right">Rama</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Karan</td>
-                                <td>manglore S8 Black</td>
-                                <td class="text-right">2nd A</td>
-                                <td class="text-right">Kamal</td>
-                                <td class="text-right">Rama</td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Kamal</td>
-                                <td>manglore S8 Black</td>
-                                <td class="text-right">2nd A</td>
-                                <td class="text-right">Kamal</td>
-                                <td class="text-right">Rama</td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>Akil</td>
-                                <td>manglore S8 Black</td>
-                                <td class="text-right">2nd A</td>
-                                <td class="text-right">Kamal</td>
-                                <td class="text-right">Rama</td>
-                            </tr>
-                        </tbody>
+                   @*
+                       body written in script
+                   *@
                     </table>
                 </div>
             </div>
@@ -231,30 +192,30 @@
                 <div class="au-card au-card--bg-blue au-card-top-countries m-b-40">
                     <div class="au-card-inner">
                         <div class="table-responsive">
-                            <table class="table table-top-countries">
-                                <tbody>
-                                    <tr>
-                                        <td>Rohan </td>
-                                        <td class="text-right">Maths</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Shrikanth</td>
-                                        <td class="text-right">Kannada</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Rizwan</td>
-                                        <td class="text-right">Hindi</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Nayana</td>
-                                        <td class="text-right">Science</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Akshitha</td>
-                                        <td class="text-right">Social</td>
-                                    </tr>
+                            <table class="table table-top-countries" id="listofteacher">
+                                @* <tbody>
+        <tr>
+            <td>Rohan </td>
+            <td class="text-right">Maths</td>
+        </tr>
+        <tr>
+            <td>Shrikanth</td>
+            <td class="text-right">Kannada</td>
+        </tr>
+        <tr>
+            <td>Rizwan</td>
+            <td class="text-right">Hindi</td>
+        </tr>
+        <tr>
+            <td>Nayana</td>
+            <td class="text-right">Science</td>
+        </tr>
+        <tr>
+            <td>Akshitha</td>
+            <td class="text-right">Social</td>
+        </tr>
 
-                                </tbody>
+                                </tbody>*@
                             </table>
                         </div>
                     </div>
@@ -410,97 +371,11 @@
 </div>
 
 
-<div id="overlay" style="z-index:4">
-    <div id="login" style="z-index:4">
-        <a onclick="hidepopup1();" class="pull-right text-primary"><i class="fa fa-close"></i></a>
-        <div class="form-container">
-            <br />
-            <h3 align="center"><strong class="text-primary">Send Message</strong></h3><hr /><br />
-            @*<form action="Homepage.html" method="post">*@
-            <div class="col-xl-12">
-                @*<label>User Name</label>*@
-                <input class="form-control" placeholder="From" type="text" name="from" id="frommsg" required>
-            </div><br />
-            <div class="col-xl-12">
-                @*<label>User Name</label>*@
-                <input class="form-control" placeholder="To" type="text" name="to" id="tomsg" required>
-            </div><br />
-            <div class="col-xl-12">
-                @*<label>New Password</label>*@
-                <input class="form-control" placeholder="Subject" type="text" name="subject" id="subject" required>
-            </div><br />
-            <div class="col-xl-12">
-                @*<label>New Password</label>*@
-                <textarea class="form-control" placeholder="Compose Email" name="compemail" id="compemail" required></textarea>
-            </div><br />
-            <div class="col-xl-12">
-                @*<label for="pwd">Confirm Password</label>*@
-                <button type="button" class="btn btn-block btn-primary" id="sendbtn" style="font-family: 'Baskerville Old Face';">Send </button>
-            </div>
-            @*</form>*@
-        </div>
-    </div>
-</div>
+
 
 @section Styles{
     <style>
-        #overlay {
-            position: fixed; /* Sit on top of the page content */
-            display: none; /* Hidden by default */
-            width: 100%; /* Full width (cover the whole page) */
-            height: 100%; /* Full height (cover the whole page) */
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0,0,0,0.5); /* Black background with opacity */
-            z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
-            cursor: pointer; /* Add a pointer on hover */
-            overflow: auto;
-        }
-
-        #test-form {
-            position: fixed;
-            top: -500%;
-            width: 35%;
-            margin-left: 30%;
-            background-color: white;
-            box-shadow: 2px 3px 8px slategrey;
-            border-radius: 5px;
-            padding: 35px;
-        }
-
-        #setting {
-            position: fixed;
-            top: -500%;
-            width: 35%;
-            margin-left: 30%;
-            background-color: white;
-            box-shadow: 2px 3px 8px slategrey;
-            border-radius: 5px;
-            padding: 35px;
-        }
-
-        #moresetting {
-            position: fixed;
-            top: -500%;
-            width: 35%;
-            margin-left: 30%;
-            background-color: white;
-            box-shadow: 2px 3px 8px slategrey;
-            border-radius: 5px;
-            padding: 35px;
-        }
-
-        #test-form-div {
-            position: fixed;
-            top: -500%;
-            max-width: 1500px;
-            max-height: 1500px;
-            min-width: 1500px;
-            min-height: 1500px;
-            background-color: black;
-        }
+      
 
         form.example input[type=text] {
             padding: 8px;
@@ -552,6 +427,53 @@
 @section Scripts{
     <script>
         $(document).ready(function () {
+            
+                $.ajax({
+                    url: '/Student/GetStudentDetail',
+                    type: 'get',
+                    dataType: 'json',
+                    success: function (result) {
+
+                        if (result) {
+                             var bat = ' <tbody>';
+                            for (var i = 0; i < result.length; i++) {
+
+
+                                bat += '<tr><td>' + result[i].studentId + '</td><td>' + result[i].studentName + '</td><td>' + result[i].studentAddress + '</td><td class="text-right">' + result[i].fatherName + '</td><td class="text-right">' + result[i].motherName+'</td></tr>';
+
+
+                            }
+                            bat += '</tbody>';
+
+                            $('#studentInfo').append(bat);
+
+                        }
+                        else {
+                            alert("failed to get data");
+                        }
+
+                    },
+
+
+            });
+            $.ajax({
+                url: '/User/GetTeacherDetail',
+                type: 'get',
+                dataType: 'json',
+                success: function (result) {
+                    debugger
+                    if (result) {
+                        var put = '<tbody>';
+                        for (var i = 0; i, result.length; i++) {
+                            put += '<tr><td>' + result[i].userName + '</td><td>';
+                        }
+                        put += '</tbody>';
+                        $('#listofteacher').append(put);
+                    }
+                }
+
+            });
+
             $("#teachereditprofile").click(function () {
                 var uname = $("#uname").val();
                 var uemail = $("#uemail").val();
@@ -608,30 +530,6 @@
 
         });
 
-        function showtest() {
-            $('#test-form').animate({ top: '15%' }, 500);
-            $('#test-form-div').animate({ top: '20%' }, 500);
-            $('.account-dropdown').hide();
-        }
-        function hidetest() {
-            $('#test-form').animate({ top: '-500%' }, 500);
-        }
-
-        function showsetting() {
-            $('#setting').animate({ top: '15%' }, 500);
-            $('.account-dropdown').hide();
-        }
-        function hidesetting() {
-            $('#setting').animate({ top: '-500%' }, 500);
-        }
-
-        function showmoresetting() {
-            $('#moresetting').animate({ top: '15%' }, 500);
-            $('.account-dropdown').hide();
-        }
-        function hidemoresetting() {
-            $('#moresetting').animate({ top: '-500%' }, 500);
-        }
     </script>
 
     <script>

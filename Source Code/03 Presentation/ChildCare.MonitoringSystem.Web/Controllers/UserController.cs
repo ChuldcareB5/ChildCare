@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ChildCare.MonitoringSystem.Business;
+using ChildCare.MonitoringSystem.Core.Models;
 using ChildCare.MonitoringSystem.Entity;
 using ChildCare.MonitoringSystem.Model;
 using Microsoft.AspNetCore.Authorization;
@@ -16,12 +17,15 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
     {
 		
 		private readonly UserBusiness userBusiness;
-		
 
-		public UserController(UserBusiness userBusiness)
+        private readonly ApplicationContext applicationContext;
+
+
+        public UserController(UserBusiness userBusiness, ApplicationContext applicationContext)
 		{
 			this.userBusiness = userBusiness;
-		}
+            this.applicationContext = applicationContext;
+        }
 
 		public IActionResult Index()
 		{
@@ -58,10 +62,15 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 			var user = this.userBusiness.AddTeacher(usermodel);
 			return user;
 		}
+        public ActionResult<List<UserModel>> GetTeacherDetail()
+        {
+            var user = this.userBusiness.GetTeacherDetail();
+            return user;
+        }
 
-		
 
-		[HttpPost]
+
+        [HttpPost]
 		public IActionResult StudentLogin(UserModel userModel)
 		{
 			return View("HomePage");
@@ -78,6 +87,8 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
             return us;
 
         }
+       
+
 
     }
 }

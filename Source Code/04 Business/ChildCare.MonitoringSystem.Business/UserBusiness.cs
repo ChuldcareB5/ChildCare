@@ -33,16 +33,42 @@ namespace ChildCare.MonitoringSystem.Business
 			var user = this.userRepository.GetBy(x => x.UserName == userName && x.UserPassword == password, x => x.UserRole).SingleOrDefault();
 			return user.MapTo<UserModel>();
 		}
+        public List<UserModel> GetTeacherDetail()
+        {
+            var userdetail = this.userroleRepository.GetAll();
+            var users = new List<UserModel>();
+            
+             foreach(var user in userdetail )
+            {
+                var demo = this.userRepository.GetBy(x => x.UserId == user.UserId).SingleOrDefault();
+                if (demo != null)
+                {
+                    users.Add(new UserModel()
+                    {
+                        UserId = demo.UserId,
+                        UserName = demo.UserName,
+                        UserEmail = demo.UserEmail
+                    });
+                }
+                
+            }
 
-		public UserModel GetUserById(int userId)
+
+
+
+            return users;
+        }
+
+
+        public UserModel GetUserById(int userId)
 		{
 			var user = this.userRepository.GetBy(x => x.UserId == userId).SingleOrDefault();
 
 			return user != null ? new UserModel()
 			{
-                //UserId = user.UserId,
-                //UserEmail = user.UserEmail,
-                //UserMobileNo = user.UserMobileNo,
+                UserId = user.UserId,
+                UserEmail = user.UserEmail,
+                UserMobileNo = user.UserMobileNo,
                 UserName = user.UserName
 			}
 			: null;
@@ -86,6 +112,7 @@ namespace ChildCare.MonitoringSystem.Business
 
 			return userModel;
 		}
+       
         public Int32 UserLogin(UserModel userModel)
         {
             var user = this.userRepository.GetBy(x => x.UserName == userModel.UserName&&x.UserPassword==userModel.UserPassword).SingleOrDefault();
