@@ -205,6 +205,7 @@
                                                         <a href="#" id="username"></a>
                                                     </h5>
                                                     <span id="emails"></span>
+                                                    <span id="userid" hidden></span>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__body">
@@ -248,7 +249,7 @@
                 <div class="form-container">
                     <a class="pull-right text-primary" onclick="hidetest();"><i class="fa fa-close"></i></a>
                     <h2 align="center" class="text-primary">Profile View</h2><hr />
-                    <form action="Homepage.html" method="post">
+                    <form action=" " method="post">
                         <div class="form-group" align="center">
                             <div class="image">
                                 <img src="~/images/img/user.png" />
@@ -276,22 +277,26 @@
             <div class="form-container">
                 <a class="pull-right text-primary" onclick="hidesetting();"><i class="fa fa-close"></i></a>
                 <h2 align="center" class="text-primary">Password Setting</h2><hr />
-                <form action="Homepage.html" method="post">
-                    <div class="form-group">
-                        <label>Old Password</label>
-                        <input class="form-control" type="text" name="fname" id="fname" required>
-                    </div>
-                    <div class="form-group">
-                        <label>New Password</label>
-                        <input class="form-control" type="email" name="email" id="fname" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="pwd">Confirm Password</label>
-                        <input class="form-control" type="tel" name="number" id="pwd" required>
-                    </div>
-                    <button type="submit" class="btn btn-block btn-primary" id="reg">SUBMIT </button><br>
-                    <a href="#moresetting" class="pull-right" onclick="showmoresetting()">Set More Details</a>
-                </form>
+              <form action="" method="post">
+                  <div class="form-group" hidden>
+                      <label class="text-primary" >User Id</label>
+                      <input class="form-control" name="fname" id="udetailids">
+                  </div>
+                  <div class="form-group">
+                      <label>Old Password</label>
+                      <input class="form-control" type="password" name="password" id="oldpass" required>
+                  </div>
+                  <div class="form-group">
+                      <label>New Password</label>
+                      <input class="form-control" type="password" name="password" id="newpass" required>
+                  </div>
+                  <div class="form-group">
+                      <label for="pwd">Confirm Password</label>
+                      <input class="form-control" type="password" name="password" id="confpass" required>
+                  </div>
+                  <button type="submit" class="btn btn-block btn-primary" id="passsetting">SUBMIT </button><br>
+                  <a href="#moresetting" class="pull-right" onclick="showmoresetting()">Set More Details</a>
+                                                                             </form>
             </div>
         </div>
         <!--close setting popup-->
@@ -300,32 +305,36 @@
             <div class="form-container">
                 <a class="pull-right text-primary" onclick="hidemoresetting();"><i class="fa fa-close"></i></a>
                 <h2 align="center" class="text-primary">User Detail Settings</h2><hr />
-                 <form action="Homepage.html" method="post">
-                     <div class="form-group" align="center">
-                         <div class="image">
-                             <img src="~/images/img/user.png" />
-                         </div>
-                     </div>
-                     <div class="form-group">
-                         <label class="text-primary">User Name</label>
-                         <input class="form-control" name="fname" id="udetailname">
-                     </div>
-                     <div class="form-group">
-                         <label class="text-primary">User Email</label>
-                         <input class="form-control" name="email" id="udetailemail">
-                     </div>
-                     <div class="form-group">
-                         <label class="text-primary">Mobile No</label>
-                         <input class="form-control" name="number" id="udetailmob">
-                     </div>
-                     @*<div class="form-group">
-                         <label class="text-primary">Address</label>
-                         <input class="form-control" name="number" id="udetailaddress">
-                     </div>*@
+              <form action=" " method="post">
+                  <div class="form-group" align="center">
+                      <div class="image">
+                          <img src="~/images/img/user.png" />
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="text-primary">User Id</label>
+                      <input class="form-control" name="fname" id="udetailid">
+                  </div>
+                  <div class="form-group">
+                      <label class="text-primary">User Name</label>
+                      <input class="form-control" name="fname" id="udetailname">
+                  </div>
+                  <div class="form-group">
+                      <label class="text-primary">User Email</label>
+                      <input class="form-control" name="email" id="udetailemail">
+                  </div>
+                  <div class="form-group">
+                      <label class="text-primary">Mobile No</label>
+                      <input class="form-control" name="number" id="udetailmob">
+                  </div>
+                                                                                     @*<div class="form-group">
+            <label class="text-primary">Address</label>
+            <input class="form-control" name="number" id="udetailaddress">
+        </div>*@
 
-                     <button type="submit" class="btn btn-block btn-primary" id="teachereditprofile">EDIT</button>
-                     @*</form>*@
-                   </form>
+              <button type="submit" class="btn btn-block btn-primary" id="teachereditprofile">EDIT</button>
+                                                                                     @*</form>*@
+              </form>
             </div>
         </div>
         <!--close more setting popup-->
@@ -398,25 +407,82 @@
         }
         $(document).ready(function () {
 
+
             $.ajax({
 
-                url: '/Student/GetUsersStudentInfo',
+                url: '/User/GetUsersInfo',
                 type: 'get',
                 dataType: 'json',
 
                 success: function (result) {
                     debugger
-                    document.getElementById('username').innerHTML = result.parent.userName;
-                    document.getElementById('emails').innerHTML = result.parent.userEmail;
-                    document.getElementById('uname').innerHTML = result.parent.userName;
-                    document.getElementById('email').innerHTML = result.parent.userEmail;
-                    document.getElementById('mob').innerHTML = result.parent.userMobileNo;
+                    document.getElementById('userid').innerHTML = result.userId;
+                    document.getElementById('username').innerHTML = result.userName;
+                    document.getElementById('emails').innerHTML = result.userEmail;
+                    document.getElementById('uname').innerHTML = result.userName;
+                    document.getElementById('email').innerHTML = result.userEmail;
+                    document.getElementById('mob').innerHTML = result.userMobileNo;
 
-
-                    document.getElementById('udetailname').value = result.parent.userName;
-                    document.getElementById('udetailemail').value = result.parent.userEmail;
-                    document.getElementById('udetailmob').value = result.parent.userMobileNo;
+                    document.getElementById('udetailname').value = result.userName;
+                    document.getElementById('udetailemail').value = result.userEmail;
+                    document.getElementById('udetailmob').value = result.userMobileNo;
+                    document.getElementById('udetailid').value = result.userId;
                 },
+            });
+            
+
+            $("#teachereditprofile").click(function () {
+                var userid = $('#udetailid').val();
+                var username = $('#udetailname').val();
+                var useremail = $('#udetailemail').val();
+                var usermob = $('#udetailmob').val();
+
+                debugger
+                $.ajax({
+                    url: '/User/UserUpdate',
+                    type: 'post',
+                    dataType: 'json',
+                    data: {
+                       
+                        UserId: userid,
+                        UserName: username,
+                        UserEmail: useremail,
+                        UserMobileNo: usermob,
+                    },
+                    success: function (result) {
+                        alert("Details Updated successfully");
+                    },
+                });
+            });
+
+            $("#passsetting").click(function () {
+                var userid = $('#udetailids').val();
+                var oldpass = $('#oldpass').val();
+                var newpass = $('#newpass').val();
+                var confpass = $('#confpass').val();
+               
+                //alert(userid);
+                //alert(oldpass);
+                //alert(newpass);
+                //alert(confpass);
+                if (newpass == confpass) {
+                    $.ajax({
+                        url: '/User/UserPasswordUpdate',
+                        type: 'post',
+                        dataType: 'json',
+                        data: {
+                            UserId: userid,
+                            UserPassword: newpass,
+                            
+                        },
+                        success: function (result) {
+                            alert("Password Updated successfully");
+                        },
+                    });
+                }
+                else {
+                    alert("Invalid Details")
+                }
             });
         });
 

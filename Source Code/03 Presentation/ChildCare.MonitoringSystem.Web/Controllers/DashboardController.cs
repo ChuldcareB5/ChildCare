@@ -13,22 +13,25 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
+using ChildCare.MonitoringSystem.Core.Models;
 
 namespace ChildCare.MonitoringSystem.Web.Controllers
 {
 	[Authorize]
     public class DashboardController : Controller
 	{
+		private readonly ApplicationContext applicationContext;
 		private readonly StudentBusiness studentBusiness;
 		private readonly UserBusiness userBusiness;
 		private readonly string profilePicPath = "profilepics";
 		private static List<string> uploadedImages = new List<string>();
 		private readonly IHostingEnvironment environment;
 
-		public DashboardController(StudentBusiness studentBusiness, UserBusiness userBusiness, IHostingEnvironment environment)
+		public DashboardController(StudentBusiness studentBusiness, ApplicationContext applicationContext, UserBusiness userBusiness, IHostingEnvironment environment)
 		{
 			this.studentBusiness = studentBusiness;
 			this.userBusiness = userBusiness;
+			this.applicationContext = applicationContext;
 			this.environment = environment;
 		}
 		public IActionResult StudentRegistration()
@@ -70,7 +73,15 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 		{
 			return View();
 		}
-        [HttpPost]
+
+		public ActionResult<Int32> GetUserId()
+		{
+			var userid = this.userBusiness.GetUserId(applicationContext.UserId);
+			return userid;
+		}
+
+
+		[HttpPost]
 		public IActionResult StudentRegistration(StudentDetail studentDetail)
 		{
             try
@@ -104,6 +115,7 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
          
 
 				ModelState.AddModelError(nameof(StudentDetail.ErrorMessage), "Register Successfully");
+
 				
                 var student = this.studentBusiness.AddStudent(studentModel);
             }
@@ -113,7 +125,7 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
             }
 			
 
-			return View(studentDetail);
+			return View();
 		}
 	}
 }

@@ -130,11 +130,11 @@ namespace ChildCare.MonitoringSystem.Business
 					});
 				}
 				return room;
-			//}
-			//catch (Exception e)
-			//{
-			//	throw e;
-			//}
+			}
+			catch (Exception e)
+			{
+				throw e;
+			}
 		}
 
 	}

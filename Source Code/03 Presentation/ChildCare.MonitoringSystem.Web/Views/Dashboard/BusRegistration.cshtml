@@ -1,8 +1,7 @@
 ﻿@model StudentDetail;
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "BusRegistration";
 }
-
 
 @section LeftNavigation{
     <partial name="_AdminLeftNavigation" />
@@ -36,7 +35,7 @@
 
                     </div>
                     @*<label><input type="radio" name="gender" class="gender" value="0">Male</label>
-        <label><input type="radio" name="gender" class="gender" value="1"> Female</label>*@
+                        <label><input type="radio" name="gender" class="gender" value="1"> Female</label>*@
                     <div class="form-group">
                         <label>Gender  </label>
                         <br />
@@ -111,26 +110,25 @@
                         </select>
                     </div>
 
-                    <button  class="btn btn-success" onclick="showbus();">Bus Register</button>
-                        @*<div class="form-group">
-                <label>Bus</label>
-                <select asp-for="Bus" id="sbus" class="form-control">
-                    <option value="Bus 1">Bus 1</option>
-                    <option value="Bus 2">Bus 2</option>
-                    <option value="Bus 3">Bus 3</option>
-                </select>
-            </div>*@
+                    @*<div class="form-group">
+                            <label>Bus</label>
+                            <select asp-for="Bus" id="sbus" class="form-control">
+                                <option value="Bus 1">Bus 1</option>
+                                <option value="Bus 2">Bus 2</option>
+                                <option value="Bus 3">Bus 3</option>
+                            </select>
+                        </div>*@
 
 
-                        <input type="submit" class="btn btn-primary " />
-                        <button type="reset" class="btn btn-success ">
-                            Reset
-                        </button>
-                        <span asp-validation-for="ErrorMessage" class="text-danger"></span>
+                    <input type="submit" class="btn btn-primary " />
+                    <button type="reset" class="btn btn-success ">
+                        Reset
+                    </button>
+                    <span asp-validation-for="ErrorMessage" class="text-danger"></span>
                 </form>
 
             </div>
-         
+
         </div>
     </div>
 </div>
@@ -164,44 +162,6 @@
                 </form>
             </div>
         </div>
-    </div>
-
-    <div id="overlay1" style="z-index:4">
-        <div id="busdiv">
-            <a class="pull-right" onclick="hidepopup();"><i class="fa fa-close"></i></a>
-            <h2 align="center" class="text-primary">Bus Registration</h2><hr />
-            <div class="form-group row">
-                <label for="inputPassword" class="col-sm-4 col-form-label">Student Id</label>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control" id="studid" />
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="staticEmail" class="col-sm-4 col-form-label">To</label>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control" id="to" />
-                </div>
-                </div>
-            <div class="form-group row">
-                <label for="staticEmail" class="col-sm-4 col-form-label">From</label>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control" id="from" />
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <table id="busregister">
-
-                </table>
-            </div>
-
-            <div>
-                <button type="button" class="btn btn-outline-primary btn-block" id="">Send</button>
-                <button type="reset" class="btn btn-outline-success btn-block" onclick="Clearfield();">Clear</button>
-            </div>
-        </div>
-
-
     </div>
     <!--close Account popup-->
     <!--start setting popup-->
@@ -259,34 +219,79 @@
 
 @section Scripts{
     <script>
-        document.getElementById('to').addEventListener('change', onChangeHandler);
-        
-        function onChangeHandler() {
-            var to = document.getElementById('to').value;
-            var from = document.getElementById('from').value;
-            $.ajax({
+        $(document).ready(function () {
+            //$("#userlogin").click(function () {
+            //    var name = $("#name").val();
+            //    var img = $("#img").val();
+            //    var address = $("#address").val();
+            //    //var gender = $(".mygender").val();
+            //    //var ele = document.getElementsByClassName('mygender');
+            //    //var gender = $(ele).val();
+            //    //debugger
+            //    // var gender = $("[type='radio']: checked").val();
+            //    //var gender = $("input[name='gender']: checked").val();
+            //    if ($("input[type='radio'].mygender").is(':checked')) {
+            //        var card_type = $("input[type='radio'].mygender:checked").val();
 
-                            url: '/Bus/getbusshedule',
-                            type: 'post',
-                            dataType: 'json',
-                            data:
-                            {
-                                To: to,
-                                From: from,
-                            },
-                            success: function (result) {
+            //    }
+            //    var dob = $("#dob").val();
+            //    var fname = $("#fname").val();
+            //    var mname = $("#mname").val();
+            //    var uname = $("#uname").val();
+            //    var uemail = $("#uemail").val();
+            //    var upassword = $("#upassword").val();
+            //    var umobileno = $("#umobileno").val();
+            //    var batch = $("#sbatch").val();
 
-                                if (result) {
-                                    var tabl = '';
-                                    for (i = 0; i < result.length; i++) {
-                                        tabl += '<tr><td>'+ result[i].busScheduleId + '</td><td>' + result[i].busScheduleTime + '</td></tr>';
-                                    }
-                                    $('#busregister').append(tabl);
-                                }
-                            },
-                        });
-           
-        }
+            //    alert(name);
+            //    alert(img);
+            //    alert(address);
+            //    alert(card_type);
+            //    alert(dob);
+            //    alert(fname);
+
+
+            //    $.ajax({
+            //        url: '/User/AddParent',
+            //        type: 'post',
+            //        dataType: 'json',
+            //        data: {
+            //            UserName: uname,
+            //            UserEmail: uemail,
+            //            UserPassword: upassword,
+            //            UserMobileNo: umobileno,
+            //        },
+            //        success: function (result) {
+            //            alert("Parent Added");
+            //            var parentId = result;
+            //            $.ajax({
+
+            //                url: '/Student/AddStudent',
+            //                type: 'post',
+            //                dataType: 'json',
+            //                data:
+            //                {
+            //                    StudentName: name,
+            //                    StudentImg: img,
+            //                    StudentAddress: address,
+            //                    StudentGender: card_type,
+            //                    StudentDob: dob,
+            //                    FatherName: fname,
+            //                    MotherName: mname,
+            //                    ParentId: parentId,
+            //                    Batch: batch,
+            //                },
+            //                success: function (result) {
+
+            //                    alert("Student Added");
+            //                },
+            //            });
+            //        },
+            //    });
+            //});
+
+        });
+
 
         function search(string) {
             window.find(string);
@@ -303,18 +308,6 @@
             document.getElementById("overlay").style.display = "none";
         }
 
-
-
-        function showbus() {
-            $('#busdiv').animate({ top: '15%' }, 500);
-            $('#busdiv').animate({ top: '20%' }, 500);
-           
-            document.getElementById("overlay").style.display = "block";
-        }
-        function hidebus() {
-            $('#busdiv').animate({ top: '-500%' }, 500);
-            document.getElementById("overlay").style.display = "none";
-        }
         function showsetting() {
             $('#setting').animate({ top: '15%' }, 500);
             $('.account-dropdown').hide();
@@ -352,16 +345,7 @@
             border-radius: 5px;
             padding: 35px;
         }
-        #busdiv {
-            position: fixed;
-            top: -500%;
-            width: 35%;
-            margin-left: 30%;
-            background-color: white;
-            box-shadow: 2px 3px 8px slategrey;
-            border-radius: 5px;
-            padding: 35px;
-        }
+
         #setting {
             position: fixed;
             top: -500%;
@@ -443,6 +427,8 @@
         }
     </style>
 }
+
+
 
 
 

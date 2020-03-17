@@ -62,15 +62,25 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 			var user = this.userBusiness.AddTeacher(usermodel);
 			return user;
 		}
-        public ActionResult<List<UserModel>> GetTeacherDetail()
-        {
-            var user = this.userBusiness.GetTeacherDetail();
-            return user;
-        }
+		public ActionResult<List<UserModel>> GetTeacherDetail()
+		{
+			var user = this.userBusiness.GetTeacherDetail();
+			return user;
+		}
 
+		public ActionResult<UserModel> UserUpdate(UserModel userModel)
+		{
+			var user = this.userBusiness.UserUpdate(userModel);
+			return user;
+		}
 
+		public ActionResult<UserModel> UserPasswordUpdate(UserModel userModel)
+		{
+			var user = this.userBusiness.UserPasswordUpdate(userModel);
+			return user;
+		}
 
-        [HttpPost]
+		[HttpPost]
 		public IActionResult StudentLogin(UserModel userModel)
 		{
 			return View("HomePage");
@@ -87,8 +97,14 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
             return us;
 
         }
-       
+
+		public ActionResult<UserModel> GetUsersInfo()
+		{
+			var user = this.userBusiness.GetUsersInfo(applicationContext.UserId);
+			return user;
+		}
 
 
-    }
+
+	}
 }
