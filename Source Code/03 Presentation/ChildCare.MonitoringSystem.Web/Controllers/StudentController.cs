@@ -17,11 +17,12 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
 using ChildCare.MonitoringSystem.Core.Models;
+using ChildCare.MonitoringSystem.Entity;
 
 namespace ChildCare.MonitoringSystem.Web.Controllers
 {
-	//[Authorize(Roles ="2")]
-	[Authorize]
+	//[Authorize(Roles ="1")]
+	//[Authorize]
 	public class StudentController :Controller
 	{
         private readonly ApplicationContext applicationContext; 
@@ -46,9 +47,9 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 		}
 
 
-		public ActionResult<List<StudentModel>> GetStudentDetail()
+		public ActionResult<List<StudentModel>> GetStudentDetail(String batch)
 		{
-			var students = this.studentBusiness.GetStudents();
+			var students = this.studentBusiness.GetStudents(batch);
 			return students;
 		}
 
@@ -106,12 +107,33 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 			//return null;
 		}
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="id"></param>
-		/// <returns></returns>
-		public ActionResult<Int32> StudentDeleteId(int id)
+
+        public ActionResult<StudentLocationModel> GetStudentLocation()
+        {
+            var studentlocation = this.studentBusiness.GetStudentLocation(applicationContext.UserId);
+            return studentlocation;
+        }
+        public ActionResult<List<StudentLocationModel>> GetAllStudentLocation()
+        {
+            var studentlocation = this.studentBusiness.GetAllStudentLocation(applicationContext.UserId);
+            return studentlocation;
+        }
+        public ActionResult<BusLocationModel> GetBusLocation()
+        {
+            var studentlocation = this.studentBusiness.GetBusLocation(applicationContext.UserId);
+            return studentlocation;
+        }public ActionResult<List<BusLocationModel>> GetAllBusLocation()
+        {
+            var studentlocation = this.studentBusiness.GetAllBusLocation(applicationContext.UserId);
+            return studentlocation;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public ActionResult<Int32> StudentDeleteId(int id)
 		{
 			var students = this.studentBusiness.DeleteId(id);
 			return students;

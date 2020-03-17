@@ -60,7 +60,7 @@ namespace ChildCare.MonitoringSystem.Business
 
 			return null;
 		}
-		public List<RoomScheduleModel> GetRoomSchedule(int RoomId)
+		public List<RoomScheduleModel>  GetRoomSchedule(int RoomId)
 		{
 			try
 			{

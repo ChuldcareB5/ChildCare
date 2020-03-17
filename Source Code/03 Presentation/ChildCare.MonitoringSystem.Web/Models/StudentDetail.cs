@@ -8,6 +8,7 @@ namespace ChildCare.MonitoringSystem.Web.Models
 {
     public class StudentDetail
     {
+        public int StudentId { get; set; } // StudentId (Primary key)
         public string StudentName { get; set; } // StudentName (length: 100)
         public IFormFile StudentImg { get; set; } // StudentImg (length: 100)
         public string StudentAddress { get; set; } // StudentAddress (length: 200)

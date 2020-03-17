@@ -44,7 +44,11 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 		{
 			return View();
 		}
-		public ActionResult<UserModel> Get(int userId)
+        public IActionResult StudentTracking()
+        {
+            return View();
+        }
+        public ActionResult<UserModel> Get(int userId)
 		{
 			return this.userBusiness.GetUserById(userId);
 		}

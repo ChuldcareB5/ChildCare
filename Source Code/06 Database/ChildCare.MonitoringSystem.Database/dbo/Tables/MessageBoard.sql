@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[MessageBoard] (
-    [MessageBoardId] INT           NOT NULL,
+    [MessageBoardId] INT           IDENTITY (1, 1) NOT NULL,
     [ToMsg]          INT           NOT NULL,
     [FromMsg]        INT           NOT NULL,
     [MsgStatus]      INT           NOT NULL,
@@ -14,6 +14,8 @@
     CONSTRAINT [FK_MessageBoard_User] FOREIGN KEY ([ToMsg]) REFERENCES [dbo].[User] ([UserId]),
     CONSTRAINT [FK_MessageBoard_User1] FOREIGN KEY ([FromMsg]) REFERENCES [dbo].[User] ([UserId])
 );
+
+
 
 
 

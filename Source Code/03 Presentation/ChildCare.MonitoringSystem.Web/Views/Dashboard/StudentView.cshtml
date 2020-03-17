@@ -55,18 +55,20 @@
                         </div>
                     </div>*@
                 <div class="rs-select2--dark rs-select2--sm rs-select2--dark2" style="width:15%">
+                    <i class="fas fa-filter"> Filter By</i>
+
                     <select class="js-select2" name="type">
                         <optgroup label="Ground Floor">
-                            <option value="">Class A</option>
-                            <option value="">Class B</option>
+                            <option value="B1">Batch 1</option>
+                            <option value="B2">Batch 2</option>
                         </optgroup>
                         <optgroup label="First Floor">
-                            <option value="">Class C</option>
-                            <option value="">Class D</option>
+                            <option value="B3">Batch 3</option>
+                            <option value="B4">Batch 4</option>
                         </optgroup>
                         <optgroup label="Second Floor">
-                            <option value="">Class E</option>
-                            <option value="">Class F</option>
+                            <option value="B5">Batch 5</option>
+                            <option value="B6">Batch 6</option>
                         </optgroup>
                     </select>
                     <div class="dropDownSelect2"></div>
@@ -325,11 +327,18 @@
 
 @section Scripts{
     <script>
+
         $(document).ready(function () {
+            var batch = $('.js-select2').val();
+            
             $.ajax({
                 url: '/Student/GetStudentDetail',
                 type: 'get',
                 dataType: 'json',
+                data:
+                {
+                    batch: batch,
+                },
                 success: function (result) {
 
                     if (result) {
@@ -354,9 +363,9 @@
 
             });
 
-            //});
+            });
 
-        });
+     
 
         //$("#Studentupdate").click(function () {
         //    debugger
@@ -449,7 +458,43 @@
         //    alert(a);
         //    //alert("hi");
         //}
+        $('select').on('change', function (e) {
+            batch = e.target.value;
+            $('#df').html('');
+           
+           
+            $.ajax({
+                url: '/Student/GetStudentDetail',
+                type: 'get',
+                dataType: 'json',
+                data:
+                {
+                    batch: batch,
+                },
+                success: function (result) {
 
+                    if (result) {
+                        var bat = ' <tbody>';
+                        for (var i = 0; i < result.length; i++) {
+
+
+                            bat += '<tr class="tr-shadow"><td>' + result[i].studentId + '</td><td>' + result[i].studentName + '</td><td class="desc"><img style="width:60%;height:15%" src="'+result[i].studentImg+'"/></td><td>' + result[i].studentAddress + '</td><td>' + result[i].studentGender + '</td><td>' + result[i].studentDob + '</td><td>' + result[i].fatherName + '</td><td>' + result[i].motherName + '</td><td><div class="table-data-feature"><button onclick="show();" class="item" data-toggle="tooltip" data-placement="top" title="Send Message"><a onclick="showsetting1();"><i class="zmdi zmdi-mail-send"></i></a></button><button class="item" data-toggle="tooltip" data-placement="top" title="Edit"><a onclick="showedit(' + result[i].studentId + ');"><i class="zmdi zmdi-edit"></i></a></button><button class="item"  data-toggle="tooltip" data-placement="top" title="Delete"><a onclick="disp(' + result[i].studentId + ')"><i class="zmdi zmdi-delete"></i></a></button></div></td></tr>';
+
+                        }
+                        bat += '</tbody>';
+
+                        $('#df').append(bat);
+
+                    }
+                    else {
+                        alert("failed to get data");
+                    }
+
+                },
+
+
+            });
+});
         function search(string) {
             window.find(string);
         }

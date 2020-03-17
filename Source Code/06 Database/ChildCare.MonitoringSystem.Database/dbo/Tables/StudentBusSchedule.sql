@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[StudentBusSchedule] (
-    [StudentBusScheduleId] INT      NOT NULL,
+    [StudentBusScheduleId] INT      IDENTITY (1, 1) NOT NULL,
     [BusScheduleId]        INT      NOT NULL,
     [StudentId]            INT      NOT NULL,
     [CreatedBy]            INT      NOT NULL,
@@ -11,6 +11,8 @@
     CONSTRAINT [FK_StudentBusSchedule_BusSchedule] FOREIGN KEY ([BusScheduleId]) REFERENCES [dbo].[BusSchedule] ([BusScheduleId]),
     CONSTRAINT [FK_StudentBusSchedule_Student] FOREIGN KEY ([StudentId]) REFERENCES [dbo].[Student] ([StudentId])
 );
+
+
 
 
 
