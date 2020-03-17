@@ -3,8 +3,10 @@ using ChildCare.MonitoringSystem.Core.Constraints;
 using ChildCare.MonitoringSystem.Entity;
 using ChildCare.MonitoringSystem.Model;
 using ChildCare.MonitoringSystem.Repository;
+
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -19,7 +21,7 @@ namespace ChildCare.MonitoringSystem.Business
 
         private readonly IRepository<User> userRepository;//Connect user Repository
 		private readonly IUnitOfWork unitOfWork;
-
+		//private readonly IHostingEnvironment environment;
 		private readonly IRepository<Student> studentRepository;//Connect student Repository
 
 		public StudentBusiness(IUnitOfWork unitOfWork)
@@ -87,17 +89,24 @@ namespace ChildCare.MonitoringSystem.Business
 
 
 		public StudentModel StudentGetById(int id)
+		{ 
+			var student = this.studentRepository.GetBy(x => x.StudentId == id, x => x.User).SingleOrDefault();
+			var st=Mapper.Map<StudentModel>(student);
+			//string imageName = Guid.NewGuid().ToString() + Path.PathSeparator(student.StudentImg);
+			//st.StudentImg = Path.GetFileName(st.StudentImg);
+			return st;
+		}
+        public StudentModel CookieId(int id)
 		{
 
-			var student = this.studentRepository.GetBy(x => x.StudentId == id, x => x.User).SingleOrDefault();
+			var student = this.studentRepository.GetBy(x => x.ParentId == id, x=>x.User).SingleOrDefault();
 			return Mapper.Map<StudentModel>(student);
 		}
 
 
-		public StudentModel StudentUpdate(StudentModel studentModel)
+		public StudentModel StudentUpdate(StudentModel studentModel,UserModel userModel)
 		{
 			var studentupdate = this.studentRepository.GetBy(x => x.StudentId == studentModel.StudentId, x=> x.User).SingleOrDefault();
-
 			studentupdate.StudentName = studentModel.StudentName;
 			studentupdate.StudentImg = studentModel.StudentImg;
 			studentupdate.StudentAddress = studentModel.StudentAddress;
@@ -105,9 +114,9 @@ namespace ChildCare.MonitoringSystem.Business
 			studentupdate.StudentDob = studentModel.StudentDob;
 			studentupdate.FatherName = studentModel.FatherName;
 			studentupdate.MotherName = studentModel.MotherName;
-			studentupdate.User.UserName = studentModel.User.UserName;
-			studentupdate.User.UserEmail = studentModel.User.UserEmail;
-			studentupdate.User.UserMobileNo = studentModel.User.UserMobileNo;
+			studentupdate.User.UserName = userModel.UserName;
+			studentupdate.User.UserEmail = userModel.UserEmail;
+			studentupdate.User.UserMobileNo = userModel.UserMobileNo;
 
 			this.unitOfWork.Save();
 

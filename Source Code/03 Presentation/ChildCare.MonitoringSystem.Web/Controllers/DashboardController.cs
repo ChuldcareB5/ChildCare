@@ -66,6 +66,40 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 			return View();
 		}
 
+		public IActionResult BusTracking()
+		{
+			return View();
+		}
+		public ActionResult<StudentModel> StudentRegister(StudentDetail studentDetail)
+		{
+			string imageName = Guid.NewGuid().ToString() + Path.GetExtension(studentDetail.StudentImg.FileName);
+
+			string savePath = Path.Combine(environment.WebRootPath, this.profilePicPath, imageName);
+			using (var stream = new FileStream(savePath, FileMode.Create))
+			{
+				studentDetail.StudentImg.CopyTo(stream);
+			}
+			uploadedImages.Add(imageName);
+			imageName = "/profilepics/" + imageName;
+			StudentModel studentModel = new StudentModel();
+			UserModel userModel = new UserModel();
+			userModel.UserName = studentDetail.UserName;
+			userModel.UserEmail = studentDetail.UserEmail ;
+			userModel.UserPassword = studentDetail.UserPassword;
+			userModel.UserMobileNo = studentDetail.UserMobileNo;
+			var user = this.userBusiness.AddParent(userModel);
+			studentModel.StudentName = studentDetail.StudentName;
+			studentModel.StudentImg = imageName;
+			studentModel.StudentAddress = studentDetail.StudentAddress;
+			studentModel.StudentGender = studentDetail.StudentGender;
+			studentModel.StudentDob = studentDetail.StudentDob;
+			studentModel.FatherName = studentDetail.FatherName;
+			studentModel.MotherName = studentDetail.MotherName;
+			studentModel.ParentId = user.UserId;
+			studentModel.Batch = studentDetail.StudentName;
+
+			var student = this.studentBusiness.AddStudent(studentModel);
+
         [HttpPost]
         public IActionResult StudentRegistration(StudentDetail studentDetail)
         {

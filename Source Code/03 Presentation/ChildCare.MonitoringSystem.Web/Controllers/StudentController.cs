@@ -1,55 +1,52 @@
 ﻿using ChildCare.MonitoringSystem.Business;
 using ChildCare.MonitoringSystem.Model;
-using ChildCare.MonitoringSystem.Web.Models;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using ChildCare.MonitoringSystem.Web.Models;
+using ChildCare.MonitoringSystem.Model;
+using ChildCare.MonitoringSystem.Business;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
+using ChildCare.MonitoringSystem.Core.Models;
 
 namespace ChildCare.MonitoringSystem.Web.Controllers
 {
-	[Authorize()]
+	//[Authorize(Roles ="2")]
+	[Authorize]
 	public class StudentController :Controller
 	{
-        private readonly StudentBusiness studentBusiness;
-        private readonly string profilePicPath = "profilepics";
-        private static List<string> uploadedImages = new List<string>();
-        private readonly IHostingEnvironment environment;
+        private readonly ApplicationContext applicationContext; 
+		private readonly StudentBusiness studentBusiness;
+		private readonly string profilePicPath = "profilepics";
+		private static List<string> uploadedImages = new List<string>();
+		private readonly IHostingEnvironment environment;
 
-        public StudentController(StudentBusiness studentBusiness, IHostingEnvironment environment)
+		public StudentController(StudentBusiness studentBusiness,ApplicationContext applicationContext, IHostingEnvironment environment)
 		{
-             
 			this.studentBusiness = studentBusiness;
-            this.environment = environment;
-        }
+            this.applicationContext = applicationContext;
+			this.environment = environment;
+		}
 
 
-		public ActionResult<StudentModel> AddStudent(StudentModel studentmodel, DemoViewModel demoViewModel)
+
+		public ActionResult<StudentModel> AddStudent(StudentModel studentmodel)
 		{
-            string imageName = Guid.NewGuid().ToString() + Path.GetExtension(demoViewModel.ProfilePic.FileName);
-
-            string savePath = Path.Combine(environment.WebRootPath, this.profilePicPath, imageName);
-
-            using (var stream = new FileStream(savePath, FileMode.Create))
-            {
-                demoViewModel.ProfilePic.CopyTo(stream);
-            }
-           
-
-            var student = this.studentBusiness.AddStudent(studentmodel);
+			var student = this.studentBusiness.AddStudent(studentmodel);
 			return student;
 		}
-        public ActionResult<StudentModel> StudentRegister(StudentDetail studentDetail)
-        {
-            
-            return null;
-        }
-        
-        public ActionResult<List<StudentModel>> GetStudentDetail()
+
+
+		public ActionResult<List<StudentModel>> GetStudentDetail()
 		{
 			var students = this.studentBusiness.GetStudents();
 			return students;
@@ -59,16 +56,54 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 		public ActionResult<StudentModel> StudentGetById(int id)
 		{
 			var students = this.studentBusiness.StudentGetById(id);
+			//string studentimage = Path.GetFileName(students.StudentImg);
+			//string savePath = Path.Combine(environment.WebRootPath, this.profilePicPath, studentimage);
+			//students.StudentImg = savePath;
 			return students;
 		}
+        public ActionResult<StudentModel> CookieId()
+        {
+            var students = this.studentBusiness.CookieId(applicationContext.UserId);
+            return students;
+        }
 
-       
 
-
-        public ActionResult<StudentModel> StudentUpdate(StudentModel studentModel)
+		[HttpPost]
+        public ActionResult<StudentDetail> StudentUpdate(StudentDetail studentModel,String oldimage)
 		{
-			var students = this.studentBusiness.StudentUpdate(studentModel);
-			return students;
+		
+			string imageName = Guid.NewGuid().ToString() + Path.GetExtension(studentModel.StudentImg.FileName);	
+			string savePath = Path.Combine(environment.WebRootPath, this.profilePicPath, imageName);
+			
+			oldimage = Path.GetFileName(oldimage);
+			using (var stream = new FileStream(savePath, FileMode.OpenOrCreate))
+			{
+				studentModel.StudentImg.CopyTo(stream);
+			}
+			uploadedImages.Add(imageName);
+			imageName = "/profilepics/" + imageName;
+
+			StudentModel studentModel1 = new StudentModel();
+			UserModel userModel = new UserModel();
+
+			studentModel1.StudentId = studentModel.StudentId;
+			studentModel1.StudentName = studentModel.StudentName;
+			studentModel1.StudentImg = imageName;
+			studentModel1.StudentAddress = studentModel.StudentAddress;
+			studentModel1.StudentGender = studentModel.StudentGender;
+			studentModel1.StudentDob = studentModel.StudentDob;
+			studentModel1.FatherName = studentModel.FatherName;
+			studentModel1.MotherName = studentModel.MotherName;
+			userModel.UserName = studentModel.UserName;
+			userModel.UserName = studentModel.UserName;
+			userModel.UserEmail = studentModel.UserEmail;
+			//userModel.UserPassword = studentDetail.UserPassword;
+			userModel.UserMobileNo = studentModel.UserMobileNo;
+
+			var student = this.studentBusiness.StudentUpdate(studentModel1, userModel);
+			return RedirectToAction("StudentView", "Dashboard");
+
+			//return null;
 		}
 
 		/// <summary>

@@ -13,13 +13,15 @@ namespace ChildCare.MonitoringSystem.Business
 	{
 		//private readonly IRepository<Room> roomRepository;//Connect user Repository
 		private readonly IRepository<RoomSchedule> roomScheduleRepository;
-		private readonly IRepository<Student> studentRepository;
+		private readonly IRepository<Student> studentRepository;//Connect student Repository
+
 		private readonly IUnitOfWork unitOfWork;
 		
 
 		public RoomScheduleBusiness(IUnitOfWork unitOfWork)
 		{
 			this.roomScheduleRepository = unitOfWork.GetRepository<IRepository<RoomSchedule>>();//Get User From Repository
+			this.studentRepository = unitOfWork.GetRepository<IRepository<Student>>();
 			this.unitOfWork = unitOfWork;//Instantiate unitOfWork Variable
 		}
 
@@ -111,7 +113,7 @@ namespace ChildCare.MonitoringSystem.Business
 				var room = new List<StudentModel>();
 				foreach (var student in students)
 				{
-					var studentdetails = this.studentRepository.GetBy(x => x.StudentId == student.StudentId).First();
+					var studentdetails = this.studentRepository.GetBy(x => x.StudentId == student.StudentId).SingleOrDefault();
 					room.Add(new StudentModel()
 					{
 						StudentId = studentdetails.StudentId,

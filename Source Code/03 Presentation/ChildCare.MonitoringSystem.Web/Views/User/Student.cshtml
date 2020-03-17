@@ -1,5 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Student";
+    var user = User.Claims.ToList();
 }
 
 @section LeftNavigation{
@@ -19,7 +20,7 @@
             <div class="col-md-12">
                 <div class="panel panel-success">
 
-                    <h3 style="text-align:center;"><strong style="color: black;font-size: 40px;text-shadow: 2px 7px 2px darkgrey">Student Details</strong> </h3>
+                    <h3 style="text-align:center;"><strong style="color: black;font-size: 40px;text-shadow: 2px 7px 2px darkgrey">Your Child Details</strong> </h3>
                     <hr />
 
                     <div class="panel-body">
@@ -30,53 +31,42 @@
                                 <div class="table-sorting table-responsive" align="center">
                                     <!--  SHOW ENTRIES-->
                                     <div class="portrait" align="center" style="border-radius: 50%; ">
-                                        <img src="~/images/img/ChildHome2.jpg" style="max-width: 100%; max-height: 100%;width: 100%; height:100%;border-radius: 50%">
+                                        <img src="~/images/img/ChildHome2.jpg" style="max-width: 30%; max-height: 30%;width: 20%; height:20%;border-radius: 50%">
                                     </div>
                                     <form action="" method="post" id="formnotes">
 
                                         <table align="center" style="width: 500px; margin-top: 20px; font-size: 15px;" class="table table-striped table-bordered table-hover" id="tSortable22">
-                                            @*<thead>
-                                                    <tr>
-
-                                                        <td id="name"><strong>Name </strong></td>
-                                                        <td>xxx</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td id="address"><strong>Address </strong></td>
-                                                        <td>yyy</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td id="gender"><strong>Gender </strong></td>
-                                                        <td>zzz</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td id="dob"><strong>DOB </strong></td>
-                                                        <td>aaa</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td id="father"><strong>Father / Guardian name</strong></td>
-                                                        <td>bbb</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td id="mother"><strong>Mother </strong></td>
-                                                        <td>ccc</td>
-                                                    </tr>
-
-
-                                                </thead>*@
                                             <thead>
                                                 <tr>
-                                                    <th>Name</th>
-                                                    <th>Address</th>
-                                                    <th>Gender</th>
-                                                    <th>Date of Birth</th>
-                                                    <th>Father Name</th>
-                                                    <th>Email</th>
+
+                                                    <td><strong>Name </strong></td>
+
+                                                    <td><h6 id="name"></h6></td>
                                                 </tr>
+                                                <tr>
+                                                    <td><strong>Address </strong></td>
+                                                    <td><h6 id="address"></h6></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Gender </strong></td>
+                                                    <td><h6 id="gender"></h6></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>DOB </strong></td>
+                                                    <td><h6 id="dob"></h6></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Father / Guardian name</strong></td>
+                                                    <td><h6 id="father"></h6></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Mother </strong></td>
+                                                    <td><h6 id="mother"></h6></td>
+                                                </tr>
+
+
                                             </thead>
-                                            <tbody id="Userstudentretrive"></tbody>
-
-
+                                          
                                         </table>
                                     </form>
                                 </div>
@@ -219,6 +209,33 @@
         function search(string) {
             window.find(string);
         }
+    </script>
+    <script>
+        $(document).ready(function () {
+
+            $.ajax({
+
+                url: '/Student/CookieId',
+                type: 'get',
+                dataType: 'json',
+
+                success: function (result) {
+                    debugger
+
+                    document.getElementById('name').innerHTML = result.studentName;
+                    document.getElementById('address').innerHTML = result.studentAddress;
+                    document.getElementById('gender').innerHTML = result.studentGender;
+                    document.getElementById('dob').innerHTML = result.studentDob;
+                    document.getElementById('father').innerHTML = result.fatherName;
+                    document.getElementById('mother').innerHTML = result.motherName;
+
+
+                },
+            });
+
+        });
+
+
     </script>
 }
 

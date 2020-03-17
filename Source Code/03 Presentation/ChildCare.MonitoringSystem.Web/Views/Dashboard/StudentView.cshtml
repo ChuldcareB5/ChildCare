@@ -1,4 +1,4 @@
-﻿
+﻿@model StudentDetail;
 @{
     ViewData["Title"] = "StudentView";
 
@@ -185,122 +185,142 @@
 
 
     <!--start setting popup-->
-    <div id="setting1" class="">
-        <a class="pull-right" onclick="hidesetting1();"><i class="fa fa-close"></i></a>
-        <h2 align="center">Send Message</h2><hr />
-        <div class="form-group row">
-            <label for="staticEmail" class="col-sm-4 col-form-label">Student Name</label>
-            <div class="col-sm-8">
-                <input type="text" class="form-control" id="inputPassword" />
+    <form id="messageForm">
+        <div id="setting1" class="">
+            <a class="pull-right" onclick="hidesetting1();"><i class="fa fa-close"></i></a>
+            <h2 align="center">Send Message</h2><hr />
+            <div class="form-group row">
+                <label for="staticEmail" class="col-sm-4 col-form-label">Student Name</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="studname" />
+                </div>
+            </div>
+            @*<div class="form-group row">
+                    <label for="inputPassword" class="col-sm-4 col-form-label">From</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="from" />
+                    </div>
+                </div>*@
+            <div class="form-group row">
+                <label for="inputPassword" class="col-sm-4 col-form-label">To</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="tostudid" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputPassword" class="col-sm-4 col-form-label">Message</label>
+                <div class="col-sm-8">
+                    <textarea type="text" maxlength="30" class="form-control" id="msg"></textarea>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputPassword" class="col-sm-4 col-form-label">Date and Time</label>
+                <div class="col-sm-8">
+                    <input type="datetime" class="form-control" id="date" />
+                </div>
+            </div>
+            <div>
+                <button type="button" id="sendbtn" class="btn btn-outline-primary btn-block">Send</button>
+                <button type="reset" onclick="reset();" class="btn btn-outline-success btn-block">Clear</button>
             </div>
         </div>
-        <div class="form-group row">
-            <label for="inputPassword" class="col-sm-4 col-form-label">To</label>
-            <div class="col-sm-8">
-                <input type="text" class="form-control" id="inputPassword" />
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="inputPassword" class="col-sm-4 col-form-label">Message</label>
-            <div class="col-sm-8">
-                <textarea type="text" maxlength="3" class="form-control" id="inputPassword"></textarea>
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="inputPassword" class="col-sm-4 col-form-label">Date and Time</label>
-            <div class="col-sm-8">
-                <input type="datetime" class="form-control" id="inputPassword" />
-            </div>
-        </div>
-        <div>
-            <button type="button" class="btn btn-outline-primary btn-block">Send</button>
-            <button type="button" class="btn btn-outline-success btn-block">Clear</button>
-        </div>
-    </div>
+    </form>
     <!--close setting popup-->
     <!--open edit popup-->
-    <div id="edit" class="" style="z-index:4">
-        <a class="pull-right" onclick="hideedit();"><i class="fa fa-close"></i></a>
-        <h2 align="center">Edit Details</h2><hr />
-        <div class="form-group row" hidden>
-            <label for="staticEmail" class="col-sm-4 col-form-label">Student Id</label>
-            <div class="col-sm-8">
-                <input type="text" id="sid" readonly>
+    <form asp-controller="Student" asp-action="StudentUpdate" enctype="multipart/form-data">
+        <div id="edit" style="z-index:4">
+            <a class="pull-right text-primary" onclick="hideedit();"><i class="fa fa-close"></i></a>
+            <h2 align="center" class="text-primary">Edit Details</h2><hr />
+            <div class="form-group row" hidden>.
+                <label  class="col-sm-4 col-form-label">Student Id</label>
+                <div class="col-sm-8">
+                    <input asp-for="StudentId" type="text" id="sid" readonly>
+                </div>
             </div>
-        </div>
+            @*<div style="text-align:center">
+                    <label for="staticEmail" class=" col-form-label">Student Image</label><br />
+                    <img id="simage" class="img-rounded" width="304" height="236">
+                </div>*@
+            <div class="form-group row">
+                <label for="staticEmail" class="col-sm-4 col-form-label">Student Image</label>
+                <div class="col-sm-8">
+                    <img name="oldimage" id="simg" class="form-control img-rounded" style="width:200px; height:230px;border-radius:40px;">
+                    <input asp-for="StudentImg" required type="file" class="simgs form-control" title="Choose Student Profile Picture">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="staticEmail" class="col-sm-4 col-form-label">Student Name</label>
+                <div class="col-sm-8">
+                    <input  asp-for="StudentName" required type="text"  class="form-control" id="sname" />
+                </div>
+            </div>
+            @*<div class="form-group row">
+                    <label for="staticEmail" class="col-sm-4 col-form-label">Student Image</label>
+                    <div class="col-sm-8">
+                        <input type="file" id="simg" name="nf-student-img" class="form-control" title="Choose Student Profile Picture">
+                    </div>
+                </div>*@
+            <div class="form-group row">
+                <label for="inputPassword" class="col-sm-4 col-form-label">Address</label>
+                <div class="col-sm-8">
+                    <input asp-for="StudentAddress" required type="text" class="form-control" id="Address" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="gender" class="col-sm-4 col-form-label">Gender *</label><br>
+                <div class="col-sm-8">
+                    <input  asp-for="StudentGender" required type="text" class="form-control" id="gender" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputPassword" class="col-sm-4 col-form-label">Date Of Birth</label>
+                <div class="col-sm-8">
+                    <input asp-for="StudentDob" required type="datetime" class="form-control" id="sdob" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputPassword" class="col-sm-4 col-form-label">Father Name</label>
+                <div class="col-sm-8">
+                    <input asp-for="FatherName" required type="text" class="form-control" id="ffname" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputPassword" class="col-sm-4 col-form-label">Mother Name</label>
+                <div class="col-sm-8">
+                    <input asp-for="MotherName" required type="text" class="form-control" id="mname" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputPassword" class="col-sm-4 col-form-label">Batch Name</label>
+                <div class="col-sm-8">
+                    <input asp-for="Batch" type="text" required class="form-control" id="batch" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputPassword" class="col-sm-4 col-form-label">User Name</label>
+                <div class="col-sm-8">
+                    <input type="text" asp-for="UserName" required class="form-control" id="uname">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputPassword" class="col-sm-4 col-form-label">Email</label>
+                <div class="col-sm-8">
+                    <input type="datetime" asp-for="UserEmail" required class="form-control" id="email" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputPassword" class="col-sm-4 col-form-label">Mobile Number</label>
+                <div class="col-sm-8">
+                    <input asp-for="UserMobileNo" required type="tel" class="form-control" id="umobileno" />
+                </div>
+            </div>
 
-        <div class="form-group row">
-            <label for="staticEmail" class="col-sm-4 col-form-label">Student Name</label>
-            <div class="col-sm-8">
-                <input type="text" class="form-control" id="sname" />
+            <div>
+                <input type="submit" class="btn btn-outline-primary btn-block" id="Studentupdate1" value="UPDATE"/>
+                @*<button type="reset" class="btn btn-outline-success btn-block">Clear</button>*@
             </div>
         </div>
-        <div class="form-group row">
-            <label for="staticEmail" class="col-sm-4 col-form-label">Student Image</label>
-            <div class="col-sm-8">
-                <input type="file" id="simg" name="nf-student-img" class="form-control" title="Choose Student Profile Picture">
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="inputPassword" class="col-sm-4 col-form-label">Address</label>
-            <div class="col-sm-8">
-                <input type="text" class="form-control" id="Address" />
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="gender" class="col-sm-4 col-form-label">Gender *</label><br>
-            <div class="col-sm-8">
-                <input type="text" class="form-control" id="gender" />
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="inputPassword" class="col-sm-4 col-form-label">Date Of Birth</label>
-            <div class="col-sm-8">
-                <input type="datetime" class="form-control" id="sdob" />
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="inputPassword" class="col-sm-4 col-form-label">Father Name</label>
-            <div class="col-sm-8">
-                <input type="text" class="form-control" id="ffname" />
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="inputPassword" class="col-sm-4 col-form-label">Mother Name</label>
-            <div class="col-sm-8">
-                <input type="text" class="form-control" id="mname" />
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="inputPassword" class="col-sm-4 col-form-label">Batch Name</label>
-            <div class="col-sm-8">
-                <input type="text" class="form-control" id="batch" />
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="inputPassword" class="col-sm-4 col-form-label">User Name</label>
-            <div class="col-sm-8">
-                <input type="text" class="form-control" id="uname">
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="inputPassword" class="col-sm-4 col-form-label">Email</label>
-            <div class="col-sm-8">
-                <input type="datetime" class="form-control" id="email" />
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="inputPassword" class="col-sm-4 col-form-label">Mobile Number</label>
-            <div class="col-sm-8">
-                <input type="tel" class="form-control" id="umobileno" />
-            </div>
-        </div>
-
-        <div>
-            <button type="button" class="btn btn-outline-primary btn-block" id="Studentupdate">UPDATE</button>
-            @*<button type="reset" class="btn btn-outline-success btn-block">Clear</button>*@
-        </div>
-    </div>
+    </form>
 </div>
 
 @section Scripts{
@@ -311,7 +331,7 @@
                 type: 'get',
                 dataType: 'json',
                 success: function (result) {
-                    //debugger
+
                     if (result) {
                         var bat = ' <tbody>';
                         for (var i = 0; i < result.length; i++) {
@@ -338,58 +358,90 @@
 
         });
 
-        $("#Studentupdate").click(function () {
-            var studentid = $('#sid').val();
-            var studentname = $('#sname').val();
-            var studentimg = $('#simg').val();
-            var address = $('#Address').val();
-            var gender = $('#gender').val();
-            var studentdob = $('#sdob').val();
-            var fathername = $('#ffname').val();
-            var mothername = $('#mname').val();
-            var batch = $('#batch').val();
-            var uname = $('#uname').val();
-            var email = $('#email').val();
-            var umobileno = $('#umobileno').val();
-            ;
-            alert(studentid);
-            alert(address);
-            alert(email);
+        //$("#Studentupdate").click(function () {
+        //    debugger
+        //    var studentid = $('#sid').val();
+        //    var studentname = $('#sname').val();
+        //    var newstudentimg = $('#simg').val();
+        //    var studentimg = $('.simgs').val();
+        //    var address = $('#Address').val();
+        //    var gender = $('#gender').val();
+        //    var studentdob = $('#sdob').val();
+        //    var fathername = $('#ffname').val();
+        //    var mothername = $('#mname').val();
+        //    var batch = $('#batch').val();
+        //    var uname = $('#uname').val();
+        //    var email = $('#email').val();
+        //    var umobileno = $('#umobileno').val();
 
-            var User = {
+        //    alert(studentid);
+        //    alert(address);
+        //    alert(email);
+        //    alert(studentimg);
+        //    alert(newstudentimg);
 
-                UserName: uname,
-                UserEmail: email,
-                UserMobileNo: umobileno,
-            }
+        //    var User = {
+
+        //        UserName: uname,
+        //        UserEmail: email,
+        //        UserMobileNo: umobileno,
+        //    }
+
+        //    debugger
+        //    $.ajax({
+
+        //        url: '/Student/StudentUpdate',
+        //        type: 'post',
+        //        dataType: 'json',
+        //        data: {
+        //            //'{oldstudentimg: "' :+ $("#simg").val() + '" }',
+        //            studentId: studentid,
+        //            StudentName: studentname,
+        //            StudentImg: studentimg,
+        //            StudentAddress: address,
+        //            StudentGender: gender,
+        //            StudentDob: studentdob,
+        //            FatherName: fathername,
+        //            MotherName: mothername,
+        //            Batch: batch,
+        //            Parent: User,
+        //            //User.userName: uname,
+        //            //User.userEmail: email,
+        //            //UserMobileNo: umobileno,
+        //        },
+        //        success: function (result) {
+        //            alert("Updated successfully");
+        //            location.reload();
+        //        },
+        //    });
+
+        //    $("#sendbtn").click(function () {
+
+        //        var from = $("#from").val();
+        //        var tostudid = $("#tostudid").val();
+        //        var msg = $("#msg").val();
+        //        $.ajax({
+        //            url: '/MessageBoard/SendMessage',
+        //            type: 'post',
+        //            dataType: 'json',
+        //            data:
+        //            {
+        //                FromMsg: from,
+        //                ToMsg: tostudid,
+        //                Msg: msg,
+        //            },
+        //            success: function (result) {
+
+        //                alert("Message send successfully");
+        //                location.reload();
+
+        //            },
+
+        //        });
+        //    });
 
 
-            $.ajax({
-
-                url: '/Student/StudentUpdate',
-                type: 'post',
-                dataType: 'json',
-                data: {
-                    studentId: studentid,
-                    StudentName: studentname,
-                    StudentImg: studentimg,
-                    StudentAddress: address,
-                    StudentGender: gender,
-                    StudentDob: studentdob,
-                    FatherName: fathername,
-                    MotherName: mothername,
-                    Batch: batch,
-                    User: User,
-                    //User.userName: uname,
-                    //User.userEmail: email,
-                    //UserMobileNo: umobileno,
-                },
-                success: function (result) {
-                    alert("Updated successfully");
-                    location.reload();
-                },
-            });
-        });
+        //});
     </script>
 
     <script>
@@ -402,11 +454,7 @@
             window.find(string);
         }
 
-        function showsetting1() {
 
-            $('#setting1').animate({ top: '13%' }, 500);
-            document.getElementById("overlay").style.display = "block";
-        }
         function hidesetting1() {
             $('#setting1').animate({ top: '-500%' }, 500);
             document.getElementById("overlay").style.display = "none";
@@ -416,9 +464,7 @@
         function showedit(id) {
             $('#edit').animate({ top: '8%' }, 500);
             var stdid = id;
-            //document.getElementById('Address').value = c;
-            //alert(stdid);
-
+            //debugger
             $.ajax({
                 url: '/Student/StudentGetById',
                 type: 'get',
@@ -430,25 +476,42 @@
                 success: function (result) {
                     document.getElementById('sid').value = result.studentId;
                     document.getElementById('sname').value = result.studentName;
-                    //document.getElementById('simg').value = result.studentName;
+                    document.getElementById('simg').src = result.studentImg;
                     document.getElementById('Address').value = result.studentAddress;
                     document.getElementById('gender').value = result.studentGender;
                     document.getElementById('sdob').value = result.studentDob;
                     document.getElementById('ffname').value = result.fatherName;
                     document.getElementById('mname').value = result.motherName;
                     document.getElementById('batch').value = result.batch;
-                    document.getElementById('uname').value = result.user.userName;
-                    document.getElementById('email').value = result.user.userEmail;
-                    document.getElementById('umobileno').value = result.user.userMobileNo;
+                    document.getElementById('uname').value = result.parent.userName;
+                    document.getElementById('email').value = result.parent.userEmail;
+                    document.getElementById('umobileno').value = result.parent.userMobileNo;
                 },
             });
-
             document.getElementById("overlay").style.display = "block";
         }
 
 
+        function showsetting1(id) {
+            $('#setting1').animate({ top: '13%' }, 500);
+            var stdid = id;
+            $.ajax({
+                url: '/Student/StudentGetById',
+                type: 'get',
+                dataType: 'json',
+                data:
+                {
+                    id: stdid,
+                },
+                success: function (result) {
+                    //document.getElementById('sid').value = result.studentId;
+                    document.getElementById('studname').value = result.studentName;
+                    document.getElementById('tostudid').value = result.studentId;
 
-
+                },
+            });
+            document.getElementById("overlay").style.display = "block";
+        }
 
         function disp(a) {
             document.getElementById("overlay").style.display = "block";
@@ -511,6 +574,11 @@
             document.getElementById("overlay").style.display = "none";
             location.reload();
         }
+
+
+        function reset() {
+            document.getElementById('messageForm').reset();
+        }
     </script>
 }
 
@@ -547,7 +615,7 @@
         #edit {
             position: absolute;
             top: -500%;
-            width: 40%;
+            width: 45%;
             margin-left: 30%;
             background-color: white;
             box-shadow: 2px 3px 8px slategrey;

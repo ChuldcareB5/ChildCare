@@ -100,5 +100,39 @@ namespace ChildCare.MonitoringSystem.Business
 
 			//return students;
 		}
-	}
+        public BusModel BusGetById(int id)
+        {
+            try
+            {
+                var busdetails = this.busRepository.GetBy(x => x.BusId == id, x => x.BusSchedule).SingleOrDefault();
+               var chec=Mapper.Map<BusModel>(busdetails);
+                return chec;
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+           
+        }
+        public BusModel UpdateBusSchedule(BusModel busModel)
+        {
+            var busupdate = this.busRepository.GetBy(x => x.BusId == busModel.BusId, x => x.BusSchedule).SingleOrDefault();
+
+        
+
+            
+
+
+
+
+
+            this.unitOfWork.Save();
+
+            return busModel;
+
+
+
+
+        }
+    }
 }
