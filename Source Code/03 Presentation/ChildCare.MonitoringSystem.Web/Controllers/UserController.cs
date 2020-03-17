@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ChildCare.MonitoringSystem.Business;
+using ChildCare.MonitoringSystem.Core.Models;
 using ChildCare.MonitoringSystem.Entity;
 using ChildCare.MonitoringSystem.Model;
 using Microsoft.AspNetCore.Authorization;
@@ -19,12 +20,14 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
     {
 		
 		private readonly UserBusiness userBusiness;
-        private readonly StudentBusiness studentBusiness;
 
-		public UserController(UserBusiness userBusiness,StudentBusiness studentBusiness)
+        private readonly ApplicationContext applicationContext;
+
+
+        public UserController(UserBusiness userBusiness, ApplicationContext applicationContext)
 		{
 			this.userBusiness = userBusiness;
-            this.studentBusiness = studentBusiness;
+            this.applicationContext = applicationContext;
         }
 
 		public IActionResult Index()
@@ -66,16 +69,49 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 			var user = this.userBusiness.AddTeacher(usermodel);
 			return user;
 		}
-        public ActionResult<Int32> StudentLogin(StudentModel studentModel)
+		public ActionResult<List<UserModel>> GetTeacherDetail()
+		{
+			var user = this.userBusiness.GetTeacherDetail();
+			return user;
+		}
+
+		public ActionResult<UserModel> UserUpdate(UserModel userModel)
+		{
+			var user = this.userBusiness.UserUpdate(userModel);
+			return user;
+		}
+
+		public ActionResult<UserModel> UserPasswordUpdate(UserModel userModel)
+		{
+			var user = this.userBusiness.UserPasswordUpdate(userModel);
+			return user;
+		}
+
+		[HttpPost]
+		public IActionResult StudentLogin(UserModel userModel)
+		{
+			return View("HomePage");
+		}
+
+		public IActionResult TeacherLogin(User teachereditprofile)
+		{
+			return View("HomePage");
+		}
+        public ActionResult<Int32> UserLogin(UserModel userModel)
         {
-            var student = this.userBusiness.AddStudent(studentModel);
-            return student.StudentId;
+            var us= this.userBusiness.UserLogin(userModel);
+
+            return us;
+
         }
 
-        public IActionResult TeacherLogin(UserModel teachermodel)
-        {
-            return View("HomePage");
-        }
+		public ActionResult<UserModel> GetUsersInfo()
+		{
+			var user = this.userBusiness.GetUsersInfo(applicationContext.UserId);
+			return user;
+		}
 
-    }
+
+
+	}
 }

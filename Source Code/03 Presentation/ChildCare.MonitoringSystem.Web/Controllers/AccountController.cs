@@ -30,7 +30,7 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (!HttpContext.User.Identity.IsAuthenticated)
+                if (HttpContext.User.Identity.IsAuthenticated)
                 {
                     var user = this.userBusiness.GetUser(loginViewModel.UserName, loginViewModel.Password);
 
@@ -46,9 +46,16 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
                         var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                         var principal = new ClaimsPrincipal(identity);
 
+					
                         await HttpContext.SignInAsync(principal);
-
-                        return RedirectToAction("Index", "Home");
+						if (user.Role.RoleId == 1)
+						{
+							return RedirectToAction("Index", "Dashboard");
+						}
+						else
+						{
+							return RedirectToAction("Index", "User");
+						}
                     }
                     else
                     {

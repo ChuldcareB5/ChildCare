@@ -1,14 +1,15 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+var user = User.Claims.ToList();
 }
 
 @section LeftNavigation{
-    <partial name="_UserLeftNavigation" />
+<partial name="_UserLeftNavigation" />
 }
 
-    <!-- MAIN CONTENT-->
-    <div class="main-content">
-        @*<div class="section__content section__content--p30">*@
+<!-- MAIN CONTENT-->
+<div class="main-content">
+    <div class="section__content section__content--p30">
         <div class="container-fluid">
             <br />
             <div class="row" style="text-align:center; margin-left:16%;">
@@ -74,10 +75,11 @@
             </div>
         </div>
     </div>
+</div>
 
 <!-- END MAIN CONTENT-->
 
-<div id="overlay" style="z-index:4">
+<div id="overlay1" style="z-index:4">
     <div id="senddiv" class="">
         <a class="pull-right" onclick="hidepopup1();"><i class="fa fa-close"></i></a>
         <h2 align="center">Send Message</h2><hr />
@@ -87,6 +89,7 @@
                 <input type="text" class="form-control" id="from" />
             </div>
         </div>
+
         <div class="form-group row">
             <label for="inputPassword" class="col-sm-4 col-form-label">To</label>
             <div class="col-sm-8">
@@ -99,157 +102,52 @@
                 <textarea type="text" class="form-control" id="msg"></textarea>
             </div>
         </div>
-        @*<div class="form-group row">
-                <label for="inputPassword" class="col-sm-4 col-form-label">Date and Time</label>
-                <div class="col-sm-8">
-                    <input type="datetime" class="form-control" id="inputPassword" />
-                </div>
-            </div>*@
+
         <div>
             <button type="button" class="btn btn-outline-primary btn-block" id="sendbtn">Send</button>
             <button type="button" class="btn btn-outline-success btn-block" onclick="Clearfield();">Clear</button>
         </div>
     </div>
 
-    <!--start Account popup-->
-    <div id="test-form-div ">
-        <div id="test-form" class="">
-            <div class="form-container">
-                <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
-                <h2 align="center" class="text-primary">Profile View</h2><hr />
-                <form action="Homepage.html" method="post">
-                    <div class="form-group" align="center">
-                        <div class="image">
-                            <img src="~/images/img/user.png" />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="text-primary">User Name</label>
-                        <label class="form-control" name="fname" id="fname">Purshotham</label>
-                    </div>
-                    <div class="form-group">
-                        <label class="text-primary">User Email</label>
-                        <label class="form-control" name="email" id="fname">Pursh123@gmail.com</label>
-                    </div>
-                    <div class="form-group">
-                        <label class="text-primary">Mobile No</label>
-                        <label class="form-control" name="number" id="pwd">9653247815</label>
-                    </div>
 
-                </form>
-            </div>
-        </div>
-    </div>
-    <!--close Account popup-->
-    <!--start setting popup-->
-    <div id="setting" class="">
-        <div class="form-container">
-            <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
-            <h2 align="center" class="text-primary">Password Setting</h2><hr />
-            <form action="Homepage.html" method="post">
-                <div class="form-group">
-                    <label>Old Password</label>
-                    <input class="form-control" type="text" name="fname" id="fname" required>
-                </div>
-                <div class="form-group">
-                    <label>New Password</label>
-                    <input class="form-control" type="email" name="email" id="fname" required>
-                </div>
-                <div class="form-group">
-                    <label for="pwd">Confirm Password</label>
-                    <input class="form-control" type="tel" name="number" id="pwd" required>
-                </div>
-                <button type="submit" class="btn btn-block btn-primary" id="reg">SUBMIT </button><br>
-                <a href="#moresetting" class="pull-right" onclick="showmoresetting()">Set More Details</a>
-            </form>
-        </div>
-    </div>
-    <!--close setting popup-->
-    <!--start more setting popup-->
-    <div id="moresetting" class="">
-        <div class="form-container">
-            <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
-            <h2 align="center" class="text-primary">User Detail Setting</h2><hr />
-            <form action="Homepage.html" method="post">
-                <div class="form-group">
-                    <label>User Name</label>
-                    <input class="form-control" type="text" name="fname" id="fname" required>
-                </div>
-                <div class="form-group">
-                    <label>User Email</label>
-                    <input class="form-control" type="email" name="email" id="fname" required>
-                </div>
-                <div class="form-group">
-                    <label>Address</label>
-                    <input class="form-control" type="email" name="email" id="fname" required>
-                </div>
-                <div class="form-group">
-                    <label>Mobile No</label>
-                    <input class="form-control" type="email" name="email" id="fname" required>
-                </div>
-                <button type="submit" class="btn btn-block btn-primary" id="reg">EDIT</button>
-            </form>
-        </div>
-    </div>
-    <!--close more setting popup-->
 </div>
 
 
 
 @section Scripts{
-    <script>
+<script>
         function search(string) {
             window.find(string);
-        } 
-
-        function showtest() {
-            $('#test-form').animate({ top: '15%' }, 500);
-            $('#test-form-div').animate({ top: '20%' }, 500);
-            $('.account-dropdown').hide();
-            document.getElementById("overlay").style.display = "block";
         }
-        function hidetest() {
-            $('#test-form').animate({ top: '-500%' }, 500);
-            document.getElementById("overlay").style.display = "none";
-        }
-
-        function showsetting() {
-            $('#setting').animate({ top: '15%' }, 500);
-            $('.account-dropdown').hide();
-            document.getElementById("overlay").style.display = "block";
-        }
-        function hidesetting() {
-            $('#setting').animate({ top: '-500%' }, 500);
-            document.getElementById("overlay").style.display = "none";
-        }
-
-        function showmoresetting() {
-            $('#moresetting').animate({ top: '15%' }, 500);
-            $('.account-dropdown').hide();
-            document.getElementById("overlay").style.display = "block";
-        }
-        function hidemoresetting() {
-            $('#moresetting').animate({ top: '-500%' }, 500);
-            document.getElementById("overlay").style.display = "none";
-        }
-
-
 
         function Clearfield() {
             document.getElementById('from').value = "";
             document.getElementById('to').value = "";
             document.getElementById('msg').value = "";
         }
-    </script>
+</script>
 
-    <script>
+<script>
         $(document).ready(function () {
+                    $.ajax({
+                    url: '/Student/GetStudentIdByUserId',
+                    type: 'get',
+                    dataType: 'json',
+
+                    success: function (result) {
+            document.getElementById('from').value =result;
+
+                    },
+
+                });
+
+
             $("#sendbtn").click(function () {
                 var frommsg = $("#from").val();
                 var tomsg = $("#to").val();
                 var msg = $("#msg").val();
-                //alert(tomsg);
-                //alert(compemail);
+                alert(tomsg);
+                
                 $.ajax({
                     url: '/MessageBoard/SendParentMessage',
                     type: 'post',
@@ -273,92 +171,48 @@
 
         function showpopup() {
             $('#senddiv').animate({ top: '23%' }, 500);
-            document.getElementById("overlay").style.display = "block";
+            document.getElementById("overlay1").style.display = "block";
 
         }
         function hidepopup() {
             $('#senddiv').animate({ top: '-500%' }, 500);
-            document.getElementById("overlay").style.display = "none";
+            document.getElementById("overlay1").style.display = "none";
         }
         function hidepopup1() {
             $('#senddiv').animate({ top: '-500%' }, 500);
-            document.getElementById("overlay").style.display = "none";
+            document.getElementById("overlay1").style.display = "none";
         }
-    </script>
+</script>
     }
 
     @section Styles{
-        <style>
-            #overlay {
-                position: fixed; /* Sit on top of the page content */
-                display: none; /* Hidden by default */
-                width: 100%; /* Full width (cover the whole page) */
-                height: 100%; /* Full height (cover the whole page) */
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background-color: rgba(0,0,0,0.5); /* Black background with opacity */
-                z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
-                cursor: pointer; /* Add a pointer on hover */
-                overflow: auto;
-            }
-
-            #test-form {
-                position: fixed;
-                top: -500%;
-                width: 35%;
-                margin-left: 30%;
-                background-color: white;
-                box-shadow: 2px 3px 8px slategrey;
-                border-radius: 5px;
-                padding: 35px;
-            }
-
-            #setting {
-                position: fixed;
-                top: -500%;
-                width: 35%;
-                margin-left: 30%;
-                background-color: white;
-                box-shadow: 2px 3px 8px slategrey;
-                border-radius: 5px;
-                padding: 35px;
-            }
-
-            #moresetting {
-                position: fixed;
-                top: -500%;
-                width: 35%;
-                margin-left: 30%;
-                background-color: white;
-                box-shadow: 2px 3px 8px slategrey;
-                border-radius: 5px;
-                padding: 35px;
-            }
-
-            #test-form-div {
-                position: fixed;
-                top: -500%;
-                max-width: 1500px;
-                max-height: 1500px;
-                min-width: 1500px;
-                min-height: 1500px;
-                background-color: black;
-            }
+<style>
+    #overlay1 {
+        position: fixed; /* Sit on top of the page content */
+        display: none; /* Hidden by default */
+        width: 100%; /* Full width (cover the whole page) */
+        height: 100%; /* Full height (cover the whole page) */
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+        z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+        cursor: pointer; /* Add a pointer on hover */
+        overflow: auto;
+    }
 
 
-
-            #senddiv {
-                position: fixed;
-                top: -500%;
-                width: 32%;
-                margin-left: 32%;
-                background-color: white;
-                box-shadow: 2px 3px 10px grey;
-                border-radius: 5px;
-                padding: 20px;
-            }
-        </style>
+    #senddiv {
+        position: fixed;
+        top: -500%;
+        width: 32%;
+        margin-left: 32%;
+        background-color: white;
+        box-shadow: 2px 3px 10px grey;
+        border-radius: 5px;
+        padding: 20px;
+    }
+</style>
     }
 

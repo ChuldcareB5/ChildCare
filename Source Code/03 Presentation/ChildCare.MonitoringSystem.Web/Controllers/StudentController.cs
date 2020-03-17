@@ -57,17 +57,13 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 		public ActionResult<StudentModel> StudentGetById(int id)
 		{
 			var students = this.studentBusiness.StudentGetById(id);
-			//string studentimage = Path.GetFileName(students.StudentImg);
-			//string savePath = Path.Combine(environment.WebRootPath, this.profilePicPath, studentimage);
-			//students.StudentImg = savePath;
 			return students;
 		}
-        public ActionResult<StudentModel> CookieId()
+        public ActionResult<StudentModel> GetUsersStudentInfo()
         {
-            var students = this.studentBusiness.CookieId(applicationContext.UserId);
+            var students = this.studentBusiness.GetUsersStudentInfo(applicationContext.UserId);
             return students;
         }
-
 
 		[HttpPost]
         public ActionResult<StudentDetail> StudentUpdate(StudentDetail studentModel,String oldimage)
@@ -98,12 +94,10 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 			userModel.UserName = studentModel.UserName;
 			userModel.UserName = studentModel.UserName;
 			userModel.UserEmail = studentModel.UserEmail;
-			//userModel.UserPassword = studentDetail.UserPassword;
 			userModel.UserMobileNo = studentModel.UserMobileNo;
 
 			var student = this.studentBusiness.StudentUpdate(studentModel1, userModel);
 			return RedirectToAction("StudentView", "Dashboard");
-
 			//return null;
 		}
 

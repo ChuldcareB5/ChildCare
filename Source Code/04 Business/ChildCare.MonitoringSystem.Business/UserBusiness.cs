@@ -7,6 +7,7 @@ using ChildCare.MonitoringSystem.Model;
 using System.Linq;
 using ChildCare.MonitoringSystem.Core.Constraints;
 using ChildCare.MonitoringSystem.Common.Extensions;
+using AutoMapper;
 
 namespace ChildCare.MonitoringSystem.Business
 {
@@ -34,15 +35,42 @@ namespace ChildCare.MonitoringSystem.Business
 			return user.MapTo<UserModel>();
 		}
 
+		public List<UserModel> GetTeacherDetail()
+		{
+			var userdetails = this.userroleRepository.GetBy(x => x.RoleId == 1);
+
+
+
+			var users = new List<UserModel>();
+
+			foreach (var user in userdetails)
+			{
+				var demo = this.userRepository.GetBy(x => x.UserId == user.UserId).SingleOrDefault();
+				if (demo != null)
+				{
+					users.Add(new UserModel()
+					{
+						UserId = demo.UserId,
+						UserName = demo.UserName,
+						UserEmail = demo.UserEmail
+					});
+				}
+
+			}
+
+			return users;
+		}
+
+
 		public UserModel GetUserById(int userId)
 		{
 			var user = this.userRepository.GetBy(x => x.UserId == userId).SingleOrDefault();
 
 			return user != null ? new UserModel()
 			{
-                //UserId = user.UserId,
-                //UserEmail = user.UserEmail,
-                //UserMobileNo = user.UserMobileNo,
+                UserId = user.UserId,
+                UserEmail = user.UserEmail,
+                UserMobileNo = user.UserMobileNo,
                 UserName = user.UserName
 			}
 			: null;
@@ -110,6 +138,7 @@ namespace ChildCare.MonitoringSystem.Business
 
 			return userModel;
 		}
+       
         public Int32 UserLogin(UserModel userModel)
         {
             var user = this.userRepository.GetBy(x => x.UserName == userModel.UserName&&x.UserPassword==userModel.UserPassword).SingleOrDefault();
@@ -129,5 +158,68 @@ namespace ChildCare.MonitoringSystem.Business
 
 
         }
-    }
+		public UserModel GetTeacher()
+		{
+			//	var teacherEntity = this.userRepository.GetAll();
+
+			//	var users = new UserModel();
+
+			//	foreach (var teacher in teacherEntity)
+			//	{
+			//		users.Add(new UserModel()
+			//		{
+			//			UserId = teacher.UserId,
+			//			UserName = teacher.UserName,
+			//			UserEmail = teacher.UserEmail,
+			//			UserMobileNo = teacher.UserMobileNo,		
+			//		});
+			//	}
+			
+			
+			var roles = this.roleRepository.GetAll();
+			
+			var parentRoleId = roles.First(x => x.RoleName == "Teacher").RoleId;
+			//var teacher = this.userRepository.GetAll().Contains(parentRoleId);
+			return null;
+		}
+
+		public UserModel UserUpdate(UserModel userModel)
+		{
+			var userupdate = this.userRepository.GetBy(x => x.UserId == userModel.UserId).SingleOrDefault();
+
+			userupdate.UserName = userModel.UserName; 
+			userupdate.UserEmail = userModel.UserEmail; 
+			userupdate.UserMobileNo = userModel.UserMobileNo; 
+			userupdate.UserPassword = userupdate.UserPassword; 
+			this.unitOfWork.Save();
+			return userModel;
+		}
+
+		public UserModel UserPasswordUpdate(UserModel userModel)
+		{
+			var userupdate = this.userRepository.GetBy(x => x.UserId == userModel.UserId).SingleOrDefault();
+
+			userupdate.UserName = userupdate.UserName;
+			userupdate.UserEmail = userupdate.UserEmail;
+			userupdate.UserMobileNo = userupdate.UserMobileNo;
+			userupdate.UserPassword = userModel.UserPassword;
+			this.unitOfWork.Save();
+			return userModel;
+		}
+
+		public Int32 GetUserId(int id)
+		{
+
+			var user = this.userRepository.GetBy(x => x.UserId == id).SingleOrDefault();
+			var userid = user.UserId;
+			return userid;
+		}
+
+
+		public UserModel GetUsersInfo(int id)
+		{
+			var userdetail = this.userRepository.GetBy(x => x.UserId == id).SingleOrDefault();
+			return userdetail.MapTo<UserModel>();
+		}
+	}
 }

@@ -10,6 +10,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChildCare.MonitoringSystem.Model", "01 Data\ChildCare.MonitoringSystem.Model\ChildCare.MonitoringSystem.Model.csproj", "{040B3A63-981D-487E-96A6-613F3C3CE1A8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 Presentation", "03 Presentation", "{BFAF54BB-3FD8-4FB9-B5BE-87FD5FE60FA0}"
+	ProjectSection(SolutionItems) = preProject
+		01 Data\ChildCare.MonitoringSystem.Model\StudentModel.cs = 01 Data\ChildCare.MonitoringSystem.Model\StudentModel.cs
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChildCare.MonitoringSystem.Web", "03 Presentation\ChildCare.MonitoringSystem.Web\ChildCare.MonitoringSystem.Web.csproj", "{48086EB3-A34E-41E9-9793-592CF1F9DAA1}"
 EndProject
