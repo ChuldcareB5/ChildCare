@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ChildCare.MonitoringSystem.Business;
+using ChildCare.MonitoringSystem.Core.Models;
 using ChildCare.MonitoringSystem.Model;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -15,10 +16,13 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 	{
 		private readonly MsgBusiness msgBusiness;
 
-		public MessageBoardController(MsgBusiness msgBusiness)
+        private readonly ApplicationContext applicationContext;
+
+        public MessageBoardController(MsgBusiness msgBusiness, ApplicationContext applicationContext)
 		{
 			this.msgBusiness = msgBusiness;
-		}
+            this.applicationContext = applicationContext;
+        }
 		public IActionResult Index()
 		{
 			return View();
@@ -41,11 +45,25 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 		}
 
 		
-		public ActionResult<ArrayList> MsgDetail()
+		public ActionResult<ArrayList> ViewedMsgDetail()
 		{
-			var msg = this.msgBusiness.MsgDetail();
+			var msg = this.msgBusiness.ViewedMsgDetail(applicationContext.UserId);
 			//var msgId = msg.MessageBoardId;
 			return msg;
 		}
-	}
+
+        public ActionResult<ArrayList> NewMsgDetail()
+        {
+            var msg = this.msgBusiness.NewMsgDetail(applicationContext.UserId);
+           
+            return msg;
+        }
+
+        public ActionResult<int> GetMsgCount()
+        {
+            var msg = this.msgBusiness.GetMsgCount(applicationContext.UserId);
+            //var msgId = msg.MessageBoardId;
+            return msg;
+        }
+    }
 }

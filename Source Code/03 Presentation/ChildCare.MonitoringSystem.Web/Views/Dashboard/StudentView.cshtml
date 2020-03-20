@@ -17,43 +17,7 @@
             <div class="col-md-12">
                 <!-- DATA TABLE -->
                 <h2 class="title-5 m-b-35" style="color:blue;">Student Details</h2>
-                @*<div class="table-data__tool">
-                        <div class="table-data__tool-left">
-                            <div class="rs-select2--light rs-select2--md">
-                                <select class="js-select2" name="property">
-                                    <option selected="selected">Filter</option>
-                                    <option value="">By Class</option>
-                                    <option value="">By Name</option>
-                                </select>
-                                <div class="dropDownSelect2"></div>
-                            </div>
-                            @*<div class="rs-select2--light rs-select2--sm">
-                                    <select class="js-select2" name="time">
-                                        <option selected="selected">Today</option>
-                                        <option value="">3 Days</option>
-                                        <option value="">1 Week</option>
-                                    </select>
-                                    <div class="dropDownSelect2"></div>
-                                </div>
-                            <button class="au-btn-filter">
-                                <i class="zmdi zmdi-filter-list"></i>Show All
-
-                            </button>
-                        </div>
-                        <div class="table-data__tool-right">
-                            <button class="au-btn au-btn-icon au-btn--green au-btn--small">
-                                <i class="zmdi zmdi-plus"></i>Add item
-                            </button>
-                            <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
-                                <select class="js-select2" name="type">
-                                    <option selected="selected">Export</option>
-                                    <option value="">Option 1</option>
-                                    <option value="">Option 2</option>
-                                </select>
-                                <div class="dropDownSelect2"></div>
-                            </div>
-                        </div>
-                    </div>*@
+                
                 <div id="Studentselect" class="rs-select2--dark rs-select2--sm rs-select2--dark2" style="width:15%">
                     <select class="js-select2" name="type">
                         <optgroup label="First Floor">
@@ -67,8 +31,6 @@
                     </select>
                     <div class="dropDownSelect2"></div>
                 </div>
-
-
 
                 <br /><br /><br />
                 <div class="table-responsive table-responsive-data2" style="overflow:auto">
@@ -334,7 +296,7 @@
                             var bat = ' <tbody>';
                             for (var i = 0; i < result.length; i++) {
 
-                                bat += '<tr class="tr-shadow"><td>' + result[i].studentId + '</td><td>' + result[i].studentName + '</td><td class="desc"><img src="' + result[i].studentImg + '"/></td><td>' + result[i].studentAddress + '</td><td>' + result[i].studentGender + '</td><td>' + result[i].studentDob + '</td><td>' + result[i].fatherName + '</td><td>' + result[i].motherName + '</td><td><div class="table-data-feature"><button class="item" data-toggle="tooltip" data-placement="top" title="Send Message"><a onclick="showsetting1(' + result[i].studentId + ');"><i class="zmdi zmdi-mail-send"></i></a></button><button class="item" data-toggle="tooltip" data-placement="top" title="Edit"><a onclick="showedit(' + result[i].studentId + ');"><i class="zmdi zmdi-edit"></i></a></button><button class="item"  data-toggle="tooltip" data-placement="top" title="Delete"><a onclick="disp(' + result[i].studentId + ')"><i class="zmdi zmdi-delete"></i></a></button></div></td></tr>';
+                                bat += '<tr class="tr-shadow"><td>' + result[i].studentId + '</td><td>' + result[i].studentName + '</td><td class="desc"><img id="prflimg" src="' + result[i].studentImg + '"/></td><td>' + result[i].studentAddress + '</td><td>' + result[i].studentGender + '</td><td>' + result[i].studentDob + '</td><td>' + result[i].fatherName + '</td><td>' + result[i].motherName + '</td><td><div class="table-data-feature"><button class="item" data-toggle="tooltip" data-placement="top" title="Send Message"><a onclick="showsetting1(' + result[i].studentId + ');"><i class="zmdi zmdi-mail-send"></i></a></button><button class="item" data-toggle="tooltip" data-placement="top" title="Edit"><a onclick="showedit(' + result[i].studentId + ');"><i class="zmdi zmdi-edit"></i></a></button><button class="item"  data-toggle="tooltip" data-placement="top" title="Delete"><a onclick="disp(' + result[i].studentId + ')"><i class="zmdi zmdi-delete"></i></a></button></div></td></tr>';
 
                             }
                             bat += '</tbody>';
@@ -708,6 +670,15 @@
             min-height: 1500px;
             background-color: black;
         }
+
+
+        #prflimg {
+            max-width: 50px;
+            max-height: 50px;
+            min-width: 40px;
+            min-height: 40px;
+        }
+
 
         form.example input[type=text] {
             padding: 8px;

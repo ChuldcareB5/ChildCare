@@ -133,9 +133,9 @@ namespace ChildCare.MonitoringSystem.Business
 			return messageBoardModel;
 		}
 
-		public ArrayList MsgDetail()
+		public ArrayList ViewedMsgDetail(int id)
 		{
-			var msgEntity = this.msgRepository.GetAll();
+			var msgEntity = this.msgRepository.GetAll().Where(x=>x.ToMsg==id && x.MsgStatus==1);
 
 			var msgs = new List<MessageBoardModel>();
 			var users = new UserModel();
@@ -150,22 +150,48 @@ namespace ChildCare.MonitoringSystem.Business
 				//ms.Add(msg.MessageBoardId);
 			
 				ms.Add(msg.MsgDateTime);
-			
-
-				//msgs.Add(new MessageBoardModel()
-				//{
-				//	MessageBoardId = msg.MessageBoardId,
-				//	ToMsg = useremail.UserEmail,
-				//	FromMsg = msg.FromMsg,
-				//	Msg = msg.Msg,
-				//	MsgDateTime = msg.MsgDateTime,
-					
-				//});
-			}
 
 
+                    //msgs.Add(new MessageBoardModel()
+                    //{
+                    //	MessageBoardId = msg.MessageBoardId,
+                    //	ToMsg = useremail.UserEmail,
+                    //	FromMsg = msg.FromMsg,
+                    //	Msg = msg.Msg,
+                    //	MsgDateTime = msg.MsgDateTime,
+
+                    //});
+                
+            }
 			return ms;
 		}
 
-	}
+
+        public ArrayList NewMsgDetail(int id)
+        {
+            var msgEntity = this.msgRepository.GetAll().Where(x => x.ToMsg == id && x.MsgStatus == 0);
+
+            var msgs = new List<MessageBoardModel>();
+            var users = new UserModel();
+            ArrayList ms = new ArrayList();
+            foreach (var msg in msgEntity)
+            {
+                    var useremail1 = this.userRepository.GetBy(x => x.UserId == msg.ToMsg).SingleOrDefault();
+                    var useremail2 = this.userRepository.GetBy(x => x.UserId == msg.FromMsg).SingleOrDefault();
+                    ms.Add(useremail1.UserEmail);
+                    ms.Add(useremail2.UserEmail);
+                    ms.Add(msg.Msg);
+                   
+                    ms.Add(msg.MsgDateTime);
+            }
+            return ms;
+        }
+
+        public int GetMsgCount(int id)
+        {
+            var msgCount = this.msgRepository.GetAll().Where(x=>x.MsgStatus==0 && x.ToMsg==id).Count();
+            return msgCount;
+        }
+
+    }
 }

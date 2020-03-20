@@ -26,14 +26,17 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 		private readonly string profilePicPath = "profilepics";
 		private static List<string> uploadedImages = new List<string>();
 		private readonly IHostingEnvironment environment;
+        private readonly MsgBusiness msgBusiness;
 
-		public DashboardController(StudentBusiness studentBusiness, ApplicationContext applicationContext, UserBusiness userBusiness, IHostingEnvironment environment)
+        public DashboardController(StudentBusiness studentBusiness, ApplicationContext applicationContext, UserBusiness userBusiness, IHostingEnvironment environment, MsgBusiness msgBusiness)
 		{
 			this.studentBusiness = studentBusiness;
 			this.userBusiness = userBusiness;
 			this.applicationContext = applicationContext;
 			this.environment = environment;
-		}
+            this.msgBusiness = msgBusiness;
+
+        }
 		public IActionResult StudentRegistration()
 		{
 			return View("StudentRegistration");
@@ -80,8 +83,9 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 			return userid;
 		}
 
+        
 
-		[HttpPost]
+        [HttpPost]
 		public IActionResult StudentRegistration(StudentDetail studentDetail)
 		{
             try

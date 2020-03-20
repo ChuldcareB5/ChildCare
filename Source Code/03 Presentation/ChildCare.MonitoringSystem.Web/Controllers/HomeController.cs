@@ -29,7 +29,6 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 			return View("Contact");
 		}
 
-		
 
 		public IActionResult Student()
 		{
@@ -139,14 +138,12 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 			return View("ParentStudentLocation");
 		}
 
+        public IActionResult LogIn()
+        {
+            return View();
+        }
 
-
-		public IActionResult LogIn()
-		{
-			return View();
-		}
-
-		[HttpPost]
+        [HttpPost]
 		public async Task<IActionResult> LogIn(LoginViewModel loginViewModel)
 		{
 			if (ModelState.IsValid)
