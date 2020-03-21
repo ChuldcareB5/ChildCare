@@ -31,7 +31,7 @@
                                 <span>Total number of students</span>
                             </div>
                         </div>
-                      
+
                     </div>
                 </div>
             </div>
@@ -47,7 +47,7 @@
                                 <span>Total cameras</span>
                             </div>
                         </div>
-                      
+
                     </div>
                 </div>
             </div>
@@ -63,7 +63,7 @@
                                 <span>Total ClassRooms</span>
                             </div>
                         </div>
-                     
+
                     </div>
                 </div>
             </div>
@@ -79,12 +79,12 @@
                                 <span>Total No.of Buses</span>
                             </div>
                         </div>
-               
+
                     </div>
                 </div>
             </div>
         </div>
-       
+
         <div class="row">
             <div class="col-lg-9">
                 <h2 class="title-1 m-b-25">Student info   </h2>
@@ -95,23 +95,23 @@
                                 <th>Student Id</th>
                                 <th>Student Name</th>
                                 <th>Address</th>
-                                
+
                                 <th class="text-right">Father Name</th>
                                 <th class="text-right">Mothername</th>
                             </tr>
                         </thead>
-                   @*
-                       body written in script
-                   *@
+                        @*
+                            body written in script
+                        *@
                     </table>
                 </div>
             </div>
             <div class="col-lg-3">
                 <h2 class="title-1 m-b-25">Teacher info   </h2>
                 <div class="au-card au-card--bg-blue au-card-top-countries m-b-40">
-                        @*<h4 style="color:yellow;">Teacher Names :   </h4>*@
+                    @*<h4 style="color:yellow;">Teacher Names :   </h4>*@
                     <div class="au-card-inner">
-                       
+
                         <div class="table-responsive">
 
                             <table class="table table-top-countries" id="listofteacher"></table>
@@ -133,22 +133,22 @@
                         </button>
                     </div>
                     @*//=============*@
-                  
-                        <div class="au-task js-list-load">
-                                <div class="au-task-list js-scrollbar3">
-                                    <div class="au-task__item au-task__item--danger">
-                                        <table class="au-task__item-inner" id="viewedmsg"></table>
-                                        @*<hr />*@
-                                    </div>
-                                </div>
-                                <div class="au-task__footer">
-                                    <button class="au-btn au-btn-load js-load-btn">load more</button>
-                                </div>
+
+                    <div class="au-task js-list-load">
+                        <div class="au-task-list js-scrollbar3">
+                            <div class="au-task__item au-task__item--danger">
+                                <table class="au-task__item-inner" id="viewedmsg"></table>
+                                @*<hr />*@
+                            </div>
                         </div>
-                       
-                        @*//=============*@
+                        <div class="au-task__footer">
+                            <button class="au-btn au-btn-load js-load-btn">load more</button>
+                        </div>
                     </div>
+
+                    @*//=============*@
                 </div>
+            </div>
             <div class="col-lg-6" style="z-index:2">
                 <div class="au-card au-card--no-shadow au-card--no-pad m-b-40">
                     <div class="au-card-title" style="background-image:url('images/bg-title-02.jpg');">
@@ -193,7 +193,7 @@
         <div class="form-group row">
             <label for="staticEmail" class="col-sm-4 col-form-label">From</label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" value="57" id="adminfrom"/>
+                <input type="text" class="form-control" value="57" id="adminfrom" />
             </div>
         </div>
         <div class="form-group row">
@@ -248,6 +248,7 @@
             border-radius: 5px;
             padding: 20px;
         }
+
         form.example input[type=text] {
             padding: 8px;
             font-size: 17px;
@@ -299,35 +300,33 @@
     <script>
 
         $(document).ready(function () {
-            
-                $.ajax({
-                    url: '/Student/GetStudentDetail',
-                    type: 'get',
-                    dataType: 'json',
-                    success: function (result) {
 
-                        if (result) {
-                             var bat = ' <tbody>';
-                            for (var i = 0; i < result.length; i++) {
+            $.ajax({
+                url: '/Student/GetStudentDetail',
+                type: 'get',
+                dataType: 'json',
+                success: function (result) {
 
+                    if (result) {
+                        var bat = ' <tbody>';
+                        for (var i = 0; i < result.length; i++) {
 
-                                bat += '<tr><td>' + result[i].studentId + '</td><td>' + result[i].studentName + '</td><td>' + result[i].studentAddress + '</td><td class="text-right">' + result[i].fatherName + '</td><td class="text-right">' + result[i].motherName+'</td></tr>';
-
-
-                            }
-                            bat += '</tbody>';
-
-                            $('#studentInfo').append(bat);
+                            bat += '<tr><td>' + result[i].studentId + '</td><td>' + result[i].studentName + '</td><td>' + result[i].studentAddress + '</td><td class="text-right">' + result[i].fatherName + '</td><td class="text-right">' + result[i].motherName + '</td></tr>';
 
                         }
-                        else {
-                            alert("failed to get data");
-                        }
+                        bat += '</tbody>';
 
-                    },
+                        $('#studentInfo').append(bat);
 
+                    }
+                    else {
+                        alert("failed to get data");
+                    }
 
+                },
             });
+
+
             $.ajax({
                 url: '/User/GetTeacherDetail',
                 type: 'get',
@@ -337,7 +336,7 @@
                     if (result) {
                         var put = '<tbody>';
                         for (var i = 0; i < result.length; i++) {
-                            put += '<tr><td>'+(i+1)+'</td><td>' + result[i].userName + '</td></tr>';
+                            put += '<tr><td>' + (i + 1) + '</td><td>' + result[i].userName + '</td></tr>';
                         }
                         put += '</tbody>';
                         $('#listofteacher').append(put);
@@ -358,7 +357,7 @@
                     debugger
                     if (result) {
                         var put = '<tbody>';
-                        for (var i = 0; i < result.length; i=i+4) {
+                        for (var i = 0; i < result.length; i = i + 4) {
                             put += '<tr><td>From :' + result[i + 1] + '</td></tr><tr><td>To :' + result[i] + '</td></tr><tr><td>Msg :' + result[i + 2] + '</td></tr><tr><td>Date and Time :' + result[i + 3] + '</td></tr><tr><td>__________________________________________________________________</td></tr>';
                         }
                         put += '</tbody>';
@@ -380,7 +379,9 @@
                     if (result) {
                         var put = '<tbody>';
                         for (var i = 0; i < result.length; i = i + 4) {
-                            put += '<tr><td>From :' + result[i + 1] + '</td></tr><tr><td>To :' + result[i] + '</td></tr><tr><td>Msg :' + result[i + 2] + '</td></tr><tr><td>Date and Time :' + result[i + 3] + '</td></tr><tr><td>__________________________________________________________________</td></tr>';
+                            //put += '<tr><td>From :' + result[i + 1] + '</td></tr><tr><td>To :' + result[i] + '</td></tr><tr><td>Msg :' + result[i + 2] + '</td></tr><tr><td>Date and Time :' + result[i + 3] + '</td></tr><tr><td>__________________________________________________________________</td></tr>';
+                            put += '<tr><td>From :' + result[i + 1] + '</td></tr><tr><td>Date and Time :' + result[i + 3] + '</td><td><button class="btn-primary">view</button></td></tr><tr><td>____________________________________________________</td><td>_________</td></tr>';
+
                         }
                         put += '</tbody>';
                         $('#newmsg').append(put);
@@ -425,8 +426,7 @@
                 var frommsg = $("#adminfrom").val();
                 var tomsg = $("#to").val();
                 var msg = $("#msg").val();
-                //alert(tomsg);
-                //alert(compemail);
+
                 $.ajax({
                     url: '/MessageBoard/SendMessage',
                     type: 'post',
@@ -478,7 +478,7 @@
             $('#senddiv').animate({ top: '-500%' }, 500);
             document.getElementById("overlay1").style.display = "none";
         }
-         
+
         function Clearfield() {
             //document.getElementById('from').value = "";
             document.getElementById('to').value = "";
@@ -486,3 +486,6 @@
         }
     </script>
 }
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>

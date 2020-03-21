@@ -118,16 +118,17 @@
                                             <div class="mess__title">
                                                 <p id="msginnertext"></p>
                                             </div>
-                                            <div class="mess__item">
+                                            <div id="msgusername"></div>
+                                            @*<div class="mess__item">*@
                                                 @*<div class="image img-cir img-40">
                                                     <img src="~/images/blazerphoto/Asha.jpg" alt="Michelle Moreno" />
                                                 </div>*@
-                                                <div class="content">
-                                                    <h6 id="msgusername">Michel</h6>
+                                                @*<div class="content">
+                                                    <h6 id="">Michel</h6>*@
                                                     @*<p>Have sent a photo</p>*@
                                                     @*<span class="time">3 min ago</span>*@
-                                                </div>
-                                            </div>
+                                                @*</div>*@
+                                            @*</div>*@
                                             @*<div class="mess__item">
                                                 <div class="image img-cir img-40">
                                                     <img src="~/images/blazerphoto/Namratha.jpg" alt="Diane Myers" />
@@ -287,7 +288,7 @@
                   </div>
                 
               <button type="submit" class="btn btn-block btn-primary" id="teachereditprofile">EDIT</button>
-                                                                                     @*</form>*@
+                                                                                     
               </form>
             </div>
         </div>
@@ -372,10 +373,31 @@
                     if (result) {
                         document.getElementById('msgcount').innerHTML = result;
                         document.getElementById('msginnertext').innerHTML = "You have " + result + " new message"; 
-                       
                     }
                     else {
                         document.getElementById('msgcount').innerHTML = 0;
+                        document.getElementById('msginnertext').innerHTML = "No new message"; 
+                    }
+                },
+
+            });
+
+            $.ajax({
+                url: '/MessageBoard/GetMsgUser',
+                type: 'get',
+                dataType: 'json',
+                success: function (result) {
+                    
+                    if (result) {
+                        var bat = '';
+                        
+                        for (var i = 0; i < result.length; i++) {
+
+                            bat += '<div class="mess__item"><div class="content"><h6>' + result[i].userEmail + '</h6></div></div>';
+                        }
+
+                        $('#msgusername').append(bat);
+                        //document.getElementById('msgusername').innerHTML = bat;
                     }
                 },
 
@@ -435,10 +457,6 @@
                 var newpass = $('#newpass').val();
                 var confpass = $('#confpass').val();
                
-                //alert(userid);
-                //alert(oldpass);
-                //alert(newpass);
-                //alert(confpass);
                 if (newpass == confpass) {
                     $.ajax({
                         url: '/User/UserPasswordUpdate',

@@ -193,5 +193,26 @@ namespace ChildCare.MonitoringSystem.Business
             return msgCount;
         }
 
+
+        public List<UserModel> GetMsgUser(int id)
+        {
+
+            var msgList = this.msgRepository.GetAll().Where(x => x.MsgStatus == 0 && x.ToMsg == id);
+
+            var users = new List<UserModel>();
+
+            foreach (var user in msgList)
+            {
+                var touser = this.userRepository.GetAll().Where(y => y.UserId == user.FromMsg).FirstOrDefault();
+                users.Add(new UserModel()
+                {
+                    UserEmail = touser.UserEmail
+                });
+            }
+
+            return users;
+        }
+        
+
     }
 }

@@ -65,5 +65,14 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
             //var msgId = msg.MessageBoardId;
             return msg;
         }
+
+
+        public ActionResult<List<UserModel>> GetMsgUser()
+        {
+            var msg = this.msgBusiness.GetMsgUser(applicationContext.UserId);
+            //var msgId = msg.MessageBoardId;
+            return msg;
+        }
+        
     }
 }
