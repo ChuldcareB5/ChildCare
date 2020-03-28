@@ -1,6 +1,7 @@
 ﻿using ChildCare.MonitoringSystem.Common;
 using ChildCare.MonitoringSystem.Web.Infrastructure;
 using ChildCare.MonitoringSystem.Web.Middlewares;
+using ChildCare.MonitoringSystem.Web.Signaling;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -37,6 +38,16 @@ namespace ChildCare.MonitoringSystem.Web
             services.RegisterDependency(this.AppSettings);
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddCors(action => action
+               .AddPolicy("CPaaSPolicy", policy => policy
+                   .AllowAnyHeader()
+                   .AllowAnyMethod()
+                   .AllowAnyOrigin()
+                   .AllowCredentials()
+               ));
+
+            services.AddSignalR();
 
             services.AddAuthentication(options =>
             {
@@ -78,6 +89,11 @@ namespace ChildCare.MonitoringSystem.Web
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
+            });
+
+            app.UseSignalR(routes =>
+            {
+                routes.MapHub<ChannelHub>("/channel");
             });
 
             AutoMapperConfig.Bootstrap();
