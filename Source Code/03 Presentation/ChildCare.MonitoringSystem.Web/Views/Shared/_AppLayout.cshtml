@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿
+@{
+    ViewData["Title"] = "Admin";
+    var user = User.Claims.ToList();
+}
+<!DOCTYPE html>
 <html>
 <head>
     <!-- Fontfaces CSS-->
@@ -21,7 +26,65 @@
     <link href="~/vendor/vector-map/jqvmap.min.css" rel="stylesheet" media="all">
     <!-- Main CSS-->
     <link href="~/css/theme.css" rel="stylesheet" media="all">
-  
+    <style>
+        #overlay {
+            position: fixed; /* Sit on top of the page content */
+            display: none; /* Hidden by default */
+            width: 100%; /* Full width (cover the whole page) */
+            height: 100%; /* Full height (cover the whole page) */
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+            z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+            cursor: pointer; /* Add a pointer on hover */
+            overflow: auto;
+        }
+
+        #test-form {
+            position: fixed;
+            top: -500%;
+            width: 35%;
+            margin-left: 30%;
+            background-color: white;
+            box-shadow: 2px 3px 8px slategrey;
+            border-radius: 5px;
+            padding: 35px;
+        }
+
+        #setting {
+            position: fixed;
+            top: -500%;
+            width: 35%;
+            margin-left: 30%;
+            background-color: white;
+            box-shadow: 2px 3px 8px slategrey;
+            border-radius: 5px;
+            padding: 35px;
+        }
+
+        #moresetting {
+            position: fixed;
+            top: -500%;
+            width: 35%;
+            margin-left: 30%;
+            background-color: white;
+            box-shadow: 2px 3px 8px slategrey;
+            border-radius: 5px;
+            padding: 35px;
+        }
+
+        #test-form-div {
+            position: fixed;
+            top: -500%;
+            max-width: 1500px;
+            max-height: 1500px;
+            min-width: 1500px;
+            min-height: 1500px;
+            background-color: black;
+        }
+    </style>
     @RenderSection("Styles", required: false)
 </head>
 <body>
@@ -30,7 +93,7 @@
 
     <div class="page-wrapper">
         <!-- HEADER MOBILE-->
-        
+
         @RenderSection("LeftNavigation", required: true)
 
         <!-- PAGE CONTAINER-->
@@ -81,45 +144,7 @@
                                         </div>
                                     </div>
 
-                                    @*<div class="noti__item js-item-menu">
-                    <i class="zmdi zmdi-email"></i>
-                    <span class="quantity">1</span>
-                    <div class="email-dropdown js-dropdown">
-                        <div class="email__title">
-                            <p>You have 3 New Emails</p>
-                        </div>
-                        <div class="email__item">
-                            <div class="image img-cir img-40">
-                                <img src="~/images/icon/avatar-06.jpg" alt="Cynthia Harvey" />
-                            </div>
-                            <div class="content">
-                                <p>Meeting about new dashboard...</p>
-                                <span>Cynthia Harvey, 3 min ago</span>
-                            </div>
-                        </div>
-                        <div class="email__item">
-                            <div class="image img-cir img-40">
-                                <img src="~/images/icon/avatar-05.jpg" alt="Cynthia Harvey" />
-                            </div>
-                            <div class="content">
-                                <p>Meeting about new dashboard...</p>
-                                <span>Cynthia Harvey, Yesterday</span>
-                            </div>
-                        </div>
-                        <div class="email__item">
-                            <div class="image img-cir img-40">
-                                <img src="~/images/icon/avatar-04.jpg" alt="Cynthia Harvey" />
-                            </div>
-                            <div class="content">
-                                <p>Meeting about new dashboard...</p>
-                                <span>Cynthia Harvey, April 12,,2018</span>
-                            </div>
-                        </div>
-                        <div class="email__footer">
-                            <a href="#">See all emails</a>
-                        </div>
-                    </div>
-                </div>*@
+                            
 
                                     <div class="noti__item js-item-menu">
                                         <i class="zmdi zmdi-notifications"></i>
@@ -177,9 +202,10 @@
                                                 </div>
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <a href="#">purshotham</a>
+                                                        <a href="#" id="username"></a>
                                                     </h5>
-                                                    <span class="email">purshotham123@gmail.com/span>
+                                                    <span id="emails"></span>
+                                                    <span id="userid" hidden></span>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__body">
@@ -196,9 +222,11 @@
 
                                             </div>
                                             <div class="account-dropdown__footer">
-                                                <a href="#">
+                                                <a asp-area="" asp-controller="Account" asp-action="LogOut">
                                                     <i class="zmdi zmdi-power"></i>Logout
                                                 </a>
+                                                    
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -219,9 +247,9 @@
         <div id="test-form-div ">
             <div id="test-form" class="">
                 <div class="form-container">
-                    <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
+                    <a class="pull-right text-primary" onclick="hidetest();"><i class="fa fa-close"></i></a>
                     <h2 align="center" class="text-primary">Profile View</h2><hr />
-                    <form action="Homepage.html" method="post">
+                    <form action=" " method="post">
                         <div class="form-group" align="center">
                             <div class="image">
                                 <img src="~/images/img/user.png" />
@@ -229,15 +257,15 @@
                         </div>
                         <div class="form-group">
                             <label class="text-primary">User Name</label>
-                            <label class="form-control" name="fname" id="fname">Purshotham</label>
+                            <label class="form-control" name="fname" id="uname"></label>
                         </div>
                         <div class="form-group">
                             <label class="text-primary">User Email</label>
-                            <label class="form-control" name="email" id="fname">Pursh123@gmail.com</label>
+                            <label class="form-control" name="email" id="email"></label>
                         </div>
                         <div class="form-group">
                             <label class="text-primary">Mobile No</label>
-                            <label class="form-control" name="number" id="pwd">9653247815</label>
+                            <label class="form-control" name="number" id="mob"></label>
                         </div>
                     </form>
                 </div>
@@ -247,58 +275,75 @@
         <!--start setting popup-->
         <div id="setting" class="">
             <div class="form-container">
-                <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
+                <a class="pull-right text-primary" onclick="hidesetting();"><i class="fa fa-close"></i></a>
                 <h2 align="center" class="text-primary">Password Setting</h2><hr />
-                <form action="Homepage.html" method="post">
-                    <div class="form-group">
-                        <label>Old Password</label>
-                        <input class="form-control" type="text" name="fname" id="fname" required>
-                    </div>
-                    <div class="form-group">
-                        <label>New Password</label>
-                        <input class="form-control" type="email" name="email" id="fname" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="pwd">Confirm Password</label>
-                        <input class="form-control" type="tel" name="number" id="pwd" required>
-                    </div>
-                    <button type="submit" class="btn btn-block btn-primary" id="reg">SUBMIT </button><br>
-                    <a href="#moresetting" class="pull-right" onclick="showmoresetting()">Set More Details</a>
-                </form>
+              <form action="" method="post">
+                  <div class="form-group" hidden>
+                      <label class="text-primary" >User Id</label>
+                      <input class="form-control" name="fname" id="udetailids">
+                  </div>
+                  <div class="form-group">
+                      <label>Old Password</label>
+                      <input class="form-control" type="password" name="password" id="oldpass" required>
+                  </div>
+                  <div class="form-group">
+                      <label>New Password</label>
+                      <input class="form-control" type="password" name="password" id="newpass" required>
+                  </div>
+                  <div class="form-group">
+                      <label for="pwd">Confirm Password</label>
+                      <input class="form-control" type="password" name="password" id="confpass" required>
+                  </div>
+                  <button type="submit" class="btn btn-block btn-primary" id="passsetting">SUBMIT </button><br>
+                  <a href="#moresetting" class="pull-right" onclick="showmoresetting()">Set More Details</a>
+                                                                             </form>
             </div>
         </div>
         <!--close setting popup-->
         <!--start more setting popup-->
         <div id="moresetting" class="">
             <div class="form-container">
-                <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
-                <h2 align="center" class="text-primary">User Detail Setting</h2><hr />
-                @*<form action="" method="post">*@
-                <div class="form-group">
-                    <label>User Name</label>
-                    <input class="form-control" type="text" name="fname" id="uname" required>
-                </div>
-                <div class="form-group">
-                    <label>User Email</label>
-                    <input class="form-control" type="email" name="email" id="uemail" required>
-                </div>
-                <div class="form-group">
-                    <label>Address</label>
-                    <input class="form-control" type="text" name="email" id="uaddress" required>
-                </div>
-                <div class="form-group">
-                    <label>Mobile No</label>
-                    <input class="form-control" type="text" name="email" id="umobileno" required>
-                </div>
-                <button type="submit" class="btn btn-block btn-primary" id="teachereditprofile">EDIT</button>
-                @*</form>*@
+                <a class="pull-right text-primary" onclick="hidemoresetting();"><i class="fa fa-close"></i></a>
+                <h2 align="center" class="text-primary">User Detail Settings</h2><hr />
+              <form action=" " method="post">
+                  <div class="form-group" align="center">
+                      <div class="image">
+                          <img src="~/images/img/user.png" />
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="text-primary">User Id</label>
+                      <input class="form-control" name="fname" id="udetailid">
+                  </div>
+                  <div class="form-group">
+                      <label class="text-primary">User Name</label>
+                      <input class="form-control" name="fname" id="udetailname">
+                  </div>
+                  <div class="form-group">
+                      <label class="text-primary">User Email</label>
+                      <input class="form-control" name="email" id="udetailemail">
+                  </div>
+                  <div class="form-group">
+                      <label class="text-primary">Mobile No</label>
+                      <input class="form-control" name="number" id="udetailmob">
+                  </div>
+                                                                                     @*<div class="form-group">
+            <label class="text-primary">Address</label>
+            <input class="form-control" name="number" id="udetailaddress">
+        </div>*@
+
+              <button type="submit" class="btn btn-block btn-primary" id="teachereditprofile">EDIT</button>
+                                                                                     @*</form>*@
+              </form>
             </div>
         </div>
         <!--close more setting popup-->
     </div>
 
+
     <!-- Jquery JS-->
     <script src="~/vendor/jquery-3.2.1.min.js"></script>
+
     <!-- Bootstrap JS-->
     <script src="~/vendor/bootstrap-4.1/popper.min.js"></script>
     <script src="~/vendor/bootstrap-4.1/bootstrap.min.js"></script>
@@ -329,6 +374,120 @@
 
     <!-- Main JS-->
     <script src="~/js/main.js"></script>
+    <script>
+        function showtest() {
+            $('#test-form').animate({ top: '15%' }, 500);
+            $('#test-form-div').animate({ top: '20%' }, 500);
+            //$('.account-dropdown').hide();
+            document.getElementById("overlay").style.display = "block";
+        }
+        function hidetest() {
+            $('#test-form').animate({ top: '-500%' }, 500);
+            document.getElementById("overlay").style.display = "none";
+        }
+
+        function showsetting() {
+            $('#setting').animate({ top: '15%' }, 500);
+            $('.account-dropdown').hide();
+            document.getElementById("overlay").style.display = "block";
+        }
+        function hidesetting() {
+            $('#setting').animate({ top: '-500%' }, 500);
+            document.getElementById("overlay").style.display = "none";
+        }
+
+        function showmoresetting() {
+            $('#moresetting').animate({ top: '15%' }, 500);
+            $('.account-dropdown').hide();
+            document.getElementById("overlay").style.display = "block";
+        }
+        function hidemoresetting() {
+            $('#moresetting').animate({ top: '-500%' }, 500);
+            document.getElementById("overlay").style.display = "none";
+        }
+        $(document).ready(function () {
+
+
+            $.ajax({
+
+                url: '/User/GetUsersInfo',
+                type: 'get',
+                dataType: 'json',
+
+                success: function (result) {
+                    debugger
+                    document.getElementById('userid').innerHTML = result.userId;
+                    document.getElementById('username').innerHTML = result.userName;
+                    document.getElementById('emails').innerHTML = result.userEmail;
+                    document.getElementById('uname').innerHTML = result.userName;
+                    document.getElementById('email').innerHTML = result.userEmail;
+                    document.getElementById('mob').innerHTML = result.userMobileNo;
+
+                    document.getElementById('udetailname').value = result.userName;
+                    document.getElementById('udetailemail').value = result.userEmail;
+                    document.getElementById('udetailmob').value = result.userMobileNo;
+                    document.getElementById('udetailid').value = result.userId;
+                },
+            });
+            
+
+            $("#teachereditprofile").click(function () {
+                var userid = $('#udetailid').val();
+                var username = $('#udetailname').val();
+                var useremail = $('#udetailemail').val();
+                var usermob = $('#udetailmob').val();
+
+                debugger
+                $.ajax({
+                    url: '/User/UserUpdate',
+                    type: 'post',
+                    dataType: 'json',
+                    data: {
+                       
+                        UserId: userid,
+                        UserName: username,
+                        UserEmail: useremail,
+                        UserMobileNo: usermob,
+                    },
+                    success: function (result) {
+                        alert("Details Updated successfully");
+                    },
+                });
+            });
+
+            $("#passsetting").click(function () {
+                var userid = $('#udetailids').val();
+                var oldpass = $('#oldpass').val();
+                var newpass = $('#newpass').val();
+                var confpass = $('#confpass').val();
+               
+                //alert(userid);
+                //alert(oldpass);
+                //alert(newpass);
+                //alert(confpass);
+                if (newpass == confpass) {
+                    $.ajax({
+                        url: '/User/UserPasswordUpdate',
+                        type: 'post',
+                        dataType: 'json',
+                        data: {
+                            UserId: userid,
+                            UserPassword: newpass,
+                            
+                        },
+                        success: function (result) {
+                            alert("Password Updated successfully");
+                        },
+                    });
+                }
+                else {
+                    alert("Invalid Details")
+                }
+            });
+        });
+
+    </script>
+
     @RenderSection("Scripts", required: false)
 </body>
 </html>

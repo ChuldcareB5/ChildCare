@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -35,6 +36,14 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 		public ActionResult<MessageBoardModel> SendParentMessage(MessageBoardModel msgboardmodel)
 		{
 			var msg = this.msgBusiness.SendParentMail(msgboardmodel);
+			//var msgId = msg.MessageBoardId;
+			return msg;
+		}
+
+		
+		public ActionResult<ArrayList> MsgDetail()
+		{
+			var msg = this.msgBusiness.MsgDetail();
 			//var msgId = msg.MessageBoardId;
 			return msg;
 		}

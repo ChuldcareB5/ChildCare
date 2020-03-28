@@ -11,15 +11,28 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
+using ChildCare.MonitoringSystem.Core.Models;
 
 namespace ChildCare.MonitoringSystem.Web.Controllers
 {
 	[Authorize]
     public class DashboardController : Controller
-    {
-		public DashboardController()
+	{
+		private readonly ApplicationContext applicationContext;
+		private readonly StudentBusiness studentBusiness;
+		private readonly UserBusiness userBusiness;
+		private readonly string profilePicPath = "profilepics";
+		private static List<string> uploadedImages = new List<string>();
+		private readonly IHostingEnvironment environment;
+
+		public DashboardController(StudentBusiness studentBusiness, ApplicationContext applicationContext, UserBusiness userBusiness, IHostingEnvironment environment)
 		{
-			
+			this.studentBusiness = studentBusiness;
+			this.userBusiness = userBusiness;
+			this.applicationContext = applicationContext;
+			this.environment = environment;
 		}
 		public IActionResult StudentRegistration()
 		{
@@ -56,5 +69,63 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 			return View();
 		}
 
+		public IActionResult BusTracking()
+		{
+			return View();
+		}
+
+		public ActionResult<Int32> GetUserId()
+		{
+			var userid = this.userBusiness.GetUserId(applicationContext.UserId);
+			return userid;
+		}
+
+
+		[HttpPost]
+		public IActionResult StudentRegistration(StudentDetail studentDetail)
+		{
+            try
+            {
+                string imageName = Guid.NewGuid().ToString() + Path.GetExtension(studentDetail.StudentImg.FileName);
+
+                string savePath = Path.Combine(environment.WebRootPath, this.profilePicPath, imageName);
+                using (var stream = new FileStream(savePath, FileMode.Create))
+                {
+                    studentDetail.StudentImg.CopyTo(stream);
+                }
+                uploadedImages.Add(imageName);
+                imageName = "/profilepics/" + imageName;
+                StudentModel studentModel = new StudentModel();
+                BusScheduleModel busScheduleModel = new BusScheduleModel();
+                UserModel userModel = new UserModel();
+                userModel.UserName = studentDetail.UserName;
+                userModel.UserEmail = studentDetail.UserEmail;
+                userModel.UserPassword = studentDetail.UserPassword;
+                userModel.UserMobileNo = studentDetail.UserMobileNo;
+                var user = this.userBusiness.AddParent(userModel);
+                studentModel.StudentName = studentDetail.StudentName;
+                studentModel.StudentImg = imageName;
+                studentModel.StudentAddress = studentDetail.StudentAddress;
+                studentModel.StudentGender = studentDetail.StudentGender;
+                studentModel.StudentDob = studentDetail.StudentDob;
+                studentModel.FatherName = studentDetail.FatherName;
+                studentModel.MotherName = studentDetail.MotherName;
+                studentModel.ParentId = user.UserId;
+                studentModel.Batch = studentDetail.Batch;
+         
+
+				ModelState.AddModelError(nameof(StudentDetail.ErrorMessage), "Register Successfully");
+
+				
+                var student = this.studentBusiness.AddStudent(studentModel);
+            }
+            catch
+            {
+                ModelState.AddModelError(nameof(StudentDetail.ErrorMessage), "Failed to register");
+            }
+			
+
+			return View();
+		}
 	}
 }

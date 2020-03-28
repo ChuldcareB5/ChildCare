@@ -4,30 +4,45 @@
     ViewData["Title"] = "Log In";
     Layout = "";
 }
+<body style="background-image: url('/images/bg-title-01.jpg'); background-repeat:no-repeat; max-width:100%;background-size: cover;">
+    <main>
+        <section>
 
-<main>
-    <section>
-        <form asp-action="LogIn">
-            <h1>Login</h1>
-            <h2>Please enter your user name and Password to login.</h2>
-            <span asp-validation-for="ErrorMessage" class="text-danger"></span>
-            <div class="form-group">
-                <input asp-for="UserName" />
-                <span asp-validation-for="UserName"></span>
-            </div>
-            <div class="form-group">
-                <input asp-for="Password" type="password" />
-                <span asp-validation-for="Password"></span>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <input type="submit" value="Login" />
+            <form asp-action="LogIn" style="
+            width: 35%;
+            margin-left: 30%;
+            margin-top:13%;
+            background:linear-gradient(blue,purple);
+            color:white;
+            box-shadow: 2px 3px 8px black;
+            border-radius: 7px;
+            border:3px solid white;
+            padding: 35px;">
+                <h1 style="text-align:center;font-size:35px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Login</h1>
+                <h3 style="text-align:center;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Please enter your user name and Password to login.</h3>
+                <span asp-validation-for="ErrorMessage" class="text-danger"></span>
+
+                <div class="form-group" align="center">
+                    <input asp-for="UserName" style="width:200px; border-radius:7px; padding:5px; box-shadow: 2px 3px 8px black;text-align:center" placeholder="UserName" />
+                    <span asp-validation-for="UserName"></span>
+                </div><br />
+                <div class="form-group" align="center">
+                    <input asp-for="Password" type="password" style="width:200px; border-radius:7px; padding:5px; box-shadow: 2px 3px 8px black;text-align:center" placeholder="UserPassword"/>
+                    <span asp-validation-for="Password"></span>
+                </div><br />
+                <div class="row">
+                    <div class="col-md-6" align="center">
+                        <input type="submit" value="Login" style="font-family:'Berlin Sans FB';font-size:20px; width :150px; border-radius:7px; padding:5px; box-shadow: 2px 3px 8px black; background-color:black;color:white"/>
+                    </div>
                 </div>
-            </div>
-        </form>
-    </section>
-</main>
+            </form>
+
+        </section>
+    </main>
+</body>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+ 
 }

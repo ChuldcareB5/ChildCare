@@ -32,7 +32,11 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
         {
             return View();
         }
-
+		public ActionResult<List<BusScheduleModel>> getbusshedule(String To,String From)
+		{
+			var buses = this.busBusiness.getbusshedule(To,From);
+			return buses;
+		}
 
 		public ActionResult<Int32> BusDeleteId(int id)
 		{
