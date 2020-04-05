@@ -1,7 +1,6 @@
 ﻿using ChildCare.MonitoringSystem.Common;
 using ChildCare.MonitoringSystem.Web.Infrastructure;
 using ChildCare.MonitoringSystem.Web.Middlewares;
-using ChildCare.MonitoringSystem.Web.Signaling;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -49,6 +48,8 @@ namespace ChildCare.MonitoringSystem.Web
 
             services.AddSignalR();
 
+            services.AddHttpContextAccessor();
+
             services.AddAuthentication(options =>
             {
                 options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
@@ -91,10 +92,6 @@ namespace ChildCare.MonitoringSystem.Web
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
 
-            app.UseSignalR(routes =>
-            {
-                routes.MapHub<ChannelHub>("/channel");
-            });
 
             AutoMapperConfig.Bootstrap();
         }

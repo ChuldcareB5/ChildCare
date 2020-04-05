@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ChildCare.MonitoringSystem.Web.Signaling
+namespace ChildCare.MonitoringSystem.Signaling.Hubs
 {
     public sealed class ChannelState
     {

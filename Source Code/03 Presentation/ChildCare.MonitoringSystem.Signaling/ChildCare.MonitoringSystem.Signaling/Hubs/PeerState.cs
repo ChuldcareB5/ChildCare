@@ -1,4 +1,4 @@
-﻿namespace ChildCare.MonitoringSystem.Web.Signaling
+﻿namespace ChildCare.MonitoringSystem.Signaling.Hubs
 {
     public class PeerState
     {

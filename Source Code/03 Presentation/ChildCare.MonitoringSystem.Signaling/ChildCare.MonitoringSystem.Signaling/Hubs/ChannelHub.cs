@@ -1,24 +1,18 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System;
-using Newtonsoft.Json.Serialization;
-using Microsoft.AspNetCore.Http;
-using ChildCare.MonitoringSystem.Core.Models;
 
-namespace ChildCare.MonitoringSystem.Web.Signaling
+namespace ChildCare.MonitoringSystem.Signaling.Hubs
 {
-    public class ChannelHub : BaseHub
+    public class ChannelHub : Hub
     {
         private readonly ChannelState channelState;
 
-        public ChannelHub(
-            ChannelState channelState,
-            ApplicationContext applicationContext,
-            IHttpContextAccessor httpContextAccessor)
-            : base(applicationContext, httpContextAccessor)
+        public ChannelHub(ChannelState channelState)
         {
             this.channelState = channelState;
         }
