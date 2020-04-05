@@ -7,12 +7,15 @@ using ChildCare.MonitoringSystem.Core.Models;
 using ChildCare.MonitoringSystem.Entity;
 using ChildCare.MonitoringSystem.Model;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace ChildCare.MonitoringSystem.Web.Controllers
 {
-	[Authorize()]
+    
+    //[Authorize()]
     public class UserController : Controller
     {
 		
@@ -44,12 +47,16 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 		{
 			return View();
 		}
-		public ActionResult<UserModel> Get(int userId)
+        public IActionResult StudentTracking()
+        {
+            return View();
+        }
+        public ActionResult<UserModel> Get(int userId)
 		{
 			return this.userBusiness.GetUserById(userId);
 		}
 
-		[HttpPost]
+	
 		public ActionResult<Int32> AddParent(UserModel usermodel)
 		{
 			var user = this.userBusiness.AddParent(usermodel);

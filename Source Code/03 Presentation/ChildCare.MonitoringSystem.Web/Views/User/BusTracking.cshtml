@@ -29,7 +29,57 @@
 
                     </div>
                     <div class="map-wrap m-t-45 m-b-20">
-                        <div id="vmap" style="height: 284px;"></div>
+                        <div id="map"></div>
+                        <script>
+
+                            // Initialize and add the map
+                            // $(document).ready(function () {
+                            function initMap() {
+
+                                // The location of Uluru
+
+                                $.ajax({
+                                    url: '/Student/GetBusLocation',
+                                    type: 'get',
+                                    dataType: 'json',
+                                    success: function (result) {
+
+                                        if (result) {
+
+
+                                            var latitude = result.latitude;
+
+                                            var langitude = result.longitute;
+
+                                            var uluru = { lat: latitude, lng: langitude };
+                                            // The map, centered at Uluru
+                                            var map = new google.maps.Map(
+                                                document.getElementById('map'), { zoom: 8, center: uluru });
+                                            // The marker, positioned at Uluru
+                                            var marker = new google.maps.Marker({ position: uluru, map: map });
+                                        }
+                                        else {
+                                            alert("failed to get data");
+                                        }
+
+                                    },
+
+
+                                });
+                            }
+
+                            //    });
+
+
+                        </script>
+                        <!--Load the API from the specified URL
+    * The async attribute allows the browser to render the page while the API loads
+    * The key parameter will contain your own API key (which is not needed for this tutorial)
+    * The callback parameter executes the initMap() function
+    -->
+                        <script async defer
+                                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxi53n1l21ELjpf2Oq0frWB50S6GyCG5o&callback=initMap">
+                        </script>
                     </div>
                 </div>
             </div>
@@ -38,106 +88,8 @@
         </div>
 
     </div>
-    <div class="row">
-        <div class="col-md-12">
-            <!-- MAP DATA-->
-            <div class="map-data m-b-40">
-                <h3 class="title-3 m-b-30">
-                    <i class="zmdi zmdi-map"></i>Student Tracking Map
-                </h3>
-                <div class="filters">
-                    <div class="rs-select2--dark rs-select2--md m-r-10 rs-select2--border">
-                        <select class="js-select2" name="property">
-                            <option selected="selected"> Enter Bus ID</option>
-                            <option value="">1</option>
-                            <option value="">2</option>
-                        </select>
-                        <div class="dropDownSelect2"></div>
-                    </div>
 
-                </div>
-                <div class="map-wrap">
-                    <div class="vmap" id="vmap1"></div>
-                </div>
-            </div>
-            <!-- END MAP DATA-->
-        </div>
-    </div>
-    @*<div class="row">
-            <div class="col-md-6">
-                <!-- MAP DATA-->
-                <div class="map-data m-b-40">
-                    <h3 class="title-3 m-b-30">
-                        <i class="zmdi zmdi-map"></i>Europe
-                    </h3>
-                    <div class="map-wrap">
-                        <div class="vmap" id="vmap1"></div>
-                    </div>
-                </div>
-                <!-- END MAP DATA-->
-            </div>
-            <div class="col-md-6">
-                <!-- MAP DATA-->
-                <div class="map-data m-b-40">
-                    <h3 class="title-3 m-b-30">
-                        <i class="zmdi zmdi-map"></i>USA
-                    </h3>
-                    <div class="map-wrap">
-                        <div class="vmap" id="vmap2"></div>
-                    </div>
-                </div>
-                <!-- END MAP DATA-->
-            </div>
-            <div class="col-md-6">
-                <!-- MAP DATA-->
-                <div class="map-data m-b-40">
-                    <h3 class="title-3 m-b-30">
-                        <i class="zmdi zmdi-map"></i>Germany
-                    </h3>
-                    <div class="map-wrap">
-                        <div class="vmap" id="vmap3"></div>
-                    </div>
-                </div>
-                <!-- END MAP DATA-->
-            </div>
-            <div class="col-md-6">
-                <!-- MAP DATA-->
-                <div class="map-data m-b-40">
-                    <h3 class="title-3 m-b-30">
-                        <i class="zmdi zmdi-map"></i>France
-                    </h3>
-                    <div class="map-wrap">
-                        <div class="vmap" id="vmap4"></div>
-                    </div>
-                </div>
-                <!-- END MAP DATA-->
-            </div>
-            <div class="col-md-6">
-                <!-- MAP DATA-->
-                <div class="map-data m-b-40">
-                    <h3 class="title-3 m-b-30">
-                        <i class="zmdi zmdi-map"></i>Russia
-                    </h3>
-                    <div class="map-wrap">
-                        <div class="vmap" id="vmap5"></div>
-                    </div>
-                </div>
-                <!-- END MAP DATA-->
-            </div>
-            <div class="col-md-6">
-                <!-- MAP DATA-->
-                <div class="map-data m-b-40">
-                    <h3 class="title-3 m-b-30">
-                        <i class="zmdi zmdi-map"></i>Brazil
-                    </h3>
-                    <div class="map-wrap">
-                        <div class="vmap" id="vmap6"></div>
-                    </div>
-                </div>
-                <!-- END MAP DATA-->
-                <!-- END PAGE CONTAINER-->
-            </div>
-        </div>*@
+  
 </div>
 <!-- END MAIN CONTENT-->
 
@@ -292,7 +244,11 @@
             border-radius: 5px;
             padding: 35px;
         }
-
+        /* Set the size of the div element that contains the map */
+        #map {
+            height: 400px; /* The height is 400 pixels */
+            width: 100%; /* The width is the width of the web page */
+        }
         #setting {
             position: fixed;
             top: -500%;

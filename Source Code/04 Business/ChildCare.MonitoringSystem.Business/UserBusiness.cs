@@ -78,15 +78,39 @@ namespace ChildCare.MonitoringSystem.Business
 
 		public UserModel AddParent(UserModel userModel)
 		{
-			return this.AddUser(userModel, 2);//Return from method named AddUser where parent id is 2(function call)
+			return this.AddUser(userModel, 1);//Return from method named AddUser where parent id is 2(function call)
 		}
 
 		public UserModel AddTeacher(UserModel userModel)
 		{
-			return this.AddUser(userModel, 1);//Return from method named AddUser where parent id is 2(function call)
+			return this.AddUser(userModel, 2);//Return from method named AddUser where parent id is 2(function call)
 		}
+        
+        public StudentModel AddStudent(StudentModel studentModel)
+        {
+            var studentEntity = new Student()
+            {
+                StudentName = studentModel.StudentName,
+                StudentImg = studentModel.StudentImg,
+                StudentAddress = studentModel.StudentAddress,
+                StudentGender = studentModel.StudentGender,
+                StudentDob = studentModel.StudentDob,
+                FatherName = studentModel.FatherName,
+                MotherName = studentModel.MotherName,
+                ParentId = studentModel.ParentId,
+                CreatedBy = -1,
+                CreatedOn = DateTime.UtcNow,
+                UpdatedBy = -1,
+                UpdatedOn = DateTime.UtcNow
 
-		private UserModel AddUser(UserModel userModel, int roleId)
+            };
+            this.studentRepository.Add(studentEntity);
+            this.unitOfWork.Save();
+           studentModel.StudentId = studentEntity.StudentId;
+            return studentModel;
+        }
+
+        private UserModel AddUser(UserModel userModel, int roleId)
 		{
 			var userEntity = new User()
 			{

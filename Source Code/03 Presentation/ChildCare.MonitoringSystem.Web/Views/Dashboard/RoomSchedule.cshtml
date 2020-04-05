@@ -28,7 +28,7 @@
                                 <th></th>
                             </tr>
                         </thead>
-                        
+
                     </table>
                 </div>
             </div>
@@ -62,75 +62,7 @@
                                 <th>Room Id</th>
                             </tr>
                         </thead>
-                        @*<tbody>
-                                <tr class="tr-shadow">
-                                    <td>
-                                        <label class="au-checkbox">
-                                            <input type="checkbox">
-                                            <span class="au-checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td>1</td>
-                                    <td>2</td>
-                                    <td>2020-01-28</td>
-                                    <td>11:55:00</td>
-                                    <td>Kannada</td>
-                                    <td>
-                                        <div class="table-data-feature">
-                                            <button onclick="show();" title="Send Message" class="btn btn-primary">
-                                                <a onclick="showschedule()">
-                                                    Change
-                                                </a>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr class="tr-shadow">
-                                    <td>
-                                        <label class="au-checkbox">
-                                            <input type="checkbox">
-                                            <span class="au-checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td>2</td>
-                                    <td>3</td>
-                                    <td>2020-01-28</td>
-                                    <td>09:00:00</td>
-                                    <td>Kannada</td>
-                                    <td>
-                                        <div class="table-data-feature">
-                                            <button onclick="show();" title="Send Message" class="btn btn-primary">
-                                                <a onclick="showschedule()">
-                                                    Change
-                                                </a>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr class="tr-shadow">
-                                    <td>
-                                        <label class="au-checkbox">
-                                            <input type="checkbox">
-                                            <span class="au-checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td>3</td>
-                                    <td>4</td>
-                                    <td>2020-01-28</td>
-                                    <td>09:55:00</td>
-                                    <td>English</td>
-                                    <td>
-                                        <div class="table-data-feature">
-                                            <button onclick="show();" title="Send Message" class="btn btn-primary">
-                                                <a onclick="showschedule()">
-                                                    Change
-                                                </a>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                            </tbody>*@
+                        
                     </table>
                 </div>
             </div>
@@ -323,7 +255,7 @@
         <div class="form-container">
             <a class="pull-right" href="#viewroomschedule" onclick="hidechangeschedule();"><i class="fa fa-close"></i></a>
             <h4 align="center" class="text-primary">Add Room Schedule</h4><hr />
-            <form method="post" >
+            <form method="post">
                 <div class="form-group">
                     <label>Choose Date</label>
                     <input class="form-control" type="date" name="date" id="roomScheduleDate" required>
@@ -355,7 +287,7 @@
                 <div class="form-group">
                     <label>Batch</label>
                     @*  <input class="form-control" type="time" name="batch" id="batch" required>*@
-                    <select name="scheduleTime" id="batch" class="form-control">
+                    <select  id="batch" class="form-control">
                         <option value="B1">B1</option>
                         <option value="B2">B2</option>
                         <option value="B3">B3</option>
@@ -379,7 +311,7 @@
 
             //GetRoom
             $("#viewstudentschedule").hide();
-            
+
             $.ajax({
                 url: '/Room/GetRoom',
                 type: 'get',
@@ -464,7 +396,7 @@
                 //alert(rsub);
                 //alert(rid);
                 //alert(rteacherid);
-                alert(rbatch);
+                alert(rtime);
 
 
                 $.ajax({
@@ -483,7 +415,7 @@
 
                     success: function (result) {
                         alert(result);
-                        alert("Successfully inserted Room");   
+                        alert("Successfully inserted Room");
 
                     },
 

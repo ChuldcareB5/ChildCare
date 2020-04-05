@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ChildCare.MonitoringSystem.Web.Controllers
 {
-	[Authorize(Roles = "1")]
+	//[Authorize(Roles = "1")]
 	public class RoomController : Controller
 	{
 		private readonly RoomBusiness roomBusiness;
