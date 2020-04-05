@@ -181,7 +181,7 @@ namespace ChildCare.MonitoringSystem.Business
                     ms.Add(useremail1.UserEmail);
                     ms.Add(useremail2.UserEmail);
                     ms.Add(msg.Msg);
-                   
+                    ms.Add(msg.MessageBoardId);
                     ms.Add(msg.MsgDateTime);
             }
             return ms;
@@ -212,7 +212,40 @@ namespace ChildCare.MonitoringSystem.Business
 
             return users;
         }
-        
+
+        //public MessageBoard GetMsgById(int id)
+        //{
+        //    var msg = this.msgRepository.GetAll().Where(x => x.MessageBoardId == id).FirstOrDefault();
+        //    msg.MsgStatus = 1;
+        //    this.unitOfWork.Save();
+        //    return msg;
+        //}
+
+
+        public ArrayList GetMsgById(int id)
+        {
+            var msgEntity = this.msgRepository.GetAll().Where(x => x.MessageBoardId == id).FirstOrDefault();
+
+            var msgs = new MessageBoardModel();
+            var users = new UserModel();
+            ArrayList ms = new ArrayList();
+                var toUseremail = this.userRepository.GetBy(x => x.UserId == msgEntity.ToMsg).SingleOrDefault();
+                var fromUseremail = this.userRepository.GetBy(x => x.UserId == msgEntity.FromMsg).SingleOrDefault();
+                ms.Add(toUseremail.UserEmail);
+                ms.Add(fromUseremail.UserEmail);
+                ms.Add(msgEntity.Msg);
+
+                ms.Add(msgEntity.MsgDateTime);
+
+            msgEntity.MsgStatus = 1;
+            this.unitOfWork.Save();
+
+            return ms;
+        }
+
+
+
+
 
     }
 }
