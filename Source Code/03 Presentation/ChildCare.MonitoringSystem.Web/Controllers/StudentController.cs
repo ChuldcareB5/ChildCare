@@ -6,14 +6,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 using ChildCare.MonitoringSystem.Web.Models;
-using ChildCare.MonitoringSystem.Model;
-using ChildCare.MonitoringSystem.Business;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authorization;
+
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
 using ChildCare.MonitoringSystem.Core.Models;
@@ -40,11 +37,11 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 
 
 
-		public ActionResult<StudentModel> AddStudent(StudentModel studentmodel)
-		{
-			var student = this.studentBusiness.AddStudent(studentmodel);
-			return student;
-		}
+		//public ActionResult<StudentModel> AddStudent(StudentModel studentmodel)
+		//{
+		//	var student = this.studentBusiness.AddStudent(studentmodel);
+		//	return student;
+		//}
 
 
 		public ActionResult<List<StudentModel>> GetStudentDetail(String batch)

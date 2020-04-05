@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ChildCare.MonitoringSystem.Web.Controllers
 {
-	[Authorize()]
+	//[Authorize()]
 	public class MessageBoardController : Controller
 	{
 		private readonly MsgBusiness msgBusiness;

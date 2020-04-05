@@ -38,7 +38,7 @@ namespace ChildCare.MonitoringSystem.Business
             this.unitOfWork = unitOfWork;//Instantiate unitOfWork Variable
 		}
 
-		public StudentModel AddStudent(StudentModel studentModel)
+		public StudentModel AddStudent(StudentModel studentModel, int Sheduleid)
 		{
 			/* this.AddStudent(studentModel, 2);*///Return from method named AddUser where parent id is 2(function call)
 
@@ -60,8 +60,16 @@ namespace ChildCare.MonitoringSystem.Business
 				UpdatedBy = -1,
 				UpdatedOn = DateTime.UtcNow
 			};
+            if(Sheduleid!=0)
+            {
+                studentEntity.StudentBusSchedule.Add(new StudentBusSchedule()
+                {
+                    BusScheduleId = Sheduleid
+                });
+            }
+           
 
-			this.studentRepository.Add(studentEntity);
+            this.studentRepository.Add(studentEntity);
 			this.unitOfWork.Save();
 			studentModel.StudentId = studentEntity.StudentId;
 
@@ -142,6 +150,12 @@ namespace ChildCare.MonitoringSystem.Business
 			return studentid != null ? 0 : 1;
 
 		}
+        public StudentModel GetUsersStudentInfo(int id)
+        {
+
+            var student = this.studentRepository.GetBy(x => x.ParentId == id, x => x.User).SingleOrDefault();
+            return Mapper.Map<StudentModel>(student);
+        }
         public StudentLocationModel GetStudentLocation(int parentid)
         {
             var studentid = this.studentRepository.GetBy(x => x.ParentId == parentid).SingleOrDefault();

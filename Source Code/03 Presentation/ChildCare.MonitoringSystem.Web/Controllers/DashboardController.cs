@@ -77,10 +77,7 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 			return View();
 		}
 
-		public IActionResult BusTracking()
-		{
-			return View();
-		}
+	
 
 		public ActionResult<Int32> GetUserId()
 		{
@@ -89,49 +86,7 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 		}
 
 
-		[HttpPost]
-		public IActionResult StudentRegistration(StudentDetail studentDetail)
-		{
-            try
-            {
-                string imageName = Guid.NewGuid().ToString() + Path.GetExtension(studentDetail.StudentImg.FileName);
-
-                string savePath = Path.Combine(environment.WebRootPath, this.profilePicPath, imageName);
-                using (var stream = new FileStream(savePath, FileMode.Create))
-                {
-                    studentDetail.StudentImg.CopyTo(stream);
-                }
-                uploadedImages.Add(imageName);
-                imageName = "/profilepics/" + imageName;
-                StudentModel studentModel = new StudentModel();
-                BusScheduleModel busScheduleModel = new BusScheduleModel();
-                UserModel userModel = new UserModel();
-                userModel.UserName = studentDetail.UserName;
-                userModel.UserEmail = studentDetail.UserEmail;
-                userModel.UserPassword = studentDetail.UserPassword;
-                userModel.UserMobileNo = studentDetail.UserMobileNo;
-                var user = this.userBusiness.AddParent(userModel);
-                studentModel.StudentName = studentDetail.StudentName;
-                studentModel.StudentImg = imageName;
-                studentModel.StudentAddress = studentDetail.StudentAddress;
-                studentModel.StudentGender = studentDetail.StudentGender;
-                studentModel.StudentDob = studentDetail.StudentDob;
-                studentModel.FatherName = studentDetail.FatherName;
-                studentModel.MotherName = studentDetail.MotherName;
-                studentModel.ParentId = user.UserId;
-                studentModel.Batch = studentDetail.Batch;
-         
-
-				ModelState.AddModelError(nameof(StudentDetail.ErrorMessage), "Register Successfully");
-
-				
-                var student = this.studentBusiness.AddStudent(studentModel);
-            }
-            catch
-            {
-                ModelState.AddModelError(nameof(StudentDetail.ErrorMessage), "Failed to register");
-            }
-			
+       
         [HttpPost]
         public IActionResult StudentRegistration(StudentDetail studentDetail)
         {
@@ -161,7 +116,7 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
                 studentModel.MotherName = studentDetail.MotherName;
                 studentModel.ParentId = user.UserId;
                 studentModel.Batch = studentDetail.Batch;
-                var student = this.studentBusiness.AddStudent(studentModel);
+             var student = this.studentBusiness.AddStudent(studentModel, studentDetail.Sheduleid);
                 ModelState.AddModelError(nameof(StudentDetail.ErrorMessage), "Registered Successfully");
 
             }

@@ -30,7 +30,7 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (HttpContext.User.Identity.IsAuthenticated)
+                if (!HttpContext.User.Identity.IsAuthenticated)
                 {
                     var user = this.userBusiness.GetUser(loginViewModel.UserName, loginViewModel.Password);
 
@@ -50,12 +50,13 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
                         await HttpContext.SignInAsync(principal);
 						if (user.Role.RoleId == 1)
 						{
-							return RedirectToAction("Index", "Dashboard");
+                            return RedirectToAction("Index", "User");
+                           
 						}
 						else
 						{
-							return RedirectToAction("Index", "User");
-						}
+                            return RedirectToAction("Index", "Dashboard");
+                        }
                     }
                     else
                     {

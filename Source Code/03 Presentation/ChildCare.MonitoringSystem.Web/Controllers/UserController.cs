@@ -15,7 +15,7 @@ using Microsoft.EntityFrameworkCore;
 namespace ChildCare.MonitoringSystem.Web.Controllers
 {
     
-    [Authorize()]
+    //[Authorize()]
     public class UserController : Controller
     {
 		

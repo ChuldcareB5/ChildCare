@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ChildCare.MonitoringSystem.Web.Controllers
 {
-	[Authorize()]
+	//[Authorize()]
     public class BusController : Controller
     {
 

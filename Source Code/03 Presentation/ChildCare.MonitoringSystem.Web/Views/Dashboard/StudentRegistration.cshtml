@@ -32,7 +32,7 @@
                     </div>
                     <div class="form-group">
                         <label for="address" class=" form-control-label">Address *</label>
-                        <textarea asp-for="StudentAddress" rows="5" class="form-control" title="Enter Student Address"required></textarea>
+                        <textarea asp-for="StudentAddress" rows="5" class="form-control" title="Enter Student Address" required></textarea>
 
                     </div>
                     @*<label><input type="radio" name="gender" class="gender" value="0">Male</label>
@@ -59,14 +59,14 @@
                     </div>
                     <div class="form-group">
                         <label for="mname" class=" form-control-label">Mother Name </label>
-                        <input asp-for="MotherName" type="text" class="form-control"  required/>
+                        <input asp-for="MotherName" type="text" class="form-control" required />
 
                     </div>
                     <div class="form-group">
                         <label for="mname" class=" form-control-label">User Name *</label>
                         <div class="input-group">
                             @*@Html.TextBoxFor(x => x.UserName)*@
-                            <input asp-for="UserName" type="text" placeholder="Username"  required class="form-control">
+                            <input asp-for="UserName" type="text" placeholder="Username" required class="form-control">
                             <div class="input-group-addon">
                                 <i class="fa fa-user"></i>
 
@@ -76,7 +76,7 @@
                     <div class="form-group">
                         <label for="nf-email" class=" form-control-label">Email *</label>
                         <div class="input-group">
-                            <input asp-for="UserEmail" type="email" placeholder="Enter Email.."  required class="form-control">
+                            <input asp-for="UserEmail" type="email" placeholder="Enter Email.." required class="form-control">
                             <div class="input-group-addon">
                                 <i class="fa fa-envelope"></i>
                             </div>
@@ -95,14 +95,14 @@
                     </div>
                     <div class="form-group">
                         <label for="mobileno" class=" form-control-label">Mobile Number</label>
-                        <input asp-for="UserMobileNo" type="tel" class="form-control"  required />
+                        <input asp-for="UserMobileNo" type="tel" class="form-control" required />
 
                     </div>
 
                     <div class="form-group">
                         <label>Batch</label>
                         @*  <input class="form-control" type="time" name="batch" id="batch" required>*@
-                        <select asp-for="Batch" id="sbatch" class="form-control">
+                        <select asp-for="Batch" id="sbatch"  onchange="showbus()" class="form-control">
                             <option value="B1">B1</option>
                             <option value="B2">B2</option>
                             <option value="B3">B3</option>
@@ -110,23 +110,38 @@
                             <option value="B5">B5</option>
                         </select>
                     </div>
+                    <input type="checkbox" onchange="showbus()" /><label>Add Bus Detail</label>
+                    @*<div class="form-group">
+                        <button class="btn btn-success">Add Bus Details </button>
+                    </div>*@
+                    <div  hidden class="form-group">
+                        <label  class=" form-control-label">Schedule Id</label>
+                        <input asp-for="Sheduleid" readonly id="sheduleid" type="text" class="form-control" required />
+                    </div>
+                    <div class="form-group">
+                        <label class=" form-control-label">To</label>
+                        <input asp-for="Toaddress" readonly id="toaddress" type="text" class="form-control" required />
+                    </div>
+                    <div class="form-group">
+                        <label class=" form-control-label">From</label>
+                        <input asp-for="Fromaddress" readonly id="fromaddress" type="text" class="form-control" required />
+                    </div>
 
-                    <button  class="btn btn-success" onclick="showbus();">Bus Register</button>
-                        @*<div class="form-group">
-                <label>Bus</label>
-                <select asp-for="Bus" id="sbus" class="form-control">
-                    <option value="Bus 1">Bus 1</option>
-                    <option value="Bus 2">Bus 2</option>
-                    <option value="Bus 3">Bus 3</option>
-                </select>
-            </div>*@
+                    @*<div class="form-group">
+            <label>Bus</label>
+            <select asp-for="Bus" id="sbus" class="form-control">
+                <option value="Bus 1">Bus 1</option>
+                <option value="Bus 2">Bus 2</option>
+                <option value="Bus 3">Bus 3</option>
+            </select>
+        </div>*@
 
 
-                        <input type="submit" class="btn btn-primary " />
-                        <button type="reset" class="btn btn-success ">
-                            Reset
-                        </button>
-                        <span asp-validation-for="ErrorMessage" class="text-danger"></span>
+                    <input type="submit" class="btn btn-primary " />
+                    <button type="reset" class="btn btn-success ">
+                        Reset
+                    </button>
+                    <span asp-validation-for="ErrorMessage" class="text-danger"></span>
                 </form>
 
             </div>
@@ -175,34 +190,39 @@
         <div id="busdiv">
             <a class="pull-right" onclick="hidepopup();"><i class="fa fa-close"></i></a>
             <h2 align="center" class="text-primary">Bus Registration</h2><hr />
-            <div class="form-group row">
-                <label for="inputPassword" class="col-sm-4 col-form-label">Student Id</label>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control" id="studid" />
-                </div>
-            </div>
+
             <div class="form-group row">
                 <label for="staticEmail" class="col-sm-4 col-form-label">To</label>
                 <div class="col-sm-8">
                     <input type="text" class="form-control" id="to" />
                 </div>
-                </div>
+            </div>
             <div class="form-group row">
                 <label for="staticEmail" class="col-sm-4 col-form-label">From</label>
                 <div class="col-sm-8">
                     <input type="text" class="form-control" id="from" />
                 </div>
             </div>
+            <div class="form-group row">
+               
+                <div class="col-sm-8">
+                    <button type="button" class="btn btn-outline-primary btn-block" onclick="onChangeHandler()">Check Bus Availibilty</button>
 
+                </div>
+            </div>
             <div class="form-group row">
                 <table id="busregister">
-
+                    <tr>
+                        <td>Scheduling Id</td>
+                        <td>           </td>
+                        <td>Time</td>
+                    </tr>
                 </table>
             </div>
 
             <div>
-                <button type="button" class="btn btn-outline-primary btn-block" id="">Send</button>
-                <button type="reset" class="btn btn-outline-success btn-block" onclick="Clearfield();">Clear</button>
+                <button type="button" class="btn btn-outline-primary btn-block" onclick="addbudinfo()">Add Bus info</button>
+
             </div>
         </div>
 
@@ -273,13 +293,30 @@
         </script>
     }
     <script>
-        document.getElementById('to').addEventListener('change', onChangeHandler);
+
+        function hidepopup() {
+            //$('#busdiv').hide();
+            $('#overlay').hide();
+        }
+        function addbudinfo() {
+            var t = document.getElementById('tick').value;
+            document.getElementById('sheduleid').value = t;
+            document.getElementById('toaddress').value = document.getElementById('to').value;
+            document.getElementById('fromaddress').value = document.getElementById('from').value;
+            $('#overlay').hide();
+
+
+        }
+
+        //document.getElementById('from').addEventListener('change', onChangeHandler);
         
         function onChangeHandler() {
+            $('#busregister').html('');
             var to = document.getElementById('to').value;
             var from = document.getElementById('from').value;
+          
             $.ajax({
-
+                
                             url: '/Bus/getbusshedule',
                             type: 'post',
                             dataType: 'json',
@@ -293,7 +330,7 @@
                                 if (result) {
                                     var tabl = '';
                                     for (i = 0; i < result.length; i++) {
-                                        tabl += '<tr><td>'+ result[i].busScheduleId + '</td><td>' + result[i].busScheduleTime + '</td></tr>';
+                                        tabl += '<tr><td>' + result[i].busScheduleId + '</td><td>       </td><td>' + result[i].busScheduleTime + '</td><td>       </td>&nsb;&nsb;&nsb;&nsb;&nsb;&nsb;&nsb;&nsb;<td> <input type = "radio" class= "bus" id="tick" value = "'+result[i].busScheduleId +'" /> </td><br></tr>';
                                     }
                                     $('#busregister').append(tabl);
                                 }
