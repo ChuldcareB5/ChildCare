@@ -116,8 +116,6 @@ namespace ChildCare.MonitoringSystem.Business
 			return students;
 		}
 
-
-
 		public StudentModel StudentGetById(int id)
 		{ 
 			var student = this.studentRepository.GetBy(x => x.StudentId == id, x => x.User).SingleOrDefault();
@@ -126,14 +124,13 @@ namespace ChildCare.MonitoringSystem.Business
 			//st.StudentImg = Path.GetFileName(st.StudentImg);
 			return st;
 		}
+
         public StudentModel GetUsersStudentInfo(int id)
 		{
 
 			var student = this.studentRepository.GetBy(x => x.ParentId == id, x=>x.User).SingleOrDefault();
 			return Mapper.Map<StudentModel>(student);
 		}
-
-
 
         public StudentModel StudentUpdate(StudentModel studentModel,UserModel userModel)
 		{
@@ -154,8 +151,6 @@ namespace ChildCare.MonitoringSystem.Business
 			return studentModel;
 
 		}
-
-
 
 		public Int32 DeleteId(int id)
 		{

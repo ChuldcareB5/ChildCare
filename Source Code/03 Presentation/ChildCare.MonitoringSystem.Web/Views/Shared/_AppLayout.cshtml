@@ -305,36 +305,30 @@
             <div class="form-container">
                 <a class="pull-right text-primary" onclick="hidemoresetting();"><i class="fa fa-close"></i></a>
                 <h2 align="center" class="text-primary">User Detail Settings</h2><hr />
-              <form action=" " method="post">
-                  <div class="form-group" align="center">
-                      <div class="image">
-                          <img src="~/images/img/user.png" />
-                      </div>
-                  </div>
-                  <div class="form-group">
-                      <label class="text-primary">User Id</label>
-                      <input class="form-control" name="fname" id="udetailid">
-                  </div>
-                  <div class="form-group">
-                      <label class="text-primary">User Name</label>
-                      <input class="form-control" name="fname" id="udetailname">
-                  </div>
-                  <div class="form-group">
-                      <label class="text-primary">User Email</label>
-                      <input class="form-control" name="email" id="udetailemail">
-                  </div>
-                  <div class="form-group">
-                      <label class="text-primary">Mobile No</label>
-                      <input class="form-control" name="number" id="udetailmob">
-                  </div>
-                                                                                     @*<div class="form-group">
-            <label class="text-primary">Address</label>
-            <input class="form-control" name="number" id="udetailaddress">
-        </div>*@
-
-              <button type="submit" class="btn btn-block btn-primary" id="teachereditprofile">EDIT</button>
-                                                                                     @*</form>*@
-              </form>
+                <form action=" " method="post">
+                    <div class="form-group" align="center">
+                        <div class="image">
+                            <img src="~/images/img/user.png" />
+                        </div>
+                    </div>
+                    <div class="form-group" hidden>
+                        <label class="text-primary" >User Id</label>
+                        <input class="form-control" name="fname" id="udetailid">
+                    </div>
+                    <div class="form-group">
+                        <label class="text-primary">User Name</label>
+                        <input class="form-control" name="fname" id="udetailname">
+                    </div>
+                    <div class="form-group">
+                        <label class="text-primary">User Email</label>
+                        <input class="form-control" name="email" id="udetailemail">
+                    </div>
+                    <div class="form-group">
+                        <label class="text-primary">Mobile No</label>
+                        <input class="form-control" name="number" id="udetailmob">
+                    </div>
+                <button type="submit" class="btn btn-block btn-primary" id="teachereditprofile">EDIT</button>
+                </form>
             </div>
         </div>
         <!--close more setting popup-->
@@ -405,17 +399,15 @@
             $('#moresetting').animate({ top: '-500%' }, 500);
             document.getElementById("overlay").style.display = "none";
         }
+
         $(document).ready(function () {
-
-
             $.ajax({
-
                 url: '/User/GetUsersInfo',
                 type: 'get',
                 dataType: 'json',
 
                 success: function (result) {
-                    debugger
+                    
                     document.getElementById('userid').innerHTML = result.userId;
                     document.getElementById('username').innerHTML = result.userName;
                     document.getElementById('emails').innerHTML = result.userEmail;
@@ -437,7 +429,6 @@
                 var useremail = $('#udetailemail').val();
                 var usermob = $('#udetailmob').val();
 
-                debugger
                 $.ajax({
                     url: '/User/UserUpdate',
                     type: 'post',
@@ -460,11 +451,7 @@
                 var oldpass = $('#oldpass').val();
                 var newpass = $('#newpass').val();
                 var confpass = $('#confpass').val();
-               
-                //alert(userid);
-                //alert(oldpass);
-                //alert(newpass);
-                //alert(confpass);
+
                 if (newpass == confpass) {
                     $.ajax({
                         url: '/User/UserPasswordUpdate',
@@ -485,7 +472,6 @@
                 }
             });
         });
-
     </script>
 
     @RenderSection("Scripts", required: false)

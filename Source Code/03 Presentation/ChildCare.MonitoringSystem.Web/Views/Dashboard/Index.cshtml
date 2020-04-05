@@ -1,6 +1,5 @@
 ﻿@{
     ViewData["Title"] = "Dashboard";
-
 }
 
 @section LeftNavigation{
@@ -14,7 +13,6 @@
             <div class="col-md-12">
                 <div class="overview-wrap">
                     <h2 class="title-1">Dashboard</h2>
-
                 </div>
             </div>
         </div>
@@ -84,80 +82,7 @@
                 </div>
             </div>
         </div>
-        @*<div class="row">
-            <div class="col-lg-6">
-                <div class="au-card recent-report">
-                    <div class="au-card-inner">
-                        <h3 class="title-2">Bus Location</h3>
-                        <div class="chart-info">
 
-
-                        </div>
-                        <div class="recent-report__chart">
-                           
-                            <!-- MAP DATA-->
-                            <div class="map-data m-b-40">
-                                <h3 class="title-3 m-b-30">
-                                    <i class="zmdi zmdi-map"></i>map data
-                                </h3>
-
-                                <div class="map-wrap m-t-45 m-b-20">
-                                    <div id="vmap" style="height: 284px;"></div>
-                                </div>
-                            </div>
-                            <!-- END MAP DATA-->
-                        </div>
-                    </div>
-                    <div class="row">
-
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="au-card chart-percent-card">
-                    <div class="au-card-inner">
-                        <h3 class="title-2 tm-b-5">Student camera view</h3>
-                        <div class="row no-gutters">
-                            @* <div class="col-xl-6">
-                                    <div class="chart-note-wrap">
-                                        <div class="chart-note mr-0 d-block">
-                                            <span class="dot dot--blue"></span>
-                                            <span>products</span>
-                                        </div>
-                                        <div class="chart-note mr-0 d-block">
-                                            <span class="dot dot--red"></span>
-                                            <span>services</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            <div class="col-xl-6">
-                                <div class="percent-chart">
-
-                                    <div class="filters">
-                                        <div class="rs-select2--dark rs-select2--md m-r-10 rs-select2--border">
-                                            <select class="js-select2" name="property">
-                                                <option selected="selected">Enter Room No</option>
-                                                <option value="">1</option>
-                                                <option value="">2</option>
-                                            </select>
-                                            <div class="dropDownSelect2"></div>
-                                        </div>
-
-                                    </div>
-                                    <br /><br />
-                                    <video width="400" controls>
-                                        <source src="~/video/class.mp4" type="video/mp4">
-                                        <source src="~/video/class.mp4" type="video/mp4">
-
-
-                                    </video>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>*@
         <div class="row">
             <div class="col-lg-9">
                 <h2 class="title-1 m-b-25">Student info   </h2>
@@ -469,7 +394,6 @@
 
             });
 
-            //=====
             $.ajax({
                 url: '/MessageBoard/MsgDetail',
                 type: 'get',
@@ -524,8 +448,7 @@
                 var frommsg = $("#adminfrom").val();
                 var tomsg = $("#to").val();
                 var msg = $("#msg").val();
-                //alert(tomsg);
-                //alert(compemail);
+
                 $.ajax({
                     url: '/MessageBoard/SendMessage',
                     type: 'post',

@@ -64,7 +64,8 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("Index", "Home");
+					//ModelState.AddModelError(nameof(LoginViewModel.ErrorMessage), "Invalid user name or password!");
+					return RedirectToAction("Index", "Home");
                 }
             }
 
