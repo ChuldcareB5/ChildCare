@@ -15,3 +15,4 @@ namespace ChildCare.MonitoringSystem.Model
         public int RoomId { get; set; } // RoomId
     }
 }
+    

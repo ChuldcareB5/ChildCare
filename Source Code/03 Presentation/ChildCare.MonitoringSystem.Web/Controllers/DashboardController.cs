@@ -1,3 +1,4 @@
+
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -13,24 +14,30 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
+using ChildCare.MonitoringSystem.Core.Models;
 
 namespace ChildCare.MonitoringSystem.Web.Controllers
 {
     [Authorize(Roles = "1")]
     public class DashboardController : Controller
 	{
+		private readonly ApplicationContext applicationContext;
 		private readonly StudentBusiness studentBusiness;
 		private readonly UserBusiness userBusiness;
 		private readonly string profilePicPath = "profilepics";
 		private static List<string> uploadedImages = new List<string>();
 		private readonly IHostingEnvironment environment;
+        private readonly MsgBusiness msgBusiness;
 
-		public DashboardController(StudentBusiness studentBusiness, UserBusiness userBusiness, IHostingEnvironment environment)
+        public DashboardController(StudentBusiness studentBusiness, ApplicationContext applicationContext, UserBusiness userBusiness, IHostingEnvironment environment, MsgBusiness msgBusiness)
 		{
 			this.studentBusiness = studentBusiness;
 			this.userBusiness = userBusiness;
+			this.applicationContext = applicationContext;
 			this.environment = environment;
-		}
+            this.msgBusiness = msgBusiness;
+
+        }
 		public IActionResult StudentRegistration()
 		{
 			return View("StudentRegistration");
@@ -51,8 +58,15 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 		{
 			return View();
 		}
-
-		public IActionResult RoomSchedule()
+        public IActionResult BusTracking()
+        {
+            return View();
+        }
+        public IActionResult StudentTracking()
+        {
+            return View();
+        }
+        public IActionResult RoomSchedule()
 		{
 			return View();
 		}
@@ -66,13 +80,19 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 			return View();
 		}
 
-		public IActionResult BusTracking()
+	
+
+		public ActionResult<Int32> GetUserId()
 		{
-			return View();
+			var userid = this.userBusiness.GetUserId(applicationContext.UserId);
+			return userid;
 		}
+
+
+       
         [HttpPost]
-		public IActionResult StudentRegistration(StudentDetail studentDetail)
-		{
+        public IActionResult StudentRegistration(StudentDetail studentDetail)
+        {
             try
             {
                 string imageName = Guid.NewGuid().ToString() + Path.GetExtension(studentDetail.StudentImg.FileName);
@@ -87,9 +107,9 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
                 StudentModel studentModel = new StudentModel();
                 UserModel userModel = new UserModel();
                 userModel.UserName = studentDetail.UserName;
-                userModel.UserEmail = studentDetail.UserEmail;
-                userModel.UserPassword = studentDetail.UserPassword;
-                userModel.UserMobileNo = studentDetail.UserMobileNo;
+                userModel.UserEmail = studentDetail.UserName;
+                userModel.UserPassword = studentDetail.UserName;
+                userModel.UserMobileNo = studentDetail.UserName;
                 var user = this.userBusiness.AddParent(userModel);
                 studentModel.StudentName = studentDetail.StudentName;
                 studentModel.StudentImg = imageName;
@@ -100,16 +120,19 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
                 studentModel.MotherName = studentDetail.MotherName;
                 studentModel.ParentId = user.UserId;
                 studentModel.Batch = studentDetail.Batch;
-                ModelState.AddModelError(nameof(StudentDetail.ErrorMessage), "Register Successfully");
-                var student = this.studentBusiness.AddStudent(studentModel);
-            }
-            catch
-            {
-                ModelState.AddModelError(nameof(StudentDetail.ErrorMessage), "Failed to register");
-            }
-			
+             var student = this.studentBusiness.AddStudent(studentModel, studentDetail.Sheduleid);
+                ModelState.AddModelError(nameof(StudentDetail.ErrorMessage), "Registered Successfully");
 
-			return View(studentDetail);
-		}
-	}
+            }
+            catch (Exception e)
+            {
+                ModelState.AddModelError(nameof(StudentDetail.ErrorMessage), "Failed to register due to "+e);
+            }
+
+
+
+            return View(studentDetail);
+        }
+        }
 }
+

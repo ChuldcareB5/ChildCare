@@ -1,19 +1,20 @@
-﻿using System;
+﻿using ChildCare.MonitoringSystem.Business;
+using ChildCare.MonitoringSystem.Model;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 using ChildCare.MonitoringSystem.Web.Models;
-using ChildCare.MonitoringSystem.Model;
-using ChildCare.MonitoringSystem.Business;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authorization;
+
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
 using ChildCare.MonitoringSystem.Core.Models;
+using ChildCare.MonitoringSystem.Entity;
 
 namespace ChildCare.MonitoringSystem.Web.Controllers
 {
@@ -35,16 +36,16 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 
 
 
-		public ActionResult<StudentModel> AddStudent(StudentModel studentmodel)
-		{
-			var student = this.studentBusiness.AddStudent(studentmodel);
-			return student;
-		}
+		//public ActionResult<StudentModel> AddStudent(StudentModel studentmodel)
+		//{
+		//	var student = this.studentBusiness.AddStudent(studentmodel);
+		//	return student;
+		//}
 
 
-		public ActionResult<List<StudentModel>> GetStudentDetail()
+		public ActionResult<List<StudentModel>> GetStudentDetail(String batch)
 		{
-			var students = this.studentBusiness.GetStudents();
+			var students = this.studentBusiness.GetStudents(batch);
 			return students;
 		}
 
@@ -59,15 +60,8 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
             var students = this.studentBusiness.GetUsersStudentInfo(applicationContext.UserId);
             return students;
         }
-        public ActionResult<Int32> GetStudentIdByUserId()
-        {
-            var studentid = this.studentBusiness.GetStudentIdByUserId(applicationContext.UserId);
-            return studentid;
-        }
 
-
-
-        [HttpPost]
+		[HttpPost]
         public ActionResult<StudentDetail> StudentUpdate(StudentDetail studentModel,String oldimage)
 		{
 		
@@ -96,21 +90,40 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 			userModel.UserName = studentModel.UserName;
 			userModel.UserName = studentModel.UserName;
 			userModel.UserEmail = studentModel.UserEmail;
-			//userModel.UserPassword = studentDetail.UserPassword;
 			userModel.UserMobileNo = studentModel.UserMobileNo;
 
 			var student = this.studentBusiness.StudentUpdate(studentModel1, userModel);
 			return RedirectToAction("StudentView", "Dashboard");
-
 			//return null;
 		}
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="id"></param>
-		/// <returns></returns>
-		public ActionResult<Int32> StudentDeleteId(int id)
+
+        public ActionResult<StudentLocationModel> GetStudentLocation()
+        {
+            var studentlocation = this.studentBusiness.GetStudentLocation(applicationContext.UserId);
+            return studentlocation;
+        }
+        public ActionResult<List<StudentLocationModel>> GetAllStudentLocation()
+        {
+            var studentlocation = this.studentBusiness.GetAllStudentLocation(applicationContext.UserId);
+            return studentlocation;
+        }
+        public ActionResult<BusLocationModel> GetBusLocation()
+        {
+            var studentlocation = this.studentBusiness.GetBusLocation(applicationContext.UserId);
+            return studentlocation;
+        }public ActionResult<List<BusLocationModel>> GetAllBusLocation()
+        {
+            var studentlocation = this.studentBusiness.GetAllBusLocation(applicationContext.UserId);
+            return studentlocation;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public ActionResult<Int32> StudentDeleteId(int id)
 		{
 			var students = this.studentBusiness.DeleteId(id);
 			return students;

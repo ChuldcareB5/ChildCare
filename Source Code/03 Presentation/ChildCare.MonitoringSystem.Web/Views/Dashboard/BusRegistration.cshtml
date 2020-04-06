@@ -1,0 +1,439 @@
+﻿@model StudentDetail;
+@{
+    ViewData["Title"] = "BusRegistration";
+}
+
+@section LeftNavigation{
+    <partial name="_AdminLeftNavigation" />
+}
+<!-- MAIN CONTENT-->
+<div class="main-content">
+    @*<div class="section__content section__content--p30">*@
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header">
+                <strong align="center">Student Registration Form</strong>
+            </div>
+            <div class="card-body card-block">
+                @*@foreach (var item in Model.Student)
+                    {*@
+
+                <form asp-controller="Dashboard" asp-action="StudentRegistration" id="studentForm" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="nf-student" class=" form-control-label">Student Name *</label>
+                        <input asp-for="StudentName" type="text" placeholder="Enter Student Name" title="Enter Student Name" class="form-control" required>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="nf-student-img" class=" form-control-label">Student Profile</label>
+                        <input asp-for="StudentImg" type="file" class="form-control" title="Choose Student Profile Picture">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="address" class=" form-control-label">Address *</label>
+                        <textarea asp-for="StudentAddress" rows="5" class="form-control" title="Enter Student Address"></textarea>
+
+                    </div>
+                    @*<label><input type="radio" name="gender" class="gender" value="0">Male</label>
+                        <label><input type="radio" name="gender" class="gender" value="1"> Female</label>*@
+                    <div class="form-group">
+                        <label>Gender  </label>
+                        <br />
+                        <input asp-for="StudentGender" type="radio" class="mygender" value="male" />Male&nbsp;
+                        <input asp-for="StudentGender" type="radio" class="mygender" value="female" />Female&nbsp;
+                        <input asp-for="StudentGender" type="radio" class="mygender" value="others" />Others&nbsp;
+
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dob" class=" form-control-label">Date-Of-Birth *</label>
+                        <input asp-for="StudentDob" type="date" class="form-control" />
+
+                    </div>
+                    <div class="form-group">
+                        <label for="fname" class=" form-control-label">Father Name/Guardian Name *</label>
+                        <input asp-for="FatherName" type="text" class="form-control" />
+
+                    </div>
+                    <div class="form-group">
+                        <label for="mname" class=" form-control-label">Mother Name </label>
+                        <input asp-for="MotherName" type="text" class="form-control" />
+
+                    </div>
+                    <div class="form-group">
+                        <label for="mname" class=" form-control-label">User Name *</label>
+                        <div class="input-group">
+                            @*@Html.TextBoxFor(x => x.UserName)*@
+                            <input asp-for="UserName" type="text" placeholder="Username" class="form-control">
+                            <div class="input-group-addon">
+                                <i class="fa fa-user"></i>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="nf-email" class=" form-control-label">Email *</label>
+                        <div class="input-group">
+                            <input asp-for="UserEmail" type="email" placeholder="Enter Email.." class="form-control">
+                            <div class="input-group-addon">
+                                <i class="fa fa-envelope"></i>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="form-group">
+                        <label for="nf-password" class=" form-control-label">Password *</label>
+                        <div class="input-group">
+                            <input asp-for="UserPassword" type="password" placeholder="Enter Password.." class="form-control">
+                            <div class="input-group-addon">
+                                <i class="fa fa-asterisk"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="mobileno" class=" form-control-label">Mobile Number</label>
+                        <input asp-for="UserMobileNo" type="tel" class="form-control" />
+
+                    </div>
+
+                    <div class="form-group">
+                        <label>Batch</label>
+                        @*  <input class="form-control" type="time" name="batch" id="batch" required>*@
+                        <select asp-for="Batch" id="sbatch" class="form-control">
+                            <option value="B1">B1</option>
+                            <option value="B2">B2</option>
+                            <option value="B3">B3</option>
+                            <option value="B4">B4</option>
+                            <option value="B5">B5</option>
+                        </select>
+                    </div>
+
+                    @*<div class="form-group">
+                            <label>Bus</label>
+                            <select asp-for="Bus" id="sbus" class="form-control">
+                                <option value="Bus 1">Bus 1</option>
+                                <option value="Bus 2">Bus 2</option>
+                                <option value="Bus 3">Bus 3</option>
+                            </select>
+                        </div>*@
+
+
+                    <input type="submit" class="btn btn-primary " />
+                    <button type="reset" class="btn btn-success ">
+                        Reset
+                    </button>
+                    <span asp-validation-for="ErrorMessage" class="text-danger"></span>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- END MAIN CONTENT-->
+<div id="overlay" style="z-index:4;">
+    <div id="test-form-div ">
+        <div id="test-form" class="">
+            <div class="form-container">
+                <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
+                <h4 align="center" class="text-primary">Profile View</h4><hr />
+                <form action="Homepage.html" method="post">
+                    <div class="form-group" align="center">
+                        <div class="image">
+                            <img src="~/images/img/user.png" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>User Name</label>
+                        <label class="form-control" name="fname" id="fname">Purshotham</label>
+                    </div>
+                    <div class="form-group">
+                        <label>User Email</label>
+                        <label class="form-control" name="email" id="fname">Pursh123@gmail.com</label>
+                    </div>
+                    <div class="form-group">
+                        <label>Mobile No</label>
+                        <label class="form-control" name="number" id="pwd">9653247815</label>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--close Account popup-->
+    <!--start setting popup-->
+    <div id="setting" class="">
+        <div class="form-container">
+            <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
+            <h4 align="center" class="text-primary">Password Setting</h4><hr />
+            <form action="Homepage.html" method="post">
+                <div class="form-group">
+                    <label>Old Password</label>
+                    <input class="form-control" type="text" name="fname" id="fname" required>
+                </div>
+                <div class="form-group">
+                    <label>New Password</label>
+                    <input class="form-control" type="email" name="email" id="fname" required>
+                </div>
+                <div class="form-group">
+                    <label for="pwd">Confirm Password</label>
+                    <input class="form-control" type="tel" name="number" id="pwd" required>
+                </div>
+                <button type="submit" class="btn btn-block btn-primary" id="reg">SUBMIT </button><br>
+                <a href="#moresetting" class="pull-right" onclick="showmoresetting()">Set More Details</a>
+            </form>
+        </div>
+    </div>
+    <!--close setting popup-->
+    <!--start more setting popup-->
+    <div id="moresetting" class="">
+        <div class="form-container">
+            <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
+            <h4 align="center" class="text-primary">User Detail Setting</h4><hr />
+            <form action="Homepage.html" method="post">
+                <div class="form-group">
+                    <label>User Name</label>
+                    <input class="form-control" type="text" name="fname" id="fname" required>
+                </div>
+                <div class="form-group">
+                    <label>User Email</label>
+                    <input class="form-control" type="email" name="email" id="fname" required>
+                </div>
+                <div class="form-group">
+                    <label>Address</label>
+                    <input class="form-control" type="email" name="email" id="fname" required>
+                </div>
+                <div class="form-group">
+                    <label>Mobile No</label>
+                    <input class="form-control" type="email" name="email" id="fname" required>
+                </div>
+                <button type="submit" class="btn btn-block btn-primary" id="reg">EDIT</button>
+            </form>
+        </div>
+    </div>
+    <!--close more setting popup-->
+</div>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            //$("#userlogin").click(function () {
+            //    var name = $("#name").val();
+            //    var img = $("#img").val();
+            //    var address = $("#address").val();
+            //    //var gender = $(".mygender").val();
+            //    //var ele = document.getElementsByClassName('mygender');
+            //    //var gender = $(ele).val();
+            //    //debugger
+            //    // var gender = $("[type='radio']: checked").val();
+            //    //var gender = $("input[name='gender']: checked").val();
+            //    if ($("input[type='radio'].mygender").is(':checked')) {
+            //        var card_type = $("input[type='radio'].mygender:checked").val();
+
+            //    }
+            //    var dob = $("#dob").val();
+            //    var fname = $("#fname").val();
+            //    var mname = $("#mname").val();
+            //    var uname = $("#uname").val();
+            //    var uemail = $("#uemail").val();
+            //    var upassword = $("#upassword").val();
+            //    var umobileno = $("#umobileno").val();
+            //    var batch = $("#sbatch").val();
+
+            //    alert(name);
+            //    alert(img);
+            //    alert(address);
+            //    alert(card_type);
+            //    alert(dob);
+            //    alert(fname);
+
+
+            //    $.ajax({
+            //        url: '/User/AddParent',
+            //        type: 'post',
+            //        dataType: 'json',
+            //        data: {
+            //            UserName: uname,
+            //            UserEmail: uemail,
+            //            UserPassword: upassword,
+            //            UserMobileNo: umobileno,
+            //        },
+            //        success: function (result) {
+            //            alert("Parent Added");
+            //            var parentId = result;
+            //            $.ajax({
+
+            //                url: '/Student/AddStudent',
+            //                type: 'post',
+            //                dataType: 'json',
+            //                data:
+            //                {
+            //                    StudentName: name,
+            //                    StudentImg: img,
+            //                    StudentAddress: address,
+            //                    StudentGender: card_type,
+            //                    StudentDob: dob,
+            //                    FatherName: fname,
+            //                    MotherName: mname,
+            //                    ParentId: parentId,
+            //                    Batch: batch,
+            //                },
+            //                success: function (result) {
+
+            //                    alert("Student Added");
+            //                },
+            //            });
+            //        },
+            //    });
+            //});
+
+        });
+
+
+        function search(string) {
+            window.find(string);
+        }
+
+        function showtest() {
+            $('#test-form').animate({ top: '15%' }, 500);
+            $('#test-form-div').animate({ top: '20%' }, 500);
+            $('.account-dropdown').hide();
+            document.getElementById("overlay").style.display = "block";
+        }
+        function hidetest() {
+            $('#test-form').animate({ top: '-500%' }, 500);
+            document.getElementById("overlay").style.display = "none";
+        }
+
+        function showsetting() {
+            $('#setting').animate({ top: '15%' }, 500);
+            $('.account-dropdown').hide();
+            document.getElementById("overlay").style.display = "block";
+        }
+        function hidesetting() {
+            $('#setting').animate({ top: '-500%' }, 500);
+            document.getElementById("overlay").style.display = "none";
+        }
+        function showmoresetting() {
+            $('#moresetting').animate({ top: '15%' }, 500);
+            $('.account-dropdown').hide();
+            document.getElementById("overlay").style.display = "block";
+        }
+        function hidemoresetting() {
+            $('#moresetting').animate({ top: '-500%' }, 500);
+            document.getElementById("overlay").style.display = "none";
+        }
+
+        function reset() {
+            document.getElementById('studentForm').reset();
+        }
+    </script>
+}
+
+@section Styles{
+    <style>
+        #test-form {
+            position: fixed;
+            top: -500%;
+            width: 35%;
+            margin-left: 30%;
+            background-color: white;
+            box-shadow: 2px 3px 8px slategrey;
+            border-radius: 5px;
+            padding: 35px;
+        }
+
+        #setting {
+            position: fixed;
+            top: -500%;
+            width: 35%;
+            margin-left: 30%;
+            background-color: white;
+            box-shadow: 2px 3px 8px slategrey;
+            border-radius: 5px;
+            padding: 35px;
+        }
+
+        #moresetting {
+            position: fixed;
+            top: -500%;
+            width: 35%;
+            margin-left: 30%;
+            background-color: white;
+            box-shadow: 2px 3px 8px slategrey;
+            border-radius: 5px;
+            padding: 35px;
+        }
+
+        #test-form-div {
+            position: fixed;
+            top: -500%;
+            max-width: 1500px;
+            max-height: 1500px;
+            min-width: 1500px;
+            min-height: 1500px;
+            background-color: black;
+        }
+
+        form.example input[type=text] {
+            padding: 8px;
+            font-size: 17px;
+            border: 1px solid grey;
+            float: left;
+            width: 70%;
+            height: 60%;
+            background: white;
+        }
+
+        form.example button {
+            float: left;
+            width: 20%;
+            height: 70%;
+            padding: 10px;
+            background: #2196F3;
+            color: white;
+            font-size: 17px;
+            border: 1px solid grey;
+            border-left: none;
+            cursor: pointer;
+        }
+
+            form.example button:hover {
+                background: #0b7dda;
+            }
+
+        form.example::after {
+            content: " ";
+            clear: both;
+            display: table;
+        }
+
+        #overlay {
+            position: fixed; /* Sit on top of the page content */
+            display: none; /* Hidden by default */
+            width: 100%; /* Full width (cover the whole page) */
+            height: 100%; /* Full height (cover the whole page) */
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+            z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+            cursor: pointer; /* Add a pointer on hover */
+            overflow: scroll;
+        }
+    </style>
+}
+
+
+
+
+
+
+
+
+
+

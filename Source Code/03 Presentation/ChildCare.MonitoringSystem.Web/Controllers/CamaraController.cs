@@ -8,11 +8,16 @@ using Microsoft.AspNetCore.Authorization;
 namespace ChildCare.MonitoringSystem.Web.Controllers
 {
 	[Authorize]
-	public class CamaraController
+	public class CamaraController : Controller
 	{
 		public CamaraController()
 		{
 				
+		}
+
+		public IActionResult Cam1()
+		{
+			return View();
 		}
 
 	}

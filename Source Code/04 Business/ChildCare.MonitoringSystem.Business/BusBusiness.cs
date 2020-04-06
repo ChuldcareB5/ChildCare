@@ -13,12 +13,14 @@ namespace ChildCare.MonitoringSystem.Business
 	public class BusBusiness
 	{
 		private readonly IRepository<Bus> busRepository;//Connect User Repository
+		private readonly IRepository<BusSchedule> busschedulerepository;
 		private readonly IUnitOfWork unitOfWork;
 		private List<StudentModel> students;
 
 		public BusBusiness(IUnitOfWork unitOfWork)
 		{
 			this.busRepository = unitOfWork.GetRepository<IRepository<Bus>>();//Get User From Repository
+			this.busschedulerepository = unitOfWork.GetRepository<IRepository<BusSchedule>>();
 			this.unitOfWork = unitOfWork;//Instantiate unitOfWork Variable
 		}
 
@@ -134,5 +136,19 @@ namespace ChildCare.MonitoringSystem.Business
 
 
         }
-    }
+
+		public List<BusScheduleModel> getbusshedule(String To,String From)
+		{
+			var busschedule = this.busschedulerepository.GetBy(x => x.ToBusSchedule == To && x.FromBusSchedule == From);
+			var buses = new List<BusScheduleModel>();
+			foreach(var Bus in busschedule)
+			{
+				var bus=Mapper.Map<BusScheduleModel>(Bus);
+				buses.Add(bus);
+			}
+			return buses;
+		}
+
+
+	}
 }

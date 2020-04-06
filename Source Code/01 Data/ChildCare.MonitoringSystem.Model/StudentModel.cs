@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -16,6 +17,7 @@ namespace ChildCare.MonitoringSystem.Model
         public string MotherName { get; set; } // MotherName (length: 100)
         public int ParentId { get; set; } // ParentId
         public string Batch { get; set; } // Batch (length: 100)
+        public int BusId { get; set; } // BusId (length: 100)
 
 		public UserModel Parent { get; set; } // FK_Student_User
 	}

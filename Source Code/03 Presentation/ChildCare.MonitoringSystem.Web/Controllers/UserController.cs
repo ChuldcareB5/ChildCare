@@ -7,12 +7,15 @@ using ChildCare.MonitoringSystem.Core.Models;
 using ChildCare.MonitoringSystem.Entity;
 using ChildCare.MonitoringSystem.Model;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace ChildCare.MonitoringSystem.Web.Controllers
 {
-	[Authorize()]
+    
+    //[Authorize()]
     public class UserController : Controller
     {
 		
@@ -45,12 +48,16 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 		{
 			return View();
 		}
-		public ActionResult<UserModel> Get(int userId)
+        public IActionResult StudentTracking()
+        {
+            return View();
+        }
+        public ActionResult<UserModel> Get(int userId)
 		{
 			return this.userBusiness.GetUserById(userId);
 		}
 
-		[HttpPost]
+	
 		public ActionResult<Int32> AddParent(UserModel usermodel)
 		{
 			var user = this.userBusiness.AddParent(usermodel);
@@ -74,9 +81,19 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
             return user;
         }
 
+		public ActionResult<UserModel> UserUpdate(UserModel userModel)
+		{
+			var user = this.userBusiness.UserUpdate(userModel);
+			return user;
+		}
 
+		public ActionResult<UserModel> UserPasswordUpdate(UserModel userModel)
+		{
+			var user = this.userBusiness.UserPasswordUpdate(userModel);
+			return user;
+		}
 
-        [HttpPost]
+		[HttpPost]
 		public IActionResult StudentLogin(UserModel userModel)
 		{
 			return View("HomePage");
@@ -93,8 +110,14 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
             return us;
 
         }
-       
+
+		public ActionResult<UserModel> GetUsersInfo()
+		{
+			var user = this.userBusiness.GetUsersInfo(applicationContext.UserId);
+			return user;
+		}
 
 
-    }
+
+	}
 }

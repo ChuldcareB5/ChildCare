@@ -38,6 +38,18 @@ namespace ChildCare.MonitoringSystem.Web
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
+            services.AddCors(action => action
+               .AddPolicy("CPaaSPolicy", policy => policy
+                   .AllowAnyHeader()
+                   .AllowAnyMethod()
+                   .AllowAnyOrigin()
+                   .AllowCredentials()
+               ));
+
+            services.AddSignalR();
+
+            services.AddHttpContextAccessor();
+
             services.AddAuthentication(options =>
             {
                 options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
@@ -79,6 +91,7 @@ namespace ChildCare.MonitoringSystem.Web
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
 
             AutoMapperConfig.Bootstrap();
         }

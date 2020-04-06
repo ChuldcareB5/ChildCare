@@ -23,6 +23,8 @@ namespace ChildCare.MonitoringSystem.Web.Models
 		public string UserPassword { get; set; } // UserPassword (length: 100)
 		public string UserMobileNo { get; set; } // UserMobileNo (length: 12)
         public string ErrorMessage { get; set; }
-
+        public int Sheduleid { get; set; }
+        public string Toaddress { get; set; }
+        public string Fromaddress { get; set; }
     }
 }

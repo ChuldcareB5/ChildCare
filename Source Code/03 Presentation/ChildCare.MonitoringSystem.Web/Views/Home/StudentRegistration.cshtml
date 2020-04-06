@@ -1,0 +1,802 @@
+﻿@*@model ChildCare.MonitoringSystem.Model.UserModel*@
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = null;
+}
+
+<head>
+    <!-- Fontfaces CSS-->
+    <link href="~/css/font-face.css" rel="stylesheet" media="all">
+    <link href="~/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="~/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="~/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+
+    @*<script src="~/new/jquery/jquery.min.js"></script>
+        <script src="~/new/nouislider/nouislider.min.js"></script>
+        <script src="~/new/wnumb/wNumb.js"></script>
+        <script src="~/new/jquery-validation/dist/jquery.validate.min.js"></script>
+        <script src="~/new/jquery-validation/dist/additional-methods.min.js"></script>
+        <link rel="stylesheet" href="~/fonts/material-icon/css/material-design-iconic-font.min.css">
+        <link rel="stylesheet" href="~/css/nouislider.min.css">*@
+    <!-- Bootstrap CSS-->
+    <link href="~/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+    @*<link href="~/css/css/style.css.map" rel="stylesheet" media="all">*@
+    <!-- Vendor ~/CSS-->
+    <link href="~/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+    <link href="~/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+    <link href="~/vendor/wow/animate.css" rel="stylesheet" media="all">
+    <link href="~/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+    <link href="~/vendor/slick/slick.css" rel="stylesheet" media="all">
+    <link href="~/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="~/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+    <link href="~/vendor/vector-map/jqvmap.min.css" rel="stylesheet" media="all">
+    <!-- Main CSS-->
+    <link href="~/css/theme.css" rel="stylesheet" media="all">
+</head>
+<div class="page-wrapper">
+    <!-- HEADER MOBILE-->
+    <header class="header-mobile d-block d-lg-none">
+        <div class="header-mobile__bar">
+            <div class="container-fluid">
+                <div class="header-mobile-inner">
+                    <a class="logo" href="index.html">
+
+                    </a>
+                    <button class="hamburger hamburger--slider" type="button">
+                        <span class="hamburger-box">
+                            <span class="hamburger-inner"></span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar-mobile">
+            <div class="container-fluid">
+                <ul class="navbar-mobile__list list-unstyled">
+                    <li class="has-sub">
+                        <a asp-area="" asp-controller="Home" asp-action="Dashboard">
+                            <i class="fas fa-tachometer-alt"></i>Dashboard
+                        </a>
+                    </li>
+                    <li class="has-sub">
+                        <a class="js-arrow">
+                            <i class="far fa-edit"></i>Registration
+                        </a>
+                        <ul class="list-unstyled navbar__sub-list js-sub-list">
+                            <li>
+                                <a asp-area="" asp-controller="Home" asp-action="Form">Parent Registration</a>
+                            </li>
+
+                        </ul>
+                        <ul class="list-unstyled navbar__sub-list js-sub-list">
+                            <li>
+                                <a asp-area="" asp-controller="Home" asp-action="Form1">Teacher Registration</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a asp-area="" asp-controller="Home" asp-action="StudentDetails">
+                            <i class="fas fa-user"></i>Student View
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/Home/CamaraView">
+                            <i class="fas fa-camera"></i>Student Camera View
+                        </a>
+                    </li>
+                    @*<li>
+            <a href="~/Home/Calender">
+                <i class="fas fa-calendar-alt"></i>Calendar
+            </a>
+        </li>*@
+                    <li class="has-sub">
+                        <a class="js-arrow">
+                            <i class="fa fa-location-arrow"></i>Location
+                        </a>
+                        <ul class="list-unstyled navbar__sub-list js-sub-list">
+                            <li>
+                                <a asp-area="" asp-controller="Home" asp-action="BusTracking">Bus Location</a>
+                            </li>
+                        </ul>
+                        <ul class="list-unstyled navbar__sub-list js-sub-list">
+                            <li>
+                                <a asp-area="" asp-controller="Home" asp-action="BusTracking">Student Location</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="~/Home/RoomSchedule">
+                            <i class="fas fa-home"></i>Room Schedule
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/Home/BusSchedule">
+                            <i class="fas fa-bus"></i>Bus Schedule
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- END HEADER MOBILE-->
+    <!-- MENU SIDEBAR-->
+    <aside class="menu-sidebar d-none d-lg-block">
+        <div class="logo" style="background-color:white;">
+            <p style="font-family: 'Britannic Bold'; font-size: 20px; margin-left:10%"><img src="~/images/img/Logopic3a.jpg" style="width: 26%; height:40%;" />ChildCare System</p>
+        </div>
+        <div class="menu-sidebar__content js-scrollbar1">
+            <nav class="navbar-sidebar">
+                <ul class="list-unstyled navbar__list">
+                    <li class="active has-sub">
+                        <a asp-area="" asp-controller="Home" asp-action="Dashboard">
+                            <i class="fas fa-edit"></i>Dashboard
+                        </a>
+                    </li>
+                    <li class="has-sub">
+
+                        <a class="js-arrow">
+                            <i class="far fa-edit"></i>Registration
+                        </a>
+                        <ul class="list-unstyled navbar__sub-list js-sub-list">
+                            <li>
+                                <a asp-area="" asp-controller="Home" asp-action="Form">Parent Registration</a>
+                            </li>
+                        </ul>
+                        <ul class="list-unstyled navbar__sub-list js-sub-list">
+                            <li>
+                                <a asp-area="" asp-controller="Home" asp-action="Form1">Teacher Registration</a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a asp-area="" asp-controller="Home" asp-action="StudentDetails">
+                            <i class="fas fa-user"></i>Student View
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/Home/CamaraView">
+                            <i class="fas fa-camera"></i>Student Camera View
+                        </a>
+                    </li>
+                    <li class="has-sub">
+                        <a class="js-arrow">
+                            <i class="far fa-location-arrow"></i>Location
+                        </a>
+                        <ul class="list-unstyled navbar__sub-list js-sub-list">
+                            <li>
+                                <a asp-area="" asp-controller="Home" asp-action="BusTracking">Bus Location</a>
+                            </li>
+
+                        </ul>
+                        <ul class="list-unstyled navbar__sub-list js-sub-list">
+                            <li>
+                                <a asp-area="" asp-controller="Home" asp-action="BusTracking">Student Location</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="~/Home/RoomSchedule">
+                            <i class="fas fa-home"></i>Room Schedule
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/Home/BusSchedule">
+                            <i class="fas fa-bus"></i>Bus Schedule
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </aside>
+    <!-- END MENU SIDEBAR-->
+    <!-- PAGE CONTAINER-->
+    <div class="page-container">
+        <!-- HEADER DESKTOP-->
+        <header class="header-desktop">
+            <div class="section__content section__content--p30">
+                <div class="container-fluid">
+                    <div class="header-wrap">
+                        <form class="example" action="/action_page.php" style="max-width:300px">
+                            <input type="text" placeholder="Search.." name="search2">
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                        </form>&nbsp;&nbsp;&nbsp;
+                        <div class="header-button">
+                            <div class="noti-wrap">
+                                <div class="noti__item js-item-menu">
+                                    <i class="zmdi zmdi-comment-more"></i>
+                                    <span class="quantity">1</span>
+                                    <div class="mess-dropdown js-dropdown">
+                                        <div class="mess__title">
+                                            <p>You have 2 news message</p>
+                                        </div>
+                                        <div class="mess__item">
+                                            <div class="image img-cir img-40">
+                                                <img src="~/images/icon/avatar-06.jpg" alt="Michelle Moreno" />
+                                            </div>
+                                            <div class="content">
+                                                <h6>Michelle Moreno</h6>
+                                                <p>Have sent a photo</p>
+                                                <span class="time">3 min ago</span>
+                                            </div>
+                                        </div>
+                                        <div class="mess__item">
+                                            <div class="image img-cir img-40">
+                                                <img src="~/images/icon/avatar-04.jpg" alt="Diane Myers" />
+                                            </div>
+                                            <div class="content">
+                                                <h6>Diane Myers</h6>
+                                                <p>You are now connected on message</p>
+                                                <span class="time">Yesterday</span>
+                                            </div>
+                                        </div>
+                                        <div class="mess__footer">
+                                            <a href="#">View all messages</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                @*<div class="noti__item js-item-menu">
+                                        <i class="zmdi zmdi-email"></i>
+                                        <span class="quantity">1</span>
+                                        <div class="email-dropdown js-dropdown">
+                                            <div class="email__title">
+                                                <p>You have 3 New Emails</p>
+                                            </div>
+                                            <div class="email__item">
+                                                <div class="image img-cir img-40">
+                                                    <img src="~/images/icon/avatar-06.jpg" alt="Cynthia Harvey" />
+                                                </div>
+                                                <div class="content">
+                                                    <p>Meeting about new dashboard...</p>
+                                                    <span>Cynthia Harvey, 3 min ago</span>
+                                                </div>
+                                            </div>
+                                            <div class="email__item">
+                                                <div class="image img-cir img-40">
+                                                    <img src="~/images/icon/avatar-05.jpg" alt="Cynthia Harvey" />
+                                                </div>
+                                                <div class="content">
+                                                    <p>Meeting about new dashboard...</p>
+                                                    <span>Cynthia Harvey, Yesterday</span>
+                                                </div>
+                                            </div>
+                                            <div class="email__item">
+                                                <div class="image img-cir img-40">
+                                                    <img src="~/images/icon/avatar-04.jpg" alt="Cynthia Harvey" />
+                                                </div>
+                                                <div class="content">
+                                                    <p>Meeting about new dashboard...</p>
+                                                    <span>Cynthia Harvey, April 12,,2018</span>
+                                                </div>
+                                            </div>
+                                            <div class="email__footer">
+                                                <a href="#">See all emails</a>
+                                            </div>
+                                        </div>
+                                    </div>*@
+
+                                <div class="noti__item js-item-menu">
+                                    <i class="zmdi zmdi-notifications"></i>
+                                    <span class="quantity">3</span>
+                                    <div class="notifi-dropdown js-dropdown">
+                                        <div class="notifi__title">
+                                            <p>You have 3 Notifications</p>
+                                        </div>
+                                        <div class="notifi__item">
+                                            <div class="bg-c1 img-cir img-40">
+                                                <i class="zmdi zmdi-email-open"></i>
+                                            </div>
+                                            <div class="content">
+                                                <p>You got a email notification</p>
+                                                <span class="date">April 12, 2018 06:50</span>
+                                            </div>
+                                        </div>
+                                        <div class="notifi__item">
+                                            <div class="bg-c2 img-cir img-40">
+                                                <i class="zmdi zmdi-account-box"></i>
+                                            </div>
+                                            <div class="content">
+                                                <p>Your account has been blocked</p>
+                                                <span class="date">April 12, 2018 06:50</span>
+                                            </div>
+                                        </div>
+                                        <div class="notifi__item">
+                                            <div class="bg-c3 img-cir img-40">
+                                                <i class="zmdi zmdi-file-text"></i>
+                                            </div>
+                                            <div class="content">
+                                                <p>You got a new file</p>
+                                                <span class="date">April 12, 2018 06:50</span>
+                                            </div>
+                                        </div>
+                                        <div class="notifi__footer">
+                                            <a href="#">All notifications</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="account-wrap">
+                                <div class="account-item clearfix js-item-menu">
+                                    <div class="image">
+                                        <img src="~/images/img/user.png" style="width:80%; height:80%" alt="John Doe" />
+                                    </div>
+                                    <div class="account-dropdown js-dropdown">
+                                        <div class="info clearfix">
+                                            <div class="image">
+                                                <a href="#">
+                                                    <img src="~/images/img/user.png" alt="John Doe" />
+                                                </a>
+                                            </div>
+                                            <div class="content">
+                                                <h5 class="name">
+                                                    <a href="#">purshotham</a>
+                                                </h5>
+                                                <span class="email">purshotham123@gmail.com</span>
+                                            </div>
+                                        </div>
+                                        <div class="account-dropdown__body">
+
+                                            <div class="account-dropdown__item">
+                                                <a href="#test-form" onclick="showtest()">
+                                                    <i class="zmdi zmdi-account"></i>Account
+                                                </a>
+                                            </div>
+                                            <div class="account-dropdown__item">
+                                                <a href="#setting" onclick="showsetting()">
+                                                    <i class="zmdi zmdi-settings"></i>Setting
+                                                </a>
+                                            </div>
+
+                                        </div>
+                                        <div class="account-dropdown__footer">
+                                            <a href="#">
+                                                <i class="zmdi zmdi-power"></i>Logout
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- HEADER DESKTOP-->
+        <!-- MAIN CONTENT-->
+        <div class="main-content">
+            @*<div class="section__content section__content--p30">*@
+            <div class="container-fluid">
+
+
+
+
+
+                <div class="card">
+                    <div class="card-header">
+                        <strong align="center">Student Registration Form</strong>
+                    </div>
+                    <div class="card-body card-block">
+                        @*@foreach (var item in Model.Student)
+                            {*@
+
+                        <form id="studentForm" enctype="multipart/form-data" >
+                            <div class="form-group">
+                                <label for="nf-student" class=" form-control-label">Student Name *</label>
+                                <input type="text" id="name" name="nf-student" placeholder="Enter Student Name" title="Enter Student Name" class="form-control" required>
+
+                            </div>
+                            <div class="form-group">
+                                <label for="nf-student-img" class=" form-control-label">Student Profile</label>
+                                <input type="file" id="img" name="nf-student-img" class="form-control" title="Choose Student Profile Picture">
+
+                            </div>
+                            <div class="form-group">
+                                <label for="address" class=" form-control-label">Address *</label>
+                                <textarea id="address" rows="5" name="address" class="form-control" title="Enter Student Address" required></textarea>
+
+                            </div>
+                            @*<label><input type="radio" name="gender" class="gender" value="0">Male</label>
+        <label><input type="radio" name="gender" class="gender" value="1"> Female</label>*@
+                            <div class="form-group">
+                                <label>Gender  </label>
+
+                            <input type="radio" class="gender" name="gender" value="male" />Male
+                            <input type="radio" class="gender"name="gender" value="female" />Female
+                            <input type="radio" class="gender" name="gender" value="others" />Others
+                                </div>
+                                <div class="form-group">
+                                    <label for="dob" class=" form-control-label">Date-Of-Birth *</label>
+                                    <input type="date" id="dob" name="dob" class="form-control" required />
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="fname" class=" form-control-label">Father Name/Guardian Name *</label>
+                                    <input type="text" id="fname" name="fname" class="form-control" required />
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="mname" class=" form-control-label">Mother Name </label>
+                                    <input type="text" id="mname" name="mname" class="form-control" />
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="mname" class=" form-control-label">User Name *</label>
+                                    <div class="input-group">
+                                        @*@Html.TextBoxFor(x => x.UserName)*@
+                                        <input type="text" id="uname" name="UserName" placeholder="Username" class="form-control" required>
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-user"></i>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nf-email" class=" form-control-label">Email *</label>
+                                    <div class="input-group">
+                                        <input type="email" id="uemail" name="nf-email" placeholder="Enter Email.." class="form-control" required>
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-envelope"></i>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="nf-password" class=" form-control-label">Password *</label>
+                                    <div class="input-group">
+                                        <input type="password" id="upassword" name="nf-password" placeholder="Enter Password.." class="form-control" required>
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-asterisk"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="mobileno" class=" form-control-label">Mobile Number</label>
+                                    <input type="tel" id="umobileno" name="mobileno" class="form-control" />
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Batch</label>
+                                    @*  <input class="form-control" type="time" name="batch" id="batch" required>*@
+                                    <select name="scheduleTime" id="sbatch" class="form-control">
+                                        <option value="B1">B1</option>
+                                        <option value="B2">B2</option>
+                                        <option value="B3">B3</option>
+                                        <option value="B4">B4</option>
+                                        <option value="B5">B5</option>
+                                    </select>
+                                </div>
+
+                        </form>
+                
+                    </div>
+                    <div class="card-footer">
+                        <button type="button" id="userlogin" class="btn btn-primary " >
+                            Submit
+                        </button>
+                        <button type="reset" onclick="reset()" class="btn btn-success ">
+                            Reset
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END MAIN CONTENT-->
+    <!-- END PAGE CONTAINER-->
+</div>
+
+
+<!--start Account popup-->
+<div id="test-form-div ">
+    <div id="test-form" class="">
+        <div class="form-container">
+            <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
+            <h2 align="center" class="text-primary">Profile View</h2><hr />
+            <form action="Homepage.html" method="post">
+                <div class="form-group" align="center">
+                    <div class="image">
+                        <img src="~/images/img/user.png" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="text-primary">User Name</label>
+                    <label class="form-control" name="fname" id="fname">Purshotham</label>
+                </div>
+                <div class="form-group">
+                    <label class="text-primary">User Email</label>
+                    <label class="form-control" name="email" id="fname">Pursh123@gmail.com</label>
+                </div>
+                <div class="form-group">
+                    <label class="text-primary">Mobile No</label>
+                    <label class="form-control" name="number" id="pwd">9653247815</label>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+<!--close Account popup-->
+<!--start setting popup-->
+<div id="setting" class="">
+    <div class="form-container">
+        <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
+        <h2 align="center" class="text-primary">Password Setting</h2><hr />
+        <form action="Homepage.html" method="post">
+            <div class="form-group">
+                <label>Old Password</label>
+                <input class="form-control" type="text" name="fname" id="fname" required>
+            </div>
+            <div class="form-group">
+                <label>New Password</label>
+                <input class="form-control" type="email" name="email" id="fname" required>
+            </div>
+            <div class="form-group">
+                <label for="pwd">Confirm Password</label>
+                <input class="form-control" type="tel" name="number" id="pwd" required>
+            </div>
+            <button type="submit" class="btn btn-block btn-primary" id="reg">SUBMIT </button><br>
+            <a href="#moresetting" class="pull-right" onclick="showmoresetting()">Set More Details</a>
+        </form>
+    </div>
+</div>
+<!--close setting popup-->
+<!--start more setting popup-->
+<div id="moresetting" class="">
+    <div class="form-container">
+        <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
+        <h2 align="center" class="text-primary">User Detail Setting</h2><hr />
+        <form action="Homepage.html" method="post">
+            <div class="form-group">
+                <label>User Name</label>
+                <input class="form-control" type="text" name="fname" id="fname" required>
+            </div>
+            <div class="form-group">
+                <label>User Email</label>
+                <input class="form-control" type="email" name="email" id="fname" required>
+            </div>
+            <div class="form-group">
+                <label>Address</label>
+                <input class="form-control" type="email" name="email" id="fname" required>
+            </div>
+            <div class="form-group">
+                <label>Mobile No</label>
+                <input class="form-control" type="email" name="email" id="fname" required>
+            </div>
+            <button type="submit" class="btn btn-block btn-primary" id="reg">EDIT</button>
+        </form>
+    </div>
+</div>
+<!--close more setting popup-->
+<!-- Jquery JS-->
+@*<script src="~/vendor/jquery-3.2.1.min.js"></script>*@
+<script src="~/js/jquery.min.js"></script>
+<!-- Bootstrap JS-->
+<script src="~/vendor/bootstrap-4.1/popper.min.js"></script>
+<script src="~/vendor/bootstrap-4.1/bootstrap.min.js"></script>
+<!-- Vendor JS       -->
+<script src="~/vendor/slick/slick.min.js">
+</script>
+<script src="~/vendor/wow/wow.min.js"></script>
+<script src="~/vendor/animsition/animsition.min.js"></script>
+<script src="~/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+</script>
+<script src="~/vendor/counter-up/jquery.waypoints.min.js"></script>
+<script src="~/vendor/counter-up/jquery.counterup.min.js">
+</script>
+<script src="~/vendor/circle-progress/circle-progress.min.js"></script>
+<script src="~/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+<script src="~/vendor/chartjs/Chart.bundle.min.js"></script>
+<script src="~/vendor/select2/select2.min.js">
+</script>
+
+<!-- Main JS-->
+<script src="~/js/main.js"></script>
+
+<script>
+
+    $(document).ready(function () {
+        $("#userlogin").click(function () {
+            var name = $("#name").val();
+            var img = $("#img").val();
+            var address = $("#address").val();
+            //var gender = $(".mygender").val();
+            //var ele = document.getElementsByClassName('mygender');
+            //var gender = $(ele).val();
+            //debugger
+           // var gender = $("[type='radio']: checked").val();
+            //var gender = $("input[name='gender']: checked").val();
+            if ($("input[type='radio'].gender").is(':checked')) {
+                var gender = $("input[type='radio'].gender:checked").val();
+                alert(gender);
+            }
+            var dob = $("#dob").val();
+            var fname = $("#fname").val();
+            var mname = $("#mname").val();
+            var uname = $("#uname").val();
+            var uemail = $("#uemail").val();
+            var upassword = $("#upassword").val();
+            var umobileno = $("#umobileno").val();
+            var batch = $("#sbatch").val();
+
+            alert(name);
+            alert(gender);
+          
+            $.ajax({
+                url: '/User/AddParent',
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    UserName: uname,
+                    UserEmail: uemail,
+                    UserPassword: upassword,
+                    UserMobileNo: umobileno,
+                },
+                success: function (result) {
+                    alert("Parent Added");
+
+                    var DemoViewModel = {
+                        
+                    }
+                    var parentId = result;
+                    $.ajax({
+
+                        
+                        url: '/Student/AddStudent',
+                        type: 'post',
+                        dataType: 'json',
+                        data:
+                        {
+                            StudentName: name,
+                            StudentImg: img,
+                            StudentAddress: address,
+                            StudentGender: gender,
+                            StudentDob: dob,
+                            FatherName: fname,
+                            MotherName: mname,
+                            ParentId: parentId,
+                            Batch: batch,
+                            Name: name,
+                            ProfilePic: img,
+                            
+                        },
+                        success: function (result) {
+
+                            alert("Student Added");
+                        },
+                    }); 
+                },
+            }); 
+        });
+
+    });
+    function showtest() {
+        $('#test-form').animate({ top: '15%' }, 500);
+        $('#test-form-div').animate({ top: '20%' }, 500);
+        $('.account-dropdown').hide();
+    }
+    function hidetest() {
+        $('#test-form').animate({ top: '-500%' }, 500);
+    }
+
+    function showsetting() {
+        $('#setting').animate({ top: '15%' }, 500);
+        $('.account-dropdown').hide();
+    }
+    function hidesetting() {
+        $('#setting').animate({ top: '-500%' }, 500);
+    }
+    function showmoresetting() {
+        $('#moresetting').animate({ top: '15%' }, 500);
+        $('.account-dropdown').hide();
+    }
+    function hidemoresetting() {
+        $('#moresetting').animate({ top: '-500%' }, 500);
+    }
+
+    function reset()
+    {
+        document.getElementById('studentForm').reset();
+    }
+
+
+
+    //function displayRadioValue() {
+    //    var ele = document.getElementsByName('gender');
+
+    //    for (i = 0; i < ele.length; i++) {
+    //        if (ele[i].checked)
+    //            document.getElementById("result").innerHTML
+    //                = "Gender: " + ele[i].value;
+    //    }
+    //} 
+</script>
+<style>
+    #test-form {
+        position: fixed;
+        top: -500%;
+        width: 35%;
+        margin-left: 30%;
+        background-color: white;
+        box-shadow: 2px 3px 8px slategrey;
+        border-radius: 5px;
+        padding: 35px;
+    }
+
+    #setting {
+        position: fixed;
+        top: -500%;
+        width: 35%;
+        margin-left: 30%;
+        background-color: white;
+        box-shadow: 2px 3px 8px slategrey;
+        border-radius: 5px;
+        padding: 35px;
+    }
+
+    #moresetting {
+        position: fixed;
+        top: -500%;
+        width: 35%;
+        margin-left: 30%;
+        background-color: white;
+        box-shadow: 2px 3px 8px slategrey;
+        border-radius: 5px;
+        padding: 35px;
+    }
+
+    #test-form-div {
+        position: fixed;
+        top: -500%;
+        max-width: 1500px;
+        max-height: 1500px;
+        min-width: 1500px;
+        min-height: 1500px;
+        background-color: black;
+    }
+
+    form.example input[type=text] {
+        padding: 8px;
+        font-size: 17px;
+        border: 1px solid grey;
+        float: left;
+        width: 70%;
+        height: 60%;
+        background: white;
+    }
+
+    form.example button {
+        float: left;
+        width: 20%;
+        height: 70%;
+        padding: 10px;
+        background: #2196F3;
+        color: white;
+        font-size: 17px;
+        border: 1px solid grey;
+        border-left: none;
+        cursor: pointer;
+    }
+
+    form.example button:hover {
+        background: #0b7dda;
+    }
+
+    form.example::after {
+        content: " ";
+        clear: both;
+        display: table;
+    }
+</style>
+
+
+
+
+
+
+
+

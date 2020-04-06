@@ -46,9 +46,17 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
                         var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                         var principal = new ClaimsPrincipal(identity);
 
+					
                         await HttpContext.SignInAsync(principal);
-
-                        return RedirectToAction("Index", "Home");
+						if (user.Role.RoleId == 1)
+						{
+                            return RedirectToAction("Index", "User");
+                           
+						}
+						else
+						{
+                            return RedirectToAction("Index", "Dashboard");
+                        }
                     }
                     else
                     {

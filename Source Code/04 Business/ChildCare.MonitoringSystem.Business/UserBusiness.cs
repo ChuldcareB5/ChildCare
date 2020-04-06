@@ -7,6 +7,7 @@ using ChildCare.MonitoringSystem.Model;
 using System.Linq;
 using ChildCare.MonitoringSystem.Core.Constraints;
 using ChildCare.MonitoringSystem.Common.Extensions;
+using AutoMapper;
 
 namespace ChildCare.MonitoringSystem.Business
 {
@@ -65,7 +66,7 @@ namespace ChildCare.MonitoringSystem.Business
         }
 
 
-        public UserModel GetUserById(int userId)
+		public UserModel GetUserById(int userId)
 		{
 			var user = this.userRepository.GetBy(x => x.UserId == userId).SingleOrDefault();
 
@@ -81,15 +82,39 @@ namespace ChildCare.MonitoringSystem.Business
 
 		public UserModel AddParent(UserModel userModel)
 		{
-			return this.AddUser(userModel, 2);//Return from method named AddUser where parent id is 2(function call)
+			return this.AddUser(userModel, 1);//Return from method named AddUser where parent id is 2(function call)
 		}
 
 		public UserModel AddTeacher(UserModel userModel)
 		{
-			return this.AddUser(userModel, 1);//Return from method named AddUser where parent id is 2(function call)
+			return this.AddUser(userModel, 2);//Return from method named AddUser where parent id is 2(function call)
 		}
+        
+        public StudentModel AddStudent(StudentModel studentModel)
+        {
+            var studentEntity = new Student()
+            {
+                StudentName = studentModel.StudentName,
+                StudentImg = studentModel.StudentImg,
+                StudentAddress = studentModel.StudentAddress,
+                StudentGender = studentModel.StudentGender,
+                StudentDob = studentModel.StudentDob,
+                FatherName = studentModel.FatherName,
+                MotherName = studentModel.MotherName,
+                ParentId = studentModel.ParentId,
+                CreatedBy = -1,
+                CreatedOn = DateTime.UtcNow,
+                UpdatedBy = -1,
+                UpdatedOn = DateTime.UtcNow
 
-		private UserModel AddUser(UserModel userModel, int roleId)
+            };
+            this.studentRepository.Add(studentEntity);
+            this.unitOfWork.Save();
+           studentModel.StudentId = studentEntity.StudentId;
+            return studentModel;
+        }
+
+        private UserModel AddUser(UserModel userModel, int roleId)
 		{
 			var userEntity = new User()
 			{
@@ -137,5 +162,68 @@ namespace ChildCare.MonitoringSystem.Business
 
 
         }
-    }
+		public UserModel GetTeacher()
+		{
+			//	var teacherEntity = this.userRepository.GetAll();
+
+			//	var users = new UserModel();
+
+			//	foreach (var teacher in teacherEntity)
+			//	{
+			//		users.Add(new UserModel()
+			//		{
+			//			UserId = teacher.UserId,
+			//			UserName = teacher.UserName,
+			//			UserEmail = teacher.UserEmail,
+			//			UserMobileNo = teacher.UserMobileNo,		
+			//		});
+			//	}
+			
+			
+			var roles = this.roleRepository.GetAll();
+			
+			var parentRoleId = roles.First(x => x.RoleName == "Teacher").RoleId;
+			//var teacher = this.userRepository.GetAll().Contains(parentRoleId);
+			return null;
+		}
+
+		public UserModel UserUpdate(UserModel userModel)
+		{
+			var userupdate = this.userRepository.GetBy(x => x.UserId == userModel.UserId).SingleOrDefault();
+
+			userupdate.UserName = userModel.UserName; 
+			userupdate.UserEmail = userModel.UserEmail; 
+			userupdate.UserMobileNo = userModel.UserMobileNo; 
+			userupdate.UserPassword = userupdate.UserPassword; 
+			this.unitOfWork.Save();
+			return userModel;
+		}
+
+		public UserModel UserPasswordUpdate(UserModel userModel)
+		{
+			var userupdate = this.userRepository.GetBy(x => x.UserId == userModel.UserId).SingleOrDefault();
+
+			userupdate.UserName = userupdate.UserName;
+			userupdate.UserEmail = userupdate.UserEmail;
+			userupdate.UserMobileNo = userupdate.UserMobileNo;
+			userupdate.UserPassword = userModel.UserPassword;
+			this.unitOfWork.Save();
+			return userModel;
+		}
+
+		public Int32 GetUserId(int id)
+		{
+
+			var user = this.userRepository.GetBy(x => x.UserId == id).SingleOrDefault();
+			var userid = user.UserId;
+			return userid;
+		}
+
+
+		public UserModel GetUsersInfo(int id)
+		{
+			var userdetail = this.userRepository.GetBy(x => x.UserId == id).SingleOrDefault();
+			return userdetail.MapTo<UserModel>();
+		}
+	}
 }
