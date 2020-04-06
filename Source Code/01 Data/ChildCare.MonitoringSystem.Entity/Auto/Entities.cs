@@ -18,13 +18,48 @@ namespace ChildCare.MonitoringSystem.Entity
         // Reverse navigation
 
         /// <summary>
+        /// Child BusLocation where [BusLocation].[BusId] point to this entity (FK_BusLocation_Bus)
+        /// </summary>
+        public virtual System.Collections.Generic.ICollection<BusLocation> BusLocation { get; set; } // BusLocation.FK_BusLocation_Bus
+        /// <summary>
         /// Child BusSchedule where [BusSchedule].[BusId] point to this entity (FK_BusSchedule_Bus)
         /// </summary>
         public virtual System.Collections.Generic.ICollection<BusSchedule> BusSchedule { get; set; } // BusSchedule.FK_BusSchedule_Bus
 
         public Bus()
         {
+            BusLocation = new System.Collections.Generic.List<BusLocation>();
             BusSchedule = new System.Collections.Generic.List<BusSchedule>();
+            InitializePartial();
+        }
+
+        partial void InitializePartial();
+    }
+
+    // BusLocation
+    [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.34.1.0")]
+    public partial class BusLocation: BaseEntity, IAuditable, ISoftDelete
+    {
+        public int BusLocationId { get; set; } // BusLocationId (Primary key)
+        public int BusId { get; set; } // BusId
+        public System.DateTime LocationTime { get; set; } // LocationTime
+        public double Longitute { get; set; } // Longitute
+        public double Latitude { get; set; } // Latitude
+        public int CreatedBy { get; set; } // CreatedBy
+        public System.DateTime CreatedOn { get; set; } // CreatedOn
+        public int UpdatedBy { get; set; } // UpdatedBy
+        public System.DateTime UpdatedOn { get; set; } // UpdatedOn
+        public bool IsDeleted { get; set; } // IsDeleted
+
+        // Foreign keys
+
+        /// <summary>
+        /// Parent Bus pointed by [BusLocation].([BusId]) (FK_BusLocation_Bus)
+        /// </summary>
+        public virtual Bus Bus { get; set; } // FK_BusLocation_Bus
+
+        public BusLocation()
+        {
             InitializePartial();
         }
 
@@ -268,6 +303,10 @@ namespace ChildCare.MonitoringSystem.Entity
         /// Child StudentBusSchedule where [StudentBusSchedule].[StudentId] point to this entity (FK_StudentBusSchedule_Student)
         /// </summary>
         public virtual System.Collections.Generic.ICollection<StudentBusSchedule> StudentBusSchedule { get; set; } // StudentBusSchedule.FK_StudentBusSchedule_Student
+        /// <summary>
+        /// Child StudentLocation where [StudentLocation].[StudentId] point to this entity (FK_StudentLocation_Student)
+        /// </summary>
+        public virtual System.Collections.Generic.ICollection<StudentLocation> StudentLocation { get; set; } // StudentLocation.FK_StudentLocation_Student
 
         // Foreign keys
 
@@ -280,6 +319,7 @@ namespace ChildCare.MonitoringSystem.Entity
         {
             RoomSchedule = new System.Collections.Generic.List<RoomSchedule>();
             StudentBusSchedule = new System.Collections.Generic.List<StudentBusSchedule>();
+            StudentLocation = new System.Collections.Generic.List<StudentLocation>();
             InitializePartial();
         }
 
@@ -312,6 +352,36 @@ namespace ChildCare.MonitoringSystem.Entity
         public virtual Student Student { get; set; } // FK_StudentBusSchedule_Student
 
         public StudentBusSchedule()
+        {
+            InitializePartial();
+        }
+
+        partial void InitializePartial();
+    }
+
+    // StudentLocation
+    [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.34.1.0")]
+    public partial class StudentLocation: BaseEntity, IAuditable, ISoftDelete
+    {
+        public int StudentLocationId { get; set; } // StudentLocationId (Primary key)
+        public int StudentId { get; set; } // StudentId
+        public System.DateTime LocationTime { get; set; } // LocationTime
+        public double Longitute { get; set; } // Longitute
+        public double Latitude { get; set; } // Latitude
+        public int CreatedBy { get; set; } // CreatedBy
+        public System.DateTime CreatedOn { get; set; } // CreatedOn
+        public int UpdatedBy { get; set; } // UpdatedBy
+        public System.DateTime UpdatedOn { get; set; } // UpdatedOn
+        public bool IsDeleted { get; set; } // IsDeleted
+
+        // Foreign keys
+
+        /// <summary>
+        /// Parent Student pointed by [StudentLocation].([StudentId]) (FK_StudentLocation_Student)
+        /// </summary>
+        public virtual Student Student { get; set; } // FK_StudentLocation_Student
+
+        public StudentLocation()
         {
             InitializePartial();
         }

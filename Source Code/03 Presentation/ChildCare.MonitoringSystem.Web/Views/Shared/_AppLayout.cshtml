@@ -400,22 +400,22 @@
 
             $.ajax({
 
-                url: '/Student/GetUsersStudentInfo',
+                url: '/User/GetUsersInfo',
                 type: 'get',
                 dataType: 'json',
 
                 success: function (result) {
                     debugger
-                    document.getElementById('username').innerHTML = result.parent.userName;
-                    document.getElementById('emails').innerHTML = result.parent.userEmail;
-                    document.getElementById('uname').innerHTML = result.parent.userName;
-                    document.getElementById('email').innerHTML = result.parent.userEmail;
-                    document.getElementById('mob').innerHTML = result.parent.userMobileNo;
+                    document.getElementById('username').innerHTML = result.userName;
+                    document.getElementById('emails').innerHTML = result.userEmail;
+                    document.getElementById('uname').innerHTML = result.userName;
+                    document.getElementById('email').innerHTML = result.userEmail;
+                    document.getElementById('mob').innerHTML = result.userMobileNo;
 
 
-                    document.getElementById('udetailname').value = result.parent.userName;
-                    document.getElementById('udetailemail').value = result.parent.userEmail;
-                    document.getElementById('udetailmob').value = result.parent.userMobileNo;
+                    document.getElementById('udetailname').value = result.userName;
+                    document.getElementById('udetailemail').value = result.userEmail;
+                    document.getElementById('udetailmob').value = result.userMobileNo;
                 },
             });
         });

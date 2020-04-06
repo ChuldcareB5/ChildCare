@@ -31,9 +31,9 @@
                                 <span>Total number of students</span>
                             </div>
                         </div>
-                        <div class="overview-chart">
+                        @*<div class="overview-chart">
                             <canvas id="widgetChart1"></canvas>
-                        </div>
+                        </div>*@
                     </div>
                 </div>
             </div>
@@ -44,14 +44,16 @@
                             <div class="icon">
                                 <i class="zmdi zmdi-videocam"></i>
                             </div>
+                            <br />
+
                             <div class="text">
                                 <h2>38</h2>
                                 <span>Total cameras</span>
                             </div>
                         </div>
-                        <div class="overview-chart">
+                        @*<div class="overview-chart">
                             <canvas id="widgetChart2"></canvas>
-                        </div>
+                        </div>*@
                     </div>
                 </div>
             </div>
@@ -67,9 +69,9 @@
                                 <span>Total ClassRooms</span>
                             </div>
                         </div>
-                        <div class="overview-chart">
+                        @*<div class="overview-chart">
                             <canvas id="widgetChart3"></canvas>
-                        </div>
+                        </div>*@
                     </div>
                 </div>
             </div>
@@ -80,92 +82,20 @@
                             <div class="icon">
                                 <i class="zmdi zmdi-bus"></i>
                             </div>
+                            <br />
                             <div class="text">
                                 <h2>13</h2>
                                 <span>Total No.of Buses</span>
                             </div>
                         </div>
-                        <div class="overview-chart">
+                        @*<div class="overview-chart">
                             <canvas id="widgetChart4"></canvas>
-                        </div>
+                        </div>*@
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="au-card recent-report">
-                    <div class="au-card-inner">
-                        <h3 class="title-2">Bus Location</h3>
-                        <div class="chart-info">
-
-
-                        </div>
-                        <div class="recent-report__chart">
-                            @* write content here *@
-                            <!-- MAP DATA-->
-                            <div class="map-data m-b-40">
-                                <h3 class="title-3 m-b-30">
-                                    <i class="zmdi zmdi-map"></i>map data
-                                </h3>
-
-                                <div class="map-wrap m-t-45 m-b-20">
-                                    <div id="vmap" style="height: 284px;"></div>
-                                </div>
-                            </div>
-                            <!-- END MAP DATA-->
-                        </div>
-                    </div>
-                    <div class="row">
-
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="au-card chart-percent-card">
-                    <div class="au-card-inner">
-                        <h3 class="title-2 tm-b-5">Student camera view</h3>
-                        <div class="row no-gutters">
-                            @* <div class="col-xl-6">
-                                    <div class="chart-note-wrap">
-                                        <div class="chart-note mr-0 d-block">
-                                            <span class="dot dot--blue"></span>
-                                            <span>products</span>
-                                        </div>
-                                        <div class="chart-note mr-0 d-block">
-                                            <span class="dot dot--red"></span>
-                                            <span>services</span>
-                                        </div>
-                                    </div>
-                                </div>*@
-                            <div class="col-xl-6">
-                                <div class="percent-chart">
-
-                                    <div class="filters">
-                                        <div class="rs-select2--dark rs-select2--md m-r-10 rs-select2--border">
-                                            <select class="js-select2" name="property">
-                                                <option selected="selected">Enter Room No</option>
-                                                <option value="">1</option>
-                                                <option value="">2</option>
-                                            </select>
-                                            <div class="dropDownSelect2"></div>
-                                        </div>
-
-                                    </div>
-                                    <br /><br />
-                                    <video width="400" controls>
-                                        <source src="~/video/class.mp4" type="video/mp4">
-                                        <source src="~/video/class.mp4" type="video/mp4">
-
-
-                                    </video>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+      
         <div class="row">
             <div class="col-lg-9">
                 <h2 class="title-1 m-b-25">Student info   </h2>
@@ -193,6 +123,9 @@
                     <div class="au-card-inner">
                         <div class="table-responsive">
                             <table class="table table-top-countries" id="listofteacher">
+                                @*
+        body written in script
+                                *@
                                 @* <tbody>
         <tr>
             <td>Rohan </td>
@@ -370,12 +303,67 @@
     </div>
 </div>
 
+<div id="overlay1" style="z-index:4">
+    <div id="senddiv">
+        <a class="pull-right" onclick="hidepopup();"><i class="fa fa-close"></i></a>
+        <h2 align="center">Send Message</h2><hr />
+        <div class="form-group row">
+            <label for="staticEmail" class="col-sm-4 col-form-label">From</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="from" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword" class="col-sm-4 col-form-label">To</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="to" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword" class="col-sm-4 col-form-label">Message</label>
+            <div class="col-sm-8">
+                <textarea type="text" class="form-control" id="msg"></textarea>
+            </div>
+        </div>
 
+        <div>
+            <button type="button" class="btn btn-outline-primary btn-block" id="sendbtn">Send</button>
+            <button type="button" class="btn btn-outline-success btn-block" onclick="Clearfield();">Clear</button>
+        </div>
+    </div>
+
+
+</div>
 
 
 @section Styles{
     <style>
-      
+        #overlay1 {
+            position: fixed; /* Sit on top of the page content */
+            display: none; /* Hidden by default */
+            width: 100%; /* Full width (cover the whole page) */
+            height: 100%; /* Full height (cover the whole page) */
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+            z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+            cursor: pointer; /* Add a pointer on hover */
+            overflow: auto;
+        }
+
+
+        #senddiv {
+            position: fixed;
+            top: -500%;
+            width: 32%;
+            margin-left: 32%;
+            background-color: white;
+            box-shadow: 2px 3px 10px grey;
+            border-radius: 5px;
+            padding: 20px;
+        }
 
         form.example input[type=text] {
             padding: 8px;
@@ -433,6 +421,7 @@
                     type: 'get',
                     dataType: 'json',
                     success: function (result) {
+                        debugger
 
                         if (result) {
                              var bat = ' <tbody>';
@@ -462,15 +451,19 @@
                 dataType: 'json',
                 success: function (result) {
                     debugger
-                    if (result) {
+                    if (result)
+                    {
                         var put = '<tbody>';
-                        for (var i = 0; i, result.length; i++) {
-                            put += '<tr><td>' + result[i].userName + '</td><td>';
+                        for (var i = 0; i<result.length; i++) {
+                            put += '<tr><td>' + result[i].userName + '</td><td class="text-right">Kannada</td></tr>';
                         }
                         put += '</tbody>';
                         $('#listofteacher').append(put);
                     }
-                }
+                    else {
+                        alert("failed to get data");
+                    }
+                },
 
             });
 
@@ -539,17 +532,18 @@
         }
 
         function showpopup() {
-            $('#login').animate({ top: '23%' }, 500);
-            document.getElementById("overlay").style.display = "block";
+            $('#senddiv').animate({ top: '23%' }, 500);
+            document.getElementById("overlay1").style.display = "block";
+
         }
         function hidepopup() {
-            $('#login').animate({ top: '-500%' }, 500);
-            document.getElementById("overlay").style.display = "none";
+            $('#senddiv').animate({ top: '-500%' }, 500);
+            document.getElementById("overlay1").style.display = "none";
         }
 
-        function hidepopup1() {
-            $('#login').animate({ top: '-500%' }, 500);
-            document.getElementById("overlay").style.display = "none";
-        }
+        //function hidepopup() {
+        //    $('#login').animate({ top: '-500%' }, 500);
+        //    document.getElementById("overlay").style.display = "none";
+        //}
     </script>
 }

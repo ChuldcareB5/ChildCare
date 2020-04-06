@@ -25,6 +25,7 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 		{
 			this.userBusiness = userBusiness;
             this.applicationContext = applicationContext;
+            
         }
 
 		public IActionResult Index()
@@ -65,6 +66,11 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
         public ActionResult<List<UserModel>> GetTeacherDetail()
         {
             var user = this.userBusiness.GetTeacherDetail();
+            return user;
+        }
+        public ActionResult<UserModel> GetUsersInfo()
+        {
+            var user = this.userBusiness.GetUsersInfo(applicationContext.UserId);
             return user;
         }
 

@@ -17,8 +17,7 @@ using ChildCare.MonitoringSystem.Core.Models;
 
 namespace ChildCare.MonitoringSystem.Web.Controllers
 {
-	//[Authorize(Roles ="2")]
-	[Authorize]
+	[Authorize()]
 	public class StudentController :Controller
 	{
         private readonly ApplicationContext applicationContext; 

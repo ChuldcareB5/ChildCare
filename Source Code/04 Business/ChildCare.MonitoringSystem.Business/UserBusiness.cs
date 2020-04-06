@@ -33,12 +33,20 @@ namespace ChildCare.MonitoringSystem.Business
 			var user = this.userRepository.GetBy(x => x.UserName == userName && x.UserPassword == password, x => x.UserRole).SingleOrDefault();
 			return user.MapTo<UserModel>();
 		}
+        public UserModel GetUsersInfo(int id)
+        {
+            var userdetail = this.userRepository.GetBy(x => x.UserId == id).SingleOrDefault();
+            return userdetail.MapTo<UserModel>();
+        }
         public List<UserModel> GetTeacherDetail()
         {
-            var userdetail = this.userroleRepository.GetAll();
-            var users = new List<UserModel>();
+            var userdetails = this.userroleRepository.GetBy(x => x.RoleId == 1);
             
-             foreach(var user in userdetail )
+
+
+            var users = new List<UserModel>();
+
+            foreach (var user in userdetails)
             {
                 var demo = this.userRepository.GetBy(x => x.UserId == user.UserId).SingleOrDefault();
                 if (demo != null)
@@ -50,11 +58,8 @@ namespace ChildCare.MonitoringSystem.Business
                         UserEmail = demo.UserEmail
                     });
                 }
-                
+
             }
-
-
-
 
             return users;
         }

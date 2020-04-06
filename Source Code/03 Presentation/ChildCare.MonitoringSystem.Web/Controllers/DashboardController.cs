@@ -16,7 +16,7 @@ using System.IO;
 
 namespace ChildCare.MonitoringSystem.Web.Controllers
 {
-	[Authorize]
+    [Authorize(Roles = "1")]
     public class DashboardController : Controller
 	{
 		private readonly StudentBusiness studentBusiness;
