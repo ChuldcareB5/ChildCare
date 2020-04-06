@@ -39,6 +39,7 @@ namespace ChildCare.MonitoringSystem.Business
             var userdetail = this.userRepository.GetBy(x => x.UserId == id).SingleOrDefault();
             return userdetail.MapTo<UserModel>();
         }
+      
         public List<UserModel> GetTeacherDetail()
         {
             var userdetails = this.userroleRepository.GetBy(x => x.RoleId == 1);
@@ -220,10 +221,6 @@ namespace ChildCare.MonitoringSystem.Business
 		}
 
 
-		public UserModel GetUsersInfo(int id)
-		{
-			var userdetail = this.userRepository.GetBy(x => x.UserId == id).SingleOrDefault();
-			return userdetail.MapTo<UserModel>();
-		}
+		
 	}
 }

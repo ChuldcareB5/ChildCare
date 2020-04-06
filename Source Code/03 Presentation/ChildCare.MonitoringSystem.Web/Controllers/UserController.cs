@@ -111,11 +111,7 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 
         }
 
-		public ActionResult<UserModel> GetUsersInfo()
-		{
-			var user = this.userBusiness.GetUsersInfo(applicationContext.UserId);
-			return user;
-		}
+	
 
 
 
