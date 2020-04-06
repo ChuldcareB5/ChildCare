@@ -101,8 +101,6 @@ namespace ChildCare.MonitoringSystem.Business
 			return students;
 		}
 
-
-
 		public StudentModel StudentGetById(int id)
 		{ 
 			var student = this.studentRepository.GetBy(x => x.StudentId == id, x => x.User).SingleOrDefault();
@@ -138,8 +136,6 @@ namespace ChildCare.MonitoringSystem.Business
 			return studentModel;
 
 		}
-
-
 
 		public Int32 DeleteId(int id)
 		{

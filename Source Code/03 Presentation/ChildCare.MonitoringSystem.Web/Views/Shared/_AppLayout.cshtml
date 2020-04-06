@@ -264,32 +264,30 @@
             <div class="form-container">
                 <a class="pull-right text-primary" onclick="hidemoresetting();"><i class="fa fa-close"></i></a>
                 <h2 align="center" class="text-primary">User Detail Settings</h2><hr />
-              <form action=" " method="post">
-                  <div class="form-group" align="center">
-                      <div class="image">
-                          <img src="~/images/img/user.png" />
-                      </div>
-                  </div>
-                  <div class="form-group">
-                      <label class="text-primary">User Id</label>
-                      <input class="form-control" name="fname" id="udetailid">
-                  </div>
-                  <div class="form-group">
-                      <label class="text-primary">User Name</label>
-                      <input class="form-control" name="fname" id="udetailname">
-                  </div>
-                  <div class="form-group">
-                      <label class="text-primary">User Email</label>
-                      <input class="form-control" name="email" id="udetailemail">
-                  </div>
-                  <div class="form-group">
-                      <label class="text-primary">Mobile No</label>
-                      <input class="form-control" name="number" id="udetailmob">
-                  </div>
-                
-              <button type="submit" class="btn btn-block btn-primary" id="teachereditprofile">EDIT</button>
-                                                                                     
-              </form>
+                <form action=" " method="post">
+                    <div class="form-group" align="center">
+                        <div class="image">
+                            <img src="~/images/img/user.png" />
+                        </div>
+                    </div>
+                    <div class="form-group" hidden>
+                        <label class="text-primary" >User Id</label>
+                        <input class="form-control" name="fname" id="udetailid">
+                    </div>
+                    <div class="form-group">
+                        <label class="text-primary">User Name</label>
+                        <input class="form-control" name="fname" id="udetailname">
+                    </div>
+                    <div class="form-group">
+                        <label class="text-primary">User Email</label>
+                        <input class="form-control" name="email" id="udetailemail">
+                    </div>
+                    <div class="form-group">
+                        <label class="text-primary">Mobile No</label>
+                        <input class="form-control" name="number" id="udetailmob">
+                    </div>
+                <button type="submit" class="btn btn-block btn-primary" id="teachereditprofile">EDIT</button>
+                </form>
             </div>
         </div>
         <!--close more setting popup-->
@@ -405,7 +403,6 @@
 
 
             $.ajax({
-
                 url: '/User/GetUsersInfo',
                 type: 'get',
                 dataType: 'json',
@@ -433,7 +430,6 @@
                 var useremail = $('#udetailemail').val();
                 var usermob = $('#udetailmob').val();
 
-                debugger
                 $.ajax({
                     url: '/User/UserUpdate',
                     type: 'post',
@@ -477,7 +473,6 @@
                 }
             });
         });
-
     </script>
 
     @RenderSection("Scripts", required: false)

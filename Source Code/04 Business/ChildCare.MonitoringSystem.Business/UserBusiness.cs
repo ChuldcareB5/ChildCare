@@ -39,8 +39,6 @@ namespace ChildCare.MonitoringSystem.Business
 		{
 			var userdetails = this.userroleRepository.GetBy(x => x.RoleId == 1);
 
-
-
 			var users = new List<UserModel>();
 
 			foreach (var user in userdetails)
