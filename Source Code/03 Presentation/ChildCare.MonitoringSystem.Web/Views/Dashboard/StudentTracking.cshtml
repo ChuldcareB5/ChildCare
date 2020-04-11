@@ -18,16 +18,40 @@
                     <i class="zmdi zmdi-map"></i>Student Tracking Map
                 </h3>
                 <div class="filters">
-                    <div class="rs-select2--dark rs-select2--md m-r-10 rs-select2--border">
-                        <select class="js-select2" name="property">
-                            <option selected="selected"> Enter Student ID</option>
-                            <option value="">1</option>
-                            <option value="">2</option>
-                        </select>
+                    @*<div class="rs-select2--dark rs-select2--md m-r-10 rs-select2--border">
+                        <input type="text" class="studentid" />
+                        <input type="button" class="btn" onclick="initMap()" />
                         <div class="dropDownSelect2"></div>
-                    </div>
+                    </div>*@
+                    <input class="au-input au-input--h65" id="studentid" type="text" name="search" placeholder="Search" style="border: 1px solid grey" />
+                    <button class="text-primary" type="button" onclick="initMap()" style="width:60px;height:35px;background-color:blue;margin-left:-10px;">
+                        <i class="zmdi zmdi-search" style="color:white;"></i>
+                    </button>
 
                 </div>
+               <br />
+                <br />
+
+                @*<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <div ng-app="myApp" ng-controller="myCtrl">
+
+            USN: <input type="text" ng-model="firstName"><br>
+
+            <br>
+            Full Name: {{firstName}}
+
+        </div>
+        <script>
+            var app = angular.module('myApp', []);
+            app.controller('myCtrl', function ($scope) {
+                //$scope.firstName = "John";
+                if ($scope.firstName =='') {
+                    $scope.firstName = 'vat';
+                }
+
+            });
+        </script>*@
+
                 <div class="map-wrap">
                     @*<div class="vmap" id="vmap1"></div>*@
                     <div id="map"></div>
@@ -38,36 +62,43 @@
                         function initMap() {
 
                             // The location of Uluru
-
+                            var studentid = $('#studentid').val();
                             $.ajax({
                                 url: '/Student/GetAllStudentLocation',
                                 type: 'get',
                                 dataType: 'json',
+                                data:
+                                {
+                                    studentid: studentid,
+
+                                },
+
                                 success: function (result) {
-                                    
+
                                     if (result) {
+                                        
                                         var latitude = 12.979407;
                                         var langitude = 74.92095;
                                         var uluru = { lat: latitude, lng: langitude };
                                         var map = new google.maps.Map(
                                             document.getElementById('map'), { zoom: 4, center: uluru });
-                                        
-                                            for (i = 0; i < result.length; i++) {
-                                                
-                                                latitude = result[i].latitude;
-                                                langitude = result[i].longitute ;
 
-                                                uluru = { lat: latitude, lng: langitude};
-                                            
-                                                var marker = new google.maps.Marker({ position: uluru, map: map });
+                                        for (i = 0; i < result.length; i++) {
 
-                                            }
-                                          
-                                      
-                                        
+                                            latitude = result[i].latitude;
+                                            langitude = result[i].longitute;
+
+                                            uluru = { lat: latitude, lng: langitude };
+
+                                            var marker = new google.maps.Marker({ position: uluru, map: map });
+
                                         }
-                                       
-                                
+
+
+
+                                    }
+
+
                                     else {
                                         alert("failed to get data");
                                     }
@@ -83,10 +114,10 @@
 
                     </script>
                     <!--Load the API from the specified URL
-    * The async attribute allows the browser to render the page while the API loads
-    * The key parameter will contain your own API key (which is not needed for this tutorial)
-    * The callback parameter executes the initMap() function
-    -->
+        * The async attribute allows the browser to render the page while the API loads
+        * The key parameter will contain your own API key (which is not needed for this tutorial)
+        * The callback parameter executes the initMap() function
+        -->
                     <script async defer
                             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxi53n1l21ELjpf2Oq0frWB50S6GyCG5o&callback=initMap">
                     </script>
@@ -185,6 +216,10 @@
 
 @section Scripts{
     <script>
+
+        function studentloc() {
+            alert('hi');
+        }
         function search(string) {
             window.find(string);
         }

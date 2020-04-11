@@ -443,9 +443,8 @@
                 type: 'get',
                 dataType: 'json',
                 success: function (result) {
-                    debugger
-                    if (result)
-                    {
+                  
+                    if (result) {
                         var put = '<tbody>';
                         for (var i = 0; i < result.length; i++) {
                             put += '<tr><td>' + (i + 1) + '</td><td>' + result[i].userName + '</td></tr>';
@@ -465,7 +464,7 @@
                 type: 'get',
                 dataType: 'json',
                 success: function (result) {
-                    debugger
+                    
                     if (result) {
                         var put = '<tbody>';
                         for (var i = 0; i < result.length; i = i + 4) {
@@ -486,7 +485,7 @@
                 type: 'get',
                 dataType: 'json',
                 success: function (result) {
-                    debugger
+                  
                     if (result) {
                         var put = '<tbody>';
                         for (var i = 0; i < result.length; i = i + 5) {

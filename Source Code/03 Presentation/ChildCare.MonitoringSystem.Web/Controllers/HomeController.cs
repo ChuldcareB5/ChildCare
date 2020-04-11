@@ -148,7 +148,7 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-				if (!HttpContext.User.Identity.IsAuthenticated)//check authentication of user
+				if (HttpContext.User.Identity.IsAuthenticated)//check authentication of user
 				{
 					var user = this.userBusiness.GetUser(loginViewModel.UserName, loginViewModel.Password);//get user from userbussiness
 

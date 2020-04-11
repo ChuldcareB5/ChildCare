@@ -107,9 +107,9 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
                 StudentModel studentModel = new StudentModel();
                 UserModel userModel = new UserModel();
                 userModel.UserName = studentDetail.UserName;
-                userModel.UserEmail = studentDetail.UserName;
-                userModel.UserPassword = studentDetail.UserName;
-                userModel.UserMobileNo = studentDetail.UserName;
+                userModel.UserEmail = studentDetail.UserEmail;
+                userModel.UserPassword = studentDetail.UserPassword;
+                userModel.UserMobileNo = studentDetail.UserMobileNo;
                 var user = this.userBusiness.AddParent(userModel);
                 studentModel.StudentName = studentDetail.StudentName;
                 studentModel.StudentImg = imageName;

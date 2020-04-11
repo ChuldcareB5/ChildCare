@@ -103,18 +103,18 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
             var studentlocation = this.studentBusiness.GetStudentLocation(applicationContext.UserId);
             return studentlocation;
         }
-        public ActionResult<List<StudentLocationModel>> GetAllStudentLocation()
+        public ActionResult<List<StudentLocationModel>> GetAllStudentLocation(int studentid)
         {
-            var studentlocation = this.studentBusiness.GetAllStudentLocation(applicationContext.UserId);
+            var studentlocation = this.studentBusiness.GetAllStudentLocation(studentid);
             return studentlocation;
         }
         public ActionResult<BusLocationModel> GetBusLocation()
         {
             var studentlocation = this.studentBusiness.GetBusLocation(applicationContext.UserId);
             return studentlocation;
-        }public ActionResult<List<BusLocationModel>> GetAllBusLocation()
+        }public ActionResult<List<BusLocationModel>> GetAllBusLocation(int busid)
         {
-            var studentlocation = this.studentBusiness.GetAllBusLocation(applicationContext.UserId);
+            var studentlocation = this.studentBusiness.GetAllBusLocation(busid);
             return studentlocation;
         }
 
