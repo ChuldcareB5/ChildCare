@@ -1,4 +1,5 @@
 ﻿using ChildCare.MonitoringSystem.Business;
+using ChildCare.MonitoringSystem.Model;
 using ChildCare.MonitoringSystem.Web.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -48,7 +49,7 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 
 					
                         await HttpContext.SignInAsync(principal);
-						if (user.Role.RoleId == 2)
+						if (user.Role.RoleId == 1)
 						{
                             return RedirectToAction("Index", "User");
                            
@@ -83,5 +84,12 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 
             return RedirectToAction("LogIn", "Account");
         }
+
+        public ActionResult<Boolean> ChangePassword(UserModel userModel)
+        {
+            var user = this.userBusiness.ChangePassword(userModel);
+            return user;
+        }
+
     }
 }

@@ -193,7 +193,22 @@ namespace ChildCare.MonitoringSystem.Business
 			return userModel;
 		}
 
-		public UserModel UserPasswordUpdate(UserModel userModel)
+        public Boolean ChangePassword(UserModel userModel)
+        {
+            var passupdate = this.userRepository.GetBy(x => x.UserName == userModel.UserName && x.UserEmail == userModel.UserEmail && x.UserMobileNo==userModel.UserMobileNo).SingleOrDefault();
+            if(passupdate!=null){
+                passupdate.UserPassword = userModel.UserPassword;
+                this.unitOfWork.Save();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
+        }
+
+        public UserModel UserPasswordUpdate(UserModel userModel)
 		{
 			var userupdate = this.userRepository.GetBy(x => x.UserId == userModel.UserId).SingleOrDefault();
 
