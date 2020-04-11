@@ -40,6 +40,11 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
         {
 			return View();
 		}
+        public IActionResult StudentSchedule()
+
+        {
+			return View();
+		}
 		public IActionResult Camera()
 		{
 			return View();
@@ -110,10 +115,26 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
             return us;
 
         }
+        public ActionResult<List<RoomScheduleModel>> GetStudentSchedule()
+        {
+            return this.userBusiness.GetStudentSchedule(applicationContext.UserId);
 
-	
+
+
+        }
+
+        public ActionResult<List<RoomScheduleModel>> ScheduleByDate(DateTime dob)
+        {
+            return this.userBusiness.ScheduleByDate(dob,applicationContext.UserId);
 
 
 
-	}
+        }
+
+
+
+
+
+
+    }
 }

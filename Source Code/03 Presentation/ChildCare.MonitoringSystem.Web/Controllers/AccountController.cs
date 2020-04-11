@@ -30,7 +30,7 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (HttpContext.User.Identity.IsAuthenticated)
+                    if (!HttpContext.User.Identity.IsAuthenticated)
                 {
                     var user = this.userBusiness.GetUser(loginViewModel.UserName, loginViewModel.Password);
 
