@@ -356,6 +356,29 @@
     </script>
     <script>
         $(document).ready(function () {
+            $.ajax({
+                url: '/BusSchedule/GetBusDetail',
+                type: 'get',
+                dataType: 'json',
+                success: function (result) {
+                    //debugger
+                    if (result) {
+                        var bus = ' <tbody>';
+                        for (var i = 0; i < result.length; i++) {
+                            bus += '<tr class="tr-shadow"><td class="ds" value="' + result[i].busId + '">' + result[i].busId + '</td><td>' + result[i].busName + '</td><td>' + result[i].busScheduleDriverName + '</td><td><div class="table-data-feature"><button onclick="show();" title="Send Message" class="btn btn-primary"><a onclick="showschedule(' + result[i].busScheduleId + ' ); ">Schedule</a></button></div></td></tr>';
+                        }
+                        bus += '</tbody>'
+
+                        $('#bus').append(bus);
+
+                    }
+                    else {
+                        alert("failed to get data");
+                    }
+
+                },
+
+            });
             $("#busupdate").click(function () {
 
                 var dName = $("#dName").val();
@@ -375,30 +398,36 @@
                     data:
                     {
                         BusName: bname,
+                        BusScheduleDriverName: dName,
+                        ToBusSchedule: bto,
+                        FromBusSchedule: bfrom,
+                        BusScheduleTime: btime,
+                        BusScheduleDate: bdate,
                     },
                     //debugger
                     success: function (result) {
+                        //debugger;
                         alert("Successfully inserted Bus");
-                        var busId = result;
-                        $.ajax({
-                            url: '/BusSchedule/AddBusSchedule',
-                            type: 'post',
-                            dataType: 'json',
-                            data:
-                            {
-                                BusScheduleDriverName: dName,
-                                ToBusSchedule: bto,
-                                FromBusSchedule: bfrom,
-                                BusScheduleTime: btime,
-                                BusScheduleDate: bdate,
-                                BusId: busId,
-                            },
-                            success: function (result) {
-                                alert("Successfully inserted Bus schedule");
-                            },
-                        }); alert("hello");
+                        //var busId = result;
+                        //$.ajax({
+                        //    url: '/BusSchedule/AddBusSchedule',
+                        //    type: 'post',
+                        //    dataType: 'json',
+                        //    data:
+                        //    {
+                        //        BusScheduleDriverName: dName,
+                        //        ToBusSchedule: bto,
+                        //        FromBusSchedule: bfrom,
+                        //        BusScheduleTime: btime,
+                        //        BusScheduleDate: bdate,
+                        //        BusId: busId,
+                        //    },
+                        //    success: function (result) {
+                        //        alert("Successfully inserted Bus schedule");
+                        //    },
+                        //}); alert("hello");
                     },
-                }); alert("hiiiii");
+                }); 
             });
 
 
@@ -449,35 +478,7 @@
             });
         });
     </script>
-    <script>
-        $(document).ready(function () {
-            //debugger
-            $.ajax({
-                url: '/BusSchedule/GetBusDetail',
-                type: 'get',
-                dataType: 'json',
-                success: function (result) {
-                    //debugger
-                    if (result) {
-                        var bus = ' <tbody>';
-                        for (var i = 0; i < result.length; i++) {
-                            bus += '<tr class="tr-shadow"><td class="ds" value="' + result[i].busId + '">' + result[i].busId + '</td><td>' + result[i].busName + '</td><td>' + result[i].busScheduleDriverName + '</td><td><div class="table-data-feature"><button onclick="show();" title="Send Message" class="btn btn-primary"><a onclick="showschedule(' + result[i].busScheduleId + ' ); ">Schedule</a></button></div></td></tr>';
-                        }
-                        bus += '</tbody>'
-
-                        $('#bus').append(bus);
-
-                    }
-                    else {
-                        alert("failed to get data");
-                    }
-
-                },
-
-            });
-        });
-
-    </script>
+    
 }
 
 

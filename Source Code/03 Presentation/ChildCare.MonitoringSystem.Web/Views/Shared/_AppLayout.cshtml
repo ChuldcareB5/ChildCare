@@ -120,25 +120,25 @@
                                             </div>
                                             <div id="msgusername"></div>
                                             @*<div class="mess__item">*@
-                                                @*<div class="image img-cir img-40">
+                                            @*<div class="image img-cir img-40">
                                                     <img src="~/images/blazerphoto/Asha.jpg" alt="Michelle Moreno" />
                                                 </div>*@
-                                                @*<div class="content">
-                                                    <h6 id="">Michel</h6>*@
-                                                    @*<p>Have sent a photo</p>*@
-                                                    @*<span class="time">3 min ago</span>*@
-                                                @*</div>*@
+                                            @*<div class="content">
+                                                <h6 id="">Michel</h6>*@
+                                            @*<p>Have sent a photo</p>*@
+                                            @*<span class="time">3 min ago</span>*@
+                                            @*</div>*@
                                             @*</div>*@
                                             @*<div class="mess__item">
-                                                <div class="image img-cir img-40">
-                                                    <img src="~/images/blazerphoto/Namratha.jpg" alt="Diane Myers" />
-                                                </div>
-                                                <div class="content">
-                                                    <h6>Dian</h6>
-                                                    <p>You are now connected on message</p>
-                                                    <span class="time">Yesterday</span>
-                                                </div>
-                                            </div>*@
+                                                    <div class="image img-cir img-40">
+                                                        <img src="~/images/blazerphoto/Namratha.jpg" alt="Diane Myers" />
+                                                    </div>
+                                                    <div class="content">
+                                                        <h6>Dian</h6>
+                                                        <p>You are now connected on message</p>
+                                                        <span class="time">Yesterday</span>
+                                                    </div>
+                                                </div>*@
                                             <div class="mess__footer">
                                                 <a href="#">View all messages</a>
                                             </div>
@@ -184,8 +184,8 @@
                                                 <a asp-area="" asp-controller="Account" asp-action="LogOut">
                                                     <i class="zmdi zmdi-power"></i>Logout
                                                 </a>
-                                                    
-                                                
+
+
                                             </div>
                                         </div>
                                     </div>
@@ -236,26 +236,26 @@
             <div class="form-container">
                 <a class="pull-right text-primary" onclick="hidesetting();"><i class="fa fa-close"></i></a>
                 <h2 align="center" class="text-primary">Password Setting</h2><hr />
-              <form action="" method="post">
-                  <div class="form-group" hidden>
-                      <label class="text-primary" >User Id</label>
-                      <input class="form-control" name="fname" id="udetailids">
-                  </div>
-                  <div class="form-group">
-                      <label>Old Password</label>
-                      <input class="form-control" type="password" name="password" id="oldpass" required>
-                  </div>
-                  <div class="form-group">
-                      <label>New Password</label>
-                      <input class="form-control" type="password" name="password" id="newpass" required>
-                  </div>
-                  <div class="form-group">
-                      <label for="pwd">Confirm Password</label>
-                      <input class="form-control" type="password" name="password" id="confpass" required>
-                  </div>
-                  <button type="submit" class="btn btn-block btn-primary" id="passsetting">SUBMIT </button><br>
-                  <a href="#moresetting" class="pull-right" onclick="showmoresetting()">Set More Details</a>
-                                                                             </form>
+                <form action="" method="post">
+                    <div class="form-group" hidden>
+                        <label class="text-primary">User Id</label>
+                        <input class="form-control" name="fname" id="udetailids">
+                    </div>
+                    <div class="form-group">
+                        <label>Old Password</label>
+                        <input class="form-control" type="password" name="password" id="oldpass" required>
+                    </div>
+                    <div class="form-group">
+                        <label>New Password</label>
+                        <input class="form-control" type="password" name="password" id="newpass" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd">Confirm Password</label>
+                        <input class="form-control" type="password" name="password" id="confpass" required>
+                    </div>
+                    <button type="submit" class="btn btn-block btn-primary" id="passsetting">SUBMIT </button><br>
+                    <a href="#moresetting" class="pull-right" onclick="showmoresetting()">Set More Details</a>
+                </form>
             </div>
         </div>
         <!--close setting popup-->
@@ -271,7 +271,7 @@
                         </div>
                     </div>
                     <div class="form-group" hidden>
-                        <label class="text-primary" >User Id</label>
+                        <label class="text-primary">User Id</label>
                         <input class="form-control" name="fname" id="udetailid">
                     </div>
                     <div class="form-group">
@@ -286,7 +286,7 @@
                         <label class="text-primary">Mobile No</label>
                         <input class="form-control" name="number" id="udetailmob">
                     </div>
-                <button type="submit" class="btn btn-block btn-primary" id="teachereditprofile">EDIT</button>
+                    <button type="submit" class="btn btn-block btn-primary" id="teachereditprofile">EDIT</button>
                 </form>
             </div>
         </div>
@@ -296,7 +296,7 @@
 
     <!-- Jquery JS-->
     <script src="~/vendor/jquery-3.2.1.min.js"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <!-- Bootstrap JS-->
     <script src="~/vendor/bootstrap-4.1/popper.min.js"></script>
     <script src="~/vendor/bootstrap-4.1/bootstrap.min.js"></script>
@@ -327,7 +327,7 @@
 
     <!-- Main JS-->
     <script src="~/js/main.js"></script>
-  
+
     <script>
         function showtest() {
             $('#test-form').animate({ top: '15%' }, 500);
@@ -367,14 +367,14 @@
                 type: 'get',
                 dataType: 'json',
                 success: function (result) {
-                    
+
                     if (result) {
                         document.getElementById('msgcount').innerHTML = result;
-                        document.getElementById('msginnertext').innerHTML = "You have " + result + " new message"; 
+                        document.getElementById('msginnertext').innerHTML = "You have " + result + " new message";
                     }
                     else {
                         document.getElementById('msgcount').innerHTML = 0;
-                        document.getElementById('msginnertext').innerHTML = "No new message"; 
+                        document.getElementById('msginnertext').innerHTML = "No new message";
                     }
                 },
 
@@ -385,10 +385,10 @@
                 type: 'get',
                 dataType: 'json',
                 success: function (result) {
-                    
+
                     if (result) {
                         var bat = '';
-                        
+
                         for (var i = 0; i < result.length; i++) {
 
                             bat += '<div class="mess__item"><div class="content"><h6>' + result[i].userEmail + '</h6></div></div>';
@@ -422,7 +422,7 @@
                     document.getElementById('udetailid').value = result.userId;
                 },
             });
-            
+
 
             $("#teachereditprofile").click(function () {
                 var userid = $('#udetailid').val();
@@ -435,7 +435,7 @@
                     type: 'post',
                     dataType: 'json',
                     data: {
-                       
+
                         UserId: userid,
                         UserName: username,
                         UserEmail: useremail,
@@ -452,7 +452,7 @@
                 var oldpass = $('#oldpass').val();
                 var newpass = $('#newpass').val();
                 var confpass = $('#confpass').val();
-               
+
                 if (newpass == confpass) {
                     $.ajax({
                         url: '/User/UserPasswordUpdate',
@@ -461,7 +461,7 @@
                         data: {
                             UserId: userid,
                             UserPassword: newpass,
-                            
+
                         },
                         success: function (result) {
                             alert("Password Updated successfully");
