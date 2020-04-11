@@ -328,7 +328,7 @@
 
         $(document).ready(function () {
             var batch = $('.js-select2').val();
-            
+           -
             $.ajax({
                 url: '/Student/GetStudentDetail',
                 type: 'get',
@@ -341,11 +341,9 @@
 
                     if (result) {
                         var bat = ' <tbody>';
-                        for (var i = 0; i < result.length; i++) {
-
-
+                        for (var i = 0; i < result.length; i++)
+                        {
                             bat += '<tr class="tr-shadow"><td>' + result[i].studentId + '</td><td>' + result[i].studentName + '</td><td class="desc"><img src="'+result[i].studentImg+'"/></td><td>' + result[i].studentAddress + '</td><td>' + result[i].studentGender + '</td><td>' + result[i].studentDob + '</td><td>' + result[i].fatherName + '</td><td>' + result[i].motherName + '</td><td><div class="table-data-feature"><button onclick="show();" class="item" data-toggle="tooltip" data-placement="top" title="Send Message"><a onclick="showsetting1();"><i class="zmdi zmdi-mail-send"></i></a></button><button class="item" data-toggle="tooltip" data-placement="top" title="Edit"><a onclick="showedit(' + result[i].studentId + ');"><i class="zmdi zmdi-edit"></i></a></button><button class="item"  data-toggle="tooltip" data-placement="top" title="Delete"><a onclick="disp(' + result[i].studentId + ')"><i class="zmdi zmdi-delete"></i></a></button></div></td></tr>';
-
                         }
                         bat += '</tbody>';
 

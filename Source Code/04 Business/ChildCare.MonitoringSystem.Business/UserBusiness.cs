@@ -34,19 +34,12 @@ namespace ChildCare.MonitoringSystem.Business
 			var user = this.userRepository.GetBy(x => x.UserName == userName && x.UserPassword == password, x => x.UserRole).SingleOrDefault();
 			return user.MapTo<UserModel>();
 		}
-        public UserModel GetUsersInfo(int id)
-        {
-            var userdetail = this.userRepository.GetBy(x => x.UserId == id).SingleOrDefault();
-            return userdetail.MapTo<UserModel>();
-        }
-      
-        public List<UserModel> GetTeacherDetail()
-        {
-            var userdetails = this.userroleRepository.GetBy(x => x.RoleId == 1);
-            
 
+		public List<UserModel> GetTeacherDetail()
+		{
+			var userdetails = this.userroleRepository.GetBy(x => x.RoleId == 1);
 
-            var users = new List<UserModel>();
+			var users = new List<UserModel>();
 
             foreach (var user in userdetails)
             {

@@ -86,9 +86,9 @@ namespace ChildCare.MonitoringSystem.Entity
         // Reverse navigation
 
         /// <summary>
-        /// Child StudentBusSchedule where [StudentBusSchedule].[BusScheduleId] point to this entity (FK_StudentBusSchedule_BusSchedule)
+        /// Child StudentBusSchedule where [StudentBusSchedule].[BusScheduleId] point to this entity (FK_StudentBusSchedule_BusSchedule1)
         /// </summary>
-        public virtual System.Collections.Generic.ICollection<StudentBusSchedule> StudentBusSchedule { get; set; } // StudentBusSchedule.FK_StudentBusSchedule_BusSchedule
+        public virtual System.Collections.Generic.ICollection<StudentBusSchedule> StudentBusSchedule { get; set; } // StudentBusSchedule.FK_StudentBusSchedule_BusSchedule1
 
         // Foreign keys
 
@@ -279,9 +279,9 @@ namespace ChildCare.MonitoringSystem.Entity
     {
         public int StudentId { get; set; } // StudentId (Primary key)
         public string StudentName { get; set; } // StudentName (length: 100)
+        public string StudentImg { get; set; } // StudentImg (length: 100)
         public string StudentAddress { get; set; } // StudentAddress (length: 200)
-        public string StudentImg { get; set; } // StudentImg (length: 200)
-        public string StudentGender { get; set; } // StudentGender (length: 10)
+        public string StudentGender { get; set; } // StudentGender (length: 100)
         public System.DateTime StudentDob { get; set; } // StudentDob
         public string FatherName { get; set; } // FatherName (length: 100)
         public string MotherName { get; set; } // MotherName (length: 100)
@@ -342,9 +342,9 @@ namespace ChildCare.MonitoringSystem.Entity
         // Foreign keys
 
         /// <summary>
-        /// Parent BusSchedule pointed by [StudentBusSchedule].([BusScheduleId]) (FK_StudentBusSchedule_BusSchedule)
+        /// Parent BusSchedule pointed by [StudentBusSchedule].([BusScheduleId]) (FK_StudentBusSchedule_BusSchedule1)
         /// </summary>
-        public virtual BusSchedule BusSchedule { get; set; } // FK_StudentBusSchedule_BusSchedule
+        public virtual BusSchedule BusSchedule { get; set; } // FK_StudentBusSchedule_BusSchedule1
 
         /// <summary>
         /// Parent Student pointed by [StudentBusSchedule].([StudentId]) (FK_StudentBusSchedule_Student)
