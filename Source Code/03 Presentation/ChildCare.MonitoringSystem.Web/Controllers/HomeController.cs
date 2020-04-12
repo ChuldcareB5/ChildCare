@@ -29,7 +29,6 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 			return View("Contact");
 		}
 
-		
 
 		public IActionResult Student()
 		{
@@ -139,19 +138,17 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 			return View("ParentStudentLocation");
 		}
 
+        public IActionResult LogIn()
+        {
+            return View();
+        }
 
-
-		public IActionResult LogIn()
-		{
-			return View();
-		}
-
-		[HttpPost]
+        [HttpPost]
 		public async Task<IActionResult> LogIn(LoginViewModel loginViewModel)
 		{
 			if (ModelState.IsValid)
 			{
-				if (!HttpContext.User.Identity.IsAuthenticated)//check authentication of user
+				if (HttpContext.User.Identity.IsAuthenticated)//check authentication of user
 				{
 					var user = this.userBusiness.GetUser(loginViewModel.UserName, loginViewModel.Password);//get user from userbussiness
 

@@ -1,10 +1,10 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
-var user = User.Claims.ToList();
+    ViewData["Title"] = "User Page";
+    var user = User.Claims.ToList();
 }
 
 @section LeftNavigation{
-<partial name="_UserLeftNavigation" />
+    <partial name="_UserLeftNavigation" />
 }
 
 <!-- MAIN CONTENT-->
@@ -15,7 +15,7 @@ var user = User.Claims.ToList();
             <div class="row" style="text-align:center; margin-left:16%;">
                 <div class="col-md-12">
                     <div class="overview-wrap">
-                        <h1 class="title-1 " style="font-family:'Berlin Sans FB'; color:blue;">Welcome to Dashboard</h1>
+                        <h1 class="title-1 " style="font-family:'Brush Script MT'; color:blue; font-size:50px;">Welcome to Dashboard</h1>
                     </div>
                     <div>
                         <button class="btn btn-primary pull-right" id="sendmsg" onclick="showpopup();">Send Message</button>
@@ -23,52 +23,114 @@ var user = User.Claims.ToList();
                 </div>
             </div><br /><hr />
 
-
-
-            <div class="row m-t-25">
-                <div class="col-sm-6 col-lg-4">
-                    <div class="overview-item overview-item--c1">
-                        <div class="overview__inner">
-                            <div class="overview-box clearfix">
-                                <div class="icon">
-                                    <i class="zmdi zmdi-account-o"></i>
-                                </div><br />
-                                <div class="text">
-                                    <h2>Student</h2>
-                                    <span>View students Details</span>
+                        <div class="row m-t-25">
+                                <div class="col-sm-6 col-lg-4">
+                                    <div class="overview-item overview-item--c1">
+                                        <div class="overview__inner">
+                                            <a href="/User/Student">
+                                                <div class="overview-box clearfix">
+                                                    <div class="icon">
+                                                        <i class="zmdi zmdi-account-o"></i>
+                                                    </div><br />
+                                                    <div class="text">
+                                                        <h2>
+                                                            Student
+                                                        </h2>
+                                                        <span>View students Details</span>
+                                                    </div>
+                                                    <br />
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
-                                <br />
+                           
+                            <div class="col-sm-6 col-lg-4">
+                                <div class="overview-item overview-item--c4">
+                                    <div class="overview__inner">
+                                        <a href="/User/Camera">
+                                            <div class="overview-box clearfix">
+                                                <div class="icon">
+                                                    <i class="zmdi zmdi-videocam"></i>
+                                                </div><br />
+                                                <div class="text">
+                                                    <h2>Camera</h2>
+                                                    <span>View live videos</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-4">
+                                <div class="overview-item overview-item--c3">
+                                    <div class="overview__inner">
+                                        <a href="/User/StudentTracking">
+                                            <div class="overview-box clearfix">
+                                                <div class="icon">
+                                                    <i class="zmdi zmdi-google-maps"></i>
+                                                </div><br />
+                                                <div class="text">
+                                                    <h2>Location</h2>
+                                                    <span>View Kid Location</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6" style="z-index:2">
+                <div class="au-card au-card--no-shadow au-card--no-pad m-b-40">
+                    <div class="au-card-title" style="background-image:url('images/bg-title-01.jpg');">
+                        <div class="bg-overlay bg-overlay--blue"></div>
+                        <h3>
+                            <i class="zmdi zmdi-account-calendar"></i>Viewed Message
+                        </h3>
+                        @*<button class="au-btn-plus">
+                            <i class="zmdi zmdi-plus"></i>
+                        </button>*@
                     </div>
-                </div>
-                <div class="col-sm-6 col-lg-4">
-                    <div class="overview-item overview-item--c4">
-                        <div class="overview__inner">
-                            <div class="overview-box clearfix">
-                                <div class="icon">
-                                    <i class="zmdi zmdi-videocam"></i>
-                                </div><br />
-                                <div class="text">
-                                    <h2>Camera</h2>
-                                    <span>View live videos</span>
-                                </div>
+                    @*//=============*@
+
+                    <div class="au-task js-list-load">
+                        <div class="au-task-list js-scrollbar3">
+                            <div class="au-task__item au-task__item--danger">
+                                <table class="au-task__item-inner" id="viewedmsg"></table>
+
                             </div>
                         </div>
+                        <div class="au-task__footer">
+                            <button class="au-btn au-btn-load js-load-btn">load more</button>
+                        </div>
                     </div>
+
+                    @*//=============*@
                 </div>
-                <div class="col-sm-6 col-lg-4">
-                    <div class="overview-item overview-item--c3">
-                        <div class="overview__inner">
-                            <div class="overview-box clearfix">
-                                <div class="icon">
-                                    <i class="zmdi zmdi-google-maps"></i>
-                                </div><br />
-                                <div class="text">
-                                    <h2>Location</h2>
-                                    <span>View Kid Location</span>
-                                </div>
+            </div>
+            <div class="col-lg-6" style="z-index:2">
+                <div class="au-card au-card--no-shadow au-card--no-pad m-b-40">
+                    <div class="au-card-title" style="background-image:url('images/bg-title-02.jpg');">
+                        <div class="bg-overlay bg-overlay--blue"></div>
+                        <h3>
+                            <i class="zmdi zmdi-comment-text"></i>New Messages
+                        </h3>
+                        @*<button class="au-btn-plus">
+                            <i class="zmdi zmdi-plus" onclick="showpopup();"></i>
+                        </button>*@
+                    </div>
+
+                    <div class="au-task js-list-load">
+                        <div class="au-task-list js-scrollbar3">
+                            <div class="au-task__item au-task__item--danger">
+                                <table class="au-task__item-inner" id="newmsg"></table>
+                                @*<hr />*@
                             </div>
+                        </div>
+                        <div class="au-task__footer">
+                            <button class="au-btn au-btn-load js-load-btn">load more</button>
                         </div>
                     </div>
                 </div>
@@ -80,8 +142,8 @@ var user = User.Claims.ToList();
 <!-- END MAIN CONTENT-->
 
 <div id="overlay1" style="z-index:4">
-    <div id="senddiv" class="">
-        <a class="pull-right" onclick="hidepopup1();"><i class="fa fa-close"></i></a>
+    <div id="senddiv">
+        <a class="pull-right" onclick="hidepopup();"><i class="fa fa-close"></i></a>
         <h2 align="center">Send Message</h2><hr />
         <div class="form-group row">
             <label for="staticEmail" class="col-sm-4 col-form-label">From</label>
@@ -96,6 +158,7 @@ var user = User.Claims.ToList();
                 <input type="text" class="form-control" id="to" />
             </div>
         </div>
+
         <div class="form-group row">
             <label for="inputPassword" class="col-sm-4 col-form-label">Message</label>
             <div class="col-sm-8">
@@ -108,10 +171,39 @@ var user = User.Claims.ToList();
             <button type="button" class="btn btn-outline-success btn-block" onclick="Clearfield();">Clear</button>
         </div>
     </div>
-
-
 </div>
 
+<div id="overlay2" style="z-index:4">
+    <div id="viewmsgdiv">
+        <a class="pull-right" onclick="hideviewmsgdiv();"><i class="fa fa-close"></i></a>
+        <h2 align="center" class="text-primary">New Message</h2><hr />
+
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label">From</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="msgfrom" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label">To</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="msgto" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label">Time</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="msgtime" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label">Message</label>
+            <div class="col-sm-8">
+                <textarea type="text" class="form-control" id="msgcontent"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 @section Scripts{
@@ -135,7 +227,7 @@ var user = User.Claims.ToList();
                     dataType: 'json',
 
                     success: function (result) {
-            document.getElementById('from').value =result;
+                        document.getElementById('from').value =result;
 
                     },
 
@@ -166,6 +258,49 @@ var user = User.Claims.ToList();
 
                 });
             });
+            $.ajax({
+                url: '/MessageBoard/ViewedMsgDetail',
+                type: 'get',
+                dataType: 'json',
+                success: function (result) {
+                    debugger
+                    if (result) {
+                        var put = '<tbody>';
+                        for (var i = 0; i < result.length; i = i + 4) {
+                            put += '<tr><td>From :' + result[i + 1] + '</td></tr><tr><td>To :' + result[i] + '</td></tr><tr><td>Msg :' + result[i + 2] + '</td></tr><tr><td>Date and Time :' + result[i + 3] + '</td></tr><tr><td>__________________________________________________________________</td></tr>';
+                        }
+                        put += '</tbody>';
+                        $('#viewedmsg').append(put);
+                    }
+                    else {
+                        alert("failed to get data");
+                    }
+                },
+
+            });
+
+            $.ajax({
+                url: '/MessageBoard/NewMsgDetail',
+                type: 'get',
+                dataType: 'json',
+                success: function (result) {
+                    debugger
+                    if (result) {
+                        var put = '<tbody>';
+                        for (var i = 0; i < result.length; i = i + 5) {
+                            //put += '<tr><td>From :' + result[i + 1] + '</td></tr><tr><td>To :' + result[i] + '</td></tr><tr><td>Msg :' + result[i + 2] + '</td></tr><tr><td>Date and Time :' + result[i + 3] + '</td></tr><tr><td>__________________________________________________________________</td></tr>';
+                            put += '<tr><td><br/></td></tr><tr><td>From :' + result[i + 1] + '</td></tr><tr><td>Date and Time :' + result[i + 4] + '</td><td><i class="fa fa-arrow-right"><button style="width:80px; height:30px; background-color:lightblue;" class="viewbtn text-primary" id ="viewbtn" name="viewbtn" onclick="viewfunc()" value="' + result[i + 3] + '">VIEW</button></i></td></tr><tr><td><br/></td></tr><tr><td>____________________________________________________</td><td>_________</td></tr>';
+
+                        }
+                        put += '</tbody>';
+                        $('#newmsg').append(put);
+                    }
+                    else {
+                        alert("failed to get data");
+                    }
+                },
+
+            });
 
         });
 
@@ -181,13 +316,74 @@ var user = User.Claims.ToList();
         function hidepopup1() {
             $('#senddiv').animate({ top: '-500%' }, 500);
             document.getElementById("overlay1").style.display = "none";
+    }
+    function viewfunc() {
+        alert("hiii");
+        //var name = $(this).attr("name");
+
+        //if (name == 'viewbtn') {
+        //var msgid = $(this).attr("vals");
+        var msgid = $("#viewbtn").val();
+        alert(msgid);
+        $.ajax({
+            url: '/MessageBoard/GetMsgById',
+            type: 'get',
+            dataType: 'json',
+            data:
+            {
+                id: msgid,
+            },
+            success: function (result) {
+                document.getElementById('msgfrom').value = result[1];
+                document.getElementById('msgto').value = result[0];
+                document.getElementById('msgtime').value = result[3];
+                document.getElementById('msgcontent').value = result[2];
+                $('#viewmsgdiv').animate({ top: '23%' }, 500);
+                document.getElementById("overlay2").style.display = "block";
+            },
+
+        });
+        //}
+    }
+
+    $(".viewbtn").click(function () {
+
+        var name = $(this).attr("name");
+
+        if (name == 'viewbtn') {
+            var msgid = $(this).attr("vals");
+            alert(msgid);
+            $.ajax({
+                url: '/MessageBoard/GetMsgById',
+                type: 'get',
+                dataType: 'json',
+                data:
+                {
+                    id: msgid,
+                },
+                success: function (result) {
+                    document.getElementById('msgfrom').value = result[1];
+                    document.getElementById('msgto').value = result[0];
+                    document.getElementById('msgtime').value = result[3];
+                    document.getElementById('msgcontent').value = result[2];
+                    $('#viewmsgdiv').animate({ top: '23%' }, 500);
+                    document.getElementById("overlay2").style.display = "block";
+                },
+
+            });
         }
+    });
+    function hideviewmsgdiv() {
+        $('#viewmsgdiv').animate({ top: '-500%' }, 500);
+        document.getElementById("overlay2").style.display = "none";
+        window.location.reload();
+    }
 </script>
     }
 
     @section Styles{
 <style>
-    #overlay1 {
+    #overlay1, #overlay2 {
         position: fixed; /* Sit on top of the page content */
         display: none; /* Hidden by default */
         width: 100%; /* Full width (cover the whole page) */
@@ -201,7 +397,16 @@ var user = User.Claims.ToList();
         cursor: pointer; /* Add a pointer on hover */
         overflow: auto;
     }
-
+             #viewmsgdiv {
+            position: fixed;
+            top: -500%;
+            width: 32%;
+            margin-left: 32%;
+            background-color: white;
+            box-shadow: 2px 3px 10px grey;
+            border-radius: 5px;
+            padding: 20px;
+        }
 
     #senddiv {
         position: fixed;

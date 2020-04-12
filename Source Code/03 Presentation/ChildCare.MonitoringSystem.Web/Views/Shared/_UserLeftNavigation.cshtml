@@ -35,16 +35,37 @@
                         <i class="fas fa-chart-bar"></i>Camera View
                     </a>
                 </li>
+                <li>
+                    <a asp-area="" asp-controller="User" asp-action="StudentSchedule">
+                        <i class="fas fa-table"></i>Student Schedule
+                    </a>
+                </li>
 
                 @*<li>
-                        <a href="~/Home/Calender1">
-                            <i class="fas fa-calendar-alt"></i>Calendar
-                        </a>
-                    </li>*@
-                <li>
-                    <a asp-area="" asp-controller="User" asp-action="BusTracking">
+            <a href="~/Home/Calender1">
+                <i class="fas fa-calendar-alt"></i>Calendar
+            </a>
+        </li>*@
+                @*<li>
+            <a asp-area="" asp-controller="User" asp-action="BusTracking">
+                <i class="fas fa-map-marker-alt"></i>Location
+            </a>
+        </li>*@
+                <li class="has-sub">
+                    <a class="js-arrow">
                         <i class="fas fa-map-marker-alt"></i>Location
                     </a>
+                    <ul class="list-unstyled navbar__sub-list js-sub-list">
+                        <li>
+                            <a asp-area="" asp-controller="User" asp-action="BusTracking">Bus Location</a>
+                        </li>
+
+                    </ul>
+                    <ul class="list-unstyled navbar__sub-list js-sub-list">
+                        <li>
+                            <a asp-area="" asp-controller="User" asp-action="StudentTracking">Student Location</a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </div>
@@ -79,17 +100,33 @@
                         <i class="fas fa-chart-bar"></i>Camera View
                     </a>
                 </li>
+                <li>
+                    <a asp-area="" asp-controller="User" asp-action="StudentSchedule">
+                        <i class="fas fa-table"></i>Student Schedule
+                    </a>
+                </li>
 
 
                 @*<li>
-                        <a href="~/Home/Calender1">
-                            <i class="fas fa-calendar-alt"></i>Calendar
-                        </a>
-                    </li>*@
-                <li>
-                    <a asp-area="" asp-controller="User" asp-action="BusTracking">
+            <a href="~/Home/Calender1">
+                <i class="fas fa-calendar-alt"></i>Calendar
+            </a>
+        </li>*@
+                <li class="has-sub">
+                    <a class="js-arrow">
                         <i class="fas fa-map-marker-alt"></i>Location
                     </a>
+                    <ul class="list-unstyled navbar__sub-list js-sub-list">
+                        <li>
+                            <a asp-area="" asp-controller="User" asp-action="BusTracking">Bus Location</a>
+                        </li>
+
+                    </ul>
+                    <ul class="list-unstyled navbar__sub-list js-sub-list">
+                        <li>
+                            <a asp-area="" asp-controller="User" asp-action="StudentTracking">Student Location</a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </nav>

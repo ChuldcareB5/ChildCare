@@ -1,3 +1,4 @@
+
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -17,7 +18,7 @@ using ChildCare.MonitoringSystem.Core.Models;
 
 namespace ChildCare.MonitoringSystem.Web.Controllers
 {
-	[Authorize]
+    [Authorize(Roles = "1")]
     public class DashboardController : Controller
 	{
 		private readonly ApplicationContext applicationContext;
@@ -26,14 +27,17 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 		private readonly string profilePicPath = "profilepics";
 		private static List<string> uploadedImages = new List<string>();
 		private readonly IHostingEnvironment environment;
+        private readonly MsgBusiness msgBusiness;
 
-		public DashboardController(StudentBusiness studentBusiness, ApplicationContext applicationContext, UserBusiness userBusiness, IHostingEnvironment environment)
+        public DashboardController(StudentBusiness studentBusiness, ApplicationContext applicationContext, UserBusiness userBusiness, IHostingEnvironment environment, MsgBusiness msgBusiness)
 		{
 			this.studentBusiness = studentBusiness;
 			this.userBusiness = userBusiness;
 			this.applicationContext = applicationContext;
 			this.environment = environment;
-		}
+            this.msgBusiness = msgBusiness;
+
+        }
 		public IActionResult StudentRegistration()
 		{
 			return View("StudentRegistration");
@@ -54,8 +58,15 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 		{
 			return View();
 		}
-
-		public IActionResult RoomSchedule()
+        public IActionResult BusTracking()
+        {
+            return View();
+        }
+        public IActionResult StudentTracking()
+        {
+            return View();
+        }
+        public IActionResult RoomSchedule()
 		{
 			return View();
 		}
@@ -69,10 +80,7 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 			return View();
 		}
 
-		public IActionResult BusTracking()
-		{
-			return View();
-		}
+	
 
 		public ActionResult<Int32> GetUserId()
 		{
@@ -81,9 +89,10 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 		}
 
 
-		[HttpPost]
-		public IActionResult StudentRegistration(StudentDetail studentDetail)
-		{
+       
+        [HttpPost]
+        public IActionResult StudentRegistration(StudentDetail studentDetail)
+        {
             try
             {
                 string imageName = Guid.NewGuid().ToString() + Path.GetExtension(studentDetail.StudentImg.FileName);
@@ -96,7 +105,6 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
                 uploadedImages.Add(imageName);
                 imageName = "/profilepics/" + imageName;
                 StudentModel studentModel = new StudentModel();
-                BusScheduleModel busScheduleModel = new BusScheduleModel();
                 UserModel userModel = new UserModel();
                 userModel.UserName = studentDetail.UserName;
                 userModel.UserEmail = studentDetail.UserEmail;
@@ -112,20 +120,19 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
                 studentModel.MotherName = studentDetail.MotherName;
                 studentModel.ParentId = user.UserId;
                 studentModel.Batch = studentDetail.Batch;
-         
+             var student = this.studentBusiness.AddStudent(studentModel, studentDetail.Sheduleid);
+                ModelState.AddModelError(nameof(StudentDetail.ErrorMessage), "Registered Successfully");
 
-				ModelState.AddModelError(nameof(StudentDetail.ErrorMessage), "Register Successfully");
-
-				
-                var student = this.studentBusiness.AddStudent(studentModel);
             }
-            catch
+            catch (Exception e)
             {
-                ModelState.AddModelError(nameof(StudentDetail.ErrorMessage), "Failed to register");
+                ModelState.AddModelError(nameof(StudentDetail.ErrorMessage), "Failed to register due to "+e);
             }
-			
 
-			return View();
-		}
-	}
+
+
+            return View(studentDetail);
+        }
+        }
 }
+

@@ -1,6 +1,5 @@
 ﻿@{
     ViewData["Title"] = "Dashboard";
-
 }
 
 @section LeftNavigation{
@@ -8,14 +7,18 @@
 }
 
 <div class="main-content">
+    @*<button style="width:29px;height:30px;background-color:red" class="viewbtn" vals="8" name="viewbtn">hello</button>
+    <button style="width:29px;height:30px;background-color:red" class="viewbtn" vals="13" name="viewbtn">hello</button>
+
+    <button style="width:29px;height:30px;background-color:red" class="viewbtn" vals="14" name="viewbtn">hello</button>*@
     @*<div class="section__content section__content--p30">*@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
                 <div class="overview-wrap">
                     <h2 class="title-1">Dashboard</h2>
-
                 </div>
+                <hr />
             </div>
         </div>
         <div class="row m-t-25">
@@ -25,13 +28,15 @@
                         <div class="overview-box clearfix">
                             <div class="icon">
                                 <i class="zmdi zmdi-account-o"></i>
-                            </div>
+                            </div><br />
                             <div class="text">
                                 <h2>1000+</h2>
                                 <span>Total number of students</span>
                             </div>
                         </div>
-                      
+                        @*<div class="overview-chart">
+                            <canvas id="widgetChart1"></canvas>
+                        </div>*@
                     </div>
                 </div>
             </div>
@@ -41,13 +46,15 @@
                         <div class="overview-box clearfix">
                             <div class="icon">
                                 <i class="zmdi zmdi-videocam"></i>
-                            </div><br />
+                            </div>
+                            <br />
+
                             <div class="text">
                                 <h2>30+</h2>
                                 <span>Total cameras</span>
                             </div>
                         </div>
-                      
+
                     </div>
                 </div>
             </div>
@@ -63,7 +70,9 @@
                                 <span>Total ClassRooms</span>
                             </div>
                         </div>
-                     
+                        @*<div class="overview-chart">
+                            <canvas id="widgetChart3"></canvas>
+                        </div>*@
                     </div>
                 </div>
             </div>
@@ -79,225 +88,127 @@
                                 <span>Total No.of Buses</span>
                             </div>
                         </div>
-               
+                        @*<div class="overview-chart">
+                            <canvas id="widgetChart4"></canvas>
+                        </div>*@
                     </div>
                 </div>
             </div>
         </div>
-        @*<div class="row">
-            <div class="col-lg-6">
-                <div class="au-card recent-report">
-                    <div class="au-card-inner">
-                        <h3 class="title-2">Bus Location</h3>
-                        <div class="chart-info">
-
-
-                        </div>
-                        <div class="recent-report__chart">
-                           
-                            <!-- MAP DATA-->
-                            <div class="map-data m-b-40">
-                                <h3 class="title-3 m-b-30">
-                                    <i class="zmdi zmdi-map"></i>map data
-                                </h3>
-
-                                <div class="map-wrap m-t-45 m-b-20">
-                                    <div id="vmap" style="height: 284px;"></div>
-                                </div>
-                            </div>
-                            <!-- END MAP DATA-->
-                        </div>
-                    </div>
-                    <div class="row">
-
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="au-card chart-percent-card">
-                    <div class="au-card-inner">
-                        <h3 class="title-2 tm-b-5">Student camera view</h3>
-                        <div class="row no-gutters">
-                            @* <div class="col-xl-6">
-                                    <div class="chart-note-wrap">
-                                        <div class="chart-note mr-0 d-block">
-                                            <span class="dot dot--blue"></span>
-                                            <span>products</span>
-                                        </div>
-                                        <div class="chart-note mr-0 d-block">
-                                            <span class="dot dot--red"></span>
-                                            <span>services</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            <div class="col-xl-6">
-                                <div class="percent-chart">
-
-                                    <div class="filters">
-                                        <div class="rs-select2--dark rs-select2--md m-r-10 rs-select2--border">
-                                            <select class="js-select2" name="property">
-                                                <option selected="selected">Enter Room No</option>
-                                                <option value="">1</option>
-                                                <option value="">2</option>
-                                            </select>
-                                            <div class="dropDownSelect2"></div>
-                                        </div>
-
-                                    </div>
-                                    <br /><br />
-                                    <video width="400" controls>
-                                        <source src="~/video/class.mp4" type="video/mp4">
-                                        <source src="~/video/class.mp4" type="video/mp4">
-
-
-                                    </video>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>*@
+        <hr />
         <div class="row">
-            <div class="col-lg-9">
-                <h2 class="title-1 m-b-25">Student info   </h2>
-                <div class="table-responsive table--no-card m-b-40">
-                    <table class="table table-borderless table-striped table-earning" id="studentInfo">
-                        <thead>
-                            <tr>
-                                <th>Student Id</th>
-                                <th>Student Name</th>
-                                <th>Address</th>
-                                
-                                <th class="text-right">Father Name</th>
-                                <th class="text-right">Mothername</th>
-                            </tr>
-                        </thead>
-                   @*
-                       body written in script
-                   *@
-                    </table>
-                </div>
+            <div class="col-lg-3">
+                <img src="~/images/img/classroom3.jpg" />
             </div>
             <div class="col-lg-3">
+                <img src="~/images/img/classroom1.jpg" />
+            </div>
+            <div class="col-lg-3">
+                <img src="~/images/img/classroom4.jpg" />
+            </div>
+            <div class="col-lg-3">
+                <img src="~/images/FindMyKids-1024x576.jpg" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="overview-wrap">
+                    <h2 class="title-1">Gallery</h2>
+                </div>
+                <hr />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3">
+                <img src="~/images/img/playground2.jpg" />
+            </div>
+            <div class="col-lg-3">
+                <img src="~/images/img/playground.jpg" />
+            </div>
+            <div class="col-lg-3">
+                <img src="~/images/img/campus1.jpg" />
+            </div>
+            <div class="col-lg-3">
+                <img src="~/images/img/playground1.jpg" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
                 <h2 class="title-1 m-b-25">Teacher info   </h2>
                 <div class="au-card au-card--bg-blue au-card-top-countries m-b-40">
-                        @*<h4 style="color:yellow;">Teacher Names :   </h4>*@
+                    @*<h4 style="color:yellow;">Teacher Names :   </h4>*@
                     <div class="au-card-inner">
-                       
                         <div class="table-responsive">
-
                             <table class="table table-top-countries" id="listofteacher"></table>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-6" style="z-index:2">
-                <div class="au-card au-card--no-shadow au-card--no-pad m-b-40">
-                    <div class="au-card-title" style="background-image:url('images/bg-title-01.jpg');">
-                        <div class="bg-overlay bg-overlay--blue"></div>
-                        <h3>
-                            <i class="zmdi zmdi-account-calendar"></i>Viewed Message
-                        </h3>
-                        <button class="au-btn-plus">
-                            <i class="zmdi zmdi-plus"></i>
-                        </button>
-                    </div>
-                    @*//=============*@
-                    <div class="au-task js-list-load">
-                   
-                        <div class="au-task-list js-scrollbar3">
-                            <div class="au-task__item au-task__item--danger">
-                                <table class="au-task__item-inner" id="viewedmsg">
-                             
-                                </table>
-                                <hr />
-                            </div>
-                        </div>
-                        <div class="au-task__footer">
-                            <button class="au-btn au-btn-load js-load-btn">load more</button>
-                        </div>
-                    </div>
-
-                    @*//=============*@
-                </div>
+            <div class="col-lg-6"><br />
+               <h2 class="title-1 m-b-25">Contact Us  </h2>
+                <img src="~/images/bg-title-02.jpg" />
             </div>
-            <div class="col-lg-6" style="z-index:2">
-                <div class="au-card au-card--no-shadow au-card--no-pad m-b-40">
-                    <div class="au-card-title" style="background-image:url('images/bg-title-02.jpg');">
-                        <div class="bg-overlay bg-overlay--blue"></div>
-                        <h3>
-                            <i class="zmdi zmdi-comment-text"></i>New Messages
-                        </h3>
-                        <button class="au-btn-plus">
-                            <i class="zmdi zmdi-plus" onclick="showpopup();"></i>
-                        </button>
-                    </div>
-                    <div class="au-inbox-wrap js-inbox-wrap">
-                        <div class="au-message js-list-load">
-                            <div class="au-message__noti">
-                                <p>
-                                    You Have
-                                    <span>2</span>
+        </div>
+            <div class="row">
+                <div class="col-lg-6" style="z-index:2">
+                    <div class="au-card au-card--no-shadow au-card--no-pad m-b-40">
+                        <div class="au-card-title" style="background-image:url('images/bg-title-01.jpg');">
+                            <div class="bg-overlay bg-overlay--blue"></div>
+                            <h3>
+                                <i class="zmdi zmdi-account-calendar"></i>Viewed Message
+                            </h3>
+                            <button class="au-btn-plus">
+                                <i class="zmdi zmdi-plus"></i>
+                            </button>
+                        </div>
+                        @*//=============*@
 
-                                    new messages
-                                </p>
+                        <div class="au-task js-list-load">
+                            <div class="au-task-list js-scrollbar3">
+                                <div class="au-task__item au-task__item--danger">
+                                    <table class="au-task__item-inner" id="viewedmsg"></table>
+
+                                </div>
                             </div>
-                            <div class="au-message__footer">
+                            <div class="au-task__footer">
                                 <button class="au-btn au-btn-load js-load-btn">load more</button>
                             </div>
                         </div>
-                        <div class="au-chat">
-                            <div class="au-chat__title">
-                                <div class="au-chat-info">
-                                    <div class="avatar-wrap online">
-                                        <div class="avatar avatar--small">
-                                            <img src="images/icon/avatar-02.jpg" alt="John Smith">
-                                        </div>
-                                    </div>
-                                    <span class="nick">
-                                        <a href="#">John Smith</a>
-                                    </span>
+
+                        @*//=============*@
+                    </div>
+                </div>
+                <div class="col-lg-6" style="z-index:2">
+                    <div class="au-card au-card--no-shadow au-card--no-pad m-b-40">
+                        <div class="au-card-title" style="background-image:url('images/bg-title-02.jpg');">
+                            <div class="bg-overlay bg-overlay--blue"></div>
+                            <h3>
+                                <i class="zmdi zmdi-comment-text"></i>New Messages
+                            </h3>
+                            <button class="au-btn-plus">
+                                <i class="zmdi zmdi-plus" onclick="showpopup();"></i>
+                            </button>
+                        </div>
+
+
+
+                        <div class="au-task js-list-load">
+                            <div class="au-task-list js-scrollbar3">
+                                <div class="au-task__item au-task__item--danger">
+                                    <table class="au-task__item-inner" id="newmsg"></table>
+                                    @*<hr />*@
                                 </div>
                             </div>
-                            <div class="au-chat__content">
-                                <div class="recei-mess-wrap">
-                                    <span class="mess-time">12 Min ago</span>
-                                    <div class="recei-mess__inner">
-                                        <div class="avatar avatar--tiny">
-                                            <img src="images/icon/avatar-02.jpg" alt="John Smith">
-                                        </div>
-                                        <div class="recei-mess-list">
-                                            <div class="recei-mess">Lorem ipsum dolor sit amet, consectetur adipiscing elit non iaculis</div>
-                                            <div class="recei-mess">Donec tempor, sapien ac viverra</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="send-mess-wrap">
-                                    <span class="mess-time">30 Sec ago</span>
-                                    <div class="send-mess__inner">
-                                        <div class="send-mess-list">
-                                            <div class="send-mess">Lorem ipsum dolor sit amet, consectetur adipiscing elit non iaculis</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="au-chat-textfield">
-                                <form class="au-form-icon">
-                                    <input class="au-input au-input--full au-input--h65" type="text" placeholder="Type a message">
-                                    <button class="au-input-icon">
-                                        <i class="zmdi zmdi-camera"></i>
-                                    </button>
-                                </form>
+                            <div class="au-task__footer">
+                                <button class="au-btn au-btn-load js-load-btn">load more</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 </div>
 
 <div id="overlay1" style="z-index:4">
@@ -313,7 +224,7 @@
         <div class="form-group row">
             <label for="staticEmail" class="col-sm-4 col-form-label">From</label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" value="57" id="adminfrom"/>
+                <input type="text" class="form-control" value="57" id="adminfrom" />
             </div>
         </div>
         <div class="form-group row">
@@ -334,6 +245,69 @@
             <button type="reset" class="btn btn-outline-success btn-block" onclick="Clearfield();">Clear</button>
         </div>
     </div>
+</div>
+
+
+<div id="overlay2" style="z-index:4">
+    <div id="viewmsgdiv">
+        <a class="pull-right" onclick="hideviewmsgdiv();"><i class="fa fa-close"></i></a>
+        <h2 align="center" class="text-primary">New Message</h2><hr />
+
+        <div class="form-group row">
+            <label  class="col-sm-4 col-form-label">From</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="msgfrom" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label  class="col-sm-4 col-form-label">To</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="msgto" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label  class="col-sm-4 col-form-label">Time</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="msgtime" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label  class="col-sm-4 col-form-label">Message</label>
+            <div class="col-sm-8">
+                <textarea type="text" class="form-control" id="msgcontent"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="overlay1" style="z-index:4">
+    <div id="senddiv">
+        <a class="pull-right" onclick="hidepopup();"><i class="fa fa-close"></i></a>
+        <h2 align="center">Send Message</h2><hr />
+        <div class="form-group row">
+            <label for="staticEmail" class="col-sm-4 col-form-label">From</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="from" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword" class="col-sm-4 col-form-label">To</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="to" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword" class="col-sm-4 col-form-label">Message</label>
+            <div class="col-sm-8">
+                <textarea type="text" class="form-control" id="msg"></textarea>
+            </div>
+        </div>
+
+        <div>
+            <button type="button" class="btn btn-outline-primary btn-block" id="sendbtn">Send</button>
+            <button type="button" class="btn btn-outline-success btn-block" onclick="Clearfield();">Clear</button>
+        </div>
+    </div>
 
 
 </div>
@@ -342,7 +316,7 @@
 @section Styles{
     <style>
 
-        #overlay1 {
+        #overlay1,#overlay2 {
             position: fixed; /* Sit on top of the page content */
             display: none; /* Hidden by default */
             width: 100%; /* Full width (cover the whole page) */
@@ -368,6 +342,18 @@
             border-radius: 5px;
             padding: 20px;
         }
+
+        #viewmsgdiv {
+            position: fixed;
+            top: -500%;
+            width: 32%;
+            margin-left: 32%;
+            background-color: white;
+            box-shadow: 2px 3px 10px grey;
+            border-radius: 5px;
+            padding: 20px;
+        }
+
         form.example input[type=text] {
             padding: 8px;
             font-size: 17px;
@@ -412,6 +398,11 @@
             border-radius: 5px;
             padding: 20px;
         }
+
+        #viewbtn {
+            /*color:white;*/
+            border:none;
+        }
     </style>
 }
 
@@ -419,45 +410,44 @@
     <script>
 
         $(document).ready(function () {
-            
-                $.ajax({
-                    url: '/Student/GetStudentDetail',
-                    type: 'get',
-                    dataType: 'json',
-                    success: function (result) {
 
-                        if (result) {
-                             var bat = ' <tbody>';
-                            for (var i = 0; i < result.length; i++) {
+            $.ajax({
+                url: '/Student/GetStudentDetail',
+                type: 'get',
+                dataType: 'json',
+                success: function (result)
+                {
 
+                    if (result) {
+                        var bat = ' <tbody>';
+                        for (var i = 0; i < result.length; i++) {
 
-                                bat += '<tr><td>' + result[i].studentId + '</td><td>' + result[i].studentName + '</td><td>' + result[i].studentAddress + '</td><td class="text-right">' + result[i].fatherName + '</td><td class="text-right">' + result[i].motherName+'</td></tr>';
-
-
-                            }
-                            bat += '</tbody>';
-
-                            $('#studentInfo').append(bat);
+                            bat += '<tr><td>' + result[i].studentId + '</td><td>' + result[i].studentName + '</td><td>' + result[i].studentAddress + '</td><td class="text-right">' + result[i].fatherName + '</td><td class="text-right">' + result[i].motherName + '</td></tr>';
 
                         }
-                        else {
-                            alert("failed to get data");
-                        }
+                        bat += '</tbody>';
 
-                    },
+                        $('#studentInfo').append(bat);
 
+                    }
+                    else {
+                        alert("failed to get data");
+                    }
 
+                },
             });
+
+
             $.ajax({
                 url: '/User/GetTeacherDetail',
                 type: 'get',
                 dataType: 'json',
                 success: function (result) {
-                    debugger
+                  
                     if (result) {
                         var put = '<tbody>';
                         for (var i = 0; i < result.length; i++) {
-                            put += '<tr><td>'+(i+1)+'</td><td>' + result[i].userName + '</td></tr>';
+                            put += '<tr><td>' + (i + 1) + '</td><td>' + result[i].userName + '</td></tr>';
                         }
                         put += '</tbody>';
                         $('#listofteacher').append(put);
@@ -469,20 +459,42 @@
 
             });
 
-            //=====
             $.ajax({
-                url: '/MessageBoard/MsgDetail',
+                url: '/MessageBoard/ViewedMsgDetail',
                 type: 'get',
                 dataType: 'json',
                 success: function (result) {
-                    debugger
+                    
                     if (result) {
                         var put = '<tbody>';
-                        for (var i = 0; i < result.length; i=i+4) {
-                            put += '<tr><td>To :' + result[i] + '</td></tr><tr><td>From :' + result[i+1]+ '</td></tr><tr><td>Msg :' + result[i+2]+ '</td></tr><tr><td>Date and Time :' + result[i+3]+ '</td></tr><tr><td>_______________________________________________________________</td></tr>';
+                        for (var i = 0; i < result.length; i = i + 4) {
+                            put += '<tr><td>From :' + result[i + 1] + '</td></tr><tr><td>To :' + result[i] + '</td></tr><tr><td>Msg :' + result[i + 2] + '</td></tr><tr><td>Date and Time :' + result[i + 3] + '</td></tr><tr><td>__________________________________________________________________</td></tr>';
                         }
                         put += '</tbody>';
                         $('#viewedmsg').append(put);
+                    }
+                    else {
+                        alert("failed to get data");
+                    }
+                },
+
+            });
+
+            $.ajax({
+                url: '/MessageBoard/NewMsgDetail',
+                type: 'get',
+                dataType: 'json',
+                success: function (result) {
+                  
+                    if (result) {
+                        var put = '<tbody>';
+                        for (var i = 0; i < result.length; i = i + 5) {
+                            //put += '<tr><td>From :' + result[i + 1] + '</td></tr><tr><td>To :' + result[i] + '</td></tr><tr><td>Msg :' + result[i + 2] + '</td></tr><tr><td>Date and Time :' + result[i + 3] + '</td></tr><tr><td>__________________________________________________________________</td></tr>';
+                            put += '<tr><td><br/></td></tr><tr><td>From :' + result[i + 1] + '</td></tr><tr><td>Date and Time :' + result[i + 4] + '</td><td><i class="fa fa-arrow-right"><button style="width:80px; height:30px; background-color:lightblue;" class="viewbtn text-primary" id ="viewbtn" name="viewbtn" onclick="viewfunc()" value="' + result[i + 3] + '">VIEW</button></i></td></tr><tr><td><br/></td></tr><tr><td>____________________________________________________</td><td>_________</td></tr>';
+
+                        }
+                        put += '</tbody>';
+                        $('#newmsg').append(put);
                     }
                     else {
                         alert("failed to get data");
@@ -520,12 +532,12 @@
 
                 });
             });
+
             $("#sendbtn").click(function () {
                 var frommsg = $("#adminfrom").val();
                 var tomsg = $("#to").val();
                 var msg = $("#msg").val();
-                //alert(tomsg);
-                //alert(compemail);
+
                 $.ajax({
                     url: '/MessageBoard/SendMessage',
                     type: 'post',
@@ -545,6 +557,36 @@
 
                 });
             });
+
+
+            $(".viewbtn").click(function () {
+
+                var name = $(this).attr("name");
+
+                if (name == 'viewbtn') {
+                    var msgid = $(this).attr("vals");
+                    alert(msgid);
+                    $.ajax({
+                        url: '/MessageBoard/GetMsgById',
+                        type: 'get',
+                        dataType: 'json',
+                        data:
+                        {
+                            id: msgid,
+                        },
+                        success: function (result) {
+                            document.getElementById('msgfrom').value = result[1];
+                            document.getElementById('msgto').value = result[0];
+                            document.getElementById('msgtime').value = result[3]; 
+                            document.getElementById('msgcontent').value = result[2];
+                            $('#viewmsgdiv').animate({ top: '23%' }, 500);
+                            document.getElementById("overlay2").style.display = "block";
+                        },
+
+                    });
+                }
+            });
+
 
             $.ajax({
                 url: '/Dashboard/GetUserId',
@@ -577,11 +619,47 @@
             $('#senddiv').animate({ top: '-500%' }, 500);
             document.getElementById("overlay1").style.display = "none";
         }
-         
+        function hideviewmsgdiv() {
+            $('#viewmsgdiv').animate({ top: '-500%' }, 500);
+            document.getElementById("overlay2").style.display = "none";
+            window.location.reload();
+        }
         function Clearfield() {
             //document.getElementById('from').value = "";
             document.getElementById('to').value = "";
             document.getElementById('msg').value = "";
         }
+
+        function viewfunc() {
+            //alert("hiii");
+            //var name = $(this).attr("name");
+
+            //if (name == 'viewbtn') {
+                //var msgid = $(this).attr("vals");
+            var msgid = $("#viewbtn").val();
+                //alert(msgid);
+                $.ajax({
+                    url: '/MessageBoard/GetMsgById',
+                    type: 'get',
+                    dataType: 'json',
+                    data:
+                    {
+                        id: msgid,
+                    },
+                    success: function (result) {
+                        document.getElementById('msgfrom').value = result[1];
+                        document.getElementById('msgto').value = result[0];
+                        document.getElementById('msgtime').value = result[3];
+                        document.getElementById('msgcontent').value = result[2];
+                        $('#viewmsgdiv').animate({ top: '23%' }, 500);
+                        document.getElementById("overlay2").style.display = "block";
+                    },
+
+                });
+            //}
+        }
     </script>
 }
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>

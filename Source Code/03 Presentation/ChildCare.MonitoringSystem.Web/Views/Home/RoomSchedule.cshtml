@@ -1,0 +1,1204 @@
+﻿@{
+    ViewData["Title"] = "RoomSchedule";
+}
+
+<head>
+    <!-- Fontfaces CSS-->
+    <link href="~/css/font-face.css" rel="stylesheet" media="all">
+    <link href="~/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="~/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="~/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+
+    <!-- Bootstrap CSS-->
+    <link href="~/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+
+    <!-- Vendor ~/CSS-->
+    <link href="~/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+    <link href="~/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+    <link href="~/vendor/wow/animate.css" rel="stylesheet" media="all">
+    <link href="~/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+    <link href="~/vendor/slick/slick.css" rel="stylesheet" media="all">
+    <link href="~/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="~/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+    <link href="~/vendor/vector-map/jqvmap.min.css" rel="stylesheet" media="all">
+    <link href="~/vendor/vector-map/jqvmap.min.css" rel="stylesheet" media="all">
+    <!-- Main CSS-->
+    <link href="~/css/theme.css" rel="stylesheet" media="all">
+    <script src="~/js/jquery-3.1.1.js"></script>
+</head>
+
+<div class="page-wrapper">
+    <!-- HEADER MOBILE-->
+    <header class="header-mobile d-block d-lg-none">
+        <div class="header-mobile__bar">
+            <div class="container-fluid">
+                <div class="header-mobile-inner">
+                    <a class="logo" href="index.html">
+
+                    </a>
+                    <button class="hamburger hamburger--slider" type="button">
+                        <span class="hamburger-box">
+                            <span class="hamburger-inner"></span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar-mobile">
+            <div class="container-fluid">
+                <ul class="navbar-mobile__list list-unstyled">
+                    <li class="has-sub">
+                        <a asp-area="" asp-controller="Home" asp-action="Dashboard">
+                            <i class="fas fa-tachometer-alt"></i>Dashboard
+                        </a>
+                    </li>
+                    <li class="has-sub">
+                        <a class="js-arrow">
+                            <i class="far fa-edit"></i>Registration
+                        </a>
+                        <ul class="list-unstyled navbar__sub-list js-sub-list">
+                            <li>
+                                <a asp-area="" asp-controller="Home" asp-action="Form">Parent Registration</a>
+                            </li>
+
+                        </ul>
+                        <ul class="list-unstyled navbar__sub-list js-sub-list">
+                            <li>
+                                <a asp-area="" asp-controller="Home" asp-action="Form1">Teacher Registration</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a asp-area="" asp-controller="Home" asp-action="StudentDetails">
+                            <i class="fas fa-user"></i>Student View
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/Home/CamaraView">
+                            <i class="fas fa-camera"></i>Student Camera View
+                        </a>
+                    </li>
+                    @*<li>
+                            <a href="~/Home/Calender">
+                                <i class="fas fa-calendar-alt"></i>Calendar
+                            </a>
+                        </li>*@
+                    <li class="has-sub">
+                        <a class="js-arrow">
+                            <i class="fa fa-location-arrow"></i>Location
+                        </a>
+                        <ul class="list-unstyled navbar__sub-list js-sub-list">
+                            <li>
+                                <a asp-area="" asp-controller="Home" asp-action="BusTracking">Bus Location</a>
+                            </li>
+                        </ul>
+                        <ul class="list-unstyled navbar__sub-list js-sub-list">
+                            <li>
+                                <a asp-area="" asp-controller="Home" asp-action="BusTracking">Student Location</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="~/Home/RoomSchedule">
+                            <i class="fas fa-times"></i>Room Schedule
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/Home/BusSchedule">
+                            <i class="fas fa-times"></i>Bus Schedule
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- END HEADER MOBILE-->
+    <!-- MENU SIDEBAR-->
+    <aside class="menu-sidebar d-none d-lg-block">
+        <div class="logo" style="background-color:white;">
+            <p style="font-family: 'Britannic Bold'; font-size: 20px; margin-left:10%"><img src="~/images/img/Logopic3a.jpg" style="width: 26%; height:40%;" />ChildCare System</p>
+        </div>
+        <div class="menu-sidebar__content js-scrollbar1">
+            <nav class="navbar-sidebar">
+                <ul class="list-unstyled navbar__list">
+                    <li class="active has-sub">
+                        <a asp-area="" asp-controller="Home" asp-action="Dashboard">
+                            <i class="fas fa-edit"></i>Dashboard
+                        </a>
+                    </li>
+                    <li class="has-sub">
+
+                        <a class="js-arrow">
+                            <i class="far fa-edit"></i>Registration
+                        </a>
+                        <ul class="list-unstyled navbar__sub-list js-sub-list">
+                            <li>
+                                <a asp-area="" asp-controller="Home" asp-action="Form">Parent Registration</a>
+                            </li>
+                        </ul>
+                        <ul class="list-unstyled navbar__sub-list js-sub-list">
+                            <li>
+                                <a asp-area="" asp-controller="Home" asp-action="Form1">Teacher Registration</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a asp-area="" asp-controller="Home" asp-action="StudentDetails">
+                            <i class="fas fa-user"></i>Student View
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/Home/CamaraView">
+                            <i class="fas fa-camera"></i>Student Camera View
+                        </a>
+                    </li>
+                    <li class="has-sub">
+                        <a class="js-arrow">
+                            <i class="far fa-location-arrow"></i>Location
+                        </a>
+                        <ul class="list-unstyled navbar__sub-list js-sub-list">
+                            <li>
+                                <a asp-area="" asp-controller="Home" asp-action="BusTracking">Bus Location</a>
+                            </li>
+
+                        </ul>
+                        <ul class="list-unstyled navbar__sub-list js-sub-list">
+                            <li>
+                                <a asp-area="" asp-controller="Home" asp-action="BusTracking">Student Location</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="~/Home/RoomSchedule">
+                            <i class="fas fa-times"></i>Room Schedule
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/Home/BusSchedule">
+                            <i class="fas fa-times"></i>Bus Schedule
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </aside>
+    <!-- END MENU SIDEBAR-->
+    <!-- PAGE CONTAINER-->
+    <div class="page-container">
+        <!-- HEADER DESKTOP-->
+        <header class="header-desktop">
+            <div class="section__content section__content--p30">
+                <div class="container-fluid">
+                    <div class="header-wrap">
+                        <form class="example" action="/action_page.php" style="max-width:300px">
+                            <input type="text" placeholder="Search.." name="search2">
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                        </form>&nbsp;&nbsp;&nbsp;
+                        <div class="header-button">
+                            <div class="noti-wrap">
+                                <div class="noti__item js-item-menu">
+                                    <i class="zmdi zmdi-comment-more"></i>
+                                    <span class="quantity">1</span>
+                                    <div class="mess-dropdown js-dropdown">
+                                        <div class="mess__title">
+                                            <p>You have 2 news message</p>
+                                        </div>
+                                        <div class="mess__item">
+                                            <div class="image img-cir img-40">
+                                                <img src="~/images/icon/avatar-06.jpg" alt="Michelle Moreno" />
+                                            </div>
+                                            <div class="content">
+                                                <h6>Michelle Moreno</h6>
+                                                <p>Have sent a photo</p>
+                                                <span class="time">3 min ago</span>
+                                            </div>
+                                        </div>
+                                        <div class="mess__item">
+                                            <div class="image img-cir img-40">
+                                                <img src="~/images/icon/avatar-04.jpg" alt="Diane Myers" />
+                                            </div>
+                                            <div class="content">
+                                                <h6>Diane Myers</h6>
+                                                <p>You are now connected on message</p>
+                                                <span class="time">Yesterday</span>
+                                            </div>
+                                        </div>
+                                        <div class="mess__footer">
+                                            <a href="#">View all messages</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="noti__item js-item-menu">
+                                    <i class="zmdi zmdi-notifications"></i>
+                                    <span class="quantity">3</span>
+                                    <div class="notifi-dropdown js-dropdown">
+                                        <div class="notifi__title">
+                                            <p>You have 3 Notifications</p>
+                                        </div>
+                                        <div class="notifi__item">
+                                            <div class="bg-c1 img-cir img-40">
+                                                <i class="zmdi zmdi-email-open"></i>
+                                            </div>
+                                            <div class="content">
+                                                <p>You got a email notification</p>
+                                                <span class="date">April 12, 2018 06:50</span>
+                                            </div>
+                                        </div>
+                                        <div class="notifi__item">
+                                            <div class="bg-c2 img-cir img-40">
+                                                <i class="zmdi zmdi-account-box"></i>
+                                            </div>
+                                            <div class="content">
+                                                <p>Your account has been blocked</p>
+                                                <span class="date">April 12, 2018 06:50</span>
+                                            </div>
+                                        </div>
+                                        <div class="notifi__item">
+                                            <div class="bg-c3 img-cir img-40">
+                                                <i class="zmdi zmdi-file-text"></i>
+                                            </div>
+                                            <div class="content">
+                                                <p>You got a new file</p>
+                                                <span class="date">April 12, 2018 06:50</span>
+                                            </div>
+                                        </div>
+                                        <div class="notifi__footer">
+                                            <a href="#">All notifications</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="account-wrap">
+                                <div class="account-item clearfix js-item-menu">
+                                    <div class="image">
+                                        <img src="~/images/img/user.png" style="width:80%; height:80%" alt="John Doe" />
+                                    </div>
+                                    <div class="account-dropdown js-dropdown">
+                                        <div class="info clearfix">
+                                            <div class="image">
+                                                <a href="#">
+                                                    <img src="~/images/img/user.png" alt="John Doe" />
+                                                </a>
+                                            </div>
+                                            <div class="content">
+                                                <h5 class="name">
+                                                    <a href="#">purshotham</a>
+                                                </h5>
+                                                <span class="email">purshotham123@gmail.com</span>
+                                            </div>
+                                        </div>
+                                        <div class="account-dropdown__body">
+                                            <div class="account-dropdown__item">
+                                                <a href="#test-form" onclick="showtest()">
+                                                    <i class="zmdi zmdi-account"></i>Account
+                                                </a>
+                                            </div>
+                                            <div class="account-dropdown__item">
+                                                <a href="#setting" onclick="showsetting()">
+                                                    <i class="zmdi zmdi-settings"></i>Setting
+                                                </a>
+                                            </div>
+
+                                        </div>
+                                        <div class="account-dropdown__footer">
+                                            <a href="#">
+                                                <i class="zmdi zmdi-power"></i>Logout
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- HEADER DESKTOP-->
+        <!-- MAIN CONTENT-->
+        <div class="main-content" id="viewroom">
+            @*<div class="section__content section__content--p30">*@
+            <button class="btn btn-primary col-lg-1 pull-right" style="margin-right:5%;" onclick="showadd();">+ ADD</button><br />
+            <button class="btn btn-danger col-lg-1 pull-right" style="margin-right:5%;">- DELETE</button><br />
+            @*  <button class="btn btn-danger col-lg-1 pull-right" style="margin-right:5%;" onclick="showviewschedule()"><i class="fa fa-eye"></i> View</button>*@
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive table-responsive-data2" style="overflow:auto">
+                            <table class="table table-data2" id="getRoom">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            #
+                                        </th>
+                                        <th>Room Id</th>
+                                        <th>Room Name</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                @*<tbody>
+                                    <tr class="tr-shadow">
+                                        <td>
+                                            <label class="au-checkbox">
+                                                <input type="checkbox">
+                                                <span class="au-checkmark"></span>
+                                            </label>
+                                        </td>
+                                        <td>1</td>
+                                        <td>
+                                            Bus1
+                                        </td>
+                                        <td>
+                                            <div class="table-data-feature">
+                                                <button onclick="show();" title="Send Message" class="btn btn-primary">
+                                                    <a onclick="showviewschedule()">
+                                                        Schedule
+                                                    </a>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="tr-shadow">
+                                        <td>
+                                            <label class="au-checkbox">
+                                                <input type="checkbox">
+                                                <span class="au-checkmark"></span>
+                                            </label>
+                                        </td>
+                                        <td>2</td>
+                                        <td>
+                                            Bus2
+                                        </td>
+                                        <td>
+                                            <div class="table-data-feature">
+                                                <button onclick="show();" title="Send Message" class="btn btn-primary">
+                                                    <a onclick="showviewschedule()">
+                                                        Schedule
+                                                    </a>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="tr-shadow">
+                                        <td>
+                                            <label class="au-checkbox">
+                                                <input type="checkbox">
+                                                <span class="au-checkmark"></span>
+                                            </label>
+                                        </td>
+                                        <td>3</td>
+                                        <td>
+                                            Bus3
+                                        </td>
+                                        <td>
+                                            <div class="table-data-feature">
+                                                <button onclick="show();" title="Send Message" class="btn btn-primary">
+                                                    <a onclick="showviewschedule()">
+                                                        Schedule
+                                                    </a>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                </tbody>*@
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="main-content" id="viewroomschedule">
+            @*<h2 align="center">View Room Schedule</h2>*@
+            <hr /><br /><br />
+            <button class="btn btn-primary col-lg-1 pull-right" style="margin-right:5%;" onclick="showaddSchedule();">+ ADD</button><br />
+            <button class="btn btn-danger col-lg-1 pull-right" id="std" style="margin-right:5%;">- DELETE</button>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive table-responsive-data2" style="overflow:auto">
+                            <table class="table table-data2" id="getRoomSchedule">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            #
+                                        </th>
+                                        <th>Room Schedule Id</th>
+                                        <th>Teacher Id</th>
+                                        <th>Date</th>
+                                        <th>Time</th>
+                                        <th>Subject</th>
+                                        <th>Room Id</th>
+                                    </tr>
+                                </thead>
+                                @*<tbody>
+                                    <tr class="tr-shadow">
+                                        <td>
+                                            <label class="au-checkbox">
+                                                <input type="checkbox">
+                                                <span class="au-checkmark"></span>
+                                            </label>
+                                        </td>
+                                        <td>1</td>
+                                        <td>2</td>
+                                        <td>2020-01-28</td>
+                                        <td>11:55:00</td>
+                                        <td>Kannada</td>
+                                        <td>
+                                            <div class="table-data-feature">
+                                                <button onclick="show();" title="Send Message" class="btn btn-primary">
+                                                    <a onclick="showschedule()">
+                                                        Change
+                                                    </a>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="tr-shadow">
+                                        <td>
+                                            <label class="au-checkbox">
+                                                <input type="checkbox">
+                                                <span class="au-checkmark"></span>
+                                            </label>
+                                        </td>
+                                        <td>2</td>
+                                        <td>3</td>
+                                        <td>2020-01-28</td>
+                                        <td>09:00:00</td>
+                                        <td>Kannada</td>
+                                        <td>
+                                            <div class="table-data-feature">
+                                                <button onclick="show();" title="Send Message" class="btn btn-primary">
+                                                    <a onclick="showschedule()">
+                                                        Change
+                                                    </a>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="tr-shadow">
+                                        <td>
+                                            <label class="au-checkbox">
+                                                <input type="checkbox">
+                                                <span class="au-checkmark"></span>
+                                            </label>
+                                        </td>
+                                        <td>3</td>
+                                        <td>4</td>
+                                        <td>2020-01-28</td>
+                                        <td>09:55:00</td>
+                                        <td>English</td>
+                                        <td>
+                                            <div class="table-data-feature">
+                                                <button onclick="show();" title="Send Message" class="btn btn-primary">
+                                                    <a onclick="showschedule()">
+                                                        Change
+                                                    </a>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                </tbody>*@
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        @*////////////////*@
+        <div class="main-content" id="viewstudentschedule">
+            <h2 align="center">View Student Schedule</h2>
+            <hr /><br /><br />
+            <button class="btn btn-primary col-lg-1 pull-right" style="margin-right:5%;" onclick="showaddSchedule();">+ ADD</button><br />
+            <button class="btn btn-danger col-lg-1 pull-right" style="margin-right:5%;">- DELETE</button>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive table-responsive-data2" style="overflow:auto">
+                            <table class="table table-data2" id="getstudentSchedule">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            #
+                                        </th>
+                                        <th>Student  Id</th>
+                                        <th>Student Image Id</th>
+                                        <th>Student Name</th>
+                                        <th>Student Batch</th>
+                                       
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END MAIN CONTENT-->
+
+
+</div>
+
+
+<!-- END PAGE CONTAINER-->
+<div id="overlay" style="z-index:4">
+    <!--start Account popup-->
+    <div id="test-form-div ">
+        <div id="test-form" class="">
+            <div class="form-container">
+                <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
+                <h4 align="center" class="text-primary">Profile View</h4><hr />
+                <form action="Homepage.html" method="post">
+                    <div class="form-group" align="center">
+                        <div class="image">
+                            <img src="~/images/img/user.png" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>User Name</label>
+                        <label class="form-control" name="fname" id="fname">Purshotham</label>
+                    </div>
+                    <div class="form-group">
+                        <label>User Email</label>
+                        <label class="form-control" name="email" id="fname">Pursh123@gmail.com</label>
+                    </div>
+                    <div class="form-group">
+                        <label>Mobile No</label>
+                        <label class="form-control" name="number" id="pwd">9653247815</label>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--close Account popup-->
+    <!--start setting popup-->
+    <div id="setting" class="">
+        <div class="form-container">
+            <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
+            <h4 align="center" class="text-primary">Password Setting</h4><hr />
+            <form action="Homepage.html" method="post">
+                <div class="form-group">
+                    <label>Old Password</label>
+                    <input class="form-control" type="text" name="fname" id="fname" required>
+                </div>
+                <div class="form-group">
+                    <label>New Password</label>
+                    <input class="form-control" type="email" name="email" id="fname" required>
+                </div>
+                <div class="form-group">
+                    <label for="pwd">Confirm Password</label>
+                    <input class="form-control" type="tel" name="number" id="pwd" required>
+                </div>
+                <button type="submit" class="btn btn-block btn-primary" id="reg">SUBMIT </button><br>
+                <a href="#moresetting" class="pull-right" onclick="showmoresetting()">Set More Details</a>
+            </form>
+        </div>
+    </div>
+    <!--close setting popup-->
+    <!--start more setting popup-->
+    <div id="moresetting" class="">
+        <div class="form-container">
+            <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
+            <h4 align="center" class="text-primary">User Detail Setting</h4><hr />
+            <form action="Homepage.html" method="post">
+                <div class="form-group">
+                    <label>User Name</label>
+                    <input class="form-control" type="text" name="fname" id="fname" required>
+                </div>
+                <div class="form-group">
+                    <label>User Email</label>
+                    <input class="form-control" type="email" name="email" id="fname" required>
+                </div>
+                <div class="form-group">
+                    <label>Address</label>
+                    <input class="form-control" type="email" name="email" id="fname" required>
+                </div>
+                <div class="form-group">
+                    <label>Mobile No</label>
+                    <input class="form-control" type="email" name="email" id="fname" required>
+                </div>
+                <button type="submit" class="btn btn-block btn-primary" id="reg">EDIT</button>
+            </form>
+        </div>
+    </div>
+    <!--close more setting popup-->
+
+    <div id="schedule" class="">
+        <div class="form-container">
+            <a class="pull-right" href="#viewroomschedule" onclick="hidechangeschedule();"><i class="fa fa-close"></i></a>
+            <h4 align="center" class="text-primary">Schedule Room</h4><hr />
+            <form action="Homepage.html" method="post">
+                <div class="form-group">
+                    <label>Choose Date</label>
+                    <input class="form-control" type="date" name="date" id="date" required>
+                </div>
+                <div class="form-group">
+                    <label>Teacher Id</label>
+                    <input class="form-control" type="text" name="teacherid" id="teacherid" required>
+                </div>
+                <div class="form-group">
+                    <label>Time</label>
+                    @* <input class="form-control" type="text" name="email" id="fname" required>*@
+                    <select name="scheduleTime" class="form-control">
+                        <option value="9.00">9.00</option>
+                        <option value="9.55">9.55</option>
+                        <option value="11.05">11.05</option>
+                        <option value="01.00">01.00</option>
+                        <option value="02.00">02.00</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Subject</label>
+                    <input class="form-control" type="text" name="subject" id="subject" required>
+                </div>
+                <div class="form-group">
+                    <label>Room Id</label>
+                    <input class="form-control" type="text" name="roomid" id="roomid" required>
+                </div>
+                <div class="form-group">
+                    <label>Batch</label>
+                    @*  <input class="form-control" type="time" name="batch" id="batch" required>*@
+                    <select name="scheduleTime" class="form-control">
+                        <option value="B1">B1</option>
+                        <option value="B2">B2</option>
+                        <option value="B3">B3</option>
+                        <option value="B4">B4</option>
+                        <option value="B5">B5</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-block btn-primary" id="roomupdate">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+
+    <div id="add" class="">
+        <div class="form-container">
+            <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
+            <h4 align="center" class="text-primary">Add Room</h4><hr />
+            <form action="" method="post">
+                <div class="form-group">
+                    <label>Room Name</label>
+                    <input class="form-control" type="text" name="fname" id="rname" required>
+                </div>
+
+                <button type="submit" class="btn btn-block btn-primary" id="addRoom">ADD</button>
+            </form>
+        </div>
+    </div>
+
+
+    <div id="addSchedule" class="">
+        <div class="form-container">
+            <a class="pull-right" href="#viewroomschedule" onclick="hidechangeschedule();"><i class="fa fa-close"></i></a>
+            <h4 align="center" class="text-primary">Add Room Schedule</h4><hr />
+            <form action="" method="post">
+                <div class="form-group">
+                    <label>Choose Date</label>
+                    <input class="form-control" type="date" name="date" id="roomScheduleDate" required>
+                </div>
+                <div class="form-group">
+                    <label>Teacher Id</label>
+                    <input class="form-control" type="text" name="teacherid" id="roomTeacherId" required>
+                </div>
+               
+                <div class="form-group">
+                    <label>Time</label>
+                    @* <input class="form-control" type="text" name="email" id="fname" required>*@
+                    <input class="form-control" type="time" name="time" id="roomScheduleTime" required>
+
+                    @*<select name="scheduleTime" id="roomScheduleTime" class="form-control">
+                        <option value="9.00">9.00</option>
+                        <option value="9.55">9.55</option>
+                        <option value="11.05">11.05</option>
+                        <option value="01.00">01.00</option>
+                        <option value="02.00">02.00</option>
+                    </select>*@
+                </div>
+                <div class="form-group">
+                    <label>Subject</label>
+                    <input class="form-control" type="text" name="subject" id="roomScheduleSubject" required>
+                </div>
+                <div class="form-group">
+                    <label>Room Id</label>
+                    <input class="form-control" type="text" name="roomid" id="roomId" required>
+                </div>
+                <div class="form-group">
+                    <label>Batch</label>
+                    @*  <input class="form-control" type="time" name="batch" id="batch" required>*@
+                    <select name="scheduleTime" id="batch" class="form-control">
+                        <option value="B1">B1</option>
+                        <option value="B2">B2</option>
+                        <option value="B3">B3</option>
+                        <option value="B4">B4</option>
+                        <option value="B5">B5</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-block btn-primary" id="addRoomSchedule">ADD</button>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Jquery JS-->
+<script src="~/vendor/jquery-3.2.1.min.js"></script>
+<!-- Bootstrap JS-->
+<script src="~/vendor/bootstrap-4.1/popper.min.js"></script>
+<script src="~/vendor/bootstrap-4.1/bootstrap.min.js"></script>
+<!-- Vendor JS       -->
+<script src="~/vendor/slick/slick.min.js">
+</script>
+<script src="~/vendor/wow/wow.min.js"></script>
+<script src="~/vendor/animsition/animsition.min.js"></script>
+<script src="~/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+</script>
+<script src="~/vendor/counter-up/jquery.waypoints.min.js"></script>
+<script src="~/vendor/counter-up/jquery.counterup.min.js">
+</script>
+<script src="~/vendor/circle-progress/circle-progress.min.js"></script>
+<script src="~/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+<script src="~/vendor/chartjs/Chart.bundle.min.js"></script>
+<script src="~/vendor/select2/select2.min.js"></script>
+<script src="~/vendor/vector-map/jquery.vmap.js"></script>
+<script src="~/vendor/vector-map/jquery.vmap.min.js"></script>
+<script src="~/vendor/vector-map/jquery.vmap.sampledata.js"></script>
+<script src="~/vendor/vector-map/jquery.vmap.world.js"></script>
+<script src="~/vendor/vector-map/jquery.vmap.brazil.js"></script>
+<script src="~/vendor/vector-map/jquery.vmap.europe.js"></script>
+<script src="~/vendor/vector-map/jquery.vmap.france.js"></script>
+<script src="~/vendor/vector-map/jquery.vmap.germany.js"></script>
+<script src="~/vendor/vector-map/jquery.vmap.russia.js"></script>
+<script src="~/vendor/vector-map/jquery.vmap.usa.js"></script>
+<!-- Main JS-->
+<script src="~/js/main.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#viewroomschedule").hide();
+        $("#viewstudentschedule").hide();
+
+      ///////  GetRoom
+        $.ajax({
+            url: '/Room/GetRoom',
+            type: 'get',
+            dataType: 'json',
+            success: function (result) {
+                //debugger
+                if (result) {
+                    var bat = ' <tbody>';
+                    for (var i = 0; i < result.length; i++) {
+                        //<button class="btn btn-danger col-lg-1 pull-right" style="margin-right:5%;" onclick="showviewschedule()"><i class="fa fa-eye"></i> View</button>
+
+
+
+                        
+                        bat += '<tr class="tr-shadow">< td > <label class="au-checkbox"><input type="checkbox"><span class="au-checkmark"></span></label></td><td>' + (i + 1) + '</td><td>' +
+                            result[i].roomId + '</td> <td>' + result[i].roomName + '</td><td><button class="btn btn-danger" style="margin-left:-200px" onclick="showviewschedule('+result[i].roomId+')"><i class="fa fa-eye"></i>View Schedules</button></td></tr > ';
+
+
+                    }
+                    bat += '</tbody>'
+
+                    $('#getRoom').append(bat);
+
+                }
+                else {
+                    alert("failed to get data");
+                }
+
+            },
+
+        });
+
+        //$.ajax({
+        //    url: '/Room/GetRoomSchedule',
+        //    type: 'get',
+        //    dataType: 'json',
+        //    success: function (result) {
+        //        //debugger
+        //        if (result) {
+        //            var bat = ' <tbody>';
+        //            for (var i = 0; i < result.length; i++) {
+        //                bat += '<tr class="tr-shadow">< td > <label class="au-checkbox"><input type="checkbox"><span class="au-checkmark"></span></label></td><td>' + (i + 1) + '</td><td>' + result[i].roomScheduleId + '</td><td>' + result[i].teacherId + '</td> <td>' + result[i].roomScheduleDate + '</td> <td>' + result[i].roomScheduleTime + '</td><td>' + result[i].roomScheduleSubject + '</td><td>' + result[i].roomId + '</td><td><div class="table-data-feature"></div></td></tr > ';
+        //            }
+        //            bat += '</tbody>'
+
+        //            $('#getRoomSchedule').append(bat);
+
+        //        }
+        //        else {
+        //            alert("failed to get data");
+        //        }
+
+        //    },
+
+        //});
+
+        $("#addRoom").click(function () {
+            var rname = $("#rname").val();
+            alert(rname);
+            $.ajax({
+                url: '/Room/AddRoom',
+                type: 'post',
+                dataType: 'json',
+                data:
+                {
+                    RoomName: rname,
+                },
+
+                success: function (result) {
+                    alert(result);
+                    alert("Successfully inserted Room");
+
+                },
+
+            });
+
+        });
+
+        $("#addRoomSchedule").click(function () {
+            var rdate = $("#roomScheduleDate").val();
+            var rteacherid = $("#roomTeacherId").val();
+            var rtime = $("#roomScheduleTime").val();
+        
+            var rsub = $("#roomScheduleSubject").val();
+            var rid = $("#roomId").val();
+            var rbatch = $("#batch").val();
+            //alert(rdate);
+            //alert(rtime);
+            //alert(rsub);
+            //alert(rid);
+            //alert(rteacherid);
+            alert(rbatch);
+
+            $.ajax({
+                url: '/RoomSchedule/AddStudentScheduleByBatch',
+                type: 'get',
+                dataType: 'json',
+                data:
+                {
+                      RoomScheduleId : rdate,
+                      TeacherId : rteacherid,
+                      RoomScheduleDate : rdate,
+                      RoomScheduleTime : rtime,
+                      RoomScheduleSubject : rsub,      
+                      RoomId : rid,
+                      Batch: rbatch,
+                },
+
+                success: function (result) {
+                    alert(result);
+                    alert("Successfully inserted Room");
+
+                },
+
+            });
+
+        });
+
+
+
+    });
+
+
+    function showtest() {
+        $('#test-form').animate({ top: '15%' }, 500);
+        $('#test-form-div').animate({ top: '20%' }, 500);
+        $('.account-dropdown').hide();
+        document.getElementById("overlay").style.display = "block";
+    }
+    function hidetest() {
+        $('#test-form').animate({ top: '-500%' }, 500);
+        document.getElementById("overlay").style.display = "none";
+    }
+
+    function showsetting() {
+        $('#setting').animate({ top: '15%' }, 500);
+        $('.account-dropdown').hide();
+        document.getElementById("overlay").style.display = "block";
+    }
+    function hidesetting() {
+        $('#setting').animate({ top: '-500%' }, 500);
+        document.getElementById("overlay").style.display = "none";
+    }
+
+    function showmoresetting() {
+        $('#moresetting').animate({ top: '15%' }, 500);
+        $('.account-dropdown').hide();
+        document.getElementById("overlay").style.display = "block";
+    }
+    function hidemoresetting() {
+        $('#moresetting').animate({ top: '-500%' }, 500);
+        document.getElementById("overlay").style.display = "none";
+    }
+
+
+    function showschedule() {
+        $('#schedule').animate({ top: '12%' }, 500);
+        document.getElementById("overlay").style.display = "block";
+    }
+    function hideschedule() {
+        $('#schedule').animate({ top: '-500%' }, 500);
+        document.getElementById("overlay").style.display = "none";
+    }
+
+
+
+    function showviewschedule(roomid) {
+        $("#viewroom").hide();
+        $("#viewstudentschedule").hide();
+
+       
+        //alert(roomid);
+        $.ajax({
+            url: '/RoomSchedule/GetRoomSchedule',
+            type: 'get',
+            dataType: 'json',
+            data:
+            {
+                RoomId: roomid
+            },
+            success: function (result) {
+                
+                 $("#viewroomschedule").show();
+                if (result) {
+                    var bat = ' <tbody>';
+                    for (var i = 0; i < result.length; i++) {
+                        
+                       
+                        //showstudentschedule(' + result[i].roomId + ')
+
+                        bat += '<tr class="tr-shadow">< td > <label class="au-checkbox"><input type="checkbox"><span class="au-checkmark"></span></label></td><td>' + (i + 1) + '</td><td>' + result[i].roomScheduleId + '</td><td>' + result[i].teacherId + '</td> <td>' + result[i].roomScheduleDate + '</td> <td>' + result[i].roomScheduleTime + '</td><td>' + result[i].roomScheduleSubject + '</td><td><button  class="btn btn-danger" style="margin-left:0px" onclick="showstudentschedule(' + result[i].roomId + ','+result[i].roomScheduleId+');"><i class="fa fa - eye"></i>View Students</button></td></tr > ';
+                       
+                    }
+                    bat += '</tbody>'
+
+                    $('#getRoomSchedule').append(bat);
+
+                }
+                else {
+                    alert("failed to get data");
+                }
+
+            },
+
+        });
+    }
+
+
+
+
+    function showstudentschedule(roomid,roomsheduleid) {
+        $("#viewroom").hide();
+        $("#viewroomschedule").hide();
+        
+
+        //alert(roomsheduleid);
+        
+        $.ajax({
+            url: '/RoomSchedule/GetRoomStudents',
+            type: 'get',
+            dataType: 'json',
+            data:
+            {
+                RoomId: roomid,
+                RoomSheduleId: roomsheduleid,
+            },
+            success: function (result) {
+               
+                $("#viewstudentschedule").show();
+                if (result) {
+                    var bat = ' <tbody>';
+                    for (var i = 0; i < result.length; i++) {
+                        bat += '<tr class="tr-shadow">< td > <label class="au-checkbox"><input type="checkbox"><span class="au-checkmark"></span></label></td><td>' + (i + 1) + '</td><td>' + result[i].studentId + '</td><td class="desc"><img src="' + result[i].studentImg + '"/></td> <td>' + result[i].studentName+ '</td> <td>' + result[i].batch + '</td><td> ';
+                    }
+                    bat += '</tbody>'
+
+                    $('#getstudentSchedule').append(bat);
+
+                }
+                else {
+                    alert("failed to get data");
+                }
+
+            },
+
+        });
+    }
+
+    function showadd() {
+        $('#add').animate({ top: '12%' }, 500);
+        document.getElementById("overlay").style.display = "block";
+    }
+
+    function showaddSchedule() {
+        $('#addSchedule').animate({ top: '12%' }, 500);
+        document.getElementById("overlay").style.display = "block";
+
+    }
+    function hidechangeschedule() {
+        $('#addSchedule').animate({ top: '-500%' }, 500);
+        document.getElementById("overlay").style.display = "none";
+    }
+
+    function hideadd() {
+        $('#add').animate({ top: '-500%' }, 500);
+    }
+
+    function on() {
+        document.getElementById("overlay").style.display = "block";
+    }
+
+    function off() {
+        document.getElementById("overlay").style.display = "none";
+    }
+</script>
+
+<style>
+    #test-form {
+        position: fixed;
+        top: -500%;
+        width: 35%;
+        margin-left: 30%;
+        background-color: white;
+        box-shadow: 2px 3px 8px slategrey;
+        border-radius: 5px;
+        padding: 35px;
+    }
+
+    #overlay {
+        position: fixed; /* Sit on top of the page content */
+        display: none; /* Hidden by default */
+        width: 100%; /* Full width (cover the whole page) */
+        height: 100%; /* Full height (cover the whole page) */
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+        z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+        cursor: pointer; /* Add a pointer on hover */
+    }
+
+    #setting {
+        position: fixed;
+        top: -500%;
+        width: 35%;
+        margin-left: 30%;
+        background-color: white;
+        box-shadow: 2px 3px 8px slategrey;
+        border-radius: 5px;
+        padding: 35px;
+    }
+
+    #moresetting {
+        position: fixed;
+        top: -500%;
+        width: 35%;
+        margin-left: 30%;
+        background-color: white;
+        box-shadow: 2px 3px 8px slategrey;
+        border-radius: 5px;
+        padding: 35px;
+    }
+
+    #schedule {
+        position: fixed;
+        top: -500%;
+        width: 35%;
+        margin-left: 30%;
+        background-color: white;
+        box-shadow: 2px 3px 8px slategrey;
+        border-radius: 5px;
+        padding: 35px;
+        overflow: auto;
+    }
+
+    #add {
+        position: fixed;
+        top: -500%;
+        width: 35%;
+        margin-left: 30%;
+        background-color: white;
+        box-shadow: 2px 3px 8px slategrey;
+        border-radius: 5px;
+        padding: 35px;
+        overflow: auto;
+    }
+
+    #addSchedule {
+        position: fixed;
+        top: -500%;
+        width: 35%;
+        margin-left: 30%;
+        background-color: white;
+        box-shadow: 2px 3px 8px slategrey;
+        border-radius: 5px;
+        padding: 35px;
+        overflow: auto;
+    }
+
+    #test-form-div {
+        position: fixed;
+        top: -500%;
+        max-width: 1500px;
+        max-height: 1500px;
+        min-width: 1500px;
+        min-height: 1500px;
+        background-color: black;
+    }
+
+    form.example input[type=text] {
+        padding: 8px;
+        font-size: 17px;
+        border: 1px solid grey;
+        float: left;
+        width: 70%;
+        height: 60%;
+        background: white;
+    }
+
+    form.example button {
+        float: left;
+        width: 20%;
+        height: 70%;
+        padding: 5px;
+        background: #2196F3;
+        color: white;
+        font-size: 17px;
+        border: 1px solid grey;
+        border-left: none;
+        cursor: pointer;
+    }
+
+        form.example button:hover {
+            background: #0b7dda;
+        }
+
+    form.example::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+</style>
+
+
+
+
+
+
+

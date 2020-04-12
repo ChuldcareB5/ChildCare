@@ -42,10 +42,6 @@ namespace ChildCare.MonitoringSystem.Business
 			return busModel;
 		}
 
-
-
-
-
 		public Int32 DeleteId(int id)
 		{
 
@@ -120,13 +116,6 @@ namespace ChildCare.MonitoringSystem.Business
         {
             var busupdate = this.busRepository.GetBy(x => x.BusId == busModel.BusId, x => x.BusSchedule).SingleOrDefault();
 
-        
-
-            
-
-
-
-
 
             this.unitOfWork.Save();
 
@@ -148,7 +137,5 @@ namespace ChildCare.MonitoringSystem.Business
 			}
 			return buses;
 		}
-
-
 	}
 }

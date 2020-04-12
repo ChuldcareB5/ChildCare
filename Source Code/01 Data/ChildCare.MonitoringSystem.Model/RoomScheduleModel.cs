@@ -13,5 +13,7 @@ namespace ChildCare.MonitoringSystem.Model
         public string RoomScheduleSubject { get; set; } // RoomScheduleSubject (length: 100)
         public int StudentId { get; set; } // StudentId
         public int RoomId { get; set; } // RoomId
+        public string RoomName { get; set; } // RoomName
     }
 }
+    

@@ -1,0 +1,101 @@
+﻿@section LeftNavigation{
+    <partial name="_UserLeftNavigation" />
+}
+   
+
+    <div class="main-content">
+        <div class="form-group" style="margin-left:15px;">
+          
+                <label for="dob" class="form-control-label">Schedule By Date</label><br />
+
+                <input  style="padding:5px;text-align:center"type="date" id="dob" name="dob" required />
+
+            </div>
+          
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive table-responsive-data2" style="overflow:auto">
+                            <table class="table table-data2" id="getstudentRoomchedule">
+                               
+
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+
+
+            $.ajax({
+                url: '/User/GetStudentSchedule',
+                type: 'get',
+                dataType: 'json',
+                success: function (result) {
+                    debugger
+                    if (result) {
+                        var bat = '<thead><tr><th>#</th><th>Subject</th><th>Time</th><th>Room Name</th></tr ></thead ><tbody>';
+
+                        for (var i = 0; i < result.length; i++) {
+                            bat += '< tr class="tr-shadow" >< td ><label class="au-checkbox"><input type="checkbox"><span class="au-checkmark"></span></label></td><td>' + (i + 1) + '</td><td>' + result[i].roomScheduleSubject + '</td><td>' + result[i].roomScheduleTime + '</td><td>' + result[i].roomName + '</td></tr> ';
+
+
+                        }
+                        bat += '</tbody > ';
+
+                        $('#getstudentRoomchedule').append(bat);
+
+                    }
+                    else {
+                        alert("failed to get data");
+                    }
+
+                },
+
+            });
+            $('#dob').change(function () {
+                var dob = $('#dob').val();
+                $('#getstudentRoomchedule').html('');
+                    //alert(dob);
+                    $.ajax({
+                        url: '/User/ScheduleByDate',
+                        type: 'post',
+                        dataType: 'json',
+                        data:
+                        {
+                            dob: dob, 
+                        },
+
+                        success: function (result) {
+                            
+                            if (result) {
+                                var bat = '<thead><tr><th>#</th><th>Subject</th><th>Time</th><th>Room Name</th></tr ></thead ><tbody>';
+                                for (var i = 0; i < result.length; i++) {
+                                    bat += '< tr class="tr-shadow" >< td ><label class="au-checkbox"><input type="checkbox"><span class="au-checkmark"></span></label></td><td>' + (i + 1) + '</td><td>' + result[i].roomScheduleSubject + '</td><td>' + result[i].roomScheduleTime + '</td><td>' + result[i].roomName + '</td></tr> ';
+
+
+                                }
+                                bat += '</tbody > ';
+
+                                $('#getstudentRoomchedule').append(bat);
+
+                            }
+                            else {
+                                alert("failed to get data");
+                            }
+
+                        },
+
+                    });
+            });
+
+        });
+
+    </script>
+}

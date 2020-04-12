@@ -9,23 +9,28 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ChildCare.MonitoringSystem.Web.Controllers
 {
-	[Authorize()]
+	//[Authorize()]
     public class BusController : Controller
     {
 
 		private readonly BusBusiness busBusiness;
-		public BusController(BusBusiness busBusiness)
+        private readonly BusScheduleBusiness busScheduleBusiness;
+		public BusController(BusBusiness busBusiness,BusScheduleBusiness busScheduleBusiness)
 		{
 			this.busBusiness = busBusiness;
+            this.busScheduleBusiness = busScheduleBusiness;
 		}
 
 
 		[HttpPost]
-		public ActionResult<Int32> AddBus(BusModel busmodel)
+		public ActionResult<Int32> AddBus(BusModel busmodel,BusScheduleModel busScheduleModel)
 		{
 			var bus = this.busBusiness.AddBus(busmodel);
-			var BusId = bus.BusId;
-			return BusId; 
+            busScheduleModel.BusId = bus.BusId;
+            var busSchedule = this.busScheduleBusiness.AddBusSchedule(busScheduleModel);
+            return bus.BusId;
+
+          
 		}
 
 		public IActionResult Index()

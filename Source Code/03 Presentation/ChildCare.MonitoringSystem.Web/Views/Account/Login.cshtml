@@ -8,7 +8,7 @@
     <main>
         <section>
 
-            <form asp-action="LogIn" style="
+            <form id="LogInForm" asp-action="LogIn" style="
             width: 35%;
             margin-left: 30%;
             margin-top:13%;
@@ -27,22 +27,136 @@
                     <span asp-validation-for="UserName"></span>
                 </div><br />
                 <div class="form-group" align="center">
-                    <input asp-for="Password" type="password" style="width:200px; border-radius:7px; padding:5px; box-shadow: 2px 3px 8px black;text-align:center" placeholder="UserPassword"/>
+                    <input asp-for="Password" type="password" style="width:200px; border-radius:7px; padding:5px; box-shadow: 2px 3px 8px black;text-align:center" placeholder="UserPassword" />
                     <span asp-validation-for="Password"></span>
                 </div><br />
                 <div class="row">
                     <div class="col-md-6" align="center">
-                        <input type="submit" value="Login" style="font-family:'Berlin Sans FB';font-size:20px; width :150px; border-radius:7px; padding:5px; box-shadow: 2px 3px 8px black; background-color:black;color:white"/>
+                        <input type="submit" value="Login" style="font-family:'Berlin Sans FB';font-size:20px; width :150px; border-radius:7px; padding:5px; box-shadow: 2px 3px 8px black; background-color:black;color:white" />
                     </div>
+
                 </div>
             </form>
 
+
+            <div class="col-md-6 ForgotPasswordButton" align="center">
+                <input type="button" value="Forgot Password" onclick="showForgotPasswordForm()" style="font-family:'Berlin Sans FB';font-size:20px; width :150px; border-radius:7px; padding:5px; box-shadow: 2px 3px 8px black; background-color:black;color:white" />
+            </div>
+
+
+            <form id="ForgotPasswordForm" style="
+            width: 35%;
+            margin-left: 30%;
+            margin-top:8%;
+            background:linear-gradient(blue,purple);
+            color:white;
+            box-shadow: 2px 3px 8px black;
+            border-radius: 7px;
+            border:3px solid white;
+            padding: 35px;">
+                <h1 style="text-align:center;font-size:35px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Forgot Password</h1>
+                <h3 style="text-align:center;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Please enter the required details</h3>
+
+
+                <div class="form-group" align="center">
+                    <input id="uname" required style="width:200px; border-radius:7px; padding:5px; box-shadow: 2px 3px 8px black;text-align:center" placeholder="UserName" />
+
+                </div><br />
+                <div class="form-group" align="center">
+                    <input id="uemail"required style="width:200px; border-radius:7px; padding:5px; box-shadow: 2px 3px 8px black;text-align:center" placeholder="UserEmail" />
+
+                </div><br />
+                <div class="form-group" align="center">
+                    <input id="umobileno" required style="width:200px; border-radius:7px; padding:5px; box-shadow: 2px 3px 8px black;text-align:center" placeholder="UserMobileNo" />
+
+                </div><br />
+                
+                <div class="form-group" align="center">
+                    <input id="newpass" required style="width:200px; border-radius:7px; padding:5px; box-shadow: 2px 3px 8px black;text-align:center" placeholder="NewPassword" />
+
+                </div><br />
+                <div class="form-group" align="center">
+                    <input id="conpass" required style="width:200px; border-radius:7px; padding:5px; box-shadow: 2px 3px 8px black;text-align:center" placeholder="ConfirmPassword" />
+
+                </div><br />
+                <div class="row">
+                    <div class="col-md-6" align="center">
+                        <input id="changePass" type="submit" value="Change Password" style="font-family:'Berlin Sans FB';font-size:20px; width :160px; border-radius:7px; padding:5px; box-shadow: 2px 3px 8px black; background-color:black;color:white" />
+                    </div>
+
+                </div>
+            </form>
+
+            <div class="col-md-6 LogInButton" align="center">
+                <input type="submit" value="LogIn" onclick="showLogInForm()" style="font-family:'Berlin Sans FB';font-size:20px; width :150px; border-radius:7px; padding:5px; box-shadow: 2px 3px 8px black; background-color:black;color:white" />
+            </div>
         </section>
     </main>
 </body>
 
+<!-- Jquery JS-->
+<script src="~/vendor/jquery-3.2.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".LogInButton").hide();
+        $("#ForgotPasswordForm").hide();
 
+        $("#changePass").click(function () {
+            
+            var username = $('#uname').val();
+            var useremail = $('#uemail').val();
+            var usermob = $('#umobileno').val();
+            var newPass = $('#newpass').val();
+            var conPass = $('#conpass').val();
+
+            if (newPass == conPass) {
+                    $.ajax({
+                    url: '/Account/ChangePassword',
+                    type: 'post',
+                    dataType: 'json',
+                        data: {
+
+                        UserName: username,
+                        UserEmail: useremail,
+                        UserMobileNo: usermob,
+                        UserPassword: newPass
+                    },
+                        success: function (result) {
+                            if (result) {
+                                alert("Password Changed Successfully");
+                            }
+                            else {
+                                alert("Invalid Data Passed");
+                            }
+                        
+                    },
+                });
+                
+            }
+            else {
+                alert("Password Do Not Match");
+            }
+            
+        });
+       
+    })
+    function showForgotPasswordForm() {
+        $(".LogInButton").show();
+        $("#ForgotPasswordForm").show();
+        $(".ForgotPasswordButton").hide();
+        $("#LogInForm").hide();
+    }
+    function showLogInForm() {
+        $(".LogInButton").hide();
+        $("#ForgotPasswordForm").hide();
+        $(".ForgotPasswordButton").show();
+        $("#LogInForm").show();
+    }
+</script>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
- 
+  
 }
+
+
+

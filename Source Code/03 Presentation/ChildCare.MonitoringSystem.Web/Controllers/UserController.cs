@@ -7,12 +7,15 @@ using ChildCare.MonitoringSystem.Core.Models;
 using ChildCare.MonitoringSystem.Entity;
 using ChildCare.MonitoringSystem.Model;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace ChildCare.MonitoringSystem.Web.Controllers
 {
-	[Authorize()]
+    
+    //[Authorize()]
     public class UserController : Controller
     {
 		
@@ -25,6 +28,7 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 		{
 			this.userBusiness = userBusiness;
             this.applicationContext = applicationContext;
+            
         }
 
 		public IActionResult Index()
@@ -32,6 +36,11 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 			return View();
 		}
 		public IActionResult Student()
+
+        {
+			return View();
+		}
+        public IActionResult StudentSchedule()
 
         {
 			return View();
@@ -44,12 +53,16 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 		{
 			return View();
 		}
-		public ActionResult<UserModel> Get(int userId)
+        public IActionResult StudentTracking()
+        {
+            return View();
+        }
+        public ActionResult<UserModel> Get(int userId)
 		{
 			return this.userBusiness.GetUserById(userId);
 		}
 
-		[HttpPost]
+	
 		public ActionResult<Int32> AddParent(UserModel usermodel)
 		{
 			var user = this.userBusiness.AddParent(usermodel);
@@ -62,11 +75,16 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 			var user = this.userBusiness.AddTeacher(usermodel);
 			return user;
 		}
-		public ActionResult<List<UserModel>> GetTeacherDetail()
-		{
-			var user = this.userBusiness.GetTeacherDetail();
-			return user;
-		}
+        public ActionResult<List<UserModel>> GetTeacherDetail()
+        {
+            var user = this.userBusiness.GetTeacherDetail();
+            return user;
+        }
+        public ActionResult<UserModel> GetUsersInfo()
+        {
+            var user = this.userBusiness.GetUsersInfo(applicationContext.UserId);
+            return user;
+        }
 
 		public ActionResult<UserModel> UserUpdate(UserModel userModel)
 		{
@@ -97,14 +115,26 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
             return us;
 
         }
-
-		public ActionResult<UserModel> GetUsersInfo()
-		{
-			var user = this.userBusiness.GetUsersInfo(applicationContext.UserId);
-			return user;
-		}
+        public ActionResult<List<RoomScheduleModel>> GetStudentSchedule()
+        {
+            return this.userBusiness.GetStudentSchedule(applicationContext.UserId);
 
 
 
-	}
+        }
+
+        public ActionResult<List<RoomScheduleModel>> ScheduleByDate(DateTime dob)
+        {
+            return this.userBusiness.ScheduleByDate(dob,applicationContext.UserId);
+
+
+
+        }
+
+
+
+
+
+
+    }
 }

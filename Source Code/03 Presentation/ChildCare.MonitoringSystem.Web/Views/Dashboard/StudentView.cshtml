@@ -54,21 +54,25 @@
                             </div>
                         </div>
                     </div>*@
-                <div id="Studentselect" class="rs-select2--dark rs-select2--sm rs-select2--dark2" style="width:15%">
+                <div class="rs-select2--dark rs-select2--sm rs-select2--dark2" style="width:15%">
+                    <i class="fas fa-filter"> Filter By</i>
+
                     <select class="js-select2" name="type">
+                        <optgroup label="Ground Floor">
+                            <option value="B1">Batch 1</option>
+                            <option value="B2">Batch 2</option>
+                        </optgroup>
                         <optgroup label="First Floor">
-                            <option value="">Batch C</option>
-                            <option value="">Class D</option>
-                        @*</optgroup>
-                        <optgroup label="Second Floor">*@
-                            <option value="">Class E</option>
-                            <option value="">Class F</option>
+                            <option value="B3">Batch 3</option>
+                            <option value="B4">Batch 4</option>
+                        </optgroup>
+                        <optgroup label="Second Floor">
+                            <option value="B5">Batch 5</option>
+                            <option value="B6">Batch 6</option>
                         </optgroup>
                     </select>
                     <div class="dropDownSelect2"></div>
                 </div>
-
-
 
                 <br /><br /><br />
                 <div class="table-responsive table-responsive-data2" style="overflow:auto">
@@ -86,7 +90,7 @@
                                 <th></th>
                             </tr>
                         </thead>
-                       
+                        
                     </table>
                 </div>
                 <!-- END DATA TABLE -->
@@ -112,15 +116,15 @@
                     </div>
                     <div class="form-group">
                         <label class="text-primary">User Name</label>
-                        <label class="form-control" name="fname" id="fname"></label>
+                        <label class="form-control" name="fname" id="fname">Purshotham</label>
                     </div>
                     <div class="form-group">
                         <label class="text-primary">User Email</label>
-                        <label class="form-control" name="email" id="email"></label>
+                        <label class="form-control" name="email" id="fname">Pursh123@gmail.com</label>
                     </div>
                     <div class="form-group">
                         <label class="text-primary">Mobile No</label>
-                        <label class="form-control" name="number" id="pwd"></label>
+                        <label class="form-control" name="number" id="pwd">9653247815</label>
                     </div>
 
                 </form>
@@ -301,7 +305,7 @@
             <div class="form-group row">
                 <label for="inputPassword" class="col-sm-4 col-form-label">Email</label>
                 <div class="col-sm-8">
-                    <input type="email" asp-for="UserEmail" required class="form-control" id="semail" />
+                    <input type="datetime" asp-for="UserEmail" required class="form-control" id="email" />
                 </div>
             </div>
             <div class="form-group row">
@@ -321,64 +325,43 @@
 
 @section Scripts{
     <script>
+
         $(document).ready(function () {
+            var batch = $('.js-select2').val();
+           -
             $.ajax({
-               
                 url: '/Student/GetStudentDetail',
                 type: 'get',
                 dataType: 'json',
+                data:
+                {
+                    batch: batch,
+                },
                 success: function (result) {
-                    debugger
 
-                        if (result) {
-                            var bat = ' <tbody>';
-                            for (var i = 0; i < result.length; i++) {
-
-                                bat += '<tr class="tr-shadow"><td>' + result[i].studentId + '</td><td>' + result[i].studentName + '</td><td class="desc"><img src="' + result[i].studentImg + '"/></td><td>' + result[i].studentAddress + '</td><td>' + result[i].studentGender + '</td><td>' + result[i].studentDob + '</td><td>' + result[i].fatherName + '</td><td>' + result[i].motherName + '</td><td><div class="table-data-feature"><button class="item" data-toggle="tooltip" data-placement="top" title="Send Message"><a onclick="showsetting1(' + result[i].studentId + ');"><i class="zmdi zmdi-mail-send"></i></a></button><button class="item" data-toggle="tooltip" data-placement="top" title="Edit"><a onclick="showedit(' + result[i].studentId + ');"><i class="zmdi zmdi-edit"></i></a></button><button class="item"  data-toggle="tooltip" data-placement="top" title="Delete"><a onclick="disp(' + result[i].studentId + ')"><i class="zmdi zmdi-delete"></i></a></button></div></td></tr>';
-
-                            }
-                            bat += '</tbody>';
-
-                            $('#df').append(bat);
-
+                    if (result) {
+                        var bat = ' <tbody>';
+                        for (var i = 0; i < result.length; i++)
+                        {
+                            bat += '<tr class="tr-shadow"><td>' + result[i].studentId + '</td><td>' + result[i].studentName + '</td><td class="desc"><img src="'+result[i].studentImg+'"/></td><td>' + result[i].studentAddress + '</td><td>' + result[i].studentGender + '</td><td>' + result[i].studentDob + '</td><td>' + result[i].fatherName + '</td><td>' + result[i].motherName + '</td><td><div class="table-data-feature"><button onclick="show();" class="item" data-toggle="tooltip" data-placement="top" title="Send Message"><a onclick="showsetting1();"><i class="zmdi zmdi-mail-send"></i></a></button><button class="item" data-toggle="tooltip" data-placement="top" title="Edit"><a onclick="showedit(' + result[i].studentId + ');"><i class="zmdi zmdi-edit"></i></a></button><button class="item"  data-toggle="tooltip" data-placement="top" title="Delete"><a onclick="disp(' + result[i].studentId + ')"><i class="zmdi zmdi-delete"></i></a></button></div></td></tr>';
                         }
-                        else {
-                            alert("failed to get data");
-                        }
+                        bat += '</tbody>';
 
-                    },
+                        $('#df').append(bat);
 
+                    }
+                    else {
+                        alert("failed to get data");
+                    }
 
-                });
-            //}
+                },
 
-            //});
-
-        });
-        $("#sendbtn").click(function () {
-        
-            var from = $("#from").val();
-            var tostudid = $("#tostudid").val();
-            var msg = $("#msg").val();
-        $.ajax({
-            url: '/MessageBoard/SendMessage',
-            type: 'post',
-            dataType: 'json',
-            data:
-            {
-                FromMsg: from,
-                ToMsg: tostudid,
-                Msg: msg,
-            },
-            success: function (result) {
-
-                alert("Message send successfully");
-                location.reload();
-
-            },
 
             });
-        });
+
+            });
+
+     
 
         //$("#Studentupdate").click(function () {
         //    debugger
@@ -471,32 +454,48 @@
         //    alert(a);
         //    //alert("hi");
         //}
-
-        function search(string) {
-            window.find(string);
-        }
-
-        function showsetting1(id) {
-
-            var stdid = id;
-            $('#setting1').animate({ top: '13%' }, 500);
+        $('select').on('change', function (e) {
+            batch = e.target.value;
+            $('#df').html('');
+           
+           
             $.ajax({
-                url: '/Student/StudentGetById',
+                url: '/Student/GetStudentDetail',
                 type: 'get',
                 dataType: 'json',
                 data:
                 {
-                    id: stdid,
+                    batch: batch,
                 },
                 success: function (result) {
-                    document.getElementById('studname').value = result.studentName;
-                        document.getElementById('tostudid').value =  result.studentId;
-                   
-                    
+
+                    if (result) {
+                        var bat = ' <tbody>';
+                        for (var i = 0; i < result.length; i++) {
+
+
+                            bat += '<tr class="tr-shadow"><td>' + result[i].studentId + '</td><td>' + result[i].studentName + '</td><td class="desc"><img style="width:60%;height:15%" src="'+result[i].studentImg+'"/></td><td>' + result[i].studentAddress + '</td><td>' + result[i].studentGender + '</td><td>' + result[i].studentDob + '</td><td>' + result[i].fatherName + '</td><td>' + result[i].motherName + '</td><td><div class="table-data-feature"><button onclick="show();" class="item" data-toggle="tooltip" data-placement="top" title="Send Message"><a onclick="showsetting1();"><i class="zmdi zmdi-mail-send"></i></a></button><button class="item" data-toggle="tooltip" data-placement="top" title="Edit"><a onclick="showedit(' + result[i].studentId + ');"><i class="zmdi zmdi-edit"></i></a></button><button class="item"  data-toggle="tooltip" data-placement="top" title="Delete"><a onclick="disp(' + result[i].studentId + ')"><i class="zmdi zmdi-delete"></i></a></button></div></td></tr>';
+
+                        }
+                        bat += '</tbody>';
+
+                        $('#df').append(bat);
+
+                    }
+                    else {
+                        alert("failed to get data");
+                    }
+
                 },
+
+
             });
-            document.getElementById("overlay").style.display = "block";
+});
+        function search(string) {
+            window.find(string);
         }
+
+
         function hidesetting1() {
             $('#setting1').animate({ top: '-500%' }, 500);
             document.getElementById("overlay").style.display = "none";
@@ -506,7 +505,7 @@
         function showedit(id) {
             $('#edit').animate({ top: '8%' }, 500);
             var stdid = id;
-            debugger
+            //debugger
             $.ajax({
                 url: '/Student/StudentGetById',
                 type: 'get',
@@ -526,7 +525,7 @@
                     document.getElementById('mname').value = result.motherName;
                     document.getElementById('batch').value = result.batch;
                     document.getElementById('uname').value = result.parent.userName;
-                    document.getElementById('semail').value = result.parent.userEmail;
+                    document.getElementById('email').value = result.parent.userEmail;
                     document.getElementById('umobileno').value = result.parent.userMobileNo;
                 },
             });
@@ -708,6 +707,15 @@
             min-height: 1500px;
             background-color: black;
         }
+
+
+        #prflimg {
+            max-width: 50px;
+            max-height: 50px;
+            min-width: 40px;
+            min-height: 40px;
+        }
+
 
         form.example input[type=text] {
             padding: 8px;
