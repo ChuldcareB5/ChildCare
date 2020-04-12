@@ -49,7 +49,7 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 
 					
                         await HttpContext.SignInAsync(principal);
-						if (user.Role.RoleId == 1)
+						if (user.Role.RoleId == 2)
 						{
                             return RedirectToAction("Index", "User");
                            
