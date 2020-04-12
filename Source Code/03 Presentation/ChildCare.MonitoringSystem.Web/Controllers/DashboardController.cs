@@ -18,7 +18,7 @@ using ChildCare.MonitoringSystem.Core.Models;
 
 namespace ChildCare.MonitoringSystem.Web.Controllers
 {
-	
+    [Authorize(Roles = "1")]
     public class DashboardController : Controller
 	{
 		private readonly ApplicationContext applicationContext;

@@ -9,7 +9,7 @@
     //Settings.ConnectionStringName = "ErpDbContext";   // Searches for this connection string in config files listed below in the ConfigFilenameSearchOrder setting
     // ConnectionStringName is the only required setting.
     // As an alternative to ConnectionStringName above, which must match your app/web.config connection string name, you can override them below
-    Settings.ConnectionString = "Data Source=.;Database=ChildCareSystem;Integrated Security=True;Application Name=EntityFramework Reverse POCO Generator";
+    Settings.ConnectionString = "Data Source=DESKTOP-VTP9HA9\\SQLEXPRESS;Database=ChildCareSystem;Integrated Security=True;Application Name=EntityFramework Reverse POCO Generator";
     Settings.ProviderName = "System.Data.SqlClient";
 
 	Settings.ConfigFilePath = "";
