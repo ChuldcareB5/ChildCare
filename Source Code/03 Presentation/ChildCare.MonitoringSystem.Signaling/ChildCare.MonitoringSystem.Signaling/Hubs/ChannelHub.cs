@@ -1,8 +1,5 @@
 ﻿using Microsoft.AspNetCore.SignalR;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -58,6 +55,11 @@ namespace ChildCare.MonitoringSystem.Signaling.Hubs
             await Clients.Client(Context.ConnectionId).SendAsync("connect", camName, toConnectionId);
         }
 
+        public async Task AskToSendOffer(string to)
+        {
+            await Clients.Client(to).SendAsync("sendOffer", Context.ConnectionId);
+        }
+
         public async Task SendOffer(string to, string offerSdp)
         {
             await Clients.Client(to).SendAsync("offer", Context.ConnectionId, offerSdp);
@@ -71,6 +73,11 @@ namespace ChildCare.MonitoringSystem.Signaling.Hubs
         public async Task SendIceCandidate(string to, string candidate)
         {
             await Clients.Client(to).SendAsync("iceCandidate", Context.ConnectionId, candidate);
+        }
+
+        public async Task Disconnect(string to)
+        {
+            await Clients.Client(to).SendAsync("leave", Context.ConnectionId);
         }
     }
 }

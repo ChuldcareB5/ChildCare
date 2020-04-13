@@ -12,15 +12,20 @@
 <video id="cam" autoplay></video>
 
 @section Scripts{
+    <script src="~/lib/signalr-client/signalr.js"></script>
+    <script src="~/js/webrtc/aykan-webrtc.min.js"></script>
     <script type="text/javascript">
         var ChildCare = ChildCare || {};
 
         ChildCare.camName = 'classA';
+        ChildCare.mediaName = 'ClassAVideo';
         ChildCare.urls = ChildCare.urls || {};
         ChildCare.urls.signalHostUrl = "@appSettings.SignalUrl";
+
+        $(document).ready(function () {
+            startChannel();
+            join(ChildCare.camName);
+        });
     </script>
-    <script src="~/lib/signalr-client/signalr.js"></script>
-    <script src="~/js/webrtc/aykan-webrtc.min.js"></script>
     <script src="~/js/webrtc/common.js"></script>
-    <script src="~/js/pages/classA.js"></script>
 }

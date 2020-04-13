@@ -39,6 +39,26 @@ channelHub.on("iceCandidate", function (from, candidate) {
     pm.queueICECandidate(from, candidate);
 });
 
+channelHub.on("sendOffer", function (toConnectionId) {
+    ChildCare.peerConnectionId = toConnectionId;
+    pm.init([{ "peerId": toConnectionId }]);
+    pm.createPeers(peerConfig);
+    pm.addLocalStreamToPeer(ChildCare.localVideo, toConnectionId, true, 'video', ChildCare.mediaName);
+});
+
+channelHub.on("answer", function (from, answerSdp) {
+    pm.processAnswer(from, answerSdp).then(() => {
+        setTimeout(() => {
+            pm.processICECandidates(from);
+        }, 1000);
+    });
+});
+
+channelHub.on("leave", function (from) {
+    pm.removePeer(from);
+    ChildCare.peerConnectionId = null;
+});
+
 function join(camName) {
     navigator.mediaDevices.getUserMedia({ audio: true, video: true }).
         then(stream => {
