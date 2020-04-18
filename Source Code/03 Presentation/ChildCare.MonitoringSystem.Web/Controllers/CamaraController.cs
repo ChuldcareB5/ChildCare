@@ -15,10 +15,29 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 				
 		}
 
-		public IActionResult Cam1()
+		public IActionResult ClassA()
 		{
 			return View();
 		}
 
+		public IActionResult ClassB()
+		{
+			return View();
+		}
+
+		public IActionResult ClassC()
+		{
+			return View();
+		}
+
+		public IActionResult ClassD()
+		{
+			return View();
+		}
+
+		public IActionResult PlayGround1()
+		{
+			return View();
+		}
 	}
 }

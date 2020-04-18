@@ -295,9 +295,7 @@
 
 
     <!-- Jquery JS-->
-    <script src="~/vendor/jquery-3.2.1.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-    <!-- Bootstrap JS-->
+    <script src="~/vendor/jquery-3.2.1.min.js"></script>    <!-- Bootstrap JS-->
     <script src="~/vendor/bootstrap-4.1/popper.min.js"></script>
     <script src="~/vendor/bootstrap-4.1/bootstrap.min.js"></script>
     <!-- Vendor JS       -->
@@ -408,7 +406,6 @@
                 dataType: 'json',
 
                 success: function (result) {
-                    //document.getElementById('msgusername').innerHTML = result.userName;
                     document.getElementById('userid').innerHTML = result.userId;
                     document.getElementById('username').innerHTML = result.userName;
                     document.getElementById('emails').innerHTML = result.userEmail;

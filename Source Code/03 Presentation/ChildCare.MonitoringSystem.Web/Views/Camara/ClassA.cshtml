@@ -1,34 +1,31 @@
 ﻿@inject ChildCare.MonitoringSystem.Common.AppSettings appSettings;
 @{
-    ViewData["Title"] = "Camara View";
+    ViewData["Title"] = "Class A";
 }
 
 @section LeftNavigation{
     <partial name="_AdminLeftNavigation" />
 }
 
-<div class="main-content">
-    <div class="row">
-        <div class="col-md-12">
-            <input id="classA" type="button" value="Class A" />
-            <input id="classB" type="button" value="Class B" />
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <video id="cam" autoplay></video>
-        </div>
-    </div>
-</div>
+<h2>Cam1</h2>
+
+<video id="cam" autoplay></video>
+
 @section Scripts{
     <script src="~/lib/signalr-client/signalr.js"></script>
     <script src="~/js/webrtc/aykan-webrtc.min.js"></script>
     <script type="text/javascript">
         var ChildCare = ChildCare || {};
 
+        ChildCare.camName = 'classA';
+        ChildCare.mediaName = 'ClassAVideo';
         ChildCare.urls = ChildCare.urls || {};
         ChildCare.urls.signalHostUrl = "@appSettings.SignalUrl";
+
+        $(document).ready(function () {
+            startChannel();
+            join(ChildCare.camName);
+        });
     </script>
     <script src="~/js/webrtc/common.js"></script>
-    <script src="~/js/pages/cameraView.js"></script>
 }
