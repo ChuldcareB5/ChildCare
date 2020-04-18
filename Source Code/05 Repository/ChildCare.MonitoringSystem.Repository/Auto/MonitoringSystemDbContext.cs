@@ -347,7 +347,7 @@ namespace ChildCare.MonitoringSystem.Repository
 
 				entity.Property(x => x.StudentName).HasColumnName(@"StudentName").IsRequired().IsUnicode(false).HasMaxLength(100);
 
-				entity.Property(x => x.StudentImg).HasColumnName(@"StudentImg").IsRequired().IsUnicode(false).HasMaxLength(100);
+				entity.Property(x => x.StudentImg).HasColumnName(@"StudentImg").IsRequired().IsUnicode(false).HasMaxLength(200);
 
 				entity.Property(x => x.StudentAddress).HasColumnName(@"StudentAddress").IsRequired().IsUnicode(false).HasMaxLength(200);
 
