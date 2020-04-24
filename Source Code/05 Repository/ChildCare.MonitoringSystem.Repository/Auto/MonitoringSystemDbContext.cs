@@ -43,6 +43,7 @@ namespace ChildCare.MonitoringSystem.Repository
         Microsoft.EntityFrameworkCore.DbSet<Bus> Bus { get; set; } // Bus
         Microsoft.EntityFrameworkCore.DbSet<BusLocation> BusLocation { get; set; } // BusLocation
         Microsoft.EntityFrameworkCore.DbSet<BusSchedule> BusSchedule { get; set; } // BusSchedule
+        Microsoft.EntityFrameworkCore.DbSet<Contact> Contact { get; set; } // Contact
         Microsoft.EntityFrameworkCore.DbSet<MessageBoard> MessageBoard { get; set; } // MessageBoard
         Microsoft.EntityFrameworkCore.DbSet<Role> Role { get; set; } // Role
         Microsoft.EntityFrameworkCore.DbSet<Room> Room { get; set; } // Room
@@ -73,6 +74,7 @@ namespace ChildCare.MonitoringSystem.Repository
         public Microsoft.EntityFrameworkCore.DbSet<Bus> Bus { get; set; } // Bus
         public Microsoft.EntityFrameworkCore.DbSet<BusLocation> BusLocation { get; set; } // BusLocation
         public Microsoft.EntityFrameworkCore.DbSet<BusSchedule> BusSchedule { get; set; } // BusSchedule
+        public Microsoft.EntityFrameworkCore.DbSet<Contact> Contact { get; set; } // Contact
         public Microsoft.EntityFrameworkCore.DbSet<MessageBoard> MessageBoard { get; set; } // MessageBoard
         public Microsoft.EntityFrameworkCore.DbSet<Role> Role { get; set; } // Role
         public Microsoft.EntityFrameworkCore.DbSet<Room> Room { get; set; } // Room
@@ -188,6 +190,35 @@ namespace ChildCare.MonitoringSystem.Repository
 
 				entity.Property(x => x.IsDeleted).HasColumnName(@"IsDeleted").IsRequired();
 
+
+				InitializePartial();
+        
+			});
+
+			modelBuilder.Entity<Contact>(entity => 
+			{
+
+				entity.ToTable("Contact", "dbo");
+				
+				entity.Property(x => x.ContactId).HasColumnName(@"ContactId").IsRequired();
+
+				entity.Property(x => x.ContactName).HasColumnName(@"ContactName").IsRequired().IsUnicode(false).HasMaxLength(100);
+
+				entity.Property(x => x.ContactEmail).HasColumnName(@"ContactEmail").IsRequired().IsUnicode(false).HasMaxLength(100);
+
+				entity.Property(x => x.ContactMobileNo).HasColumnName(@"ContactMobileNo").IsRequired().IsUnicode(false).HasMaxLength(12);
+
+				entity.Property(x => x.ContactMsg).HasColumnName(@"ContactMsg").IsRequired().IsUnicode(false).HasMaxLength(500);
+
+				entity.Property(x => x.CreatedBy).HasColumnName(@"CreatedBy").IsRequired();
+
+				entity.Property(x => x.CreatedOn).HasColumnName(@"CreatedOn").IsRequired();
+
+				entity.Property(x => x.UpdatedBy).HasColumnName(@"UpdatedBy").IsRequired();
+
+				entity.Property(x => x.UpdatedOn).HasColumnName(@"UpdatedOn").IsRequired();
+
+				entity.Property(x => x.IsDeleted).HasColumnName(@"IsDeleted").IsRequired();
 
 				InitializePartial();
         

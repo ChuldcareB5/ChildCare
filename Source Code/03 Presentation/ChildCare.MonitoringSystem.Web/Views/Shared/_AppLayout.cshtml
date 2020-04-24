@@ -104,7 +104,7 @@
                     <div class="container-fluid">
                         <div class="header-wrap">
                             <div style="display:flex; height:30%">
-                                <input class="au-input au-input--h65" id="search" type="text" name="search" placeholder="Search" style="border: 1px solid grey" />
+                                <input class="au-input au-input--h65" id="search" autocomplete="off" type="text" name="search" placeholder="Search" style="border: 1px solid grey" />
                                 <button class="text-primary" type="button" onclick="search(document.getElementById('search').value)" style="width:50px;background-color:blue">
                                     <i class="zmdi zmdi-search" style="color:white;"></i>
                                 </button>
@@ -119,29 +119,10 @@
                                                 <p id="msginnertext"></p>
                                             </div>
                                             <div id="msgusername"></div>
-                                            @*<div class="mess__item">*@
-                                            @*<div class="image img-cir img-40">
-                                                    <img src="~/images/blazerphoto/Asha.jpg" alt="Michelle Moreno" />
-                                                </div>*@
-                                            @*<div class="content">
-                                                <h6 id="">Michel</h6>*@
-                                            @*<p>Have sent a photo</p>*@
-                                            @*<span class="time">3 min ago</span>*@
-                                            @*</div>*@
-                                            @*</div>*@
-                                            @*<div class="mess__item">
-                                                    <div class="image img-cir img-40">
-                                                        <img src="~/images/blazerphoto/Namratha.jpg" alt="Diane Myers" />
-                                                    </div>
-                                                    <div class="content">
-                                                        <h6>Dian</h6>
-                                                        <p>You are now connected on message</p>
-                                                        <span class="time">Yesterday</span>
-                                                    </div>
-                                                </div>*@
-                                            <div class="mess__footer">
+
+                                            @*<div class="mess__footer">
                                                 <a href="#">View all messages</a>
-                                            </div>
+                                            </div>*@
                                         </div>
                                     </div>
                                 </div>
@@ -206,7 +187,7 @@
         <div id="test-form-div ">
             <div id="test-form" class="">
                 <div class="form-container">
-                    <a class="pull-right text-primary" onclick="hidetest();"><i class="fa fa-close"></i></a>
+                    <a class="pull-right text-primary" onclick="hidetest();" href=" "><i class="fa fa-close"></i></a>
                     <h2 align="center" class="text-primary">Profile View</h2><hr />
                     <form action=" " method="post">
                         <div class="form-group" align="center">
@@ -234,8 +215,8 @@
         <!--start setting popup-->
         <div id="setting" class="">
             <div class="form-container">
-                <a class="pull-right text-primary" onclick="hidesetting();"><i class="fa fa-close"></i></a>
-                <h2 align="center" class="text-primary">Password Setting</h2><hr />
+                <a class="pull-right text-primary" onclick="hidesetting();" href=" "><i class="fa fa-close"></i></a>
+                <h2 align="center" class="text-primary">Password Setting</h2><hr/>
                 <form action="" method="post">
                     <div class="form-group" hidden>
                         <label class="text-primary">User Id</label>
@@ -270,7 +251,7 @@
                             <img src="~/images/img/user.png" />
                         </div>
                     </div>
-                    <div class="form-group" hidden>
+                    <div class="form-group" hidden >
                         <label class="text-primary">User Id</label>
                         <input class="form-control" name="fname" id="udetailid">
                     </div>
@@ -346,6 +327,7 @@
         function hidesetting() {
             $('#setting').animate({ top: '-500%' }, 500);
             document.getElementById("overlay").style.display = "none";
+            window.location.reload('~/Dashboard');
         }
 
         function showmoresetting() {
@@ -417,6 +399,7 @@
                     document.getElementById('udetailemail').value = result.userEmail;
                     document.getElementById('udetailmob').value = result.userMobileNo;
                     document.getElementById('udetailid').value = result.userId;
+                    document.getElementById('udetailids').value = result.userId;
                 },
             });
 
@@ -449,6 +432,10 @@
                 var oldpass = $('#oldpass').val();
                 var newpass = $('#newpass').val();
                 var confpass = $('#confpass').val();
+                
+                //alert(userid);
+                //alert(oldpass);
+                //alert(newpass);
 
                 if (newpass == confpass) {
                     $.ajax({

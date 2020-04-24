@@ -58,18 +58,18 @@
                     <i class="fas fa-filter"> Filter By</i>
 
                     <select class="js-select2" name="type">
-                        <optgroup label="Ground Floor">
+                        @*<optgroup label="Ground Floor">*@
                             <option value="B1">Batch 1</option>
                             <option value="B2">Batch 2</option>
-                        </optgroup>
-                        <optgroup label="First Floor">
+                        @*</optgroup>
+                        <optgroup label="First Floor">*@
                             <option value="B3">Batch 3</option>
                             <option value="B4">Batch 4</option>
-                        </optgroup>
-                        <optgroup label="Second Floor">
+                        @*</optgroup>
+                        <optgroup label="Second Floor">*@
                             <option value="B5">Batch 5</option>
-                            <option value="B6">Batch 6</option>
-                        </optgroup>
+                            @*<option value="B6">Batch 6</option>*@
+                        @*</optgroup>*@
                     </select>
                     <div class="dropDownSelect2"></div>
                 </div>
@@ -569,7 +569,7 @@
                 },
                 success: function (result) {
 
-                    alert("deleted");
+                    alert("Student is Deleted successfully");
                     location.reload();
                 },
             });

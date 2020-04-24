@@ -114,7 +114,8 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
             return studentlocation;
         }public ActionResult<List<BusLocationModel>> GetAllBusLocation(int busid)
         {
-            var studentlocation = this.studentBusiness.GetAllBusLocation(busid);
+
+			var studentlocation = this.studentBusiness.GetAllBusLocation(busid);
             return studentlocation;
         }
 

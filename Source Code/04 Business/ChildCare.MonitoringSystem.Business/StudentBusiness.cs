@@ -244,8 +244,6 @@ namespace ChildCare.MonitoringSystem.Business
                     var buslocations = Mapper.Map<BusLocationModel>(buslocation);
                     buslocationlist.Add(buslocations);
                 }
-               
-
 
 
                 return buslocationlist;
