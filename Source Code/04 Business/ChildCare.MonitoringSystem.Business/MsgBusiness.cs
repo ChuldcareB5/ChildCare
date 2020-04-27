@@ -55,8 +55,6 @@ namespace ChildCare.MonitoringSystem.Business
 
 				client.Send(msg);
 			}
-
-
 			var msgEntity = new MessageBoard()
 			{
 				ToMsg = studentto.ParentId,
@@ -69,15 +67,11 @@ namespace ChildCare.MonitoringSystem.Business
 				UpdatedBy = -1,
 				UpdatedOn = DateTime.UtcNow
 			};
-
 			this.msgRepository.Add(msgEntity);
 			this.unitOfWork.Save();
 			messageBoardModel.MessageBoardId = msgEntity.MessageBoardId;
 
 			return messageBoardModel;
-
-
-
 		}
 
 

@@ -162,9 +162,9 @@
                             <h3>
                                 <i class="zmdi zmdi-account-calendar"></i>Viewed Message
                             </h3>
-                            <button class="au-btn-plus">
+                            @*<button class="au-btn-plus">
                                 <i class="zmdi zmdi-plus"></i>
-                            </button>
+                            </button>*@
                         </div>
                         @*//=============*@
 
@@ -257,8 +257,8 @@
 
     @*-------------------------------------------*@
     <div id="sendcontactusdiv">
-        <a class="pull-right" onclick="hidepopup();"><i class="fa fa-close"></i></a>
-        <h2 align="center" class="text-primary">Contact Us- Send Message</h2><hr />
+        <a class="pull-right" onclick="hidepopup();"><i class="fa fa-close text-primary"></i></a>
+        <h3 align="center" class="text-primary">Contact Us- Send Message</h3><hr />
         @*<div class="form-group row">
             <label for="staticEmail" class="col-sm-4 col-form-label">Admin Id</label>
             <div class="col-sm-8">
@@ -268,7 +268,7 @@
         <div class="form-group row">
             <label for="staticEmail" class="col-sm-4 col-form-label">From</label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" value="Childcareb5sdit@gmail.com" readonly id="contactadminfrom" />
+                <input type="text" class="form-control" value="childcaresystemsditb5@gmail.com" readonly id="contactadminfrom" />
             </div>
         </div>
         <div class="form-group row">
@@ -285,8 +285,8 @@
         </div>
 
         <div>
-            <button type="button" class="btn btn-outline-primary btn-block" style="border: 1px solid lightblue;" id="sendbtn">Send</button>
-            <button type="reset" class="btn btn-outline-success btn-block" style="border: 1px solid lightgreen;" onclick="Clearfield();">Clear</button>
+            <button type="button" class="btn btn-outline-primary btn-block" style="border: 1px solid lightblue;" id="sendcontact">Send</button>
+            @*<button type="reset" class="btn btn-outline-success btn-block" style="border: 1px solid lightgreen;" onclick="Clearfield();">Clear</button>*@
         </div>
     </div>
 
@@ -596,7 +596,7 @@
                     if (result) {
                         var put = '<tbody>';
                         for (var i = 0; i < result.length; i = i + 5) {
-                            put += '<tr><td>Contact Id :' + result[i] + '</td></tr><tr><td>Contact Name :' + result[i + 1] + '</td></tr><tr><td>Contact Email :' + result[i + 2] + '</td></tr><tr><td>Contact Mobile No :' + result[i + 3] + '</td></tr><tr><td>Contact Message: ' + result[i + 4] + '</td></tr><tr><td><hr/><button onclick="showsendcontactuspopup();" style="width:80px; height:30px; background-color:lightblue; margin-left:420px; border:1px solid blue; border-radius:4px;" class="viewbtn text-primary" id ="viewcontactbtn" name="viewbtn" onclick="viewcontactfunc()" value="' + result[i + 2] + '"><i class="fa fa-send"></i></button></td></tr><tr><td>__________________________________________________________________</td></tr>';
+                            put += '<tr><td>Contact Id :' + result[i] + '</td></tr><tr><td>Contact Name :' + result[i + 1] + '</td></tr><tr><td>Contact Email :' + result[i + 2] + '</td></tr><tr><td>Contact Mobile No :' + result[i + 3] + '</td></tr><tr><td>Contact Message: ' + result[i + 4] + '</td></tr><tr><td><hr/><button style="width:80px; height:30px; background-color:lightblue; margin-left:420px; border:1px solid blue; border-radius:4px;" class="viewcontactbtn text-primary" id ="viewcontactbtns" name="viewcontactbtn" onclick="showsendcontactuspopup();" value="' + result[i + 2] + '"><i class="fa fa-send"></i></button></td></tr><tr><td>__________________________________________________________________</td></tr>';
                         }
                         put += '</tbody>';
                         $('#viewcontactus').append(put);
@@ -663,34 +663,92 @@
                 });
             });
 
+            //1-------------------------------------------------
 
-            $(".viewbtn").click(function () {
+            $("#sendcontact").click(function () {
+                var fromcontact = $("#contactadminfrom").val();
+                var tocontact = $("#contactto").val();
+                var msg = $("#contactmsg").val();
+                alert(fromcontact);
+                alert(tocontact);
+                alert(msg);
 
-                var name = $(this).attr("name");
+                $.ajax({
+                    url: '/Contact/SendMessage',
+                    type: 'post',
+                    dataType: 'json',
+                    data:
+                    {
+                        //FromMsg: fromcontact,
+                        ContactEmail: tocontact,
+                        ContactMsg: msg,
+                    },
+                    success: function (result) {
 
-                if (name == 'viewbtn') {
-                    var msgid = $(this).attr("vals");
-                    alert(msgid);
-                    $.ajax({
-                        url: '/MessageBoard/GetMsgById',
-                        type: 'get',
-                        dataType: 'json',
-                        data:
-                        {
-                            id: msgid,
-                        },
-                        success: function (result) {
-                            document.getElementById('msgfrom').value = result[1];
-                            document.getElementById('msgto').value = result[0];
-                            document.getElementById('msgtime').value = result[3]; 
-                            document.getElementById('msgcontent').value = result[2];
-                            $('#viewmsgdiv').animate({ top: '23%' }, 500);
-                            document.getElementById("overlay2").style.display = "block";
-                        },
+                        alert("Message send successfully");
+                        location.reload();
 
-                    });
-                }
+                    },
+
+                });
             });
+
+            //$(".viewbtn").click(function () {
+
+            //    var name = $(this).attr("name");
+
+            //    if (name == 'viewbtn') {
+            //        var msgid = $(this).attr("vals");
+            //        alert(msgid);
+            //        $.ajax({
+            //            url: '/MessageBoard/GetMsgById',
+            //            type: 'get',
+            //            dataType: 'json',
+            //            data:
+            //            {
+            //                id: msgid,
+            //            },
+            //            success: function (result) {
+            //                document.getElementById('msgfrom').value = result[1];
+            //                document.getElementById('msgto').value = result[0];
+            //                document.getElementById('msgtime').value = result[3]; 
+            //                document.getElementById('msgcontent').value = result[2];
+            //                $('#viewmsgdiv').animate({ top: '23%' }, 500);
+            //                document.getElementById("overlay2").style.display = "block";
+            //            },
+
+            //        });
+            //    }
+            //});
+
+            //2-----------------------------------------
+            //$(".viewcontactbtn").click(function () {
+
+            //    var name = $(this).attr("name");
+            //    alert(name);
+            //    if (name == 'viewcontactbtn') {
+            //        var msgemail = $(this).attr("vals");
+            //        alert(msgmail);
+            //        $.ajax({
+            //            url: '/MessageBoard/GetMsgById',
+            //            type: 'get',
+            //            dataType: 'json',
+            //            data:
+            //            {
+            //                id: msgid,
+            //            },
+            //            success: function (result) {
+            //                document.getElementById('msgfrom').value = result[1];
+            //                document.getElementById('msgto').value = result[0];
+            //                document.getElementById('msgtime').value = result[3];
+            //                document.getElementById('msgcontent').value = result[2];
+            //                $('#viewmsgdiv').animate({ top: '23%' }, 500);
+            //                document.getElementById("overlay2").style.display = "block";
+            //            },
+
+            //        });
+            //    }
+            //});
 
 
             $.ajax({
@@ -735,14 +793,14 @@
             $('#contactdiv').animate({ top: '-500%' }, 500);
             document.getElementById("overlay1").style.display = "none";
         }
-        showsendcontactuspopup
-        function showsendcontactuspopup() {
-            $('#contactdiv').hide();
-            $('#sendcontactusdiv').animate({ top: '14%' }, 500);
-            document.getElementById("overlay1").style.display = "block";
-         
+        
+        //function showsendcontactuspopup() {
+       
+        //    $('#contactdiv').hide();
+        //    $('#sendcontactusdiv').animate({ top: '14%' }, 500);
+        //    document.getElementById("overlay1").style.display = "block";
 
-        }
+        //}
         //function hidesendcontactuspopup() {
         //    $('#senddiv').animate({ top: '-500%' }, 500);
         //    document.getElementById("overlay1").style.display = "none";
@@ -763,9 +821,10 @@
             //var name = $(this).attr("name");
 
             //if (name == 'viewbtn') {
-                //var msgid = $(this).attr("vals");
+            //var msgid = $(this).attr("vals");
+            debugger
             var msgid = $("#viewbtn").val();
-                //alert(msgid);
+                alert(msgid);
                 $.ajax({
                     url: '/MessageBoard/GetMsgById',
                     type: 'get',
@@ -787,16 +846,15 @@
             //}
         }
 
-        function viewcontactfunc() {
-            alert("hiii");
-            //var name = $(this).attr("name");
-
-            //if (name == 'viewbtn') {
-            //var msgid = $(this).attr("vals");
-            var contactemail = $("#viewcontactbtn").val();
+        function showsendcontactuspopup() {
+            //alert("hiii");
+            $('#contactdiv').hide();
+            debugger
+            var contactemail = $("#viewcontactbtns").val();
             alert(contactemail);
+            //debugger
             $.ajax({
-                url: '/MessageBoard/GetMsgById',
+                url: '/Contact/GetMsgById',
                 type: 'get',
                 dataType: 'json',
                 data:
@@ -804,15 +862,13 @@
                     contactemail: contactemail,
                 },
                 success: function (result) {
-                    document.getElementById('contactadminfrom').value = result[1];
-                    document.getElementById('contactto').value = result[0];
-                    document.getElementById('contactmsg').value = result[3];
-                    document.getElementById('msgcontent').value = result[2];
-                    //$('#viewmsgdiv').animate({ top: '23%' }, 500);
-                    document.getElementById("overlay2").style.display = "block";
+                    //document.getElementById('contactadminfrom').value = result[1];
+                    document.getElementById('contactto').value = result[1];
                 },
 
             });
+            $('#sendcontactusdiv').animate({ top: '14%' }, 500);
+            document.getElementById("overlay1").style.display = "block";
             //}
         }
     </script>
