@@ -75,5 +75,6 @@
     <Build Include="dbo\Tables\Bus.sql" />
     <Build Include="dbo\Tables\StudentLocation.sql" />
     <Build Include="dbo\Tables\BusLocation.sql" />
+    <Build Include="dbo\Tables\Contact.sql" />
   </ItemGroup>
 </Project>

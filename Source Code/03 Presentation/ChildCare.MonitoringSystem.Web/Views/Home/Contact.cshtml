@@ -8,40 +8,77 @@
 <section id="contact">
     <div class="section-content">
         <h3 class="section-header">Get in <span class="content-header wow fadeIn " data-wow-delay="0.2s" data-wow-duration="2s"> Touch with us</span></h3>
-
     </div>
     <div class="contact-section">
         <div class="container">
-            <form style="display:flex;">
-                <div class="col-md-6 form-line">
-                    <div class="form-group">
-                        <label for="exampleInputUsername">Your name</label>
-                        <input type="text" class="form-control" id="" placeholder=" Enter Name">
+            <form method="post" style="width:100%; display:flex;">
+                    <div class="col-md-6 form-line">
+                        <div class="form-group">
+                            <label>Your name</label>
+                            <input type="text" class="form-control" id="contactname" placeholder=" Enter Name">
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <input type="email" class="form-control" id="contactemail" placeholder=" Enter Email id">
+                        </div>
+                        <div class="form-group">
+                            <label>Mobile No.</label>
+                            <input type="tel" class="form-control" id="contactmob" placeholder=" Enter 10-digit mobile no.">
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="exampleInputEmail">Email Address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail" placeholder=" Enter Email id">
-                    </div>
-                    <div class="form-group">
-                        <label for="telephone">Mobile No.</label>
-                        <input type="tel" class="form-control" id="telephone" placeholder=" Enter 10-digit mobile no.">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="description"> Message</label>
-                        <textarea class="form-control" id="description" placeholder="Enter Your Message"></textarea>
-                    </div>
-                    <div>
-                        <button type="button" class="btn btn-primary"><i class="fa fa-paper-plane" aria-hidden="true"></i>  Send Message</button>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label> Message</label>
+                            <textarea class="form-control" id="contactmsg" placeholder="Enter Your Message"></textarea>
+                        </div>
+                        <div>
+                            <button class="btn btn-primary submit" onclick="contact();"><i class="fa fa-paper-plane" aria-hidden="true"></i>send</button>
+
+                            @*<button type="button" class="btn btn-primary" id="sendbtn"><i class="fa fa-paper-plane" aria-hidden="true"></i>  Send Message</button>*@
+                        </div>
+
                     </div>
 
-                </div>
-            </form>
+                </form>
         </div>
         </div>
 </section>
 
+<script>
+    function contact() {
+        var contactname = $("#contactname").val();
+        var contactemail = $("#contactemail").val();
+        var contactmob = $("#contactmob").val();
+        var contactmsg = $("#contactmsg").val();
+      
+        alert(contactname);
+        //alert(contactemail);
+        //alert(contactmob);
+        //alert(contactmsg);
+        debugger
+        $.ajax({
+            url: '/Contact/AddContact',
+            type: 'post',
+            dataType: 'json',
+            data:
+            {
+                ContactName: contactname,
+                ContactEmail: contactemail,
+                ContactMobileNo: contactmob,
+                ContactMsg: contactmsg,
+            },
+            success: function (result) {
+                alert("Message Sent Successfully");
+                //location.reload();
+            },
+        });
+        alert("Send successfully1");
+    }
+
+
+
+
+</script>
 
 <style>
     .content-header {
@@ -105,4 +142,6 @@
         color: #fff;
     }
 </style>
+
+
 

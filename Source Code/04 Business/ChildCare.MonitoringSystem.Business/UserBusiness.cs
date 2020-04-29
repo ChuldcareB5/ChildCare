@@ -85,7 +85,7 @@ namespace ChildCare.MonitoringSystem.Business
 
 		public UserModel AddTeacher(UserModel userModel)
 		{
-			return this.AddUser(userModel, 1);//Return from method named AddUser where parent id is 2(function call)
+			return this.AddUser(userModel, 1);//Return from method named AddUser where Teacher id is 1(function call)
 		}
         
         public StudentModel AddStudent(StudentModel studentModel)

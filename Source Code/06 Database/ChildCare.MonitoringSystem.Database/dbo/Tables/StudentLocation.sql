@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[StudentLocation] (
-    [StudentLocationId] INT        NOT NULL,
+    [StudentLocationId] INT        IDENTITY (1, 1) NOT NULL,
     [StudentId]         INT        NOT NULL,
     [LocationTime]      DATETIME   NOT NULL,
     [Longitute]         FLOAT (53) NOT NULL,
@@ -12,4 +12,6 @@
     CONSTRAINT [PK_StudentLocation] PRIMARY KEY CLUSTERED ([StudentLocationId] ASC),
     CONSTRAINT [FK_StudentLocation_Student] FOREIGN KEY ([StudentId]) REFERENCES [dbo].[Student] ([StudentId])
 );
+
+
 

@@ -190,10 +190,10 @@
 
     <div id="schedule" class="">
         <div class="form-container">
-            <a class="pull-right" onclick="hideschedule();"><i class="fa fa-close"></i></a>
+            <a class="pull-right text-primary" onclick="hideschedule();"><i class="fa fa-close"></i></a>
             <h4 align="center" class="text-primary">Bus Schedule</h4><hr />
             <form method="post">
-                <div class="form-group">
+                <div class="form-group" hidden>
                     <label>Bus Id</label>
                     <input class="form-control" type="text" name="busid" id="busid" required>
                 </div>
@@ -221,7 +221,7 @@
                     <label>Date</label>
                     <input class="form-control" type="text" name="date" id="busdate" required>
                 </div>
-                <div class="form-group">
+                <div class="form-group" hidden>
                     <label>Bus Schedule Id</label>
                     <input class="form-control" type="text" name="budschedulerid" id="budschedulerid" required>
                 </div>
@@ -306,8 +306,8 @@
 
         function showschedule(id) {
             var busScheduleid = id;
-            alert(id);
-            $('#schedule').animate({ top: '12%' }, 500);
+            //alert(id);
+            $('#schedule').animate({ top: '2%' }, 500);
             $('.account-dropdown').hide();
 
             $.ajax({
@@ -339,17 +339,20 @@
         }
         function hideschedule() {
             $('#schedule').animate({ top: '-500%' }, 500);
+            window.location.reload('~/Dashboard/BusSchedule');
             document.getElementById("overlay").style.display = "none";
+           
         }
 
         function showadd() {
-            $('#add').animate({ top: '5%' }, 500);
+            $('#add').animate({ top: '2%' }, 500);
             $('.account-dropdown').hide();
             document.getElementById("overlay").style.display = "block";
         }
         function hideadd() {
             $('#add').animate({ top: '-500%' }, 500);
             document.getElementById("overlay").style.display = "none";
+
         }
 
 
@@ -441,9 +444,9 @@
                 var time = $('#bustime').val();
                 var date = $('#busdate').val();
 
-                alert(busid);
-                alert(budschedulerid);
-                alert(busname);
+                //alert(busid);
+                //alert(budschedulerid);
+                //alert(busname);
 
                 var Bus = {
                     BusId: busid,
@@ -536,7 +539,7 @@
         #schedule {
             position: absolute;
             top: -500%;
-            width: 35%;
+            width: 37%;
             margin-left: 30%;
             background-color: white;
             box-shadow: 2px 3px 8px slategrey;

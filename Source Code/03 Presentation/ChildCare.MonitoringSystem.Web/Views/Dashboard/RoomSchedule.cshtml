@@ -40,7 +40,7 @@
 </div>
 
 <div class="main-content" id="viewroomschedule">
-    @*<h2 align="center">View Room Schedule</h2>*@
+    <h2 align="center">View Student Room Schedule</h2>
     <hr /><br /><br />
     <button class="btn btn-primary col-lg-1 pull-right" style="margin-right:5%;" onclick="showaddSchedule();">+ ADD</button><br />
     @*<button class="btn btn-danger col-lg-1 pull-right" id="std" style="margin-right:5%;">- DELETE</button>*@
@@ -48,6 +48,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="table-responsive table-responsive-data2">
+                    <a href="~/Dashboard/RoomSchedule"><i class="fa fa-backward"></i></a>
                     <table class="table table-data2" id="getRoomSchedule">
                         <thead>
                             <tr>
@@ -62,7 +63,7 @@
                                 <th>Room Id</th>
                             </tr>
                         </thead>
-                        
+
                     </table>
                 </div>
             </div>
@@ -72,32 +73,32 @@
 
 @*////////////////*@
 <div class="main-content" id="viewstudentschedule">
-    <h2 align="center">View Student Schedule</h2>
+    <h2 align="center">View Student Details</h2>
     <hr /><br /><br />
     @*<button class="btn btn-primary col-lg-1 pull-right" style="margin-right:5%;" onclick="showaddSchedule();">+ ADD</button><br />*@
     @*<button class="btn btn-danger col-lg-1 pull-right" style="margin-right:5%;">- DELETE</button>*@
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12">
-                <div class="table-responsive table-responsive-data2" style="overflow:auto">
-                    <table class="table table-data2" id="getstudentSchedule">
-                        <thead>
-                            <tr>
-                                <th>
-                                    #
-                                </th>
-                                <th>Student  Id</th>
-                                <th>Student Image Id</th>
-                                <th>Student Name</th>
-                                <th>Student Batch</th>
-
-                            </tr>
-                        </thead>
-                    </table>
+                <div class="col-md-12">
+                    <div class="table-responsive table-responsive-data2" style="overflow:auto">
+                        <a href="~/Dashboard/RoomSchedule"><i class="fa fa-backward"></i></a>
+                        <table class="table table-data2" id="getstudentSchedule">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        #
+                                    </th>
+                                    <th>Student Id</th>
+                                    <th>Student Image Id</th>
+                                    <th>Student Name</th>
+                                    <th>Student Batch</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 </div>
 
 <!-- END MAIN CONTENT-->
@@ -364,7 +365,7 @@
 
             $("#addRoom").click(function () {
                 var rname = $("#rname").val();
-                alert(rname);
+                //alert(rname);
                 $.ajax({
                     url: '/Room/AddRoom',
                     type: 'post',
@@ -375,12 +376,12 @@
                     },
 
                     success: function (result) {
-                        alert(result);
-                        alert("Successfully inserted Room");
+                        //alert(result);
+                        //alert("Successfully inserted Room");
 
                     },
 
-                });
+                }); alert("Successfully inserted Room");
 
             });
 
@@ -396,7 +397,7 @@
                 //alert(rsub);
                 //alert(rid);
                 //alert(rteacherid);
-                alert(rtime);
+                //alert(rtime);
 
 
                 $.ajax({
@@ -415,7 +416,7 @@
 
                     success: function (result) {
                         alert(result);
-                        alert("Successfully inserted Room");
+                        alert("Successfully inserted Room Schedule");
 
                     },
 
@@ -583,7 +584,7 @@
 
 
         function deleteroom(a) {
-            alert(a);
+            //alert(a);
             var delid = a;
             $.ajax({
 
@@ -596,7 +597,7 @@
                 },
                 success: function (result) {
 
-                    alert("deleted");
+                    alert("Successfully Deleted Class Room Information");
                     location.reload();
                 },
             });
@@ -605,7 +606,7 @@
 
 
         function deleteroomschedule(a) {
-            alert(a);
+            //alert(a);
             var delid = a;
             $.ajax({
 
@@ -617,7 +618,7 @@
                     id: delid,
                 },
                 success: function (result) {
-                    alert(" RoomSchedule deleted");
+                    alert("Successfully Deleted RoomSchedule");
                     location.reload();
                 },
             });
