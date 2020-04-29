@@ -119,23 +119,13 @@
                         <input asp-for="Sheduleid" readonly id="sheduleid" type="text" class="form-control" required />
                     </div>
                     <div class="form-group">
-                        <label class=" form-control-label">To</label>
+                        <label class=" form-control-label">Destination</label>
                         <input asp-for="Toaddress" readonly id="toaddress" type="text" class="form-control" required />
                     </div>
-                    <div class="form-group">
+                    @*<div class="form-group">
                         <label class=" form-control-label">From</label>
                         <input asp-for="Fromaddress" readonly id="fromaddress" type="text" class="form-control" required />
-                    </div>
-
-                    @*<div class="form-group">
-            <label>Bus</label>
-            <select asp-for="Bus" id="sbus" class="form-control">
-                <option value="Bus 1">Bus 1</option>
-                <option value="Bus 2">Bus 2</option>
-                <option value="Bus 3">Bus 3</option>
-            </select>
-        </div>*@
-
+                    </div>*@
 
                     <input type="submit" class="btn btn-primary " />
                     <button type="reset" class="btn btn-success ">
@@ -192,17 +182,23 @@
             <h2 align="center" class="text-primary">Bus Registration</h2><hr />
 
             <div class="form-group row">
-                <label for="staticEmail" class="col-sm-4 col-form-label">To</label>
+                <label for="staticEmail" class="col-sm-4 col-form-label">Destination</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control" id="to" />
+                    @*<input type="text" class="form-control" id="to" />*@
+
+                    <select  id="to" onchange="showbus()" class="form-control">
+                        @*<option value="Pumpwell">Pumpwell</option>
+                        <option value="Kerala">Kerala</option>*@
+                    </select>
+
                 </div>
             </div>
-            <div class="form-group row">
+            @*<div class="form-group row">
                 <label for="staticEmail" class="col-sm-4 col-form-label">From</label>
                 <div class="col-sm-8">
                     <input type="text" class="form-control" id="from" />
                 </div>
-            </div>
+            </div>*@
             <div class="form-group row">
                
                 <div class="col-sm-8">
@@ -221,7 +217,7 @@
             </div>
 
             <div>
-                <button type="button" class="btn btn-outline-primary btn-block" onclick="addbudinfo()">Add Bus info</button>
+                <button type="button" class="btn btn-outline-primary btn-block" onclick="addbusinfo()">Add Bus info</button>
 
             </div>
         </div>
@@ -294,15 +290,37 @@
     }
     <script>
 
+        $.ajax({
+
+            url: '/Bus/getBusDestination',
+            type: 'post',
+            dataType: 'json',
+            data:
+            {
+            },
+            success: function (result) {
+
+                if (result) {
+                    var busVal = '';
+                   
+                    for (i = 0; i < result.length; i++) {
+                        busVal += '<option value="'+result[i]+'">'+result[i]+'</option>';
+                    }
+                    $('#to').append(busVal);
+                }
+            },
+        });
+
+
         function hidepopup() {
             //$('#busdiv').hide();
             $('#overlay').hide();
         }
-        function addbudinfo() {
+        function addbusinfo() {
             var t = document.getElementById('tick').value;
             document.getElementById('sheduleid').value = t;
             document.getElementById('toaddress').value = document.getElementById('to').value;
-            document.getElementById('fromaddress').value = document.getElementById('from').value;
+            //document.getElementById('fromaddress').value = document.getElementById('from').value;
             $('#overlay').hide();
 
 
@@ -313,7 +331,7 @@
         function onChangeHandler() {
             $('#busregister').html('');
             var to = document.getElementById('to').value;
-            var from = document.getElementById('from').value;
+            //var from = document.getElementById('from').value;
           
             $.ajax({
                 
@@ -323,7 +341,7 @@
                             data:
                             {
                                 To: to,
-                                From: from,
+                                //From: from,
                             },
                             success: function (result) {
 
@@ -349,19 +367,18 @@
             $('.account-dropdown').hide();
             document.getElementById("overlay").style.display = "block";
         }
+
         function hidetest() {
             $('#test-form').animate({ top: '-500%' }, 500);
             document.getElementById("overlay").style.display = "none";
         }
 
-
-
         function showbus() {
             $('#busdiv').animate({ top: '15%' }, 500);
             $('#busdiv').animate({ top: '20%' }, 500);
-           
             document.getElementById("overlay").style.display = "block";
         }
+
         function hidebus() {
             $('#busdiv').animate({ top: '-500%' }, 500);
             document.getElementById("overlay").style.display = "none";

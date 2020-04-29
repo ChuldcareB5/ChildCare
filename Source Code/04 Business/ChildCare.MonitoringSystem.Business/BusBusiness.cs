@@ -4,6 +4,7 @@ using ChildCare.MonitoringSystem.Entity;
 using ChildCare.MonitoringSystem.Model;
 using ChildCare.MonitoringSystem.Repository;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -116,19 +117,15 @@ namespace ChildCare.MonitoringSystem.Business
         {
             var busupdate = this.busRepository.GetBy(x => x.BusId == busModel.BusId, x => x.BusSchedule).SingleOrDefault();
 
-
             this.unitOfWork.Save();
 
             return busModel;
 
-
-
-
         }
 
-		public List<BusScheduleModel> getbusshedule(String To,String From)
+		public List<BusScheduleModel> getbusshedule(String To)
 		{
-			var busschedule = this.busschedulerepository.GetBy(x => x.ToBusSchedule == To && x.FromBusSchedule == From);
+			var busschedule = this.busschedulerepository.GetBy(x => x.ToBusSchedule == To);
 			var buses = new List<BusScheduleModel>();
 			foreach(var Bus in busschedule)
 			{
@@ -137,5 +134,17 @@ namespace ChildCare.MonitoringSystem.Business
 			}
 			return buses;
 		}
-	}
+
+        public ArrayList getBusDestination()
+        {
+            var busEntity = this.busschedulerepository.GetAll();
+
+            ArrayList busto = new ArrayList();
+            foreach (var bus in busEntity)
+            {
+                busto.Add(bus.ToBusSchedule);
+            }
+            return busto;
+        }
+    }
 }
