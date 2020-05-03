@@ -20,43 +20,42 @@
             <div class="card-body card-block" style="padding:60px;">
                 <form action="" method="post" id="TeacherForm" style="width:100%;">
                     <div class="form-group">
-                        <label for="mname" class=" form-control-label">User Name</label>
+                        <label for="mname" class=" form-control-label">User Name *</label>
                         <div class="input-group">
                             <div class="input-group-addon">
                                 <i class="fa fa-user"></i>
-
                             </div>
-                            <input type="text" id="uname" name="uname" class="form-control">
+                            <input type="text" required id="uname" name="uname" class="form-control" >
 
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="nf-email" class=" form-control-label">Email</label>
+                        <label for="nf-email" class=" form-control-label">Email *</label>
                         <div class="input-group">
                             <div class="input-group-addon">
                                 <i class="fa fa-envelope"></i>
                             </div>
-                            <input type="email" id="uemail" name="nf-email" class="form-control">
+                            <input type="email" id="uemail" name="nf-email" class="form-control" required>
 
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="nf-password" class=" form-control-label">Password</label>
+                        <label for="nf-password" class=" form-control-label">Password *</label>
                         <div class="input-group">
                             <div class="input-group-addon">
                                 <i class="fa fa-asterisk"></i>
                             </div>
-                            <input type="password" id="upassword" name="nf-password" class="form-control">
+                            <input type="password" id="upassword" name="nf-password" class="form-control" required>
 
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="mobileno" class=" form-control-label">Mobile Number</label>
+                        <label for="mobileno" class=" form-control-label">Mobile Number *</label>
                         <div class="input-group">
                             <div class="input-group-addon">
                                 <i class="fa fa-mobile"></i>
                             </div>
-                            <input type="tel" id="umobileno" name="mobileno" class="form-control" />
+                            <input type="tel" maxlength="10" id="umobileno" name="mobileno" class="form-control" required />
                         </div>
                     </div>
                 </form>
@@ -65,7 +64,7 @@
                 <button type="submit" id="teacherlogin" class="btn btn-primary ">
                     Submit
                 </button>
-                <button type="reset" onclick="reset();" class="btn btn-success ">
+                <button type="reset" class="btn btn-success" onclick="formreset()">
                     Reset
                 </button>
             </div>
@@ -89,24 +88,27 @@
                 //alert(uemail);
                 //alert(upassword);
                 //alert(umobileno);
-                $.ajax({
-                    url: '/User/AddTeacher',
-                    type: 'post',
-                    dataType: 'json',
-                    data:
-                    {
-                        UserName: uname,
-                        UserEmail: uemail,
-                        UserPassword: upassword,
-                        UserMobileNo: umobileno,
-                    },
-                    success: function (result) {
-
-                        alert("Successfully inserted Teacher");
-
-                    },
-
-                });
+                debugger
+                if (uname != "" && uemail != "" && upassword != "" && umobileno != "") {
+                    $.ajax({
+                        url: '/User/AddTeacher',
+                        type: 'post',
+                        dataType: 'json',
+                        data:
+                        {
+                            UserName: uname,
+                            UserEmail: uemail,
+                            UserPassword: upassword,
+                            UserMobileNo: umobileno,
+                        },
+                        success: function (result) {
+                            alert("Successfully inserted Teacher");
+                        },
+                    });
+                }
+                else {
+                    alert("Please enter required field");
+                }
             });
 
         });
@@ -145,9 +147,12 @@
             document.getElementById('TeacherForm').reset();
         }
 
-
         function search(string) {
             window.find(string);
+        }
+
+        function formreset() {
+            window.location.reload();
         }
     </script>
 }
