@@ -7,37 +7,45 @@
 }
 
 <!-- MAIN CONTENT-->
-<div class="main-content" id="viewroom">
-    @*<div class="section__content section__content--p30">*@
-    <button class="btn btn-primary col-lg-1 pull-right" style="margin-right:5%;" onclick="showadd();">+ ADD</button><br />
-    @*<button class="btn btn-danger col-lg-1 pull-right" style="margin-right:5%;" onclick="deleteroom();">- DELETE</button><br />*@
-    @*<button class="btn btn-danger col-lg-1 pull-right" style="margin-right:5%;" onclick="showviewschedule()"><i class="fa fa-eye"></i> View</button>*@
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="table-responsive table-responsive-data2" style="overflow:auto">
-                    <table class="table table-data2" id="getRoom">
-                        <thead>
-                            <tr>
-                                <th>
-                                    #
-                                </th>
-                                <th>Room Id</th>
-                                <th>Room Name</th>
-                                <th></th>
-                                <th></th>
-                            </tr>
-                        </thead>
-
-                    </table>
+    <div class="main-content" id="viewroom">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12" style="text-align:center">
+                    <div class="overview-wrap">
+                        <h2 class="title-1">
+                            Room Schedule
+                        </h2>
+                    </div>
+                    <hr />
                 </div>
             </div>
+            <br />
+            <button class="btn btn-primary col-lg-1 pull-right" style="margin-right:5%;" onclick="showadd();">+ ADD</button><br />
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-responsive table-responsive-data2" style="overflow:auto">
+                        <table class="table table-data2" id="getRoom">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        #
+                                    </th>
+                                    <th>Room Id</th>
+                                    <th>Room Name</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
 
         </div>
-
-
     </div>
-</div>
 
 <div class="main-content" id="viewroomschedule">
     <h2 align="center">View Student Room Schedule</h2>
@@ -242,7 +250,7 @@
             <h4 align="center" class="text-primary">Add Room</h4><hr />
             <form action="" method="post">
                 <div class="form-group">
-                    <label>Room Name</label>
+                    <h5>Enter Room Name Here and Add Schedule for this Room</h5>
                     <input class="form-control" type="text" name="fname" id="rname" required>
                 </div>
 
@@ -268,14 +276,7 @@
                 <div class="form-group">
                     <label>Time</label>
                     <input class="form-control" type="time" name="roomScheduleTime" id="roomScheduleTime" required>
-                    @* <input class="form-control" type="text" name="email" id="fname" required>*@
-                    @*<select name="scheduleTime" id="roomScheduleTime" class="form-control">
-            <option value="9.00">9.00</option>
-            <option value="9.55">9.55</option>
-            <option value="11.05">11.05</option>
-            <option value="01.00">01.00</option>
-            <option value="02.00">02.00</option>
-        </select>*@
+
                 </div>
                 <div class="form-group">
                     <label>Subject</label>
@@ -691,7 +692,7 @@
         #add {
             position: fixed;
             top: -500%;
-            width: 35%;
+            width: 38%;
             margin-left: 30%;
             background-color: white;
             box-shadow: 2px 3px 8px slategrey;

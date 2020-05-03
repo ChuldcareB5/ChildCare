@@ -14,7 +14,9 @@
     <div class="container-fluid">
         <div class="card">
             <div class="card-header">
-                <strong align="center">Student Registration Form</strong>
+                <h3 class="title-3 m-b-5">
+                    Student Registration Form
+                </h3>
             </div>
             <div class="card-body card-block">
                 @*@foreach (var item in Model.Student)
@@ -157,8 +159,8 @@
 </div>
 
 <!-- END MAIN CONTENT-->
-@*<div id="overlay" style="z-index:4;">
-    <div id="test-form-div ">
+@*<div id="overlay" style="z-index:4;">*@
+    @*<div id="test-form-div ">
         <div id="test-form" class="">
             <div class="form-container">
                 <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
@@ -185,10 +187,10 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div>*@
 
-    <div id="overlay1" style="z-index:4">
-        <div id="busdiv">
+    <div id="overlay1">
+        <div id="busdiv" style="z-index:5">
             <a class="pull-right" onclick="hidepopup();"><i class="fa fa-close"></i></a>
             <h2 align="center" class="text-primary">Bus Registration</h2><hr />
 
@@ -231,7 +233,7 @@
     </div>
     <!--close Account popup-->
     <!--start setting popup-->
-    <div id="setting" class="">
+    @*<div id="setting" class="">
         <div class="form-container">
             <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
             <h4 align="center" class="text-primary">Password Setting</h4><hr />
@@ -252,10 +254,10 @@
                 <a href="#moresetting" class="pull-right" onclick="showmoresetting()">Set More Details</a>
             </form>
         </div>
-    </div>
+    </div>*@
     <!--close setting popup-->
     <!--start more setting popup-->
-    <div id="moresetting" class="">
+    @*<div id="moresetting" class="">
         <div class="form-container">
             <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
             <h4 align="center" class="text-primary">User Detail Setting</h4><hr />
@@ -280,7 +282,7 @@
             </form>
         </div>
     </div>
-    <!--close more setting popup-->
+    close more setting popup
 </div>*@
 
 @section Scripts{
@@ -298,6 +300,7 @@
         function hidepopup() {
             //$('#busdiv').hide();
             $('#overlay').hide();
+            $('#overlay1').hide();
         }
         function addbudinfo() {
             var t = document.getElementById('tick').value;
@@ -327,7 +330,6 @@
                                 From: from,
                             },
                             success: function (result) {
-
                                 if (result) {
                                     var tabl = '';
                                     for (i = 0; i < result.length; i++) {
@@ -337,30 +339,27 @@
                                 }
                             },
                         });
-           
         }
 
         function search(string) {
             window.find(string);
         }
 
-        function showtest() {
-            $('#test-form').animate({ top: '15%' }, 500);
-            $('#test-form-div').animate({ top: '20%' }, 500);
-            $('.account-dropdown').hide();
-            document.getElementById("overlay").style.display = "block";
-        }
-        function hidetest() {
-            $('#test-form').animate({ top: '-500%' }, 500);
-            document.getElementById("overlay").style.display = "none";
-        }
-
-
+        //function showtest() {
+        //    $('#test-form').animate({ top: '15%' }, 500);
+        //    $('#test-form-div').animate({ top: '20%' }, 500);
+        //    $('.account-dropdown').hide();
+        //    document.getElementById("overlay").style.display = "block";
+        //}
+        //function hidetest() {
+        //    $('#test-form').animate({ top: '-500%' }, 500);
+        //    document.getElementById("overlay").style.display = "none";
+        //}
 
         function showbus() {
-            $('#busdiv').animate({ top: '15%' }, 500);
-            $('#busdiv').animate({ top: '20%' }, 500);
-           
+            $('#busdiv').animate({ top: '13%' }, 500);
+            //$('#busdiv').animate({ top: '20%' }, 500);
+            //document.getElementById("overlay").style.display = "block";
             document.getElementById("overlay").style.display = "block";
         }
         function hidebus() {
@@ -385,7 +384,6 @@
             $('#moresetting').animate({ top: '-500%' }, 500);
             document.getElementById("overlay").style.display = "none";
         }
-
         function reset() {
             document.getElementById('studentForm').reset();
         }
@@ -394,7 +392,7 @@
 
 @section Styles{
     <style>
-        #test-form {
+        /*#test-form {
             position: fixed;
             top: -500%;
             width: 35%;
@@ -403,18 +401,18 @@
             box-shadow: 2px 3px 8px slategrey;
             border-radius: 5px;
             padding: 35px;
-        }
+        }*/
         #busdiv {
             position: fixed;
             top: -500%;
             width: 35%;
-            margin-left: 30%;
+            margin-left: 10%;
             background-color: white;
             box-shadow: 2px 3px 8px slategrey;
             border-radius: 5px;
             padding: 35px;
         }
-        #setting {
+        /*#setting {
             position: fixed;
             top: -500%;
             width: 35%;
@@ -434,7 +432,7 @@
             box-shadow: 2px 3px 8px slategrey;
             border-radius: 5px;
             padding: 35px;
-        }
+        }*/
 
         #test-form-div {
             position: fixed;

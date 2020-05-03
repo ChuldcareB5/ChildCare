@@ -15,9 +15,11 @@
     @*<div class="section__content section__content--p30">*@
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12" style="text-align:center">
                 <div class="overview-wrap">
-                    <h2 class="title-1">Dashboard</h2>
+                    <h2 class="title-1">
+                        Welcome to Dashboard
+                    </h2>
                 </div>
                 <hr />
             </div>
@@ -26,72 +28,80 @@
             <div class="col-sm-6 col-lg-3">
                 <div class="overview-item overview-item--c1">
                     <div class="overview__inner">
-                        <div class="overview-box clearfix">
-                            <div class="icon">
-                                <i class="zmdi zmdi-account-o"></i>
-                            </div><br />
-                            <div class="text">
-                                <h2>1000+</h2>
-                                <span>Total number of students</span>
+                        <a href="~/Dashboard">
+                            <div class="overview-box clearfix">
+                                <div class="icon">
+                                    <i class="zmdi zmdi-account-o"></i>
+                                </div><br />
+                                <div class="text">
+                                    <h2>1000+</h2>
+                                    <span>Total No. of Students</span>
+                                </div>
+
                             </div>
-                        </div>
+                        </a>
                         @*<div class="overview-chart">
-                            <canvas id="widgetChart1"></canvas>
-                        </div>*@
+            <canvas id="widgetChart1"></canvas>
+        </div>*@
                     </div>
                 </div>
             </div>
             <div class="col-sm-6 col-lg-3">
                 <div class="overview-item overview-item--c2">
                     <div class="overview__inner">
-                        <div class="overview-box clearfix">
-                            <div class="icon">
-                                <i class="zmdi zmdi-videocam"></i>
-                            </div>
-                            <br />
+                        <a href="~/Dashboard/CamaraView">
+                            <div class="overview-box clearfix">
+                                <div class="icon">
+                                    <i class="zmdi zmdi-videocam"></i>
+                                </div>
+                                <br />
 
-                            <div class="text">
-                                <h2>30+</h2>
-                                <span>Total cameras</span>
+                                <div class="text">
+                                    <h2>30+</h2>
+                                    <span>Total Cameras</span>
+                                </div>
                             </div>
-                        </div>
-
+                            </a>
                     </div>
                 </div>
             </div>
             <div class="col-sm-6 col-lg-3">
                 <div class="overview-item overview-item--c3">
                     <div class="overview__inner">
-                        <div class="overview-box clearfix">
-                            <div class="icon">
-                                <i class="zmdi zmdi-laptop"></i>
-                            </div><br />
-                            <div class="text">
-                                <h2>50+</h2>
-                                <span>Total ClassRooms</span>
+                        <a href="~/Dashboard/RoomSchedule">
+                            <div class="overview-box clearfix">
+                                <div class="icon">
+                                    <i class="zmdi zmdi-laptop"></i>
+                                </div><br />
+                                <div class="text">
+                                    <h2>50+</h2>
+                                    <span>Total ClassRooms</span>
+                                </div>
                             </div>
-                        </div>
-                        @*<div class="overview-chart">
-                            <canvas id="widgetChart3"></canvas>
-                        </div>*@
+                            </a>
+                            @*<div class="overview-chart">
+                <canvas id="widgetChart3"></canvas>
+            </div>*@
                     </div>
                 </div>
             </div>
             <div class="col-sm-6 col-lg-3">
                 <div class="overview-item overview-item--c4">
                     <div class="overview__inner">
-                        <div class="overview-box clearfix">
-                            <div class="icon">
-                                <i class="zmdi zmdi-bus"></i>
-                            </div><br />
-                            <div class="text">
-                                <h2>40+</h2>
-                                <span>Total No.of Buses</span>
+                        <a href="~/Dashboard/BusSchedule">
+                            <div class="overview-box clearfix">
+                                <div class="icon">
+                                    <i class="zmdi zmdi-bus"></i>
+                                </div><br />
+                                <div class="text">
+                                    <h2>40+</h2>
+                                    <span>Total No.of Buses</span>
+                                </div>
                             </div>
-                        </div>
-                        @*<div class="overview-chart">
-                            <canvas id="widgetChart4"></canvas>
-                        </div>*@
+                            </a>
+                            @*<div class="overview-chart">
+                <canvas id="widgetChart4"></canvas>
+            </div>*@
                     </div>
                 </div>
             </div>
@@ -142,7 +152,11 @@
                     @*<h4 style="color:yellow;">Teacher Names :   </h4>*@
                     <div class="au-card-inner">
                         <div class="table-responsive">
-                            <table class="table table-top-countries" id="listofteacher"></table>
+                            <table class="table table-top-countries" id="listofteacher" style="color:white">
+                                    <th>#</th>
+                                    <th>Teacher Name</th>
+                                <tbody></tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -151,7 +165,7 @@
                <h2 class="title-1 m-b-25">Contact Us  </h2>
                <img src="~/images/bg-title-02.jpg" /><hr >
             
-               <button class="contact text-primary" onclick="showcontactpopup();"><i class="fa fa-backward"></i>&nbsp;&nbsp;&nbsp;View Contact Messages</button>
+               <button class="contact text-primary" onclick="showcontactpopup();"><i class="fa fa-backward"></i>&nbsp;&nbsp;&nbsp;View Contact Messages</button><br />
             </div>
         </div>
             <div class="row">
