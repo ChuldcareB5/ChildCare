@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -37,13 +38,19 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
         {
             return View();
         }
-		public ActionResult<List<BusScheduleModel>> getbusshedule(String To,String From)
+		public ActionResult<List<BusScheduleModel>> getbusshedule(String To)
 		{
-			var buses = this.busBusiness.getbusshedule(To,From);
+			var buses = this.busBusiness.getbusshedule(To);
 			return buses;
 		}
 
-		public ActionResult<Int32> BusDeleteId(int id)
+        public ActionResult<ArrayList> getBusDestination()
+        {
+            var buses = this.busBusiness.getBusDestination();
+            return buses;
+        }
+
+        public ActionResult<Int32> BusDeleteId(int id)
 		{
 			var bus = this.busBusiness.DeleteId(id);
 			return bus;

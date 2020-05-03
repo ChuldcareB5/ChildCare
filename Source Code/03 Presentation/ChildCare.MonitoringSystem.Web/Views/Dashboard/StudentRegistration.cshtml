@@ -4,23 +4,19 @@
     Layout = "_AppLayout";
 }
 
-   
+
 @section LeftNavigation{
     <partial name="_AdminLeftNavigation" />
 }
 <!-- MAIN CONTENT-->
 <div class="main-content">
-    @*<div class="section__content section__content--p30">*@
+
     <div class="container-fluid">
         <div class="card">
             <div class="card-header">
-                <h3 class="title-3 m-b-5">
-                    Student Registration Form
-                </h3>
+                <strong align="center">Student Registration Form</strong>
             </div>
             <div class="card-body card-block">
-                @*@foreach (var item in Model.Student)
-                    {*@
 
                 <form asp-controller="Dashboard" asp-action="StudentRegistration" id="studentForm" enctype="multipart/form-data">
                     <div class="form-group">
@@ -38,8 +34,6 @@
                         <textarea asp-for="StudentAddress" rows="5" class="form-control" title="Enter Student Address" required></textarea>
 
                     </div>
-                    @*<label><input type="radio" name="gender" class="gender" value="0">Male</label>
-        <label><input type="radio" name="gender" class="gender" value="1"> Female</label>*@
                     <div class="form-group">
                         <label>Gender  </label>
                         <br />
@@ -105,7 +99,7 @@
                     <div class="form-group">
                         <label>Batch</label>
                         @*  <input class="form-control" type="time" name="batch" id="batch" required>*@
-                        <select asp-for="Batch" id="sbatch"  onchange="showbus()" class="form-control">
+                        <select asp-for="Batch" id="sbatch" onchange="showbus()" class="form-control">
                             <option value="B1">B1</option>
                             <option value="B2">B2</option>
                             <option value="B3">B3</option>
@@ -114,30 +108,15 @@
                         </select>
                     </div>
                     <input type="checkbox" onchange="showbus()" /><label>Add Bus Detail</label>
-                    @*<div class="form-group">
-                        <button class="btn btn-success">Add Bus Details </button>
-                    </div>*@
-                    <div  hidden class="form-group">
-                        <label  class=" form-control-label">Schedule Id</label>
+
+                    <div hidden class="form-group">
+                        <label class=" form-control-label">Schedule Id</label>
                         <input asp-for="Sheduleid" readonly id="sheduleid" type="text" class="form-control" required />
                     </div>
                     <div class="form-group">
-                        <label class=" form-control-label">To</label>
+                        <label class=" form-control-label">Destination</label>
                         <input asp-for="Toaddress" readonly id="toaddress" type="text" class="form-control" required />
                     </div>
-                    <div class="form-group">
-                        <label class=" form-control-label">From</label>
-                        <input asp-for="Fromaddress" readonly id="fromaddress" type="text" class="form-control" required />
-                    </div>
-
-                    @*<div class="form-group">
-            <label>Bus</label>
-            <select asp-for="Bus" id="sbus" class="form-control">
-                <option value="Bus 1">Bus 1</option>
-                <option value="Bus 2">Bus 2</option>
-                <option value="Bus 3">Bus 3</option>
-            </select>
-        </div>*@
 
 
                     <input type="submit" class="btn btn-primary " />
@@ -149,141 +128,102 @@
 
             </div>
             <div class="card-footer">
-
-
-
-
             </div>
         </div>
     </div>
 </div>
 
 <!-- END MAIN CONTENT-->
-@*<div id="overlay" style="z-index:4;">*@
-    @*<div id="test-form-div ">
-        <div id="test-form" class="">
+
+
+<div id="overlay" style="z-index:4">
+    <div id="busdiv">
+        <a class="pull-right" onclick="hidepopup();"><i class="fa fa-close"></i></a>
+        <h2 align="center" class="text-primary">Bus Registration</h2><hr />
+
+        <div class="form-group row">
+            <label for="staticEmail" class="col-sm-4 col-form-label">Destination</label>
+            <div class="col-sm-8">
+                <select id="to" onchange="showbus()" class="form-control"></select>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-8">
+                <button type="button" class="btn btn-outline-primary btn-block" onclick="onChangeHandler()">Check Bus Availibilty</button>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <table id="busregister">
+                <tr>
+                    <td>Scheduling Id</td>
+                    <td>           </td>
+                    <td>Time</td>
+                </tr>
+            </table>
+        </div>
+
+        <div>
+            <button type="button" class="btn btn-outline-primary btn-block" onclick="addbusinfo()">Add Bus info</button>
+        </div>
+    </div>
+
+</div>
+<!--close Account popup-->
+
+<!--start setting popup-->
+@*<div id="setting" class="">
             <div class="form-container">
                 <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
-                <h4 align="center" class="text-primary">Profile View</h4><hr />
+                <h4 align="center" class="text-primary">Password Setting</h4><hr />
                 <form action="Homepage.html" method="post">
-                    <div class="form-group" align="center">
-                        <div class="image">
-                            <img src="~/images/img/user.png" />
-                        </div>
+                    <div class="form-group">
+                        <label>Old Password</label>
+                        <input class="form-control" type="text" name="fname" required>
                     </div>
                     <div class="form-group">
-                        <label>User Name</label>
-                        <label class="form-control" name="fname">Purshotham</label>
+                        <label>New Password</label>
+                        <input class="form-control" type="email" name="email" required>
                     </div>
                     <div class="form-group">
-                        <label>User Email</label>
-                        <label class="form-control" name="email">Pursh123@gmail.com</label>
+                        <label for="pwd">Confirm Password</label>
+                        <input class="form-control" type="tel" name="number" required>
                     </div>
-                    <div class="form-group">
-                        <label>Mobile No</label>
-                        <label class="form-control" name="number">9653247815</label>
-                    </div>
-
+                    <button type="submit" class="btn btn-block btn-primary">SUBMIT </button><br>
+                    <a href="#moresetting" class="pull-right" onclick="showmoresetting()">Set More Details</a>
                 </form>
             </div>
         </div>
-    </div>*@
-
-    <div id="overlay1">
-        <div id="busdiv" style="z-index:5">
-            <a class="pull-right" onclick="hidepopup();"><i class="fa fa-close"></i></a>
-            <h2 align="center" class="text-primary">Bus Registration</h2><hr />
-
-            <div class="form-group row">
-                <label for="staticEmail" class="col-sm-4 col-form-label">To</label>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control" id="to" />
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="staticEmail" class="col-sm-4 col-form-label">From</label>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control" id="from" />
-                </div>
-            </div>
-            <div class="form-group row">
-               
-                <div class="col-sm-8">
-                    <button type="button" class="btn btn-outline-primary btn-block" onclick="onChangeHandler()">Check Bus Availibilty</button>
-
-                </div>
-            </div>
-            <div class="form-group row">
-                <table id="busregister">
-                    <tr>
-                        <td>Scheduling Id</td>
-                        <td>           </td>
-                        <td>Time</td>
-                    </tr>
-                </table>
-            </div>
-
-            <div>
-                <button type="button" class="btn btn-outline-primary btn-block" onclick="addbudinfo()">Add Bus info</button>
-
+        <!--close setting popup-->
+        <!--start more setting popup-->
+        <div id="moresetting" class="">
+            <div class="form-container">
+                <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
+                <h4 align="center" class="text-primary">User Detail Setting</h4><hr />
+                <form action="Homepage.html" method="post">
+                    <div class="form-group">
+                        <label>User Name</label>
+                        <input class="form-control" type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label>User Email</label>
+                        <input class="form-control" type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Address</label>
+                        <input class="form-control" type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Mobile No</label>
+                        <input class="form-control" type="number" required>
+                    </div>
+                    <button type="submit" class="btn btn-block btn-primary">EDIT</button>
+                </form>
             </div>
         </div>
-
-
-    </div>
-    <!--close Account popup-->
-    <!--start setting popup-->
-    @*<div id="setting" class="">
-        <div class="form-container">
-            <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
-            <h4 align="center" class="text-primary">Password Setting</h4><hr />
-            <form action="Homepage.html" method="post">
-                <div class="form-group">
-                    <label>Old Password</label>
-                    <input class="form-control" type="text" name="fname" required>
-                </div>
-                <div class="form-group">
-                    <label>New Password</label>
-                    <input class="form-control" type="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="pwd">Confirm Password</label>
-                    <input class="form-control" type="tel" name="number" required>
-                </div>
-                <button type="submit" class="btn btn-block btn-primary">SUBMIT </button><br>
-                <a href="#moresetting" class="pull-right" onclick="showmoresetting()">Set More Details</a>
-            </form>
-        </div>
-    </div>*@
-    <!--close setting popup-->
-    <!--start more setting popup-->
-    @*<div id="moresetting" class="">
-        <div class="form-container">
-            <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
-            <h4 align="center" class="text-primary">User Detail Setting</h4><hr />
-            <form action="Homepage.html" method="post">
-                <div class="form-group">
-                    <label>User Name</label>
-                    <input class="form-control" type="text" required>
-                </div>
-                <div class="form-group">
-                    <label>User Email</label>
-                    <input class="form-control" type="text" required>
-                </div>
-                <div class="form-group">
-                    <label>Address</label>
-                    <input class="form-control" type="text" required>
-                </div>
-                <div class="form-group">
-                    <label>Mobile No</label>
-                    <input class="form-control" type="number" required>
-                </div>
-                <button type="submit" class="btn btn-block btn-primary">EDIT</button>
-            </form>
-        </div>
-    </div>
-    close more setting popup
-</div>*@
+        <!--close more setting popup-->
+    @*</div>*@
 
 @section Scripts{
 
@@ -297,71 +237,95 @@
     }
     <script>
 
+        $.ajax({
+
+            url: '/Bus/getBusDestination',
+            type: 'post',
+            dataType: 'json',
+            data:
+            {
+            },
+            success: function (result) {
+
+                if (result) {
+                    var busVal = '';
+
+                    for (i = 0; i < result.length; i++) {
+                        busVal += '<option value="' + result[i] + '">' + result[i] + '</option>';
+                    }
+                    $('#to').append(busVal);
+                }
+            },
+        });
+
+
         function hidepopup() {
             //$('#busdiv').hide();
             $('#overlay').hide();
-            $('#overlay1').hide();
         }
-        function addbudinfo() {
+        function addbusinfo() {
             var t = document.getElementById('tick').value;
             document.getElementById('sheduleid').value = t;
             document.getElementById('toaddress').value = document.getElementById('to').value;
-            document.getElementById('fromaddress').value = document.getElementById('from').value;
+            //document.getElementById('fromaddress').value = document.getElementById('from').value;
             $('#overlay').hide();
 
 
         }
 
         //document.getElementById('from').addEventListener('change', onChangeHandler);
-        
+
         function onChangeHandler() {
             $('#busregister').html('');
             var to = document.getElementById('to').value;
-            var from = document.getElementById('from').value;
-          
+            //var from = document.getElementById('from').value;
+
             $.ajax({
-                
-                            url: '/Bus/getbusshedule',
-                            type: 'post',
-                            dataType: 'json',
-                            data:
-                            {
-                                To: to,
-                                From: from,
-                            },
-                            success: function (result) {
-                                if (result) {
-                                    var tabl = '';
-                                    for (i = 0; i < result.length; i++) {
-                                        tabl += '<tr><td>' + result[i].busScheduleId + '</td><td>       </td><td>' + result[i].busScheduleTime + '</td><td>       </td>&nsb;&nsb;&nsb;&nsb;&nsb;&nsb;&nsb;&nsb;<td> <input type = "radio" class= "bus" id="tick" value = "'+result[i].busScheduleId +'" /> </td><br></tr>';
-                                    }
-                                    $('#busregister').append(tabl);
-                                }
-                            },
-                        });
+
+                url: '/Bus/getbusshedule',
+                type: 'post',
+                dataType: 'json',
+                data:
+                {
+                    To: to,
+                    //From: from,
+                },
+                success: function (result) {
+
+                    if (result) {
+                        var tabl = '';
+                        for (i = 0; i < result.length; i++) {
+                            tabl += '<tr><td>' + result[i].busScheduleId + '</td><td>       </td><td>' + result[i].busScheduleTime + '</td><td>       </td>&nsb;&nsb;&nsb;&nsb;&nsb;&nsb;&nsb;&nsb;<td> <input type = "radio" class= "bus" id="tick" value = "' + result[i].busScheduleId + '" /> </td><br></tr>';
+                        }
+                        $('#busregister').append(tabl);
+                    }
+                },
+            });
+
         }
 
         function search(string) {
             window.find(string);
         }
 
-        //function showtest() {
-        //    $('#test-form').animate({ top: '15%' }, 500);
-        //    $('#test-form-div').animate({ top: '20%' }, 500);
-        //    $('.account-dropdown').hide();
-        //    document.getElementById("overlay").style.display = "block";
-        //}
-        //function hidetest() {
-        //    $('#test-form').animate({ top: '-500%' }, 500);
-        //    document.getElementById("overlay").style.display = "none";
-        //}
-
-        function showbus() {
-            $('#busdiv').animate({ top: '13%' }, 500);
-            //$('#busdiv').animate({ top: '20%' }, 500);
-            //document.getElementById("overlay").style.display = "block";
+        function showtest() {
+            $('#test-form').animate({ top: '15%' }, 500);
+            $('#test-form-div').animate({ top: '20%' }, 500);
+            $('.account-dropdown').hide();
             document.getElementById("overlay").style.display = "block";
         }
+
+        function hidetest() {
+            $('#test-form').animate({ top: '-500%' }, 500);
+            document.getElementById("overlay").style.display = "none";
+        }
+
+        function showbus() {
+            $('#busdiv').animate({ top: '15%' }, 500);
+            $('#busdiv').animate({ top: '20%' }, 500);
+            document.getElementById("overlay").style.display = "block";
+        }
+
         function hidebus() {
             $('#busdiv').animate({ top: '-500%' }, 500);
             document.getElementById("overlay").style.display = "none";
@@ -384,6 +348,7 @@
             $('#moresetting').animate({ top: '-500%' }, 500);
             document.getElementById("overlay").style.display = "none";
         }
+
         function reset() {
             document.getElementById('studentForm').reset();
         }
@@ -392,7 +357,7 @@
 
 @section Styles{
     <style>
-        /*#test-form {
+        #test-form {
             position: fixed;
             top: -500%;
             width: 35%;
@@ -401,18 +366,20 @@
             box-shadow: 2px 3px 8px slategrey;
             border-radius: 5px;
             padding: 35px;
-        }*/
+        }
+
         #busdiv {
             position: fixed;
             top: -500%;
             width: 35%;
-            margin-left: 10%;
+            margin-left: 30%;
             background-color: white;
             box-shadow: 2px 3px 8px slategrey;
             border-radius: 5px;
             padding: 35px;
         }
-        /*#setting {
+
+        #setting {
             position: fixed;
             top: -500%;
             width: 35%;
@@ -432,7 +399,7 @@
             box-shadow: 2px 3px 8px slategrey;
             border-radius: 5px;
             padding: 35px;
-        }*/
+        }
 
         #test-form-div {
             position: fixed;
