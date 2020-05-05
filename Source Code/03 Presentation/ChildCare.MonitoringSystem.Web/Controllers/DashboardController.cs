@@ -58,6 +58,12 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 		{
 			return View();
 		}
+
+        public IActionResult ParentCamaraView()
+        {
+            return View();
+        }
+
         public IActionResult BusTracking()
         {
             return View();
