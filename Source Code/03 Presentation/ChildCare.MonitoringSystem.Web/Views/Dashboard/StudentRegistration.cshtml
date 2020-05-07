@@ -99,7 +99,8 @@
                     <div class="form-group">
                         <label>Batch</label>
                         @*  <input class="form-control" type="time" name="batch" id="batch" required>*@
-                        <select asp-for="Batch" id="sbatch" onchange="showbus()" class="form-control">
+                        <select asp-for="Batch" id="sbatch" required class="form-control">
+                            <option value="Choose Batch Here" selected disabled>Choose Batch Here</option>
                             <option value="B1">B1</option>
                             <option value="B2">B2</option>
                             <option value="B3">B3</option>
@@ -107,7 +108,7 @@
                             <option value="B5">B5</option>
                         </select>
                     </div>
-                    <input type="checkbox" onchange="showbus()" /><label>Add Bus Detail</label>
+                    <input type="checkbox" onchange="showbus()" required/><label>&nbsp;&nbsp;Add Student Bus Details</label>
 
                     <div hidden class="form-group">
                         <label class=" form-control-label">Schedule Id</label>
@@ -119,8 +120,8 @@
                     </div>
 
 
-                    <input type="submit" class="btn btn-primary " />
-                    <button type="reset" class="btn btn-success ">
+                    <input type="submit" class="btn btn-primary " id="mysubmit"/>
+                    <button type="reset" class="btn btn-success " onclick="studentformreset();">
                         Reset
                     </button>
                     <span asp-validation-for="ErrorMessage" class="text-danger"></span>
@@ -141,7 +142,7 @@
         <a class="pull-right" onclick="hidepopup();"><i class="fa fa-close"></i></a>
         <h2 align="center" class="text-primary">Bus Registration</h2><hr />
 
-        <div class="form-group row">
+        <div class="form-group">
             <label for="staticEmail" class="col-sm-4 col-form-label">Destination</label>
             <div class="col-sm-8">
                 <select id="to" onchange="showbus()" class="form-control"></select>
@@ -150,22 +151,22 @@
 
         <div class="form-group row">
             <div class="col-sm-8">
-                <button type="button" class="btn btn-outline-primary btn-block" onclick="onChangeHandler()">Check Bus Availibilty</button>
+                <label>Find Available Bus Here !</label>
+                <button type="button" class="btn btn-outline-primary btn-block" onclick="onChangeHandler();enableButton2()">Check Bus Availibilty</button>
             </div>
         </div>
 
         <div class="form-group row">
-            <table id="busregister">
-                <tr>
-                    <td>Scheduling Id</td>
-                    <td>           </td>
-                    <td>Time</td>
-                </tr>
+            <table id="busregister" style="margin-left:100px; padding:5px;">
+         
+                @*<tr><td>Select</td></tr>
+                <tr><td>Scheduling Id</td></tr>
+                <tr><td>Time</td></tr>*@
             </table>
         </div>
 
         <div>
-            <button type="button" class="btn btn-outline-primary btn-block" onclick="addbusinfo()">Add Bus info</button>
+            <button type="button" id="addbus" class="btn btn-outline-primary btn-block" onclick="addbusinfo()" disabled>Add Bus info</button>
         </div>
     </div>
 
@@ -236,7 +237,7 @@
         </script>
     }
     <script>
-
+        //Get buss to select box
         $.ajax({
 
             url: '/Bus/getBusDestination',
@@ -265,12 +266,14 @@
         }
         function addbusinfo() {
             var t = document.getElementById('tick').value;
-            document.getElementById('sheduleid').value = t;
-            document.getElementById('toaddress').value = document.getElementById('to').value;
-            //document.getElementById('fromaddress').value = document.getElementById('from').value;
-            $('#overlay').hide();
-
-
+            if (t != '') {
+                document.getElementById('sheduleid').value = t;
+                document.getElementById('toaddress').value = document.getElementById('to').value;
+                $('#overlay').hide();
+            }
+            else {
+                alert("Select Bus From above");
+            }
         }
 
         //document.getElementById('from').addEventListener('change', onChangeHandler);
@@ -295,7 +298,7 @@
                     if (result) {
                         var tabl = '';
                         for (i = 0; i < result.length; i++) {
-                            tabl += '<tr><td>' + result[i].busScheduleId + '</td><td>       </td><td>' + result[i].busScheduleTime + '</td><td>       </td>&nsb;&nsb;&nsb;&nsb;&nsb;&nsb;&nsb;&nsb;<td> <input type = "radio" class= "bus" id="tick" value = "' + result[i].busScheduleId + '" /> </td><br></tr>';
+                            tabl += '<tr><td>'+(i+1)+'</td></tr><tr><td>Select Here :<input type = "radio" class= "bus" id="tick" value = "' + result[i].busScheduleId + '" /> </td></tr><tr><td> Schedule Id:' + result[i].busScheduleId + '</td></tr><tr> <td>Time:' + result[i].busScheduleTime + '</td></tr>';
                         }
                         $('#busregister').append(tabl);
                     }
@@ -321,8 +324,8 @@
         }
 
         function showbus() {
-            $('#busdiv').animate({ top: '15%' }, 500);
-            $('#busdiv').animate({ top: '20%' }, 500);
+            $('#busdiv').animate({ top: '12%' }, 500);
+         
             document.getElementById("overlay").style.display = "block";
         }
 
@@ -349,8 +352,17 @@
             document.getElementById("overlay").style.display = "none";
         }
 
-        function reset() {
+        function studentformreset() {
             document.getElementById('studentForm').reset();
+        }
+
+        //function studentformset() {
+        //    alert('Successfully registered');
+        //    //$('#mysubmit').attr("disabled", true);
+        //}
+
+        function enableButton2() {
+            document.getElementById("addbus").disabled = false;
         }
     </script>
 }

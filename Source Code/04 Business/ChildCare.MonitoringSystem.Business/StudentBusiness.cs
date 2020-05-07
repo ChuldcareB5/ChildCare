@@ -229,8 +229,6 @@ namespace ChildCare.MonitoringSystem.Business
 
                 }
 
-
-
                 return buslocationlist;
             }
             else
@@ -239,14 +237,12 @@ namespace ChildCare.MonitoringSystem.Business
                 var buslocationlist = new List<BusLocationModel>();
                 var busheduleid = this.busscheuleRepository.GetBy(x => x.BusId == busid).SingleOrDefault();
                 var buslocation = this.buslocationRepository.GetBy(x => x.BusId == busheduleid.BusScheduleId).LastOrDefault();
-                if (buslocation != null&& busheduleid!=null)
+                if (buslocation != null || busheduleid!=null)
                 {
                     var buslocations = Mapper.Map<BusLocationModel>(buslocation);
                     buslocationlist.Add(buslocations);
                 }
-
-
-                return buslocationlist;
+				return buslocationlist;
             }
             
         }

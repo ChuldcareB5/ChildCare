@@ -44,9 +44,9 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 			return buses;
 		}
 
-        public ActionResult<ArrayList> getBusDestination()
+        public ActionResult<ArrayList> getBusIds()
         {
-            var buses = this.busBusiness.getBusDestination();
+            var buses = this.busBusiness.getBusIds();
             return buses;
         }
 
