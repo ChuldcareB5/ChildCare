@@ -140,20 +140,7 @@ namespace ChildCare.MonitoringSystem.Business
             return busModel;
 
         }
-        public ArrayList getBusDestination()
-        {
-            var busEntity = this.busschedulerepository.GetAll();
 
-            
-            ArrayList ms = new ArrayList();
-            foreach (var bus in busEntity)
-            {
-                
-                ms.Add(bus.ToBusSchedule);
-                
-            }
-            return ms;
-        }
 
         public List<BusScheduleModel> getbusshedule(String To)
 		{

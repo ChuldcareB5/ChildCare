@@ -99,7 +99,7 @@
                     <div class="form-group">
                         <label>Batch</label>
                         @*  <input class="form-control" type="time" name="batch" id="batch" required>*@
-                        <select asp-for="Batch" id="sbatch" onchange="showbus()" class="form-control">
+                        <select asp-for="Batch" id="sbatch" class="form-control">
                             <option value="B1">B1</option>
                             <option value="B2">B2</option>
                             <option value="B3">B3</option>
@@ -138,7 +138,7 @@
 
 <div id="overlay" style="z-index:4">
     <div id="busdiv">
-        <a class="pull-right" onclick="hidepopup();"><i class="fa fa-close"></i></a>
+        <a class="pull-right" onclick="hidepopup();"><i class="fa fa-close text-primary"></i></a>
         <h2 align="center" class="text-primary">Bus Registration</h2><hr />
 
         <div class="form-group row">
@@ -157,9 +157,9 @@
         <div class="form-group row">
             <table id="busregister">
                 <tr>
-                    <td>Scheduling Id</td>
+                    @*<td>Scheduling Id</td>
                     <td>           </td>
-                    <td>Time</td>
+                    <td>Time</td>*@
                 </tr>
             </table>
         </div>
@@ -294,7 +294,7 @@
                     if (result) {
                         var tabl = '';
                         for (i = 0; i < result.length; i++) {
-                            tabl += '<tr><td>' + result[i].busScheduleId + '</td><td>       </td><td>' + result[i].busScheduleTime + '</td><td>       </td>&nsb;&nsb;&nsb;&nsb;&nsb;&nsb;&nsb;&nsb;<td> <input type = "radio" class= "bus" id="tick" value = "' + result[i].busScheduleId + '" /> </td><br></tr>';
+                            tabl += '<tr><td>'+ (i+1) +'</td></tr><tr><td>Select : <input type = "radio" class= "bus" id="tick" value = "' + result[i].busScheduleId + '" /> </td></tr><tr><td>Schedule Id: ' + result[i].busScheduleId + '</td></tr><tr><td>Schedule Time :' + result[i].busScheduleTime + '</td><td>       </td>&nsb;&nsb;&nsb;&nsb;&nsb;&nsb;&nsb;&nsb;<br></tr>';
                         }
                         $('#busregister').append(tabl);
                     }
@@ -320,8 +320,8 @@
         }
 
         function showbus() {
-            $('#busdiv').animate({ top: '15%' }, 500);
-            $('#busdiv').animate({ top: '20%' }, 500);
+            $('#busdiv').animate({ top: '10%' }, 500);
+            //$('#busdiv').animate({ top: '20%' }, 500);
             document.getElementById("overlay").style.display = "block";
         }
 

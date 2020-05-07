@@ -85,11 +85,6 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
             var bus = this.busBusiness.UpdateBusSchedule(busModel);
             return bus;
         }
-        public ActionResult<ArrayList> getBusDestination()
-        {
-            var bus = this.busBusiness.getBusDestination();
-            return bus;
-        }
 
     }
 }
