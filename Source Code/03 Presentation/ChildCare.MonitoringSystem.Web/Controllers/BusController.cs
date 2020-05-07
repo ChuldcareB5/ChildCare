@@ -54,7 +54,9 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 		{
 			var bus = this.busBusiness.DeleteId(id);
 			return bus;
-		}public ActionResult<BusModel> BusGetById(int id)
+		}
+
+        public ActionResult<BusModel> BusGetById(int id)
 		{
 			var bus = this.busBusiness.BusGetById(id);
 			return bus;
@@ -62,6 +64,11 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
         public ActionResult<BusModel> UpdateBusSchedule(BusModel busModel)
         {
             var bus = this.busBusiness.UpdateBusSchedule(busModel);
+            return bus;
+        }
+        public ActionResult<ArrayList> getBusDestination()
+        {
+            var bus = this.busBusiness.getBusDestination();
             return bus;
         }
 
