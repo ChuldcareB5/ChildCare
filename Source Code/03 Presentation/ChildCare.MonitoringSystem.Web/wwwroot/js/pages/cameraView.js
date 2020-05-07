@@ -32,13 +32,25 @@ $(document).ready(function () {
 });
 
 function registerDomEventHandlers() {
-    $("#classA").click(() => {
-        channelHub.invoke("connectTo", 'classA');
+    $('select[name="type"]').change(function () {
+        if ($(this).val() == 'Class A') {
+            channelHub.invoke("connectTo", 'classA');
+        }
+        if ($(this).val() == 'Class B') {
+            channelHub.invoke("connectTo", 'classB');
+        }
+        if ($(this).val() == 'Class C') {
+            channelHub.invoke("connectTo", 'classC');
+        }
     });
 
-    $("#classB").click(() => {
-        channelHub.invoke("connectTo", 'classB');
-    });
+    //$("#classA").click(() => {
+    //    channelHub.invoke("connectTo", 'classA');
+    //});
+
+    //$("#classB").click(() => {
+    //    channelHub.invoke("connectTo", 'classB');
+    //});
 }
 
 function onRemoteTrack(peerId, transceiver, stream) {

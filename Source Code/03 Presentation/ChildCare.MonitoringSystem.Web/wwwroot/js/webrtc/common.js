@@ -41,8 +41,15 @@ channelHub.on("iceCandidate", function (from, candidate) {
 
 channelHub.on("sendOffer", function (toConnectionId) {
     ChildCare.peerConnectionId = toConnectionId;
-    pm.init([{ "peerId": toConnectionId }]);
-    pm.createPeers(peerConfig);
+    var peerStates = pm.getPeerStates();
+
+    if (!Object.keys(peerStates).length) {
+        pm.init([{ "peerId": toConnectionId }]);
+        pm.createPeers(peerConfig);
+    } else {
+        //pm.addPeer(peerId , peerConfig, peerStates[peerId])
+    }
+
     pm.addLocalStreamToPeer(ChildCare.localVideo, toConnectionId, true, 'video', ChildCare.mediaName);
 });
 
