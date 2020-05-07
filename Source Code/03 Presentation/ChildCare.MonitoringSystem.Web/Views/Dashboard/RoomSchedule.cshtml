@@ -111,89 +111,7 @@
 
 <!-- END MAIN CONTENT-->
 <!-- END PAGE CONTAINER-->
-<div id="overlay" style="z-index:4;">
-    <!--start Account popup-->
-    <div id="test-form-div ">
-        <div id="test-form" class="">
-            <div class="form-container">
-                <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
-                <h4 align="center" class="text-primary">Profile View</h4><hr />
-                <form action="Homepage.html" method="post">
-                    <div class="form-group" align="center">
-                        <div class="image">
-                            <img src="~/images/img/user.png" />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>User Name</label>
-                        <label class="form-control" name="fname" id="fname">Purshotham</label>
-                    </div>
-                    <div class="form-group">
-                        <label>User Email</label>
-                        <label class="form-control" name="email" id="fname">Pursh123@gmail.com</label>
-                    </div>
-                    <div class="form-group">
-                        <label>Mobile No</label>
-                        <label class="form-control" name="number" id="pwd">9653247815</label>
-                    </div>
-
-                </form>
-            </div>
-        </div>
-    </div>
-    <!--close Account popup-->
-    <!--start setting popup-->
-    <div id="setting" class="">
-        <div class="form-container">
-            <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
-            <h4 align="center" class="text-primary">Password Setting</h4><hr />
-            <form action="Homepage.html" method="post">
-                <div class="form-group">
-                    <label>Old Password</label>
-                    <input class="form-control" type="text" name="fname" id="fname" required>
-                </div>
-                <div class="form-group">
-                    <label>New Password</label>
-                    <input class="form-control" type="email" name="email" id="fname" required>
-                </div>
-                <div class="form-group">
-                    <label for="pwd">Confirm Password</label>
-                    <input class="form-control" type="tel" name="number" id="pwd" required>
-                </div>
-                <button type="submit" class="btn btn-block btn-primary" id="reg">SUBMIT </button><br>
-                <a href="#moresetting" class="pull-right" onclick="showmoresetting()">Set More Details</a>
-            </form>
-        </div>
-    </div>
-    <!--close setting popup-->
-    <!--start more setting popup-->
-    <div id="moresetting" class="">
-        <div class="form-container">
-            <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
-            <h4 align="center" class="text-primary">User Detail Setting</h4><hr />
-            <form action="Homepage.html" method="post">
-                <div class="form-group">
-                    <label>User Name</label>
-                    <input class="form-control" type="text" name="fname" id="fname" required>
-                </div>
-                <div class="form-group">
-                    <label>User Email</label>
-                    <input class="form-control" type="email" name="email" id="fname" required>
-                </div>
-                <div class="form-group">
-                    <label>Address</label>
-                    <input class="form-control" type="email" name="email" id="fname" required>
-                </div>
-                <div class="form-group">
-                    <label>Mobile No</label>
-                    <input class="form-control" type="email" name="email" id="fname" required>
-                </div>
-                <button type="submit" class="btn btn-block btn-primary" id="reg">EDIT</button>
-            </form>
-        </div>
-    </div>
-    <!--close more setting popup-->
-
+<div id="overlay1" style="z-index:4;">
     <div id="schedule" class="">
         <div class="form-container">
             <a class="pull-right" href="#viewroomschedule" onclick="hidechangeschedule();"><i class="fa fa-close"></i></a>
@@ -430,51 +348,50 @@
         });
 
 
-        function showtest() {
-            $('#test-form').animate({ top: '15%' }, 500);
-            $('#test-form-div').animate({ top: '20%' }, 500);
-            $('.account-dropdown').hide();
-            document.getElementById("overlay").style.display = "block";
-        }
-        function hidetest() {
-            $('#test-form').animate({ top: '-500%' }, 500);
-            document.getElementById("overlay").style.display = "none";
-        }
+        //function showtest() {
+        //    $('#test-form').animate({ top: '15%' }, 500);
+        //    $('#test-form-div').animate({ top: '20%' }, 500);
+        //    $('.account-dropdown').hide();
+        //    document.getElementById("overlay").style.display = "block";
+        //}
+        //function hidetest() {
+        //    $('#test-form').animate({ top: '-500%' }, 500);
+        //    document.getElementById("overlay").style.display = "none";
+        //}
 
-        function showsetting() {
-            $('#setting').animate({ top: '15%' }, 500);
-            $('.account-dropdown').hide();
-            document.getElementById("overlay").style.display = "block";
-        }
-        function hidesetting() {
-            $('#setting').animate({ top: '-500%' }, 500);
-            document.getElementById("overlay").style.display = "none";
-        }
+        //function showsetting() {
+        //    $('#setting').animate({ top: '15%' }, 500);
+        //    $('.account-dropdown').hide();
+        //    document.getElementById("overlay").style.display = "block";
+        //}
+        //function hidesetting() {
+        //    $('#setting').animate({ top: '-500%' }, 500);
+        //    document.getElementById("overlay").style.display = "none";
+        //}
 
-        function showmoresetting() {
-            $('#moresetting').animate({ top: '15%' }, 500);
-            $('.account-dropdown').hide();
-            document.getElementById("overlay").style.display = "block";
-        }
-        function hidemoresetting() {
-            $('#moresetting').animate({ top: '-500%' }, 500);
-            document.getElementById("overlay").style.display = "none";
-        }
+        //function showmoresetting() {
+        //    $('#moresetting').animate({ top: '15%' }, 500);
+        //    $('.account-dropdown').hide();
+        //    document.getElementById("overlay").style.display = "block";
+        //}
+        //function hidemoresetting() {
+        //    $('#moresetting').animate({ top: '-500%' }, 500);
+        //    document.getElementById("overlay").style.display = "none";
+        //}
 
 
         function showschedule() {
             $('#schedule').animate({ top: '12%' }, 500);
-            document.getElementById("overlay").style.display = "block";
+            document.getElementById("overlay1").style.display = "block";
         }
         function hideschedule() {
             $('#schedule').animate({ top: '-500%' }, 500);
-            document.getElementById("overlay").style.display = "none";
+            document.getElementById("overlay1").style.display = "none";
         }
 
         function search(string) {
             window.find(string);
         }
-
 
         function showviewschedule(roomid) {
             $("#viewroom").hide();
@@ -517,20 +434,19 @@
             });
         }
 
-
         function showadd() {
             $('#add').animate({ top: '12%' }, 500);
-            document.getElementById("overlay").style.display = "block";
+            document.getElementById("overlay1").style.display = "block";
         }
 
         function showaddSchedule() {
             $('#addSchedule').animate({ top: '4%' }, 500);
-            document.getElementById("overlay").style.display = "block";
+            document.getElementById("overlay1").style.display = "block";
 
         }
         function hidechangeschedule() {
             $('#addSchedule').animate({ top: '-500%' }, 500);
-            document.getElementById("overlay").style.display = "none";
+            document.getElementById("overlay1").style.display = "none";
         }
 
         function hideadd() {
@@ -538,11 +454,11 @@
         }
 
         function on() {
-            document.getElementById("overlay").style.display = "block";
+            document.getElementById("overlay1").style.display = "block";
         }
 
         function off() {
-            document.getElementById("overlay").style.display = "none";
+            document.getElementById("overlay1").style.display = "none";
         }
 
         function showstudentschedule(roomid, roomsheduleid) {
@@ -630,18 +546,7 @@
 
 @section Styles{
     <style>
-        #test-form {
-            position: fixed;
-            top: -500%;
-            width: 35%;
-            margin-left: 30%;
-            background-color: white;
-            box-shadow: 2px 3px 8px slategrey;
-            border-radius: 5px;
-            padding: 35px;
-        }
-
-        #overlay {
+        #overlay1 {
             position: fixed; /* Sit on top of the page content */
             display: none; /* Hidden by default */
             width: 100%; /* Full width (cover the whole page) */
@@ -653,28 +558,6 @@
             background-color: rgba(0,0,0,0.5); /* Black background with opacity */
             z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
             cursor: pointer; /* Add a pointer on hover */
-        }
-
-        #setting {
-            position: fixed;
-            top: -500%;
-            width: 35%;
-            margin-left: 30%;
-            background-color: white;
-            box-shadow: 2px 3px 8px slategrey;
-            border-radius: 5px;
-            padding: 35px;
-        }
-
-        #moresetting {
-            position: fixed;
-            top: -500%;
-            width: 35%;
-            margin-left: 30%;
-            background-color: white;
-            box-shadow: 2px 3px 8px slategrey;
-            border-radius: 5px;
-            padding: 35px;
         }
 
         #schedule {
@@ -746,9 +629,9 @@
             cursor: pointer;
         }
 
-            form.example button:hover {
-                background: #0b7dda;
-            }
+        form.example button:hover {
+            background: #0b7dda;
+        }
 
         form.example::after {
             content: "";

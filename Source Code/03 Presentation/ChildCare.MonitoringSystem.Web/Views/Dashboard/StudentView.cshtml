@@ -115,88 +115,7 @@
 <!-- END MAIN CONTENT-->
 <!--===========================-->
 <!--start Account popup-->
-<div id="overlay" style="z-index:4">
-    <div id="test-form-div ">
-        <div id="test-form" class="">
-            <div class="form-container">
-                <a class="pull-right" onclick="hidetest();"><i class="fa fa-close"></i></a>
-                <h2 align="center" class="text-primary">Profile View</h2><hr />
-                <form action="Homepage.html" method="post">
-                    <div class="form-group" align="center">
-                        <div class="image">
-                            <img src="~/images/img/user.png" />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="text-primary">User Name</label>
-                        <label class="form-control" name="fname" id="fname">Purshotham</label>
-                    </div>
-                    <div class="form-group">
-                        <label class="text-primary">User Email</label>
-                        <label class="form-control" name="email" id="fname">Pursh123@gmail.com</label>
-                    </div>
-                    <div class="form-group">
-                        <label class="text-primary">Mobile No</label>
-                        <label class="form-control" name="number" id="pwd">9653247815</label>
-                    </div>
-
-                </form>
-            </div>
-        </div>
-    </div>
-    <!--close Account popup-->
-    <!--start setting popup-->
-    <div id="setting" class="">
-        <div class="form-container">
-            <a class="pull-right" onclick="hidesetting();"><i class="fa fa-close"></i></a>
-            <h2 align="center" class="text-primary">Password Setting</h2><hr />
-            <form action="Homepage.html" method="post">
-                <div class="form-group">
-                    <label>Old Password</label>
-                    <input class="form-control" type="text" name="fname" id="fname" required>
-                </div>
-                <div class="form-group">
-                    <label>New Password</label>
-                    <input class="form-control" type="email" name="email" id="fname" required>
-                </div>
-                <div class="form-group">
-                    <label for="pwd">Confirm Password</label>
-                    <input class="form-control" type="tel" name="number" id="pwd" required>
-                </div>
-                <button type="submit" class="btn btn-block btn-primary" id="reg">SUBMIT </button><br>
-                <a href="#moresetting" class="pull-right" onclick="showmoresetting()">Set More Details</a>
-            </form>
-        </div>
-    </div>
-    <!--close setting popup-->
-    <!--start more setting popup-->
-    <div id="moresetting" class="">
-        <div class="form-container">
-            <a class="pull-right" onclick="hidemoresetting();"><i class="fa fa-close"></i></a>
-            <h2 align="center" class="text-primary">User Detail Setting</h2><hr />
-            <form action="Homepage.html" method="post">
-                <div class="form-group">
-                    <label>User Name</label>
-                    <input class="form-control" type="text" name="fname" id="fname" required>
-                </div>
-                <div class="form-group">
-                    <label>User Email</label>
-                    <input class="form-control" type="email" name="email" id="fname" required>
-                </div>
-                <div class="form-group">
-                    <label>Address</label>
-                    <input class="form-control" type="email" name="email" id="fname" required>
-                </div>
-                <div class="form-group">
-                    <label>Mobile No</label>
-                    <input class="form-control" type="email" name="email" id="fname" required>
-                </div>
-                <button type="submit" class="btn btn-block btn-primary" id="reg">EDIT</button>
-            </form>
-        </div>
-    </div>
-
-
+<div id="overlay1" style="z-index:4">
     <!--start setting popup-->
     <form id="messageForm">
         <div id="setting1" class="">
@@ -312,13 +231,13 @@
             <div class="form-group row">
                 <label for="inputPassword" class="col-sm-4 col-form-label">User Name</label>
                 <div class="col-sm-8">
-                    <input type="text" asp-for="UserName" required class="form-control" id="uname">
+                    <input type="text" asp-for="UserName" required class="form-control" id="uname1">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="inputPassword" class="col-sm-4 col-form-label">Email</label>
                 <div class="col-sm-8">
-                    <input type="datetime" asp-for="UserEmail" required class="form-control" id="email" />
+                    <input type="datetime" asp-for="UserEmail" required class="form-control" id="email1" />
                 </div>
             </div>
             <div class="form-group row">
@@ -341,7 +260,7 @@
 
         $(document).ready(function () {
             var batch = $('.js-select2').val();
-           -
+           
             $.ajax({
                 url: '/Student/GetStudentDetail',
                 type: 'get',
@@ -511,7 +430,7 @@
 
         function hidesetting1() {
             $('#setting1').animate({ top: '-500%' }, 500);
-            document.getElementById("overlay").style.display = "none";
+            document.getElementById("overlay1").style.display = "none";
             location.reload();
         }
 
@@ -537,12 +456,12 @@
                     document.getElementById('ffname').value = result.fatherName;
                     document.getElementById('mname').value = result.motherName;
                     document.getElementById('batch').value = result.batch;
-                    document.getElementById('uname').value = result.parent.userName;
-                    document.getElementById('email').value = result.parent.userEmail;
+                    document.getElementById('uname1').value = result.parent.userName;
+                    document.getElementById('email1').value = result.parent.userEmail;
                     document.getElementById('umobileno').value = result.parent.userMobileNo;
                 },
             });
-            document.getElementById("overlay").style.display = "block";
+            document.getElementById("overlay1").style.display = "block";
         }
 
 
@@ -564,11 +483,11 @@
 
                 },
             });
-            document.getElementById("overlay").style.display = "block";
+            document.getElementById("overlay1").style.display = "block";
         }
 
         function disp(a) {
-            document.getElementById("overlay").style.display = "block";
+            document.getElementById("overlay1").style.display = "block";
             alert(a);
             var delid = a;
             $.ajax({
@@ -591,43 +510,43 @@
 
         function hideedit() {
             $('#edit').animate({ top: '-500%' }, 500);
-            document.getElementById("overlay").style.display = "none";
+            document.getElementById("overlay1").style.display = "none";
             location.reload();
         }
 
-        function showtest() {
-            $('#test-form').animate({ top: '15%' }, 500);
-            $('#test-form-div').animate({ top: '20%' }, 500);
-            $('.account-dropdown').hide();
-            document.getElementById("overlay").style.display = "block";
-        }
-        function hidetest() {
-            $('#test-form').animate({ top: '-500%' }, 500);
-            document.getElementById("overlay").style.display = "none";
-            location.reload();
-        }
+        //function showtest() {
+        //    $('#test-form').animate({ top: '15%' }, 500);
+        //    $('#test-form-div').animate({ top: '20%' }, 500);
+        //    $('.account-dropdown').hide();
+        //    document.getElementById("overlay").style.display = "block";
+        //}
+        //function hidetest() {
+        //    $('#test-form').animate({ top: '-500%' }, 500);
+        //    document.getElementById("overlay").style.display = "none";
+        //    location.reload();
+        //}
 
-        function showsetting() {
-            $('#setting').animate({ top: '15%' }, 500);
-            $('.account-dropdown').hide();
-            document.getElementById("overlay").style.display = "block";
-        }
-        function hidesetting() {
-            $('#setting').animate({ top: '-500%' }, 500);
-            document.getElementById("overlay").style.display = "none";
-            location.reload();
-        }
+        //function showsetting() {
+        //    $('#setting').animate({ top: '15%' }, 500);
+        //    $('.account-dropdown').hide();
+        //    document.getElementById("overlay").style.display = "block";
+        //}
+        //function hidesetting() {
+        //    $('#setting').animate({ top: '-500%' }, 500);
+        //    document.getElementById("overlay").style.display = "none";
+        //    location.reload();
+        //}
 
-        function showmoresetting() {
-            $('#moresetting').animate({ top: '15%' }, 500);
-            $('.account-dropdown').hide();
-            document.getElementById("overlay").style.display = "block";
-        }
-        function hidemoresetting() {
-            $('#moresetting').animate({ top: '-500%' }, 500);
-            document.getElementById("overlay").style.display = "none";
-            location.reload();
-        }
+        //function showmoresetting() {
+        //    $('#moresetting').animate({ top: '15%' }, 500);
+        //    $('.account-dropdown').hide();
+        //    document.getElementById("overlay").style.display = "block";
+        //}
+        //function hidemoresetting() {
+        //    $('#moresetting').animate({ top: '-500%' }, 500);
+        //    document.getElementById("overlay").style.display = "none";
+        //    location.reload();
+        //}
 
 
         function reset() {
@@ -639,7 +558,7 @@
 @section Styles{
     <style>
 
-        #overlay {
+        #overlay1 {
             position: fixed; /* Sit on top of the page content */
             display: none; /* Hidden by default */
             width: 100%; /* Full width (cover the whole page) */

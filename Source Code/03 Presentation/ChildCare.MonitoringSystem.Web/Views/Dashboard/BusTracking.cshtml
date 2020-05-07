@@ -116,90 +116,6 @@
 </div>
 <!-- END MAIN CONTENT-->
 
-<div id="overlay" style="z-index:4">
-    <!--start Account popup-->
-    <div id="test-form-div ">
-        <div id="test-form" class="">
-            <div class="form-container">
-                <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
-                <h2 align="center" class="text-primary">Profile View</h2><hr />
-                <form action="Homepage.html" method="post">
-                    <div class="form-group" align="center">
-                        <div class="image">
-                            <img src="~/images/img/user.png" />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="text-primary">User Name</label>
-                        <label class="form-control" name="fname" id="fname">Purshotham</label>
-                    </div>
-                    <div class="form-group">
-                        <label class="text-primary">User Email</label>
-                        <label class="form-control" name="email" id="fname">Pursh123@gmail.com</label>
-                    </div>
-                    <div class="form-group">
-                        <label class="text-primary">Mobile No</label>
-                        <label class="form-control" name="number" id="pwd">9653247815</label>
-                    </div>
-
-                </form>
-            </div>
-        </div>
-    </div>
-    <!--close Account popup-->
-    <!--start setting popup-->
-    <div id="setting" class="">
-        <div class="form-container">
-            <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
-            <h2 align="center" class="text-primary">Password Setting</h2><hr />
-            <form action="Homepage.html" method="post">
-                <div class="form-group">
-                    <label>Old Password</label>
-                    <input class="form-control" type="text" name="fname" id="fname" required>
-                </div>
-                <div class="form-group">
-                    <label>New Password</label>
-                    <input class="form-control" type="email" name="email" id="fname" required>
-                </div>
-                <div class="form-group">
-                    <label for="pwd">Confirm Password</label>
-                    <input class="form-control" type="tel" name="number" id="pwd" required>
-                </div>
-                <button type="submit" class="btn btn-block btn-primary" id="reg">SUBMIT </button><br>
-                <a href="#moresetting" class="pull-right" onclick="showmoresetting()">Set More Details</a>
-            </form>
-        </div>
-    </div>
-    <!--close setting popup-->
-    <!--start more setting popup-->
-    <div id="moresetting" class="">
-        <div class="form-container">
-            <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
-            <h2 align="center" class="text-primary">User Detail Setting</h2><hr />
-            <form action="Homepage.html" method="post">
-                <div class="form-group">
-                    <label>User Name</label>
-                    <input class="form-control" type="text" name="fname" id="fname" required>
-                </div>
-                <div class="form-group">
-                    <label>User Email</label>
-                    <input class="form-control" type="email" name="email" id="fname" required>
-                </div>
-                <div class="form-group">
-                    <label>Address</label>
-                    <input class="form-control" type="email" name="email" id="fname" required>
-                </div>
-                <div class="form-group">
-                    <label>Mobile No</label>
-                    <input class="form-control" type="email" name="email" id="fname" required>
-                </div>
-                <button type="submit" class="btn btn-block btn-primary" id="reg">EDIT</button>
-            </form>
-        </div>
-    </div>
-    <!--close more setting popup-->
-</div>
-
 @section Scripts{
     <script>
         $.ajax({
@@ -227,102 +143,47 @@
             window.find(string);
         } 
 
-        function showtest() {
-            $('#test-form').animate({ top: '15%' }, 500);
-            $('#test-form-div').animate({ top: '20%' }, 500);
-            $('.account-dropdown').hide();
-            document.getElementById("overlay").style.display = "block";
-        }
-        function hidetest() {
-            $('#test-form').animate({ top: '-500%' }, 500);
-            document.getElementById("overlay").style.display = "None";
-        }
+        //function showtest() {
+        //    $('#test-form').animate({ top: '15%' }, 500);
+        //    $('#test-form-div').animate({ top: '20%' }, 500);
+        //    $('.account-dropdown').hide();
+        //    document.getElementById("overlay").style.display = "block";
+        //}
+        //function hidetest() {
+        //    $('#test-form').animate({ top: '-500%' }, 500);
+        //    document.getElementById("overlay").style.display = "None";
+        //}
 
-        function showsetting() {
-            $('#setting').animate({ top: '15%' }, 500);
-            $('.account-dropdown').hide();
-            document.getElementById("overlay").style.display = "block";
-        }
-        function hidesetting() {
-            $('#setting').animate({ top: '-500%' }, 500);
-            document.getElementById("overlay").style.display = "none";
-        }
+        //function showsetting() {
+        //    $('#setting').animate({ top: '15%' }, 500);
+        //    $('.account-dropdown').hide();
+        //    document.getElementById("overlay").style.display = "block";
+        //}
+        //function hidesetting() {
+        //    $('#setting').animate({ top: '-500%' }, 500);
+        //    document.getElementById("overlay").style.display = "none";
+        //}
 
-        function showmoresetting() {
-            $('#moresetting').animate({ top: '15%' }, 500);
-            $('.account-dropdown').hide();
-            document.getElementById("overlay").style.display = "block";
-        }
-        function hidemoresetting() {
-            $('#moresetting').animate({ top: '-500%' }, 500);
-            document.getElementById("overlay").style.display = "None";
-        }
+        //function showmoresetting() {
+        //    $('#moresetting').animate({ top: '15%' }, 500);
+        //    $('.account-dropdown').hide();
+        //    document.getElementById("overlay").style.display = "block";
+        //}
+        //function hidemoresetting() {
+        //    $('#moresetting').animate({ top: '-500%' }, 500);
+        //    document.getElementById("overlay").style.display = "None";
+        //}
     </script>
 }
 
 
 @section Styles{
     <style>
-        #overlay {
-            position: fixed; /* Sit on top of the page content */
-            display: none; /* Hidden by default */
-            width: 100%; /* Full width (cover the whole page) */
-            height: 100%; /* Full height (cover the whole page) */
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0,0,0,0.5); /* Black background with opacity */
-            z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
-            cursor: pointer; /* Add a pointer on hover */
-            overflow: auto;
-        }
 
-        #test-form {
-            position: fixed;
-            top: -500%;
-            width: 35%;
-            margin-left: 30%;
-            background-color: white;
-            box-shadow: 2px 3px 8px slategrey;
-            border-radius: 5px;
-            padding: 35px;
-        }
         /* Set the size of the div element that contains the map */
         #map {
             height: 400px; /* The height is 400 pixels */
             width: 100%; /* The width is the width of the web page */
-        }
-        #setting {
-            position: fixed;
-            top: -500%;
-            width: 35%;
-            margin-left: 30%;
-            background-color: white;
-            box-shadow: 2px 3px 8px slategrey;
-            border-radius: 5px;
-            padding: 35px;
-        }
-
-        #moresetting {
-            position: fixed;
-            top: -500%;
-            width: 35%;
-            margin-left: 30%;
-            background-color: white;
-            box-shadow: 2px 3px 8px slategrey;
-            border-radius: 5px;
-            padding: 35px;
-        }
-
-        #test-form-div {
-            position: fixed;
-            top: -500%;
-            max-width: 1500px;
-            max-height: 1500px;
-            min-width: 1500px;
-            min-height: 1500px;
-            background-color: black;
         }
 
         form.example input[type=text] {

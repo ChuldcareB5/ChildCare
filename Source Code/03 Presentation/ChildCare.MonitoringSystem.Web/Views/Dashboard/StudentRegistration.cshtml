@@ -136,7 +136,7 @@
 <!-- END MAIN CONTENT-->
 
 
-<div id="overlay" style="z-index:4">
+<div id="overlay1" style="z-index:4">
     <div id="busdiv">
         <a class="pull-right" onclick="hidepopup();"><i class="fa fa-close text-primary"></i></a>
         <h2 align="center" class="text-primary">Bus Registration</h2><hr />
@@ -260,14 +260,14 @@
 
         function hidepopup() {
             //$('#busdiv').hide();
-            $('#overlay').hide();
+            $('#overlay1').hide();
         }
         function addbusinfo() {
             var t = document.getElementById('tick').value;
             document.getElementById('sheduleid').value = t;
             document.getElementById('toaddress').value = document.getElementById('to').value;
             //document.getElementById('fromaddress').value = document.getElementById('from').value;
-            $('#overlay').hide();
+            $('#overlay1').hide();
 
 
         }
@@ -307,46 +307,46 @@
             window.find(string);
         }
 
-        function showtest() {
-            $('#test-form').animate({ top: '15%' }, 500);
-            $('#test-form-div').animate({ top: '20%' }, 500);
-            $('.account-dropdown').hide();
-            document.getElementById("overlay").style.display = "block";
-        }
+        //function showtest() {
+        //    $('#test-form').animate({ top: '15%' }, 500);
+        //    $('#test-form-div').animate({ top: '20%' }, 500);
+        //    $('.account-dropdown').hide();
+        //    document.getElementById("overlay").style.display = "block";
+        //}
 
-        function hidetest() {
-            $('#test-form').animate({ top: '-500%' }, 500);
-            document.getElementById("overlay").style.display = "none";
-        }
+        //function hidetest() {
+        //    $('#test-form').animate({ top: '-500%' }, 500);
+        //    document.getElementById("overlay").style.display = "none";
+        //}
 
         function showbus() {
             $('#busdiv').animate({ top: '10%' }, 500);
             //$('#busdiv').animate({ top: '20%' }, 500);
-            document.getElementById("overlay").style.display = "block";
+            document.getElementById("overlay1").style.display = "block";
         }
 
         function hidebus() {
             $('#busdiv').animate({ top: '-500%' }, 500);
-            document.getElementById("overlay").style.display = "none";
+            document.getElementById("overlay1").style.display = "none";
         }
-        function showsetting() {
-            $('#setting').animate({ top: '15%' }, 500);
-            $('.account-dropdown').hide();
-            document.getElementById("overlay").style.display = "block";
-        }
-        function hidesetting() {
-            $('#setting').animate({ top: '-500%' }, 500);
-            document.getElementById("overlay").style.display = "none";
-        }
-        function showmoresetting() {
-            $('#moresetting').animate({ top: '15%' }, 500);
-            $('.account-dropdown').hide();
-            document.getElementById("overlay").style.display = "block";
-        }
-        function hidemoresetting() {
-            $('#moresetting').animate({ top: '-500%' }, 500);
-            document.getElementById("overlay").style.display = "none";
-        }
+        //function showsetting() {
+        //    $('#setting').animate({ top: '15%' }, 500);
+        //    $('.account-dropdown').hide();
+        //    document.getElementById("overlay").style.display = "block";
+        //}
+        //function hidesetting() {
+        //    $('#setting').animate({ top: '-500%' }, 500);
+        //    document.getElementById("overlay").style.display = "none";
+        //}
+        //function showmoresetting() {
+        //    $('#moresetting').animate({ top: '15%' }, 500);
+        //    $('.account-dropdown').hide();
+        //    document.getElementById("overlay").style.display = "block";
+        //}
+        //function hidemoresetting() {
+        //    $('#moresetting').animate({ top: '-500%' }, 500);
+        //    document.getElementById("overlay").style.display = "none";
+        //}
 
         function reset() {
             document.getElementById('studentForm').reset();
@@ -356,40 +356,7 @@
 
 @section Styles{
     <style>
-        #test-form {
-            position: fixed;
-            top: -500%;
-            width: 35%;
-            margin-left: 30%;
-            background-color: white;
-            box-shadow: 2px 3px 8px slategrey;
-            border-radius: 5px;
-            padding: 35px;
-        }
-
         #busdiv {
-            position: fixed;
-            top: -500%;
-            width: 35%;
-            margin-left: 30%;
-            background-color: white;
-            box-shadow: 2px 3px 8px slategrey;
-            border-radius: 5px;
-            padding: 35px;
-        }
-
-        #setting {
-            position: fixed;
-            top: -500%;
-            width: 35%;
-            margin-left: 30%;
-            background-color: white;
-            box-shadow: 2px 3px 8px slategrey;
-            border-radius: 5px;
-            padding: 35px;
-        }
-
-        #moresetting {
             position: fixed;
             top: -500%;
             width: 35%;
@@ -443,7 +410,7 @@
             display: table;
         }
 
-        #overlay {
+        #overlay1 {
             position: fixed; /* Sit on top of the page content */
             display: none; /* Hidden by default */
             width: 100%; /* Full width (cover the whole page) */
