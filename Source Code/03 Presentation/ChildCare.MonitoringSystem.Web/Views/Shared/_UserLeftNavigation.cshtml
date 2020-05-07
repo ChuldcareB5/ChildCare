@@ -57,13 +57,14 @@
                     </a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
-                            <a asp-area="" asp-controller="User" asp-action="BusTracking">Bus Location</a>
+                            @*<a asp-area="" asp-controller="User" asp-action="BusTracking">Bus Location</a>*@
+                            <a href="@Url.Action("BusTracking", "Dashboard")" target="_blank">Bus Location</a>
                         </li>
 
                     </ul>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
-                            <a asp-area="" asp-controller="User" asp-action="StudentTracking">Student Location</a>
+                            <a href="@Url.Action("StudentTracking", "Dashboard")" target="_blank">Student Location</a>
                         </li>
                     </ul>
                 </li>
@@ -118,13 +119,13 @@
                     </a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
-                            <a asp-area="" asp-controller="User" asp-action="BusTracking">Bus Location</a>
+                            <a href="@Url.Action("BusTracking", "Dashboard")" target="_blank">Bus Location</a>
                         </li>
 
                     </ul>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
-                            <a asp-area="" asp-controller="User" asp-action="StudentTracking">Student Location</a>
+                            <a href="@Url.Action("StudentTracking", "Dashboard")" target="_blank">Student Location</a>
                         </li>
                     </ul>
                 </li>
