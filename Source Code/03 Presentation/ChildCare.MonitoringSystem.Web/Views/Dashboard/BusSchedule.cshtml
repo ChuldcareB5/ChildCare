@@ -206,13 +206,13 @@
                     <input class="form-control" type="text" name="bdriverName" id="drivername" required>
                 </div>
                 <div class="form-group">
-                    <label>To</label>
+                    <label>Destination</label>
                     <input class="form-control" type="text" name="to" id="busto" required>
                 </div>
-                <div class="form-group">
+                @*<div class="form-group">
                     <label>From</label>
                     <input class="form-control" type="text" name="from" id="busfrom" required>
-                </div>
+                </div>*@
                 <div class="form-group">
                     <label>Time</label>
                     <input class="form-control" type="time" name="time" id="bustime" required>
@@ -244,13 +244,13 @@
                     <input class="form-control" type="text" name="dname" id="dName" required>
                 </div>
                 <div class="form-group">
-                    <label>To</label>
+                    <label>Destination</label>
                     <input class="form-control" type="text" name="email" id="bto" required>
                 </div>
-                <div class="form-group">
+                @*<div class="form-group">
                     <label>From</label>
                     <input class="form-control" type="text" name="email" id="bfrom" required>
-                </div>
+                </div>*@
                 <div class="form-group">
                     <label>Time</label>
                     <input class="form-control" type="time" name="email" id="btime" required>
@@ -324,7 +324,7 @@
                     document.getElementById('drivername').value = result.busScheduleDriverName;
                     document.getElementById('busname').value = result.busName;
                     document.getElementById('busto').value = result.toBusSchedule;
-                    document.getElementById('busfrom').value = result.fromBusSchedule;
+                    //document.getElementById('busfrom').value = result.fromBusSchedule;
                     document.getElementById('bustime').value = result.busScheduleTime;
                     document.getElementById('busdate').value = result.busScheduleDate;
                     document.getElementById('busid').value = result.busId;
@@ -386,7 +386,7 @@
 
                 var dName = $("#dName").val();
                 var bto = $("#bto").val();
-                var bfrom = $("#bfrom").val();
+                var bfrom = "School";
                 var btime = $("#btime").val();
                 var bdate = $("#bdate").val();
                 var bname = $("#bname").val();
@@ -440,7 +440,7 @@
                 var busname = $('#busname').val();
                 var drivername = $('#drivername').val();
                 var to = $('#busto').val();
-                var from = $('#busfrom').val();
+                var from = "School";
                 var time = $('#bustime').val();
                 var date = $('#busdate').val();
 

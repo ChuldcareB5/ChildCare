@@ -8,11 +8,7 @@
 }
 
 <div class="main-content">
-    @*<button style="width:29px;height:30px;background-color:red" class="viewbtn" vals="8" name="viewbtn">hello</button>
-    <button style="width:29px;height:30px;background-color:red" class="viewbtn" vals="13" name="viewbtn">hello</button>
-
-    <button style="width:29px;height:30px;background-color:red" class="viewbtn" vals="14" name="viewbtn">hello</button>*@
-    @*<div class="section__content section__content--p30">*@
+    
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
@@ -483,9 +479,18 @@
             padding: 5px;
         }
 
-            .contact:hover {
-                background-color: #fff;
-            }
+        .contact:hover {
+            background-color: #fff;
+        }
+
+        .viewcontactbtn {
+            width: 80px;
+            height: 30px;
+            background-color: lightblue;
+            margin-left: 420px;
+            border: 1px solid blue;
+            border-radius: 4px;
+        }
     </style>
 }
 
@@ -572,8 +577,7 @@
                     if (result) {
                         var put = '<tbody>';
                         for (var i = 0; i < result.length; i = i + 5) {
-                            //put += '<tr><td>From :' + result[i + 1] + '</td></tr><tr><td>To :' + result[i] + '</td></tr><tr><td>Msg :' + result[i + 2] + '</td></tr><tr><td>Date and Time :' + result[i + 3] + '</td></tr><tr><td>__________________________________________________________________</td></tr>';
-                            put += '<tr><td><br/></td></tr><tr><td>From :' + result[i + 1] + '</td></tr><tr><td>Date and Time :' + result[i + 4] + '</td><td><i class="fa fa-arrow-right"><button style="width:80px; height:30px; background-color:lightblue;" class="viewbtn text-primary" id ="viewbtn" name="viewbtn" onclick="viewfunc()" value="' + result[i + 3] + '">VIEW</button></i></td></tr><tr><td><br/></td></tr><tr><td>____________________________________________________</td><td>_________</td></tr>';
+                            put += '<tr><td><br/></td></tr><tr><td>From :' + result[i + 1] + '</td></tr><tr><td>Date and Time :' + result[i + 4] + '</td><td><button style="width:80px; height:30px; background-color:lightblue;" class="viewbtn text-primary" id ="viewbtn" name="viewbtn" onclick="viewfunc()" value="' + result[i + 3] + '">VIEW</button></td></tr><tr><td><br/></td></tr><tr><td>____________________________________________________</td><td>_________</td></tr>';
 
                         }
                         put += '</tbody>';
@@ -596,7 +600,7 @@
                     if (result) {
                         var put = '<tbody>';
                         for (var i = 0; i < result.length; i = i + 5) {
-                            put += '<tr><td>Contact Id :' + result[i] + '</td></tr><tr><td>Contact Name :' + result[i + 1] + '</td></tr><tr><td>Contact Email :' + result[i + 2] + '</td></tr><tr><td>Contact Mobile No :' + result[i + 3] + '</td></tr><tr><td>Contact Message: ' + result[i + 4] + '</td></tr><tr><td><hr/><button style="width:80px; height:30px; background-color:lightblue; margin-left:420px; border:1px solid blue; border-radius:4px;" class="viewcontactbtn text-primary" id ="viewcontactbtns" name="viewcontactbtn" onclick="showsendcontactuspopup();" value="' + result[i + 2] + '"><i class="fa fa-send"></i></button></td></tr><tr><td>__________________________________________________________________</td></tr>';
+                            put += '<tr><td>Contact Id :' + result[i] + '</td></tr><tr><td>Contact Name :' + result[i + 1] + '</td></tr><tr><td>Contact Email :' + result[i + 2] + '</td></tr><tr><td>Contact Mobile No :' + result[i + 3] + '</td></tr><tr><td>Contact Message: ' + result[i + 4] + '</td></tr><tr><td><hr/><button  class="viewcontactbtn text-primary" id ="viewcontactbtn" name="viewcontactbtn" onclick="showsendcontactuspopup();" value="' + result[i+2] + '">'+result[i+2]+'</button></td></tr><tr><td>__________________________________________________________________</td></tr>';
                         }
                         put += '</tbody>';
                         $('#viewcontactus').append(put);
@@ -693,33 +697,7 @@
                 });
             });
 
-            //$(".viewbtn").click(function () {
-
-            //    var name = $(this).attr("name");
-
-            //    if (name == 'viewbtn') {
-            //        var msgid = $(this).attr("vals");
-            //        alert(msgid);
-            //        $.ajax({
-            //            url: '/MessageBoard/GetMsgById',
-            //            type: 'get',
-            //            dataType: 'json',
-            //            data:
-            //            {
-            //                id: msgid,
-            //            },
-            //            success: function (result) {
-            //                document.getElementById('msgfrom').value = result[1];
-            //                document.getElementById('msgto').value = result[0];
-            //                document.getElementById('msgtime').value = result[3]; 
-            //                document.getElementById('msgcontent').value = result[2];
-            //                $('#viewmsgdiv').animate({ top: '23%' }, 500);
-            //                document.getElementById("overlay2").style.display = "block";
-            //            },
-
-            //        });
-            //    }
-            //});
+           
 
             //2-----------------------------------------
             //$(".viewcontactbtn").click(function () {
@@ -817,11 +795,7 @@
         }
 
         function viewfunc() {
-            //alert("hiii");
-            //var name = $(this).attr("name");
-
-            //if (name == 'viewbtn') {
-            //var msgid = $(this).attr("vals");
+            
             debugger
             var msgid = $("#viewbtn").val();
                 alert(msgid);
@@ -843,14 +817,14 @@
                     },
 
                 });
-            //}
+           
         }
 
         function showsendcontactuspopup() {
             //alert("hiii");
             $('#contactdiv').hide();
             debugger
-            var contactemail = $("#viewcontactbtns").val();
+            var contactemail = $("#viewcontactbtn").val();
             alert(contactemail);
             //debugger
             $.ajax({
