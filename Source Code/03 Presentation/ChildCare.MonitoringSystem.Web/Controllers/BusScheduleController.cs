@@ -22,12 +22,24 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 		[HttpPost]
 		public ActionResult<Int32> AddBusSchedule(BusScheduleModel busScheduleModel)
 		{
+            var busid = busScheduleModel.BusScheduleId;
 			var busSchedule = this.busScheduleBusiness.AddBusSchedule(busScheduleModel);
-			var BusScheduleId = busSchedule.BusScheduleId;
-			return BusScheduleId;
+			if(busSchedule.BusScheduleId>0)
+            {
+                var busScheduleid = this.busScheduleBusiness.DeleteBusSchedule(busid);
+                return busScheduleid;
+            }
+			return 0;
 		}
 
-		public IActionResult Index()
+        //public ActionResult<Int32> DeleteBusSchedule(int id)
+        //{
+        //    var busSchedule = this.busScheduleBusiness.DeleteBusSchedule(id);
+        //    return busSchedule;
+        //}
+        
+
+        public IActionResult Index()
         {
             return View();
         }
@@ -38,7 +50,7 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 			return busSchedule;
 		}
 
-		public ActionResult<List<BusScheduleModel>> GetBusDetail()
+		public ActionResult<List<BusModel>> GetBusDetail()
 		{
 			var bus = this.busScheduleBusiness.Getbus();
 			return bus;
@@ -57,5 +69,11 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 			return busSchedule;
 		}
 
-	}
+        public ActionResult<BusScheduleModel> GetBusDetailsById(int id)
+        {
+            var busSchedule = this.busScheduleBusiness.GetBusDetailsById(id);
+            return busSchedule;
+        }
+
+    }
 }

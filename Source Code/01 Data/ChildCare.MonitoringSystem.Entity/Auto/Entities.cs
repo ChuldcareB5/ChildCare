@@ -9,6 +9,7 @@ namespace ChildCare.MonitoringSystem.Entity
     {
         public int BusId { get; set; } // BusId (Primary key)
         public string BusName { get; set; } // BusName (length: 100)
+        public string BusDriverName { get; set; } // BusDriverName (length: 100)
         public int CreatedBy { get; set; } // CreatedBy
         public System.DateTime CreatedOn { get; set; } // CreatedOn
         public int UpdatedBy { get; set; } // UpdatedBy

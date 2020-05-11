@@ -24,14 +24,13 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 
 
 		[HttpPost]
-		public ActionResult<Int32> AddBus(BusModel busmodel,BusScheduleModel busScheduleModel)
+		public ActionResult<Int32> AddBus(BusModel busmodel)
 		{
 			var bus = this.busBusiness.AddBus(busmodel);
-            busScheduleModel.BusId = bus.BusId;
-            var busSchedule = this.busScheduleBusiness.AddBusSchedule(busScheduleModel);
+            //busScheduleModel.BusId = bus.BusId;
+            //var busSchedule = this.busScheduleBusiness.AddBusSchedule(busScheduleModel);
             return bus.BusId;
 
-          
 		}
 
 		public IActionResult Index()
@@ -74,13 +73,16 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 			return bus;
 		}
 
-		//public ActionResult<ArrayList> NewBusGetById()
-		//{
-		//	var bus = this.busBusiness.NewBusGetById();
-		//	return bus;
-		//}
+        public ActionResult<ArrayList> GetBusWithNoSchedule()
+        {
+            var bus = this.busBusiness.GetBusWithNoSchedule();
+            return bus;
+        }
 
-		public ActionResult<BusModel> UpdateBusSchedule(BusModel busModel)
+
+
+
+        public ActionResult<BusModel> UpdateBusSchedule(BusModel busModel)
         {
             var bus = this.busBusiness.UpdateBusSchedule(busModel);
             return bus;

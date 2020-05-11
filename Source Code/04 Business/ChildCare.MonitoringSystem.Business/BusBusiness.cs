@@ -32,6 +32,7 @@ namespace ChildCare.MonitoringSystem.Business
 			var busEntity = new Bus()
 			{
 				BusName=busModel.BusName,
+                BusDriverName=busModel.BusDriverName,
 				CreatedBy = -1,
 				CreatedOn = DateTime.UtcNow,
 				UpdatedBy = -1,
@@ -173,35 +174,38 @@ namespace ChildCare.MonitoringSystem.Business
 
 		public ArrayList BusGetByIdCompareWithBusSchedule()
 		{
-			var busEntity = this.busRepository.GetAll();
+			var busEntity = this.busschedulerepository.GetBy(x=>x.IsDeleted==false);
 
 			ArrayList busto = new ArrayList();
 			foreach (var bus in busEntity)
 			{
-				var busscheduleid = this.busschedulerepository.GetBy(x => x.BusId == bus.BusId).SingleOrDefault();
-				if (busscheduleid != null)
-				{
+				//var busscheduleid = this.busschedulerepository.GetBy(x => x.BusId == bus.BusId).SingleOrDefault();
+				//if (busscheduleid != null)
+				//{
 					busto.Add(bus.BusId);
-				}
+				//}
 			}
 			return busto;
 		}
 
+        public ArrayList GetBusWithNoSchedule()
+        {
+            var busEntity = this.busRepository.GetAll();
+            
 
-		//public ArrayList NewBusGetById()
-		//{
-		//	var busEntity = this.busRepository.GetAll();
+            ArrayList busto = new ArrayList();
+            foreach (var bus in busEntity)
+            {
+                var busid = this.busschedulerepository.GetBy(x => x.BusId == bus.BusId && x.IsDeleted==false);
+                if (busid.Count == 0)
+                {
+                    busto.Add(bus.BusId);
+                }
+            }
+            return busto;
 
-		//	ArrayList busto = new ArrayList();
-		//	foreach (var bus in busEntity)
-		//	{
-		//		var busscheduleid = this.busschedulerepository.GetBy(x => x.BusId == bus.BusId).SingleOrDefault();
-		//		if (busscheduleid != null)
-		//		{
-		//			busto.Add(bus.BusId);
-		//		}
-		//	}
-		//	return busto;
-		//}
-	}
+        }
+
+
+    }
 }
