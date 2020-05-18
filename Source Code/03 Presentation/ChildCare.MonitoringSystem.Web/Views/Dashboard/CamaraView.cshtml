@@ -76,28 +76,30 @@
             </div>
         </div>
     </div>
-        @section Scripts{
-            <script src="~/lib/signalr-client/signalr.js"></script>
-            <script src="~/js/webrtc/aykan-webrtc.min.js"></script>
-            <script type="text/javascript">
-        var ChildCare = ChildCare || {};
 
+@section Scripts{
+    <script src="~/lib/signalr-client/signalr.js"></script>
+    <script src="~/js/webrtc/aykan-webrtc.min.js"></script>
+    <script type="text/javascript">
+        var ChildCare = ChildCare || {};
+        
         ChildCare.urls = ChildCare.urls || {};
         ChildCare.urls.signalHostUrl = "@appSettings.SignalUrl";
-            </script>
-            <script src="~/js/webrtc/common.js"></script>
-            <script src="~/js/pages/cameraView.js"></script>
-        }
-        @section Styles{
-            <style>
-                #classA, #classB {
-                    background-color: lightgray;
-                    padding: 10px;
-                }
+    </script>
+    <script src="~/js/webrtc/common.js"></script>
+    <script src="~/js/pages/cameraView.js"></script>
+}
 
-                select {
-                    width: 15%;
-                    padding: 5px;
-                }
-            </style>
+@section Styles{
+    <style>
+        #classA, #classB {
+            background-color: lightgray;
+            padding: 10px;
         }
+
+        select {
+            width: 15%;
+            padding: 5px;
+        }
+    </style>
+}
