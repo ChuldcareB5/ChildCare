@@ -58,6 +58,12 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 		{
 			return View();
 		}
+
+        public IActionResult ParentCamaraView()
+        {
+            return View();
+        }
+
         public IActionResult BusTracking()
         {
             return View();
@@ -121,9 +127,10 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
                 studentModel.ParentId = user.UserId;
                 studentModel.Batch = studentDetail.Batch;
              var student = this.studentBusiness.AddStudent(studentModel, studentDetail.Sheduleid);
-                ModelState.AddModelError(nameof(StudentDetail.ErrorMessage), "Registered Successfully");
+				ModelState.AddModelError(nameof(StudentDetail.ErrorMessage), "Registered Successfully");
+				
 
-            }
+			}
             catch (Exception e)
             {
                 ModelState.AddModelError(nameof(StudentDetail.ErrorMessage), "Failed to register due to "+e);

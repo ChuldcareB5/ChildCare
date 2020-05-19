@@ -8,352 +8,183 @@
 }
 
 <!-- MAIN CONTENT-->
-<div class="main-content">
-   
-    <div class="row">
-        <div class="col-md-12">
-            <!-- MAP DATA-->
-            <div class="map-data m-b-40">
-                <h3 class="title-3 m-b-30">
-                    <i class="zmdi zmdi-map"></i>Student Tracking Map
-                </h3>
-                <div class="filters">
-                    @*<div class="rs-select2--dark rs-select2--md m-r-10 rs-select2--border">
-                        <input type="text" class="studentid" />
-                        <input type="button" class="btn" onclick="initMap()" />
-                        <div class="dropDownSelect2"></div>
-                    </div>*@
-                    <input class="au-input au-input--h65" id="studentid" type="text" name="search" placeholder="Search" style="border: 1px solid grey" />
-                    <button class="text-primary" type="button" onclick="initMap()" style="width:60px;height:35px;background-color:blue;margin-left:-10px;">
-                        <i class="zmdi zmdi-search" style="color:white;"></i>
-                    </button>
+    <div class="main-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- MAP DATA-->
+                    <div class="map-data m-b-40">
+                        <h3 class="title-3 m-b-30">
+                            <i class="zmdi zmdi-map"></i>Student Tracking Map
+                        </h3>
+                        <div class="filters">
+                            @*<div class="rs-select2--dark rs-select2--md m-r-10 rs-select2--border">
+                                <input type="text" class="studentid" />
+                                <input type="button" class="btn" onclick="initMap()" />
+                                <div class="dropDownSelect2"></div>
+                            </div>*@
+                            <input class="au-input au-input--h65" id="studentid" type="text" name="search" placeholder="Search By Student USN" style="border: 1px solid grey" />
+                            <button class="text-primary" type="button" onclick="initMap()" style="width:60px;height:35px;background-color:blue;margin-left:-10px;">
+                                <i class="zmdi zmdi-search" style="color:white;"></i>
+                            </button>
 
-                </div>
-               <br />
-                <br />
+                        </div>
+                        <br />
+                        <br />
 
-                @*<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-        <div ng-app="myApp" ng-controller="myCtrl">
+                        @*<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+                        <div ng-app="myApp" ng-controller="myCtrl">
 
-            USN: <input type="text" ng-model="firstName"><br>
+                            USN: <input type="text" ng-model="firstName"><br>
 
-            <br>
-            Full Name: {{firstName}}
+                            <br>
+                            Full Name: {{firstName}}
 
-        </div>
-        <script>
-            var app = angular.module('myApp', []);
-            app.controller('myCtrl', function ($scope) {
-                //$scope.firstName = "John";
-                if ($scope.firstName =='') {
-                    $scope.firstName = 'vat';
-                }
-
-            });
-        </script>*@
-
-                <div class="map-wrap">
-                    @*<div class="vmap" id="vmap1"></div>*@
-                    <div id="map"></div>
-                    <script>
-
-                        // Initialize and add the map
-                        // $(document).ready(function () {
-                        function initMap() {
-
-                            // The location of Uluru
-                            var studentid = $('#studentid').val();
-                            $.ajax({
-                                url: '/Student/GetAllStudentLocation',
-                                type: 'get',
-                                dataType: 'json',
-                                data:
-                                {
-                                    studentid: studentid,
-
-                                },
-
-                                success: function (result) {
-
-                                    if (result) {
-                                        
-                                        var latitude = 12.979407;
-                                        var langitude = 74.92095;
-                                        var uluru = { lat: latitude, lng: langitude };
-                                        var map = new google.maps.Map(
-                                            document.getElementById('map'), { zoom: 4, center: uluru });
-
-                                        for (i = 0; i < result.length; i++) {
-
-                                            latitude = result[i].latitude;
-                                            langitude = result[i].longitute;
-
-                                            uluru = { lat: latitude, lng: langitude };
-
-                                            var marker = new google.maps.Marker({ position: uluru, map: map });
-
-                                        }
-
-
-
-                                    }
-
-
-                                    else {
-                                        alert("failed to get data");
-                                    }
-
-                                },
-
+                        </div>
+                        <script>
+                            var app = angular.module('myApp', []);
+                            app.controller('myCtrl', function ($scope) {
+                                //$scope.firstName = "John";
+                                if ($scope.firstName =='') {
+                                    $scope.firstName = 'vat';
+                                }
 
                             });
-                        }
+                        </script>*@
 
-                        //    });
+                        <div class="map-wrap">
+                            @*<div class="vmap" id="vmap1"></div>*@
+                            <div id="map"></div>
+                            <script>
+
+                                // Initialize and add the map
+                                // $(document).ready(function () {
+                                function initMap() {
+
+                                    // The location of Uluru
+                                    var studentid = $('#studentid').val();
+                                    $.ajax({
+                                        url: '/Student/GetAllStudentLocation',
+                                        type: 'get',
+                                        dataType: 'json',
+                                        data:
+                                        {
+                                            studentid: studentid,
+
+                                        },
+
+                                        success: function (result) {
+
+                                            if (result) {
+
+                                                var latitude = 12.979407;
+                                                var langitude = 74.92095;
+                                                var uluru = { lat: latitude, lng: langitude };
+                                                var map = new google.maps.Map(
+                                                    document.getElementById('map'), { zoom: 4, center: uluru });
+
+                                                for (i = 0; i < result.length; i++) {
+
+                                                    latitude = result[i].latitude;
+                                                    langitude = result[i].longitute;
+
+                                                    uluru = { lat: latitude, lng: langitude };
+
+                                                    var marker = new google.maps.Marker({ position: uluru, map: map });
+
+                                                }
 
 
-                    </script>
-                    <!--Load the API from the specified URL
-        * The async attribute allows the browser to render the page while the API loads
-        * The key parameter will contain your own API key (which is not needed for this tutorial)
-        * The callback parameter executes the initMap() function
-        -->
-                    <script async defer
-                            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxi53n1l21ELjpf2Oq0frWB50S6GyCG5o&callback=initMap">
-                    </script>
-                </div>
-            </div>
-            <!-- END MAP DATA-->
-        </div>
-    </div>
 
-</div>
-<!-- END MAIN CONTENT-->
+                                            }
 
-<div id="overlay" style="z-index:4">
-    <!--start Account popup-->
-    <div id="test-form-div ">
-        <div id="test-form" class="">
-            <div class="form-container">
-                <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
-                <h2 align="center" class="text-primary">Profile View</h2><hr />
-                <form action="Homepage.html" method="post">
-                    <div class="form-group" align="center">
-                        <div class="image">
-                            <img src="~/images/img/user.png" />
+
+                                            else {
+                                                alert("failed to get data");
+                                            }
+
+                                        },
+
+
+                                    });
+                                }
+
+                                //    });
+
+
+                            </script>
+                            <!--Load the API from the specified URL
+                        * The async attribute allows the browser to render the page while the API loads
+                        * The key parameter will contain your own API key (which is not needed for this tutorial)
+                        * The callback parameter executes the initMap() function
+                        -->
+                            <script async defer
+                                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxi53n1l21ELjpf2Oq0frWB50S6GyCG5o&callback=initMap">
+                            </script>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label class="text-primary">User Name</label>
-                        <label class="form-control" name="fname" id="fname">Purshotham</label>
-                    </div>
-                    <div class="form-group">
-                        <label class="text-primary">User Email</label>
-                        <label class="form-control" name="email" id="fname">Pursh123@gmail.com</label>
-                    </div>
-                    <div class="form-group">
-                        <label class="text-primary">Mobile No</label>
-                        <label class="form-control" name="number" id="pwd">9653247815</label>
-                    </div>
-
-                </form>
+                    <!-- END MAP DATA-->
+                </div>
+            </div>
             </div>
         </div>
-    </div>
-    <!--close Account popup-->
-    <!--start setting popup-->
-    <div id="setting" class="">
-        <div class="form-container">
-            <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
-            <h2 align="center" class="text-primary">Password Setting</h2><hr />
-            <form action="Homepage.html" method="post">
-                <div class="form-group">
-                    <label>Old Password</label>
-                    <input class="form-control" type="text" name="fname" id="fname" required>
-                </div>
-                <div class="form-group">
-                    <label>New Password</label>
-                    <input class="form-control" type="email" name="email" id="fname" required>
-                </div>
-                <div class="form-group">
-                    <label for="pwd">Confirm Password</label>
-                    <input class="form-control" type="tel" name="number" id="pwd" required>
-                </div>
-                <button type="submit" class="btn btn-block btn-primary" id="reg">SUBMIT </button><br>
-                <a href="#moresetting" class="pull-right" onclick="showmoresetting()">Set More Details</a>
-            </form>
-        </div>
-    </div>
-    <!--close setting popup-->
-    <!--start more setting popup-->
-    <div id="moresetting" class="">
-        <div class="form-container">
-            <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
-            <h2 align="center" class="text-primary">User Detail Setting</h2><hr />
-            <form action="Homepage.html" method="post">
-                <div class="form-group">
-                    <label>User Name</label>
-                    <input class="form-control" type="text" name="fname" id="fname" required>
-                </div>
-                <div class="form-group">
-                    <label>User Email</label>
-                    <input class="form-control" type="email" name="email" id="fname" required>
-                </div>
-                <div class="form-group">
-                    <label>Address</label>
-                    <input class="form-control" type="email" name="email" id="fname" required>
-                </div>
-                <div class="form-group">
-                    <label>Mobile No</label>
-                    <input class="form-control" type="email" name="email" id="fname" required>
-                </div>
-                <button type="submit" class="btn btn-block btn-primary" id="reg">EDIT</button>
-            </form>
-        </div>
-    </div>
-    <!--close more setting popup-->
-</div>
+        <!-- END MAIN CONTENT-->
 
-@section Scripts{
-    <script>
+        
 
-        function studentloc() {
-            alert('hi');
-        }
-        function search(string) {
-            window.find(string);
+        @section Scripts{
+            <script>
+
+                function studentloc() {
+                    alert('hi');
+                }
+                function search(string) {
+                    window.find(string);
+                }
+            </script>
         }
 
-        function showtest() {
-            $('#test-form').animate({ top: '15%' }, 500);
-            $('#test-form-div').animate({ top: '20%' }, 500);
-            $('.account-dropdown').hide();
-            document.getElementById("overlay").style.display = "block";
-        }
-        function hidetest() {
-            $('#test-form').animate({ top: '-500%' }, 500);
-            document.getElementById("overlay").style.display = "None";
-        }
 
-        function showsetting() {
-            $('#setting').animate({ top: '15%' }, 500);
-            $('.account-dropdown').hide();
-            document.getElementById("overlay").style.display = "block";
-        }
-        function hidesetting() {
-            $('#setting').animate({ top: '-500%' }, 500);
-            document.getElementById("overlay").style.display = "none";
-        }
+        @section Styles{
+            <style>
+               
+                /* Set the size of the div element that contains the map */
+                #map {
+                    height: 400px; /* The height is 400 pixels */
+                    width: 100%; /* The width is the width of the web page */
+                }
 
-        function showmoresetting() {
-            $('#moresetting').animate({ top: '15%' }, 500);
-            $('.account-dropdown').hide();
-            document.getElementById("overlay").style.display = "block";
-        }
-        function hidemoresetting() {
-            $('#moresetting').animate({ top: '-500%' }, 500);
-            document.getElementById("overlay").style.display = "None";
-        }
-    </script>
-}
+                form.example input[type=text] {
+                    padding: 8px;
+                    font-size: 17px;
+                    border: 1px solid grey;
+                    float: left;
+                    width: 70%;
+                    height: 60%;
+                    background: white;
+                }
 
+                form.example button {
+                    float: left;
+                    width: 20%;
+                    height: 70%;
+                    padding: 10px;
+                    background: #2196F3;
+                    color: white;
+                    font-size: 17px;
+                    border: 1px solid grey;
+                    border-left: none;
+                    cursor: pointer;
+                }
 
-@section Styles{
-    <style>
-        #overlay {
-            position: fixed; /* Sit on top of the page content */
-            display: none; /* Hidden by default */
-            width: 100%; /* Full width (cover the whole page) */
-            height: 100%; /* Full height (cover the whole page) */
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0,0,0,0.5); /* Black background with opacity */
-            z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
-            cursor: pointer; /* Add a pointer on hover */
-            overflow: auto;
-        }
+                    form.example button:hover {
+                        background: #0b7dda;
+                    }
 
-        #test-form {
-            position: fixed;
-            top: -500%;
-            width: 35%;
-            margin-left: 30%;
-            background-color: white;
-            box-shadow: 2px 3px 8px slategrey;
-            border-radius: 5px;
-            padding: 35px;
+                form.example::after {
+                    content: "";
+                    clear: both;
+                    display: table;
+                }
+            </style>
         }
-        /* Set the size of the div element that contains the map */
-        #map {
-            height: 400px; /* The height is 400 pixels */
-            width: 100%; /* The width is the width of the web page */
-        }
-
-        #setting {
-            position: fixed;
-            top: -500%;
-            width: 35%;
-            margin-left: 30%;
-            background-color: white;
-            box-shadow: 2px 3px 8px slategrey;
-            border-radius: 5px;
-            padding: 35px;
-        }
-
-        #moresetting {
-            position: fixed;
-            top: -500%;
-            width: 35%;
-            margin-left: 30%;
-            background-color: white;
-            box-shadow: 2px 3px 8px slategrey;
-            border-radius: 5px;
-            padding: 35px;
-        }
-
-        #test-form-div {
-            position: fixed;
-            top: -500%;
-            max-width: 1500px;
-            max-height: 1500px;
-            min-width: 1500px;
-            min-height: 1500px;
-            background-color: black;
-        }
-
-        form.example input[type=text] {
-            padding: 8px;
-            font-size: 17px;
-            border: 1px solid grey;
-            float: left;
-            width: 70%;
-            height: 60%;
-            background: white;
-        }
-
-        form.example button {
-            float: left;
-            width: 20%;
-            height: 70%;
-            padding: 10px;
-            background: #2196F3;
-            color: white;
-            font-size: 17px;
-            border: 1px solid grey;
-            border-left: none;
-            cursor: pointer;
-        }
-
-            form.example button:hover {
-                background: #0b7dda;
-            }
-
-        form.example::after {
-            content: "";
-            clear: both;
-            display: table;
-        }
-    </style>
-}

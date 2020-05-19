@@ -4,6 +4,7 @@ using ChildCare.MonitoringSystem.Entity;
 using ChildCare.MonitoringSystem.Model;
 using ChildCare.MonitoringSystem.Repository;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,7 @@ namespace ChildCare.MonitoringSystem.Business
 	{
 		private readonly IRepository<Bus> busRepository;//Connect User Repository
 		private readonly IRepository<BusSchedule> busschedulerepository;
+		private readonly IRepository<BusLocation> buslocationrepository;
 		private readonly IUnitOfWork unitOfWork;
 		private List<StudentModel> students;
 
@@ -21,6 +23,7 @@ namespace ChildCare.MonitoringSystem.Business
 		{
 			this.busRepository = unitOfWork.GetRepository<IRepository<Bus>>();//Get User From Repository
 			this.busschedulerepository = unitOfWork.GetRepository<IRepository<BusSchedule>>();
+			this.buslocationrepository = unitOfWork.GetRepository<IRepository<BusLocation>>();
 			this.unitOfWork = unitOfWork;//Instantiate unitOfWork Variable
 		}
 
@@ -29,6 +32,7 @@ namespace ChildCare.MonitoringSystem.Business
 			var busEntity = new Bus()
 			{
 				BusName=busModel.BusName,
+                BusDriverName=busModel.BusDriverName,
 				CreatedBy = -1,
 				CreatedOn = DateTime.UtcNow,
 				UpdatedBy = -1,
@@ -112,23 +116,36 @@ namespace ChildCare.MonitoringSystem.Business
             }
            
         }
-        public BusModel UpdateBusSchedule(BusModel busModel)
+
+		public ArrayList getBusDestination()
+		{
+			var busEntity = this.busschedulerepository.GetAll();
+
+
+			ArrayList ms = new ArrayList();
+			foreach (var bus in busEntity)
+			{
+
+				ms.Add(bus.ToBusSchedule);
+
+			}
+			return ms;
+		} 
+
+		public BusModel UpdateBusSchedule(BusModel busModel)
         {
             var busupdate = this.busRepository.GetBy(x => x.BusId == busModel.BusId, x => x.BusSchedule).SingleOrDefault();
-
 
             this.unitOfWork.Save();
 
             return busModel;
 
-
-
-
         }
 
-		public List<BusScheduleModel> getbusshedule(String To,String From)
+
+        public List<BusScheduleModel> getbusshedule(String To)
 		{
-			var busschedule = this.busschedulerepository.GetBy(x => x.ToBusSchedule == To && x.FromBusSchedule == From);
+			var busschedule = this.busschedulerepository.GetBy(x => x.ToBusSchedule == To);
 			var buses = new List<BusScheduleModel>();
 			foreach(var Bus in busschedule)
 			{
@@ -137,5 +154,58 @@ namespace ChildCare.MonitoringSystem.Business
 			}
 			return buses;
 		}
-	}
+
+        public ArrayList getBusIds()
+        {
+            var busEntity = this.busRepository.GetAll();
+
+            ArrayList busto = new ArrayList();
+            foreach (var bus in busEntity)
+            {
+				var busscheduleid = this.busschedulerepository.GetBy(x => x.BusId == bus.BusId).SingleOrDefault();
+				var buslocation = busscheduleid != null ? this.buslocationrepository.GetBy(x => x.BusId == bus.BusId).SingleOrDefault() : null;
+				if (buslocation != null)
+				{
+					busto.Add(bus.BusId);
+				}
+            }
+            return busto;
+        }
+
+		public ArrayList BusGetByIdCompareWithBusSchedule()
+		{
+			var busEntity = this.busschedulerepository.GetBy(x=>x.IsDeleted==false);
+
+			ArrayList busto = new ArrayList();
+			foreach (var bus in busEntity)
+			{
+				//var busscheduleid = this.busschedulerepository.GetBy(x => x.BusId == bus.BusId).SingleOrDefault();
+				//if (busscheduleid != null)
+				//{
+					busto.Add(bus.BusId);
+				//}
+			}
+			return busto;
+		}
+
+        public ArrayList GetBusWithNoSchedule()
+        {
+            var busEntity = this.busRepository.GetAll();
+            
+
+            ArrayList busto = new ArrayList();
+            foreach (var bus in busEntity)
+            {
+                var busid = this.busschedulerepository.GetBy(x => x.BusId == bus.BusId && x.IsDeleted==false);
+                if (busid.Count == 0)
+                {
+                    busto.Add(bus.BusId);
+                }
+            }
+            return busto;
+
+        }
+
+
+    }
 }

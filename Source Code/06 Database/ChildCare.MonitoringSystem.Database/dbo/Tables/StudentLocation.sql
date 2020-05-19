@@ -13,3 +13,5 @@
     CONSTRAINT [FK_StudentLocation_Student] FOREIGN KEY ([StudentId]) REFERENCES [dbo].[Student] ([StudentId])
 );
 
+
+

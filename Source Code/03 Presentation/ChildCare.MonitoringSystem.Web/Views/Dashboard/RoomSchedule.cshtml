@@ -7,40 +7,48 @@
 }
 
 <!-- MAIN CONTENT-->
-<div class="main-content" id="viewroom">
-    @*<div class="section__content section__content--p30">*@
-    <button class="btn btn-primary col-lg-1 pull-right" style="margin-right:5%;" onclick="showadd();">+ ADD</button><br />
-    @*<button class="btn btn-danger col-lg-1 pull-right" style="margin-right:5%;" onclick="deleteroom();">- DELETE</button><br />*@
-    @*<button class="btn btn-danger col-lg-1 pull-right" style="margin-right:5%;" onclick="showviewschedule()"><i class="fa fa-eye"></i> View</button>*@
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="table-responsive table-responsive-data2" style="overflow:auto">
-                    <table class="table table-data2" id="getRoom">
-                        <thead>
-                            <tr>
-                                <th>
-                                    #
-                                </th>
-                                <th>Room Id</th>
-                                <th>Room Name</th>
-                                <th></th>
-                                <th></th>
-                            </tr>
-                        </thead>
-
-                    </table>
+    <div class="main-content" id="viewroom">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12" style="text-align:center">
+                    <div class="overview-wrap">
+                        <h2 class="title-1">
+                            Room Schedule
+                        </h2>
+                    </div>
+                    <hr />
                 </div>
             </div>
+            <br />
+            <button class="btn btn-primary col-lg-1 pull-right" style="margin-right:5%;" onclick="showadd();">+ ADD</button><br />
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-responsive table-responsive-data2" style="overflow:auto">
+                        <table class="table table-data2" id="getRoom">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        #
+                                    </th>
+                                    <th>Room Id</th>
+                                    <th>Room Name</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
 
         </div>
-
-
     </div>
-</div>
 
 <div class="main-content" id="viewroomschedule">
-    @*<h2 align="center">View Room Schedule</h2>*@
+    <h2 align="center">View Student Room Schedule</h2>
     <hr /><br /><br />
     <button class="btn btn-primary col-lg-1 pull-right" style="margin-right:5%;" onclick="showaddSchedule();">+ ADD</button><br />
     @*<button class="btn btn-danger col-lg-1 pull-right" id="std" style="margin-right:5%;">- DELETE</button>*@
@@ -48,6 +56,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="table-responsive table-responsive-data2">
+                    <a href="~/Dashboard/RoomSchedule"><i class="fa fa-backward"></i></a>
                     <table class="table table-data2" id="getRoomSchedule">
                         <thead>
                             <tr>
@@ -62,7 +71,7 @@
                                 <th>Room Id</th>
                             </tr>
                         </thead>
-                        
+
                     </table>
                 </div>
             </div>
@@ -72,119 +81,37 @@
 
 @*////////////////*@
 <div class="main-content" id="viewstudentschedule">
-    <h2 align="center">View Student Schedule</h2>
+    <h2 align="center">View Student Details</h2>
     <hr /><br /><br />
     @*<button class="btn btn-primary col-lg-1 pull-right" style="margin-right:5%;" onclick="showaddSchedule();">+ ADD</button><br />*@
     @*<button class="btn btn-danger col-lg-1 pull-right" style="margin-right:5%;">- DELETE</button>*@
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12">
-                <div class="table-responsive table-responsive-data2" style="overflow:auto">
-                    <table class="table table-data2" id="getstudentSchedule">
-                        <thead>
-                            <tr>
-                                <th>
-                                    #
-                                </th>
-                                <th>Student  Id</th>
-                                <th>Student Image Id</th>
-                                <th>Student Name</th>
-                                <th>Student Batch</th>
-
-                            </tr>
-                        </thead>
-                    </table>
+                <div class="col-md-12">
+                    <div class="table-responsive table-responsive-data2" style="overflow:auto">
+                        <a href="~/Dashboard/RoomSchedule"><i class="fa fa-backward"></i></a>
+                        <table class="table table-data2" id="getstudentSchedule">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        #
+                                    </th>
+                                    <th>Student Id</th>
+                                    <th>Student Image Id</th>
+                                    <th>Student Name</th>
+                                    <th>Student Batch</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 </div>
 
 <!-- END MAIN CONTENT-->
 <!-- END PAGE CONTAINER-->
-<div id="overlay" style="z-index:4;">
-    <!--start Account popup-->
-    <div id="test-form-div ">
-        <div id="test-form" class="">
-            <div class="form-container">
-                <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
-                <h4 align="center" class="text-primary">Profile View</h4><hr />
-                <form action="Homepage.html" method="post">
-                    <div class="form-group" align="center">
-                        <div class="image">
-                            <img src="~/images/img/user.png" />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>User Name</label>
-                        <label class="form-control" name="fname" id="fname">Purshotham</label>
-                    </div>
-                    <div class="form-group">
-                        <label>User Email</label>
-                        <label class="form-control" name="email" id="fname">Pursh123@gmail.com</label>
-                    </div>
-                    <div class="form-group">
-                        <label>Mobile No</label>
-                        <label class="form-control" name="number" id="pwd">9653247815</label>
-                    </div>
-
-                </form>
-            </div>
-        </div>
-    </div>
-    <!--close Account popup-->
-    <!--start setting popup-->
-    <div id="setting" class="">
-        <div class="form-container">
-            <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
-            <h4 align="center" class="text-primary">Password Setting</h4><hr />
-            <form action="Homepage.html" method="post">
-                <div class="form-group">
-                    <label>Old Password</label>
-                    <input class="form-control" type="text" name="fname" id="fname" required>
-                </div>
-                <div class="form-group">
-                    <label>New Password</label>
-                    <input class="form-control" type="email" name="email" id="fname" required>
-                </div>
-                <div class="form-group">
-                    <label for="pwd">Confirm Password</label>
-                    <input class="form-control" type="tel" name="number" id="pwd" required>
-                </div>
-                <button type="submit" class="btn btn-block btn-primary" id="reg">SUBMIT </button><br>
-                <a href="#moresetting" class="pull-right" onclick="showmoresetting()">Set More Details</a>
-            </form>
-        </div>
-    </div>
-    <!--close setting popup-->
-    <!--start more setting popup-->
-    <div id="moresetting" class="">
-        <div class="form-container">
-            <a class="pull-right" href=" "><i class="fa fa-close"></i></a>
-            <h4 align="center" class="text-primary">User Detail Setting</h4><hr />
-            <form action="Homepage.html" method="post">
-                <div class="form-group">
-                    <label>User Name</label>
-                    <input class="form-control" type="text" name="fname" id="fname" required>
-                </div>
-                <div class="form-group">
-                    <label>User Email</label>
-                    <input class="form-control" type="email" name="email" id="fname" required>
-                </div>
-                <div class="form-group">
-                    <label>Address</label>
-                    <input class="form-control" type="email" name="email" id="fname" required>
-                </div>
-                <div class="form-group">
-                    <label>Mobile No</label>
-                    <input class="form-control" type="email" name="email" id="fname" required>
-                </div>
-                <button type="submit" class="btn btn-block btn-primary" id="reg">EDIT</button>
-            </form>
-        </div>
-    </div>
-    <!--close more setting popup-->
-
+<div id="overlay1" style="z-index:4;">
     <div id="schedule" class="">
         <div class="form-container">
             <a class="pull-right" href="#viewroomschedule" onclick="hidechangeschedule();"><i class="fa fa-close"></i></a>
@@ -241,7 +168,7 @@
             <h4 align="center" class="text-primary">Add Room</h4><hr />
             <form action="" method="post">
                 <div class="form-group">
-                    <label>Room Name</label>
+                    <h5>Enter Room Name Here and Add Schedule for this Room</h5>
                     <input class="form-control" type="text" name="fname" id="rname" required>
                 </div>
 
@@ -267,14 +194,7 @@
                 <div class="form-group">
                     <label>Time</label>
                     <input class="form-control" type="time" name="roomScheduleTime" id="roomScheduleTime" required>
-                    @* <input class="form-control" type="text" name="email" id="fname" required>*@
-                    @*<select name="scheduleTime" id="roomScheduleTime" class="form-control">
-            <option value="9.00">9.00</option>
-            <option value="9.55">9.55</option>
-            <option value="11.05">11.05</option>
-            <option value="01.00">01.00</option>
-            <option value="02.00">02.00</option>
-        </select>*@
+
                 </div>
                 <div class="form-group">
                     <label>Subject</label>
@@ -364,7 +284,7 @@
 
             $("#addRoom").click(function () {
                 var rname = $("#rname").val();
-                alert(rname);
+                //alert(rname);
                 $.ajax({
                     url: '/Room/AddRoom',
                     type: 'post',
@@ -375,12 +295,12 @@
                     },
 
                     success: function (result) {
-                        alert(result);
-                        alert("Successfully inserted Room");
+                        //alert(result);
+                        //alert("Successfully inserted Room");
 
                     },
 
-                });
+                }); alert("Successfully inserted Room");
 
             });
 
@@ -396,7 +316,7 @@
                 //alert(rsub);
                 //alert(rid);
                 //alert(rteacherid);
-                alert(rtime);
+                //alert(rtime);
 
 
                 $.ajax({
@@ -415,7 +335,7 @@
 
                     success: function (result) {
                         alert(result);
-                        alert("Successfully inserted Room");
+                        alert("Successfully inserted Room Schedule");
 
                     },
 
@@ -428,51 +348,50 @@
         });
 
 
-        function showtest() {
-            $('#test-form').animate({ top: '15%' }, 500);
-            $('#test-form-div').animate({ top: '20%' }, 500);
-            $('.account-dropdown').hide();
-            document.getElementById("overlay").style.display = "block";
-        }
-        function hidetest() {
-            $('#test-form').animate({ top: '-500%' }, 500);
-            document.getElementById("overlay").style.display = "none";
-        }
+        //function showtest() {
+        //    $('#test-form').animate({ top: '15%' }, 500);
+        //    $('#test-form-div').animate({ top: '20%' }, 500);
+        //    $('.account-dropdown').hide();
+        //    document.getElementById("overlay").style.display = "block";
+        //}
+        //function hidetest() {
+        //    $('#test-form').animate({ top: '-500%' }, 500);
+        //    document.getElementById("overlay").style.display = "none";
+        //}
 
-        function showsetting() {
-            $('#setting').animate({ top: '15%' }, 500);
-            $('.account-dropdown').hide();
-            document.getElementById("overlay").style.display = "block";
-        }
-        function hidesetting() {
-            $('#setting').animate({ top: '-500%' }, 500);
-            document.getElementById("overlay").style.display = "none";
-        }
+        //function showsetting() {
+        //    $('#setting').animate({ top: '15%' }, 500);
+        //    $('.account-dropdown').hide();
+        //    document.getElementById("overlay").style.display = "block";
+        //}
+        //function hidesetting() {
+        //    $('#setting').animate({ top: '-500%' }, 500);
+        //    document.getElementById("overlay").style.display = "none";
+        //}
 
-        function showmoresetting() {
-            $('#moresetting').animate({ top: '15%' }, 500);
-            $('.account-dropdown').hide();
-            document.getElementById("overlay").style.display = "block";
-        }
-        function hidemoresetting() {
-            $('#moresetting').animate({ top: '-500%' }, 500);
-            document.getElementById("overlay").style.display = "none";
-        }
+        //function showmoresetting() {
+        //    $('#moresetting').animate({ top: '15%' }, 500);
+        //    $('.account-dropdown').hide();
+        //    document.getElementById("overlay").style.display = "block";
+        //}
+        //function hidemoresetting() {
+        //    $('#moresetting').animate({ top: '-500%' }, 500);
+        //    document.getElementById("overlay").style.display = "none";
+        //}
 
 
         function showschedule() {
             $('#schedule').animate({ top: '12%' }, 500);
-            document.getElementById("overlay").style.display = "block";
+            document.getElementById("overlay1").style.display = "block";
         }
         function hideschedule() {
             $('#schedule').animate({ top: '-500%' }, 500);
-            document.getElementById("overlay").style.display = "none";
+            document.getElementById("overlay1").style.display = "none";
         }
 
         function search(string) {
             window.find(string);
         }
-
 
         function showviewschedule(roomid) {
             $("#viewroom").hide();
@@ -515,20 +434,19 @@
             });
         }
 
-
         function showadd() {
             $('#add').animate({ top: '12%' }, 500);
-            document.getElementById("overlay").style.display = "block";
+            document.getElementById("overlay1").style.display = "block";
         }
 
         function showaddSchedule() {
             $('#addSchedule').animate({ top: '4%' }, 500);
-            document.getElementById("overlay").style.display = "block";
+            document.getElementById("overlay1").style.display = "block";
 
         }
         function hidechangeschedule() {
             $('#addSchedule').animate({ top: '-500%' }, 500);
-            document.getElementById("overlay").style.display = "none";
+            document.getElementById("overlay1").style.display = "none";
         }
 
         function hideadd() {
@@ -536,11 +454,11 @@
         }
 
         function on() {
-            document.getElementById("overlay").style.display = "block";
+            document.getElementById("overlay1").style.display = "block";
         }
 
         function off() {
-            document.getElementById("overlay").style.display = "none";
+            document.getElementById("overlay1").style.display = "none";
         }
 
         function showstudentschedule(roomid, roomsheduleid) {
@@ -583,7 +501,7 @@
 
 
         function deleteroom(a) {
-            alert(a);
+            //alert(a);
             var delid = a;
             $.ajax({
 
@@ -596,7 +514,7 @@
                 },
                 success: function (result) {
 
-                    alert("deleted");
+                    alert("Successfully Deleted Class Room Information");
                     location.reload();
                 },
             });
@@ -605,7 +523,7 @@
 
 
         function deleteroomschedule(a) {
-            alert(a);
+            //alert(a);
             var delid = a;
             $.ajax({
 
@@ -617,7 +535,7 @@
                     id: delid,
                 },
                 success: function (result) {
-                    alert(" RoomSchedule deleted");
+                    alert("Successfully Deleted RoomSchedule");
                     location.reload();
                 },
             });
@@ -628,18 +546,7 @@
 
 @section Styles{
     <style>
-        #test-form {
-            position: fixed;
-            top: -500%;
-            width: 35%;
-            margin-left: 30%;
-            background-color: white;
-            box-shadow: 2px 3px 8px slategrey;
-            border-radius: 5px;
-            padding: 35px;
-        }
-
-        #overlay {
+        #overlay1 {
             position: fixed; /* Sit on top of the page content */
             display: none; /* Hidden by default */
             width: 100%; /* Full width (cover the whole page) */
@@ -651,28 +558,6 @@
             background-color: rgba(0,0,0,0.5); /* Black background with opacity */
             z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
             cursor: pointer; /* Add a pointer on hover */
-        }
-
-        #setting {
-            position: fixed;
-            top: -500%;
-            width: 35%;
-            margin-left: 30%;
-            background-color: white;
-            box-shadow: 2px 3px 8px slategrey;
-            border-radius: 5px;
-            padding: 35px;
-        }
-
-        #moresetting {
-            position: fixed;
-            top: -500%;
-            width: 35%;
-            margin-left: 30%;
-            background-color: white;
-            box-shadow: 2px 3px 8px slategrey;
-            border-radius: 5px;
-            padding: 35px;
         }
 
         #schedule {
@@ -690,7 +575,7 @@
         #add {
             position: fixed;
             top: -500%;
-            width: 35%;
+            width: 38%;
             margin-left: 30%;
             background-color: white;
             box-shadow: 2px 3px 8px slategrey;
@@ -744,9 +629,9 @@
             cursor: pointer;
         }
 
-            form.example button:hover {
-                background: #0b7dda;
-            }
+        form.example button:hover {
+            background: #0b7dda;
+        }
 
         form.example::after {
             content: "";

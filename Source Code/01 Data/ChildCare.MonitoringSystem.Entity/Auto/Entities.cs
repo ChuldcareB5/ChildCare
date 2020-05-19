@@ -9,6 +9,7 @@ namespace ChildCare.MonitoringSystem.Entity
     {
         public int BusId { get; set; } // BusId (Primary key)
         public string BusName { get; set; } // BusName (length: 100)
+        public string BusDriverName { get; set; } // BusDriverName (length: 100)
         public int CreatedBy { get; set; } // CreatedBy
         public System.DateTime CreatedOn { get; set; } // CreatedOn
         public int UpdatedBy { get; set; } // UpdatedBy
@@ -100,6 +101,29 @@ namespace ChildCare.MonitoringSystem.Entity
         public BusSchedule()
         {
             StudentBusSchedule = new System.Collections.Generic.List<StudentBusSchedule>();
+            InitializePartial();
+        }
+
+        partial void InitializePartial();
+    }
+
+    // Contact
+    [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.34.1.0")]
+    public partial class Contact: BaseEntity, IAuditable, ISoftDelete
+    {
+        public int ContactId { get; set; } // ContactId (Primary key)
+        public string ContactName { get; set; } // ContactName (length: 100)
+        public string ContactEmail { get; set; } // ContactEmail (length: 100)
+        public string ContactMobileNo { get; set; } // ContactMobileNo (length: 12)
+        public string ContactMsg { get; set; } // ContactMsg (length: 500)
+        public int CreatedBy { get; set; } // CreatedBy
+        public System.DateTime CreatedOn { get; set; } // CreatedOn
+        public int UpdatedBy { get; set; } // UpdatedBy
+        public System.DateTime UpdatedOn { get; set; } // UpdatedOn
+        public bool IsDeleted { get; set; } // IsDeleted
+
+        public Contact()
+        {
             InitializePartial();
         }
 
@@ -279,7 +303,7 @@ namespace ChildCare.MonitoringSystem.Entity
     {
         public int StudentId { get; set; } // StudentId (Primary key)
         public string StudentName { get; set; } // StudentName (length: 100)
-        public string StudentImg { get; set; } // StudentImg (length: 100)
+        public string StudentImg { get; set; } // StudentImg (length: 200)
         public string StudentAddress { get; set; } // StudentAddress (length: 200)
         public string StudentGender { get; set; } // StudentGender (length: 100)
         public System.DateTime StudentDob { get; set; } // StudentDob

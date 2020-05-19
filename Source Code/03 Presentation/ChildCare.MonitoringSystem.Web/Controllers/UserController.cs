@@ -119,22 +119,13 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
         {
             return this.userBusiness.GetStudentSchedule(applicationContext.UserId);
 
-
-
         }
 
         public ActionResult<List<RoomScheduleModel>> ScheduleByDate(DateTime dob)
         {
             return this.userBusiness.ScheduleByDate(dob,applicationContext.UserId);
 
-
-
         }
-
-
-
-
-
 
     }
 }

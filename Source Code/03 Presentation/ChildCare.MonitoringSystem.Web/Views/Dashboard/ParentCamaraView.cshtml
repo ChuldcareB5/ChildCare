@@ -1,0 +1,103 @@
+﻿@inject ChildCare.MonitoringSystem.Common.AppSettings appSettings;
+@{
+    ViewData["Title"] = "Parent Camara View";
+}
+
+@section LeftNavigation{
+    <partial name="_AdminLeftNavigation" />
+}
+
+<div class="main-content">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="title-1">
+                    Parent Camera View
+                </h2>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-11">
+                <select name="type">
+                    <option id="classA" type="button" value="Class A">CLASS A</option>
+                    <option id="classB" type="button" value="Class B">CLASS B</option>
+                    <option id="classB" type="button" value="Class B">CLASS C</option>
+                    <option id="classB" type="button" value="Class B">CLASS D</option>
+                    <option id="classB" type="button" value="Class B">CLASS E</option>
+                    <option id="classB" type="button" value="Class B">PLAY GROUND</option>
+                </select>
+                @*<input id="classA" type="button" value="Class A" />
+                    <input id="classB" type="button" value="Class B" />*@
+            </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <video id="cam" autoplay></video>
+                </div>
+            </div>
+        <br />
+        <div class="row">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-11">
+                <video width="50%" controls>
+                    <source src="~/video/class.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+        <br /><br />
+        <div class="row">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-6">
+                <h4>Previous Videos(Before an Hour):</h4>
+            </div>
+        </div><br />
+        <div class="row">
+
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-11">
+                <video width="20%" controls>
+                    <source src="~/video/class.mp4" type="video/mp4">
+                </video>
+                <video width="20%" controls>
+                    <source src="~/video/class.mp4" type="video/mp4">
+                </video>
+                <video width="20%" controls>
+                    <source src="~/video/class.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script src="~/lib/signalr-client/signalr.js"></script>
+    <script src="~/js/webrtc/aykan-webrtc.min.js"></script>
+    <script type="text/javascript">
+        var ChildCare = ChildCare || {};
+
+        ChildCare.urls = ChildCare.urls || {};
+        ChildCare.urls.signalHostUrl = "@appSettings.SignalUrl";
+    </script>
+    <script src="~/js/webrtc/common.js"></script>
+    <script src="~/js/pages/cameraView.js"></script>
+}
+@section Styles{
+    <style>
+        #classA, #classB {
+            background-color: lightgray;
+            padding: 10px;
+        }
+
+        select {
+            width: 15%;
+            padding: 5px;
+        }
+    </style>
+}

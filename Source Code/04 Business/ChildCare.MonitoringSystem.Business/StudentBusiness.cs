@@ -217,8 +217,8 @@ namespace ChildCare.MonitoringSystem.Business
                 foreach (var bus in buses)
                 {
                     var busdetail = this.busscheuleRepository.GetBy(x => x.BusId == bus.BusId).LastOrDefault();
-
-                    var studentbuslocations = busdetail == null ? null : this.buslocationRepository.GetBy(x => x.BusId == busdetail.BusScheduleId).LastOrDefault();
+					
+                    var studentbuslocations = busdetail == null ? null : this.buslocationRepository.GetBy(x => x.BusId == busdetail.BusId).LastOrDefault();
 
 
                     if (studentbuslocations != null && busdetail != null)
@@ -229,8 +229,6 @@ namespace ChildCare.MonitoringSystem.Business
 
                 }
 
-
-
                 return buslocationlist;
             }
             else
@@ -238,17 +236,13 @@ namespace ChildCare.MonitoringSystem.Business
              
                 var buslocationlist = new List<BusLocationModel>();
                 var busheduleid = this.busscheuleRepository.GetBy(x => x.BusId == busid).SingleOrDefault();
-                var buslocation = this.buslocationRepository.GetBy(x => x.BusId == busheduleid.BusScheduleId).LastOrDefault();
-                if (buslocation != null&& busheduleid!=null)
+                var buslocation = this.buslocationRepository.GetBy(x => x.BusId == busheduleid.BusId).LastOrDefault();
+                if (buslocation != null || busheduleid!=null)
                 {
                     var buslocations = Mapper.Map<BusLocationModel>(buslocation);
                     buslocationlist.Add(buslocations);
                 }
-               
-
-
-
-                return buslocationlist;
+				return buslocationlist;
             }
             
         }

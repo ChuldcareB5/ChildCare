@@ -1,5 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Dashboard";
+    Layout = "_AppLayout";
 }
 
 @section LeftNavigation{
@@ -7,16 +8,14 @@
 }
 
 <div class="main-content">
-    @*<button style="width:29px;height:30px;background-color:red" class="viewbtn" vals="8" name="viewbtn">hello</button>
-    <button style="width:29px;height:30px;background-color:red" class="viewbtn" vals="13" name="viewbtn">hello</button>
-
-    <button style="width:29px;height:30px;background-color:red" class="viewbtn" vals="14" name="viewbtn">hello</button>*@
-    @*<div class="section__content section__content--p30">*@
+    
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12" style="text-align:center">
                 <div class="overview-wrap">
-                    <h2 class="title-1">Dashboard</h2>
+                    <h2 class="title-1">
+                        Welcome to Dashboard
+                    </h2>
                 </div>
                 <hr />
             </div>
@@ -25,72 +24,80 @@
             <div class="col-sm-6 col-lg-3">
                 <div class="overview-item overview-item--c1">
                     <div class="overview__inner">
-                        <div class="overview-box clearfix">
-                            <div class="icon">
-                                <i class="zmdi zmdi-account-o"></i>
-                            </div><br />
-                            <div class="text">
-                                <h2>1000+</h2>
-                                <span>Total number of students</span>
+                        <a href="~/Dashboard">
+                            <div class="overview-box clearfix">
+                                <div class="icon">
+                                    <i class="zmdi zmdi-account-o"></i>
+                                </div><br />
+                                <div class="text">
+                                    <h2>1000+</h2>
+                                    <span>Total No. of Students</span>
+                                </div>
+
                             </div>
-                        </div>
+                        </a>
                         @*<div class="overview-chart">
-                            <canvas id="widgetChart1"></canvas>
-                        </div>*@
+            <canvas id="widgetChart1"></canvas>
+        </div>*@
                     </div>
                 </div>
             </div>
             <div class="col-sm-6 col-lg-3">
                 <div class="overview-item overview-item--c2">
                     <div class="overview__inner">
-                        <div class="overview-box clearfix">
-                            <div class="icon">
-                                <i class="zmdi zmdi-videocam"></i>
-                            </div>
-                            <br />
+                        <a href="~/Dashboard/CamaraView">
+                            <div class="overview-box clearfix">
+                                <div class="icon">
+                                    <i class="zmdi zmdi-videocam"></i>
+                                </div>
+                                <br />
 
-                            <div class="text">
-                                <h2>30+</h2>
-                                <span>Total cameras</span>
+                                <div class="text">
+                                    <h2>30+</h2>
+                                    <span>Total Cameras</span>
+                                </div>
                             </div>
-                        </div>
-
+                            </a>
                     </div>
                 </div>
             </div>
             <div class="col-sm-6 col-lg-3">
                 <div class="overview-item overview-item--c3">
                     <div class="overview__inner">
-                        <div class="overview-box clearfix">
-                            <div class="icon">
-                                <i class="zmdi zmdi-laptop"></i>
-                            </div><br />
-                            <div class="text">
-                                <h2>50+</h2>
-                                <span>Total ClassRooms</span>
+                        <a href="~/Dashboard/RoomSchedule">
+                            <div class="overview-box clearfix">
+                                <div class="icon">
+                                    <i class="zmdi zmdi-laptop"></i>
+                                </div><br />
+                                <div class="text">
+                                    <h2>50+</h2>
+                                    <span>Total ClassRooms</span>
+                                </div>
                             </div>
-                        </div>
-                        @*<div class="overview-chart">
-                            <canvas id="widgetChart3"></canvas>
-                        </div>*@
+                            </a>
+                            @*<div class="overview-chart">
+                <canvas id="widgetChart3"></canvas>
+            </div>*@
                     </div>
                 </div>
             </div>
             <div class="col-sm-6 col-lg-3">
                 <div class="overview-item overview-item--c4">
                     <div class="overview__inner">
-                        <div class="overview-box clearfix">
-                            <div class="icon">
-                                <i class="zmdi zmdi-bus"></i>
-                            </div><br />
-                            <div class="text">
-                                <h2>40+</h2>
-                                <span>Total No.of Buses</span>
+                        <a href="~/Dashboard/BusSchedule">
+                            <div class="overview-box clearfix">
+                                <div class="icon">
+                                    <i class="zmdi zmdi-bus"></i>
+                                </div><br />
+                                <div class="text">
+                                    <h2>40+</h2>
+                                    <span>Total No.of Buses</span>
+                                </div>
                             </div>
-                        </div>
-                        @*<div class="overview-chart">
-                            <canvas id="widgetChart4"></canvas>
-                        </div>*@
+                            </a>
+                            @*<div class="overview-chart">
+                <canvas id="widgetChart4"></canvas>
+            </div>*@
                     </div>
                 </div>
             </div>
@@ -141,14 +148,20 @@
                     @*<h4 style="color:yellow;">Teacher Names :   </h4>*@
                     <div class="au-card-inner">
                         <div class="table-responsive">
-                            <table class="table table-top-countries" id="listofteacher"></table>
+                            <table class="table table-top-countries" id="listofteacher" style="color:white">
+                                    <th>#</th>
+                                    <th>Teacher Name</th>
+                                <tbody></tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6"><br />
                <h2 class="title-1 m-b-25">Contact Us  </h2>
-                <img src="~/images/bg-title-02.jpg" />
+               <img src="~/images/bg-title-02.jpg" /><hr >
+            
+               <button class="contact text-primary" onclick="showcontactpopup();"><i class="fa fa-backward"></i>&nbsp;&nbsp;&nbsp;View Contact Messages</button><br />
             </div>
         </div>
             <div class="row">
@@ -159,9 +172,9 @@
                             <h3>
                                 <i class="zmdi zmdi-account-calendar"></i>Viewed Message
                             </h3>
-                            <button class="au-btn-plus">
+                            @*<button class="au-btn-plus">
                                 <i class="zmdi zmdi-plus"></i>
-                            </button>
+                            </button>*@
                         </div>
                         @*//=============*@
 
@@ -191,9 +204,6 @@
                                 <i class="zmdi zmdi-plus" onclick="showpopup();"></i>
                             </button>
                         </div>
-
-
-
                         <div class="au-task js-list-load">
                             <div class="au-task-list js-scrollbar3">
                                 <div class="au-task__item au-task__item--danger">
@@ -245,6 +255,52 @@
             <button type="reset" class="btn btn-outline-success btn-block" onclick="Clearfield();">Clear</button>
         </div>
     </div>
+
+    @*===================*@
+
+    <div id="contactdiv" style="overflow:auto">
+        <a class="pull-right" onclick="hidecontactpopup();"><i class="fa fa-close text-primary"></i></a>
+        <h3 align="center" class="text-primary">View Contact Message</h3>
+        <hr />
+        <table id="viewcontactus"></table>
+    </div>
+
+    @*-------------------------------------------*@
+    <div id="sendcontactusdiv">
+        <a class="pull-right" onclick="hidepopup();"><i class="fa fa-close text-primary"></i></a>
+        <h3 align="center" class="text-primary">Contact Us- Send Message</h3><hr />
+        @*<div class="form-group row">
+            <label for="staticEmail" class="col-sm-4 col-form-label">Admin Id</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="from" />
+            </div>
+        </div>*@
+        <div class="form-group row">
+            <label for="staticEmail" class="col-sm-4 col-form-label">From</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" value="childcaresystemsditb5@gmail.com" readonly id="contactadminfrom" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword" class="col-sm-4 col-form-label">To</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="contactto" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword" class="col-sm-4 col-form-label">Message</label>
+            <div class="col-sm-8">
+                <textarea type="text" rows="6" class="form-control" id="contactmsg">Hi sir/Mam....Please contact the below Number:&ndash;&ndash;&ndash;9972074304</textarea>
+            </div>
+        </div>
+
+        <div>
+            <button type="button" class="btn btn-outline-primary btn-block" style="border: 1px solid lightblue;" id="sendcontact">Send</button>
+            @*<button type="reset" class="btn btn-outline-success btn-block" style="border: 1px solid lightgreen;" onclick="Clearfield();">Clear</button>*@
+        </div>
+    </div>
+
+
 </div>
 
 
@@ -343,6 +399,29 @@
             padding: 20px;
         }
 
+
+        #contactdiv {
+            position: fixed;
+            top: -500%;
+            width: 37%;
+            height:90%;
+            margin-left: 32%;
+            background-color: white;
+            box-shadow: 2px 3px 10px grey;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        #sendcontactusdiv {
+            position: fixed;
+            top: -500%;
+            width: 32%;
+            margin-left: 32%;
+            background-color: white;
+            box-shadow: 2px 3px 10px grey;
+            border-radius: 5px;
+            padding: 20px;
+        }
         #viewmsgdiv {
             position: fixed;
             top: -500%;
@@ -402,6 +481,29 @@
         #viewbtn {
             /*color:white;*/
             border:none;
+        }
+
+        .contact {
+            border:1px solid blue;
+            font-size: 1.1em;
+            float: right;
+            width: 250px;
+            background-color: transparent;
+            color: #fff;
+            padding: 5px;
+        }
+
+        .contact:hover {
+            background-color: #fff;
+        }
+
+        .viewcontactbtn {
+            width: 80px;
+            height: 30px;
+            background-color: lightblue;
+            margin-left: 420px;
+            border: 1px solid blue;
+            border-radius: 4px;
         }
     </style>
 }
@@ -489,12 +591,33 @@
                     if (result) {
                         var put = '<tbody>';
                         for (var i = 0; i < result.length; i = i + 5) {
-                            //put += '<tr><td>From :' + result[i + 1] + '</td></tr><tr><td>To :' + result[i] + '</td></tr><tr><td>Msg :' + result[i + 2] + '</td></tr><tr><td>Date and Time :' + result[i + 3] + '</td></tr><tr><td>__________________________________________________________________</td></tr>';
-                            put += '<tr><td><br/></td></tr><tr><td>From :' + result[i + 1] + '</td></tr><tr><td>Date and Time :' + result[i + 4] + '</td><td><i class="fa fa-arrow-right"><button style="width:80px; height:30px; background-color:lightblue;" class="viewbtn text-primary" id ="viewbtn" name="viewbtn" onclick="viewfunc()" value="' + result[i + 3] + '">VIEW</button></i></td></tr><tr><td><br/></td></tr><tr><td>____________________________________________________</td><td>_________</td></tr>';
+                            put += '<tr><td><br/></td></tr><tr><td>From :' + result[i + 1] + '</td></tr><tr><td>Date and Time :' + result[i + 4] + '</td><td><button style="width:80px; height:30px; background-color:lightblue;" class="viewbtn text-primary" id ="viewbtn" name="viewbtn" onclick="viewfunc()" value="' + result[i + 3] + '">VIEW</button></td></tr><tr><td><br/></td></tr><tr><td>____________________________________________________</td><td>_________</td></tr>';
 
                         }
                         put += '</tbody>';
                         $('#newmsg').append(put);
+                    }
+                    else {
+                        alert("failed to get data");
+                    }
+                },
+
+            });
+
+            //====================
+            $.ajax({
+                url: '/Contact/ViewContactUsDetail',
+                type: 'get',
+                dataType: 'json',
+                success: function (result) {
+                    debugger
+                    if (result) {
+                        var put1 = '<tbody>';
+                        for (var i = 0; i < result.length; i = i + 5) {
+                            put1 += '<tr><td><br/></td></tr><tr><td>Contact Id :' + result[i] + '</td></tr><tr><td>Contact Name :' + result[i + 1] + '</td></tr><tr><td>Contact Email :' + result[i + 2] + '</td></tr><tr><td>Contact Mobile No :' + result[i + 3] + '</td></tr><tr><td>Contact Message: ' + result[i + 4] + '</td></tr><tr><td><hr/><button class="viewcontactbtn text-primary" id="view" name="viewcontactbtn" onclick="showsendcontactuspopup();" value="' + result[i + 2] + '">'+result[i+2]+'</button></td></tr><tr><td>__________________________________________________________________</td></tr>';
+                        }
+                        put1 += '</tbody>';
+                        $('#viewcontactus').append(put1);
                     }
                     else {
                         alert("failed to get data");
@@ -509,10 +632,10 @@
                 var uemail = $("#uemail").val();
                 var uaddress = $("#uaddress").val();
                 var umobileno = $("#umobileno").val();
-                alert(uname);
-                alert(uemail);
-                alert(uaddress);
-                alert(umobileno);
+                //alert(uname);
+                //alert(uemail);
+                //alert(uaddress);
+                //alert(umobileno);
                 $.ajax({
                     url: '/User/TeacherEditProfile',
                     type: 'post',
@@ -558,34 +681,66 @@
                 });
             });
 
+            //1-------------------------------------------------
 
-            $(".viewbtn").click(function () {
+            $("#sendcontact").click(function () {
+                var fromcontact = $("#contactadminfrom").val();
+                var tocontact = $("#contactto").val();
+                var msg = $("#contactmsg").val();
+                alert(fromcontact);
+                alert(tocontact);
+                alert(msg);
 
-                var name = $(this).attr("name");
+                $.ajax({
+                    url: '/Contact/SendMessage',
+                    type: 'post',
+                    dataType: 'json',
+                    data:
+                    {
+                        //FromMsg: fromcontact,
+                        ContactEmail: tocontact,
+                        ContactMsg: msg,
+                    },
+                    success: function (result) {
 
-                if (name == 'viewbtn') {
-                    var msgid = $(this).attr("vals");
-                    alert(msgid);
-                    $.ajax({
-                        url: '/MessageBoard/GetMsgById',
-                        type: 'get',
-                        dataType: 'json',
-                        data:
-                        {
-                            id: msgid,
-                        },
-                        success: function (result) {
-                            document.getElementById('msgfrom').value = result[1];
-                            document.getElementById('msgto').value = result[0];
-                            document.getElementById('msgtime').value = result[3]; 
-                            document.getElementById('msgcontent').value = result[2];
-                            $('#viewmsgdiv').animate({ top: '23%' }, 500);
-                            document.getElementById("overlay2").style.display = "block";
-                        },
+                        alert("Message send successfully");
+                        location.reload();
 
-                    });
-                }
+                    },
+
+                });
             });
+
+           
+
+            //2-----------------------------------------
+            //$(".viewcontactbtn").click(function () {
+
+            //    var name = $(this).attr("name");
+            //    alert(name);
+            //    if (name == 'viewcontactbtn') {
+            //        var msgemail = $(this).attr("vals");
+            //        alert(msgmail);
+            //        $.ajax({
+            //            url: '/MessageBoard/GetMsgById',
+            //            type: 'get',
+            //            dataType: 'json',
+            //            data:
+            //            {
+            //                id: msgid,
+            //            },
+            //            success: function (result) {
+            //                document.getElementById('msgfrom').value = result[1];
+            //                document.getElementById('msgto').value = result[0];
+            //                document.getElementById('msgtime').value = result[3];
+            //                document.getElementById('msgcontent').value = result[2];
+            //                $('#viewmsgdiv').animate({ top: '23%' }, 500);
+            //                document.getElementById("overlay2").style.display = "block";
+            //            },
+
+            //        });
+            //    }
+            //});
 
 
             $.ajax({
@@ -618,7 +773,30 @@
         function hidepopup() {
             $('#senddiv').animate({ top: '-500%' }, 500);
             document.getElementById("overlay1").style.display = "none";
+            window.location.reload();
         }
+
+        function showcontactpopup() {
+            $('#contactdiv').animate({ top: '4%' }, 500);
+            document.getElementById("overlay1").style.display = "block";
+
+        }
+        function hidecontactpopup() {
+            $('#contactdiv').animate({ top: '-500%' }, 500);
+            document.getElementById("overlay1").style.display = "none";
+        }
+        
+        //function showsendcontactuspopup() {
+       
+        //    $('#contactdiv').hide();
+        //    $('#sendcontactusdiv').animate({ top: '14%' }, 500);
+        //    document.getElementById("overlay1").style.display = "block";
+
+        //}
+        //function hidesendcontactuspopup() {
+        //    $('#senddiv').animate({ top: '-500%' }, 500);
+        //    document.getElementById("overlay1").style.display = "none";
+        //}
         function hideviewmsgdiv() {
             $('#viewmsgdiv').animate({ top: '-500%' }, 500);
             document.getElementById("overlay2").style.display = "none";
@@ -631,13 +809,10 @@
         }
 
         function viewfunc() {
-            //alert("hiii");
-            //var name = $(this).attr("name");
-
-            //if (name == 'viewbtn') {
-                //var msgid = $(this).attr("vals");
+            
+            debugger
             var msgid = $("#viewbtn").val();
-                //alert(msgid);
+                alert(msgid);
                 $.ajax({
                     url: '/MessageBoard/GetMsgById',
                     type: 'get',
@@ -656,6 +831,32 @@
                     },
 
                 });
+           
+        }
+
+        function showsendcontactuspopup() {
+            //alert("hiii");
+            $('#contactdiv').hide();
+            //debugger
+            var contactemail = $("#view").val();
+            alert(contactemail);
+            //debugger
+            $.ajax({
+                url: '/Contact/GetMsgById',
+                type: 'get',
+                dataType: 'json',
+                data:
+                {
+                    contactemail: contactemail,
+                },
+                success: function (result) {
+                    //document.getElementById('contactadminfrom').value = result[1];
+                    document.getElementById('contactto').value = result[1];
+                },
+
+            });
+            $('#sendcontactusdiv').animate({ top: '14%' }, 500);
+            document.getElementById("overlay1").style.display = "block";
             //}
         }
     </script>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -23,35 +24,64 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 
 
 		[HttpPost]
-		public ActionResult<Int32> AddBus(BusModel busmodel,BusScheduleModel busScheduleModel)
+		public ActionResult<Int32> AddBus(BusModel busmodel)
 		{
 			var bus = this.busBusiness.AddBus(busmodel);
-            busScheduleModel.BusId = bus.BusId;
-            var busSchedule = this.busScheduleBusiness.AddBusSchedule(busScheduleModel);
+            //busScheduleModel.BusId = bus.BusId;
+            //var busSchedule = this.busScheduleBusiness.AddBusSchedule(busScheduleModel);
             return bus.BusId;
 
-          
 		}
 
 		public IActionResult Index()
         {
             return View();
         }
-		public ActionResult<List<BusScheduleModel>> getbusshedule(String To,String From)
+		public ActionResult<List<BusScheduleModel>> getbusshedule(String To)
 		{
-			var buses = this.busBusiness.getbusshedule(To,From);
+			var buses = this.busBusiness.getbusshedule(To);
 			return buses;
+		}
+
+        public ActionResult<ArrayList> getBusIds()
+        {
+            var buses = this.busBusiness.getBusIds();
+            return buses;
+        }
+
+		public ActionResult<ArrayList> getBusDestination()
+		{
+			var bus = this.busBusiness.getBusDestination();
+			return bus;
 		}
 
 		public ActionResult<Int32> BusDeleteId(int id)
 		{
 			var bus = this.busBusiness.DeleteId(id);
 			return bus;
-		}public ActionResult<BusModel> BusGetById(int id)
+		}
+
+        public ActionResult<BusModel> BusGetById(int id)
 		{
 			var bus = this.busBusiness.BusGetById(id);
 			return bus;
 		}
+
+		public ActionResult<ArrayList> BusGetByIdCompareWithBusSchedule()
+		{
+			var bus = this.busBusiness.BusGetByIdCompareWithBusSchedule();
+			return bus;
+		}
+
+        public ActionResult<ArrayList> GetBusWithNoSchedule()
+        {
+            var bus = this.busBusiness.GetBusWithNoSchedule();
+            return bus;
+        }
+
+
+
+
         public ActionResult<BusModel> UpdateBusSchedule(BusModel busModel)
         {
             var bus = this.busBusiness.UpdateBusSchedule(busModel);
