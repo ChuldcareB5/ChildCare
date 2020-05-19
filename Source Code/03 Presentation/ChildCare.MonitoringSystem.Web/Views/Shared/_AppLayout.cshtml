@@ -420,6 +420,7 @@
                     document.getElementById('udetailemail').value = result.userEmail;
                     document.getElementById('udetailmob').value = result.userMobileNo;
                     document.getElementById('udetailid').value = result.userId;
+                    document.getElementById('udetailids').value = result.userId;
                 },
             });
 
@@ -452,7 +453,7 @@
                 var oldpass = $('#oldpass').val();
                 var newpass = $('#newpass').val();
                 var confpass = $('#confpass').val();
-
+                alert(userid);
                 if (newpass == confpass) {
                     $.ajax({
                         url: '/User/UserPasswordUpdate',
