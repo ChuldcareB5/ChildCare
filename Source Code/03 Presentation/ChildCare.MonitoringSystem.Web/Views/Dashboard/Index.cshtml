@@ -610,14 +610,14 @@
                 type: 'get',
                 dataType: 'json',
                 success: function (result) {
-
+                    debugger
                     if (result) {
-                        var put = '<tbody>';
+                        var put1 = '<tbody>';
                         for (var i = 0; i < result.length; i = i + 5) {
-                            put += '<tr><td>Contact Id :' + result[i] + '</td></tr><tr><td>Contact Name :' + result[i + 1] + '</td></tr><tr><td>Contact Email :' + result[i + 2] + '</td></tr><tr><td>Contact Mobile No :' + result[i + 3] + '</td></tr><tr><td>Contact Message: ' + result[i + 4] + '</td></tr><tr><td><hr/><button  class="viewcontactbtn text-primary" id ="viewcontactbtn" name="viewcontactbtn" onclick="showsendcontactuspopup();" value="' + result[i+2] + '">'+result[i+2]+'</button></td></tr><tr><td>__________________________________________________________________</td></tr>';
+                            put1 += '<tr><td><br/></td></tr><tr><td>Contact Id :' + result[i] + '</td></tr><tr><td>Contact Name :' + result[i + 1] + '</td></tr><tr><td>Contact Email :' + result[i + 2] + '</td></tr><tr><td>Contact Mobile No :' + result[i + 3] + '</td></tr><tr><td>Contact Message: ' + result[i + 4] + '</td></tr><tr><td><hr/><button class="viewcontactbtn text-primary" id="view" name="viewcontactbtn" onclick="showsendcontactuspopup();" value="' + result[i + 2] + '">'+result[i+2]+'</button></td></tr><tr><td>__________________________________________________________________</td></tr>';
                         }
-                        put += '</tbody>';
-                        $('#viewcontactus').append(put);
+                        put1 += '</tbody>';
+                        $('#viewcontactus').append(put1);
                     }
                     else {
                         alert("failed to get data");
@@ -837,8 +837,8 @@
         function showsendcontactuspopup() {
             //alert("hiii");
             $('#contactdiv').hide();
-            debugger
-            var contactemail = $("#viewcontactbtn").val();
+            //debugger
+            var contactemail = $("#view").val();
             alert(contactemail);
             //debugger
             $.ajax({

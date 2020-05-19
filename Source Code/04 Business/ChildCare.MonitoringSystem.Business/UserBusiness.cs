@@ -265,25 +265,25 @@ namespace ChildCare.MonitoringSystem.Business
 
                 }
             var roo = new List<RoomScheduleModel>();
+			
 
                 foreach (var roomstu in room)
                 {
                     var roomname = this.roomRepository.GetBy(x => x.RoomId == roomstu.RoomId).SingleOrDefault();
+                    //var roomschedule = this.roomScheduleRepository.GetBy(x => x.RoomId == roomstu.RoomId).SingleOrDefault();
                     roo.Add(new RoomScheduleModel()
                     {
-                        RoomScheduleId = roomstu.RoomScheduleId,
-                        TeacherId = roomstu.TeacherId,
+                        //RoomScheduleId = roomschedule.RoomScheduleId,
+						RoomScheduleId = roomstu.RoomScheduleId,
+						TeacherId = roomstu.TeacherId,
+						//StudentId = roomstu.StudentId,
                         RoomScheduleDate = roomstu.RoomScheduleDate,
                         RoomScheduleTime = roomstu.RoomScheduleTime,
                         RoomScheduleSubject = roomstu.RoomScheduleSubject,
                         RoomId = roomstu.RoomId,
                         RoomName = roomname.RoomName,
-
-
                     });
-
-
-                   
+					
                 }
 
                 return roo;

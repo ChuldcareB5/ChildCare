@@ -113,36 +113,6 @@
 
         });
 
-        function showtest() {
-            $('#test-form').animate({ top: '15%' }, 500);
-            $('#test-form-div').animate({ top: '20%' }, 500);
-            $('.account-dropdown').hide();
-            document.getElementById("overlay").style.display = "block";
-        }
-        function hidetest() {
-            $('#test-form').animate({ top: '-500%' }, 500);
-            document.getElementById("overlay").style.display = "none";
-        }
-
-        function showsetting() {
-            $('#setting').animate({ top: '15%' }, 500);
-            $('.account-dropdown').hide();
-            document.getElementById("overlay").style.display = "block";
-        }
-        function hidesetting() {
-            $('#setting').animate({ top: '-500%' }, 500);
-            document.getElementById("overlay").style.display = "none";
-        }
-
-        function showmoresetting() {
-            $('#moresetting').animate({ top: '15%' }, 500);
-            $('.account-dropdown').hide();
-            document.getElementById("overlay").style.display = "block";
-        }
-        function hidemoresetting() {
-            $('#moresetting').animate({ top: '-500%' }, 500);
-            document.getElementById("overlay").style.display = "none";
-        }
         function reset() {
             document.getElementById('TeacherForm').reset();
         }
@@ -159,64 +129,6 @@
 
 @section Styles{
     <style>
-        #test-form {
-            position: fixed;
-            top: -500%;
-            width: 35%;
-            margin-left: 30%;
-            background-color: white;
-            box-shadow: 2px 3px 8px slategrey;
-            border-radius: 5px;
-            padding: 35px;
-        }
-
-        #setting {
-            position: fixed;
-            top: -500%;
-            width: 35%;
-            margin-left: 30%;
-            background-color: white;
-            box-shadow: 2px 3px 8px slategrey;
-            border-radius: 5px;
-            padding: 35px;
-        }
-
-        #moresetting {
-            position: fixed;
-            top: -500%;
-            width: 35%;
-            margin-left: 30%;
-            background-color: white;
-            box-shadow: 2px 3px 8px slategrey;
-            border-radius: 5px;
-            padding: 35px;
-        }
-
-        #overlay {
-            position: fixed; /* Sit on top of the page content */
-            display: none; /* Hidden by default */
-            width: 100%; /* Full width (cover the whole page) */
-            height: 100%; /* Full height (cover the whole page) */
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0,0,0,0.5); /* Black background with opacity */
-            z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
-            cursor: pointer; /* Add a pointer on hover */
-            overflow: scroll;
-        }
-
-        #test-form-div {
-            position: fixed;
-            top: -500%;
-            max-width: 1500px;
-            max-height: 1500px;
-            min-width: 1500px;
-            min-height: 1500px;
-            background-color: black;
-        }
-
         form.example input[type=text] {
             padding: 8px;
             font-size: 17px;
