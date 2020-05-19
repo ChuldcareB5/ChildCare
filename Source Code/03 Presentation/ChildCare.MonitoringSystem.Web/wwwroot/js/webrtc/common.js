@@ -47,7 +47,7 @@ channelHub.on("sendOffer", function (toConnectionId) {
         pm.init([{ "peerId": toConnectionId }]);
         pm.createPeers(peerConfig);
     } else {
-        //pm.addPeer(peerId , peerConfig, peerStates[peerId])
+        pm.addPeer(toConnectionId, peerConfig, {});
     }
 
     pm.addLocalStreamToPeer(ChildCare.localVideo, toConnectionId, true, 'video', ChildCare.mediaName);

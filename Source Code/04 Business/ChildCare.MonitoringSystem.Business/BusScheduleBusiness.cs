@@ -13,12 +13,14 @@ namespace ChildCare.MonitoringSystem.Business
 	public class BusScheduleBusiness
 	{
 		private readonly IRepository<BusSchedule> busScheduleRepository;//Connect User Repository
-		private readonly IUnitOfWork unitOfWork;
+        private readonly IRepository<Bus> busRepository;//Connect Bus Repository
+        private readonly IUnitOfWork unitOfWork;
 
 		public BusScheduleBusiness(IUnitOfWork unitOfWork)
 		{
 			this.busScheduleRepository = unitOfWork.GetRepository<IRepository<BusSchedule>>();//Get User From Repository
-			this.unitOfWork = unitOfWork;//Instantiate unitOfWork Variable
+            this.busRepository = unitOfWork.GetRepository<IRepository<Bus>>();//Get User From Repository
+            this.unitOfWork = unitOfWork;//Instantiate unitOfWork Variable
 		}
 		public BusScheduleModel AddBusSchedule(BusScheduleModel busScheduleModel)
 		{
@@ -42,8 +44,18 @@ namespace ChildCare.MonitoringSystem.Business
 			return busScheduleModel;
 		}
 
+        public int DeleteBusSchedule(int id)
+        {
+            var busdetails = this.busScheduleRepository.GetBy(x => x.BusId == id).SingleOrDefault();
+            busdetails.IsDeleted = true;
+            
+            this.unitOfWork.Save();
 
-		public List<BusScheduleModel> GetbusSchedule()
+            return busdetails.BusScheduleId; ;
+        }
+        
+
+        public List<BusScheduleModel> GetbusSchedule()
 		{
 			var busScheduleEntity = this.busScheduleRepository.GetAll();
 
@@ -69,12 +81,12 @@ namespace ChildCare.MonitoringSystem.Business
 		}
 
 
-		public List<BusScheduleModel> Getbus()
+		public List<BusModel> Getbus()
 		{
 			try
 			{
-				var busEntity = this.busScheduleRepository.GetAll(x=>x.Bus);
-				var result=Mapper.Map<List<BusScheduleModel>>(busEntity);
+				var busEntity = this.busRepository.GetAll();
+				var result=Mapper.Map<List<BusModel>>(busEntity);
 				return result;
 
 			}
@@ -144,5 +156,19 @@ namespace ChildCare.MonitoringSystem.Business
 			return busScheduleModel;
 
 		}
-	}
+
+        public BusScheduleModel GetBusDetailsById(int id)
+        {
+            try
+            {
+                var busdetails = this.busScheduleRepository.GetBy(x => x.BusId == id).SingleOrDefault();
+                var chec = Mapper.Map<BusScheduleModel>(busdetails);
+                return chec;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+    }
 }
