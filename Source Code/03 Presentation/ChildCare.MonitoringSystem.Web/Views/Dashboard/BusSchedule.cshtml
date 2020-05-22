@@ -396,7 +396,8 @@
                     if (result) {
                         var bus = ' <tbody>';
                         for (var i = 0; i < result.length; i++) {
-                            bus += '<tr class="tr-shadow"><td class="ds" value="' + result[i].busId + '">' + result[i].busId + '</td><td>' + result[i].busName + '</td><td>' + result[i].busDriverName + '</td><td><div class="table-data-feature"><button onclick="show();" title="Send Message" class="btn btn-primary"><a onclick="showschedule(' + result[i].busScheduleId + ' ); ">Schedule</a></button></div></td></tr>';
+                            //bus += '<tr class="tr-shadow"><td class="ds" value="' + result[i].busId + '">' + result[i].busId + '</td><td>' + result[i].busName + '</td><td>' + result[i].busDriverName + '</td><td><div class="table-data-feature"><button onclick="show();" title="Send Message" class="btn btn-primary"><a onclick="showschedule(' + result[i].busScheduleId + ' ); ">Schedule</a></button></div></td></tr>';
+                            bus += '<tr class="tr-shadow"><td class="ds" value="' + result[i].busId + '">' + result[i].busId + '</td><td>' + result[i].busName + '</td><td>' + result[i].busDriverName + '</td></tr>';
                         }
                         bus += '</tbody>'
 
