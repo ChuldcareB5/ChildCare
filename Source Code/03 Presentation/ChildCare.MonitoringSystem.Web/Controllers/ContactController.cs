@@ -45,9 +45,9 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 			return contact;
 		}
 
-		public ActionResult<ArrayList> GetMsgById(string contactemail)
+		public ActionResult<ArrayList> GetMsgById(int Contactid)
 		{
-			var msg = this.contactBusiness.GetMsgById(contactemail);
+			var msg = this.contactBusiness.GetMsgById(Contactid, applicationContext.UserId);
 			//var msgId = msg.MessageBoardId;
 			return msg;
 		}

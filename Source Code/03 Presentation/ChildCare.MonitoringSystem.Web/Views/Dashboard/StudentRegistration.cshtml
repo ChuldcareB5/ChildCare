@@ -165,7 +165,7 @@
         </div>
 
         <div>
-            <button type="button" class="btn btn-outline-primary btn-block" onclick="addbusinfo()">Add Bus info</button>
+            <button type="button" class="btn btn-outline-primary btn-block"  onclick="addbusbtn()">Add Bus info</button>
         </div>
     </div>
 
@@ -262,16 +262,20 @@
             //$('#busdiv').hide();
             $('#overlay1').hide();
         }
-        function addbusinfo() {
-            var t = document.getElementById('tick').value;
+        function addbusinfo(t) {
+
+            //var t = document.getElementByClassName('tick').value;
+            //alert(t);
             document.getElementById('sheduleid').value = t;
             document.getElementById('toaddress').value = document.getElementById('to').value;
-            //document.getElementById('fromaddress').value = document.getElementById('from').value;
-            $('#overlay1').hide();
+            document.getElementById('fromaddress').value = document.getElementById('from').value;
+            //$('#overlay1').hide();
 
 
         }
-
+        function addbusbtn() {
+            $('#overlay1').hide();
+        }
         //document.getElementById('from').addEventListener('change', onChangeHandler);
 
         function onChangeHandler() {
@@ -294,7 +298,7 @@
                     if (result) {
                         var tabl = '';
                         for (i = 0; i < result.length; i++) {
-                            tabl += '<tr><td>'+ (i+1) +'</td></tr><tr><td>Select : <input type = "radio" class= "bus" id="tick" value = "' + result[i].busScheduleId + '" /> </td></tr><tr><td>Schedule Id: ' + result[i].busScheduleId + '</td></tr><tr><td>Schedule Time :' + result[i].busScheduleTime + '</td><td>       </td>&nsb;&nsb;&nsb;&nsb;&nsb;&nsb;&nsb;&nsb;<br></tr>';
+                            tabl += '<tr><td>' + (i + 1) + '</td></tr><tr><td>Select : <input type = "radio" name="busbt"class="bus" onclick="addbusinfo(' +result[i].busScheduleId+')" id="tick" value = "' + result[i].busScheduleId + '" /> </td></tr><tr><td>Schedule Id: ' + result[i].busScheduleId + '</td></tr><tr><td>Schedule Time :' + result[i].busScheduleTime + '</td><td>       </td>&nsb;&nsb;&nsb;&nsb;&nsb;&nsb;&nsb;&nsb;<br></tr>';
                         }
                         $('#busregister').append(tabl);
                     }
