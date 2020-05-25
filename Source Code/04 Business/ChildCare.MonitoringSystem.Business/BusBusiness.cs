@@ -126,7 +126,14 @@ namespace ChildCare.MonitoringSystem.Business
 			foreach (var bus in busEntity)
 			{
 
-				ms.Add(bus.ToBusSchedule);
+				if (ms.Contains(bus.ToBusSchedule.ToString()))
+				{
+					continue;
+				}
+				else
+				{
+					ms.Add(bus.ToBusSchedule);
+				}
 
 			}
 			return ms;

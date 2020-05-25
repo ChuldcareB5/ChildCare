@@ -15,12 +15,13 @@ namespace ChildCare.MonitoringSystem.Business
 	public class ContactBusiness
 	{
 		private readonly IRepository<Contact> contactRepository;//Connect user Repository
-
+		private readonly IRepository<User> UserRepository;
 		private readonly IUnitOfWork unitOfWork;
 
 		public ContactBusiness(IUnitOfWork unitOfWork)
 		{
 			this.contactRepository = unitOfWork.GetRepository<IRepository<Contact>>();//Get User From Repository
+			this.UserRepository = unitOfWork.GetRepository<IRepository<User>>();//Get User From Repository
 			this.unitOfWork = unitOfWork;//Instantiate unitOfWork Variable
 		}
 
@@ -67,15 +68,16 @@ namespace ChildCare.MonitoringSystem.Business
 			return ms;
 		}
 
-		public ArrayList GetMsgById(string contactemail)
+		public ArrayList GetMsgById(int Contactid,int userid)
 		{
-			var msgEntity = this.contactRepository.GetAll().Where(x => x.ContactEmail == contactemail).FirstOrDefault();
-
+			var msgEntity = this.contactRepository.GetAll().Where(x => x.ContactId==Contactid).FirstOrDefault();
+			var useremail = this.UserRepository.GetBy(x => x.UserId == userid).SingleOrDefault();
 			var msgs = new ContactModel();
 			ArrayList ms = new ArrayList();
 			var toContactemail = this.contactRepository.GetBy(x => x.ContactId == msgEntity.ContactId).SingleOrDefault();
 			ms.Add(toContactemail.ContactId);
 			ms.Add(msgEntity.ContactEmail);
+			ms.Add(useremail.UserEmail);
 			this.unitOfWork.Save();
 
 			return ms;
