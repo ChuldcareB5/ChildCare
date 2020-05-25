@@ -1,37 +1,19 @@
 ﻿@inject ChildCare.MonitoringSystem.Common.AppSettings appSettings;
 @{
-    ViewData["Title"] = "Class A";
+    ViewData["Title"] = "StudentCamera";
 }
 
 @section LeftNavigation{
-    <partial name="_AdminLeftNavigation" />
+    <partial name="_UserLeftNavigation" />
 }
-
 
 <div class="main-content">
     <div class="container-fluid">
-        <h2>Class A</h2><hr />
-        <div class="row">
-            <div class="col-md-1">
-
-            </div>
-            <div class="col-md-11">
-                <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);" style="padding:10px; width:20%">
-                    <option value="/Camara/ClassA" selected>Class A</option>
-                    <option value="/Camara/ClassB">Class B</option>
-                    <option value="/Camara/PlayGround">Play Ground</option>
-                </select>
-            </div>
-        </div>
-
-        <br />
+        <h2>Student Camera</h2><hr />
         <div class="row">
             <div class="col-md-1">
             </div>
             <video id="cam" autoplay></video>
-            <div class="col-md-3">
-                <button id="start_record">Start recording</button>
-            </div>
         </div>
     </div>
 </div>
@@ -41,8 +23,8 @@
     <script type="text/javascript">
         var ChildCare = ChildCare || {};
 
-        ChildCare.camName = 'classA';
-        ChildCare.mediaName = 'ClassAVideo';
+        ChildCare.camName = 'StudentCamera';
+        ChildCare.mediaName = 'StudentCameraVideo';
         ChildCare.urls = ChildCare.urls || {};
         ChildCare.urls.signalHostUrl = "@appSettings.SignalUrl";
 
