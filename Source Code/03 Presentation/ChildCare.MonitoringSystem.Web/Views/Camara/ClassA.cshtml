@@ -8,14 +8,41 @@
 }
 
 <h2>Cam1</h2>
-
-<video id="cam" autoplay></video>
-<button id="start_record">Start recording</button>
-
-@section Scripts{
-    <script src="~/lib/signalr-client/signalr.js"></script>
-    <script src="~/js/webrtc/aykan-webrtc.min.js"></script>
-    <script type="text/javascript">
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-11">
+                <select name="type" style="padding:10px;width:20%">
+                    <option id="classA" type="button" value="Choose Class" selected disabled>Choose Class</option>
+                    <option id="classA" type="button" value="Class A">CLASS A</option>
+                    <option id="classB" type="button" value="Class B">CLASS B</option>
+                    <option id="classB" type="button" value="Class B">CLASS C</option>
+                    <option id="classB" type="button" value="Class B">CLASS D</option>
+                    <option id="classB" type="button" value="Class B">CLASS E</option>
+                    <option id="classB" type="button" value="Class B">PLAY GROUND</option>
+                </select>
+                @*<input id="classA" type="button" value="Class A" />
+                <input id="classB" type="button" value="Class B" />*@
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-1">
+            </div>
+                <video id="cam" autoplay></video>
+        </div>
+        <div class="row">
+            <br />
+            <button id="start_record">Start recording</button>
+        </div>
+    </div>
+</div>
+            @section Scripts{
+                <script src="~/lib/signalr-client/signalr.js"></script>
+                <script src="~/js/webrtc/aykan-webrtc.min.js"></script>
+                <script type="text/javascript">
         var ChildCare = ChildCare || {};
 
         ChildCare.camName = 'classA';
@@ -23,11 +50,31 @@
         ChildCare.urls = ChildCare.urls || {};
         ChildCare.urls.signalHostUrl = "@appSettings.SignalUrl";
 
-        $(document).ready(function () {
+        $(document).ready(function ()
+        {
             startChannel();
             join(ChildCare.camName);
         });
-    </script>
-    <script src="~/js/webrtc/common.js"></script>
-    <script src="~/js/pages/classView.js"></script>
-}
+                </script>
+                <script src="~/js/webrtc/common.js"></script>
+                <script src="~/js/pages/classView.js"></script>
+            }
+            <style>
+                #start_record {
+                    background-color: royalblue;
+                    border: 1px blue solid;
+                    padding: 5px 20px 5px 20px;
+                    color: black;
+                }
+
+                    #start_record:hover {
+                        background-color: transparent;
+                        color: black;
+                        border: 1px black solid;
+                    }
+
+                #cam {
+                    width:70%;
+                    height: 50%;
+                }
+            </style>

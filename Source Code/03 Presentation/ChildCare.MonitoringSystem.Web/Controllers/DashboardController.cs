@@ -54,10 +54,10 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 			return View();
 		}
 
-		public IActionResult CamaraView()
-		{
-			return View();
-		}
+        public IActionResult CamaraView()
+        {
+            return View();
+        }
 
         public IActionResult ParentCamaraView()
         {

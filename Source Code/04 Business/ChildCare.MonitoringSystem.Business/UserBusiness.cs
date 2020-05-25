@@ -214,7 +214,7 @@ namespace ChildCare.MonitoringSystem.Business
 
         public UserModel UserPasswordUpdate(UserModel userModel)
 		{
-			var userupdate = this.userRepository.GetBy(x => x.UserId == userModel.UserId).SingleOrDefault();
+			var userupdate= this.userRepository.GetBy(x => x.UserId == userModel.UserId).SingleOrDefault();
 
             userupdate.UserName = userupdate.UserName;
             userupdate.UserEmail = userupdate.UserEmail;
