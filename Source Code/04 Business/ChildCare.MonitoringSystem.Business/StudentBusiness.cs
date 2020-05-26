@@ -25,6 +25,7 @@ namespace ChildCare.MonitoringSystem.Business
 		private readonly IRepository<Student> studentRepository;//Connect student Repository
         private readonly IRepository<StudentLocation> studentlocationRepository;
         private readonly IRepository<BusLocation> buslocationRepository;
+        private readonly IRepository<BusSchedule> busscheduleRepository;
         private readonly IRepository<StudentBusSchedule> studentbusschedulRepository;
         private readonly IRepository<BusSchedule> busscheuleRepository;
         private readonly IRepository<Bus> busRepository;
@@ -160,7 +161,7 @@ namespace ChildCare.MonitoringSystem.Business
         {
             var studentid = this.studentRepository.GetBy(x => x.ParentId == parentid).SingleOrDefault();
             var studentlocation = this.studentlocationRepository.GetBy(x => x.StudentId == studentid.StudentId).Last();
-            return Mapper.Map<StudentLocationModel>(studentlocation); ;
+            return Mapper.Map<StudentLocationModel>(studentlocation); 
         }
         public List<StudentLocationModel> GetAllStudentLocation(int studentid)
         {
@@ -202,8 +203,9 @@ namespace ChildCare.MonitoringSystem.Business
         {
             var studentid = this.studentRepository.GetBy(x => x.ParentId == parentid).SingleOrDefault();
             var busid = this.studentbusschedulRepository.GetBy(x => x.StudentId == studentid.StudentId).SingleOrDefault();
-            var studentbuslocation = this.buslocationRepository.GetBy(x => x.BusId==busid.BusScheduleId).Last();
-            return Mapper.Map<BusLocationModel>(studentbuslocation); ;
+            var studentbuslocation = this.buslocationRepository.GetBy(x => x.BusScheduleId == busid.BusScheduleId).Last();
+            //var studentbusloc = studentbuslocation.BusId;
+            return Mapper.Map<BusLocationModel>(studentbuslocation);
         }
 
         public List<BusLocationModel> GetAllBusLocation(int busid)

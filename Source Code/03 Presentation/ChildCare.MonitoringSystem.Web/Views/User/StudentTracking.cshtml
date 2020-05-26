@@ -8,37 +8,38 @@
 }
 
 <!-- MAIN CONTENT-->
-<div class="main-content">
-   
-    <div class="row">
-        <div class="col-md-12">
-            <!-- MAP DATA-->
-            <div class="map-data m-b-40">
-                <h3 class="title-3 m-b-30">
-                    <i class="zmdi zmdi-map"></i>Student Tracking Map
-                </h3>
-                <div class="filters">
-                    <div class="rs-select2--dark rs-select2--md m-r-10 rs-select2--border">
-                        <select class="js-select2" name="property">
-                            <option selected="selected"> Enter Student ID</option>
-                            <option value="">1</option>
-                            <option value="">2</option>
-                        </select>
-                        <div class="dropDownSelect2"></div>
-                    </div>
+<body onload="initMap();">
+    <div class="main-content">
 
-                </div>
-                <div class="map-wrap">
-                    @*<div class="vmap" id="vmap1"></div>*@
-                    <div id="map"></div>
-                    <script>
-                        
-                        // Initialize and add the map
-                       // $(document).ready(function () {
+        <div class="row">
+            <div class="col-md-12">
+                <!-- MAP DATA-->
+                <div class="map-data m-b-40">
+                    <h3 class="title-3 m-b-30">
+                        <i class="zmdi zmdi-map"></i>Student Tracking Map
+                    </h3>
+                    @*<div class="filters">
+                        <div class="rs-select2--dark rs-select2--md m-r-10 rs-select2--border">
+                            <select class="js-select2" name="property">
+                                <option selected="selected"> Enter Student ID</option>
+                                <option value="">1</option>
+                                <option value="">2</option>
+                            </select>
+                            <div class="dropDownSelect2"></div>
+                        </div>
+
+                    </div>*@
+                    <div class="map-wrap">
+                        @*<div class="vmap" id="vmap1"></div>*@
+                        <div id="map"></div>
+                        <script>
+
+                            // Initialize and add the map
+                            // $(document).ready(function () {
                             function initMap() {
-                               
-                            // The location of Uluru
-                           
+
+                                // The location of Uluru
+
                                 $.ajax({
                                     url: '/Student/GetStudentLocation',
                                     type: 'get',
@@ -47,11 +48,11 @@
 
                                         if (result) {
 
-                                            
+
                                             var latitude = result.latitude;
-                                           
+
                                             var langitude = result.longitute;
-                                           
+
                                             var uluru = { lat: latitude, lng: langitude };
                                             // The map, centered at Uluru
                                             var map = new google.maps.Map(
@@ -66,28 +67,29 @@
                                     },
 
 
-                            });
-                        }
+                                });
+                            }
 
-                        //    });
-                           
-                        
-                    </script>
-                    <!--Load the API from the specified URL
-                    * The async attribute allows the browser to render the page while the API loads
-                    * The key parameter will contain your own API key (which is not needed for this tutorial)
-                    * The callback parameter executes the initMap() function
-                    -->
-                    <script async defer
-                            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxi53n1l21ELjpf2Oq0frWB50S6GyCG5o&callback=initMap">
-                    </script>
+                            //    });
+
+
+                        </script>
+                        <!--Load the API from the specified URL
+                        * The async attribute allows the browser to render the page while the API loads
+                        * The key parameter will contain your own API key (which is not needed for this tutorial)
+                        * The callback parameter executes the initMap() function
+                        -->
+                        <script async defer
+                                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxi53n1l21ELjpf2Oq0frWB50S6GyCG5o&callback=initMap">
+                        </script>
+                    </div>
                 </div>
+                <!-- END MAP DATA-->
             </div>
-            <!-- END MAP DATA-->
         </div>
-    </div>
 
-</div>
+    </div>
+</body>
 <!-- END MAIN CONTENT-->
 
 <div id="overlay" style="z-index:4">

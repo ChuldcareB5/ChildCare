@@ -8,6 +8,7 @@ namespace ChildCare.MonitoringSystem.Model
     {
         public int BusLocationId { get; set; } // BusLocationId (Primary key)
         public int BusId { get; set; } // BusId
+        public int BusScheduleId { get; set; } // BusScheduleId
         public System.DateTime LocationTime { get; set; } // LocationTime
         public double Longitute { get; set; } // Longitute
         public double Latitude { get; set; } // Latitude

@@ -8,6 +8,7 @@
 }
 
 <!-- MAIN CONTENT-->
+<body onload="initMap();">
     <div class="main-content">
         <div class="container-fluid">
             <div class="row">
@@ -19,10 +20,10 @@
                         </h3>
                         <div class="filters">
                             @*<div class="rs-select2--dark rs-select2--md m-r-10 rs-select2--border">
-                                <input type="text" class="studentid" />
-                                <input type="button" class="btn" onclick="initMap()" />
-                                <div class="dropDownSelect2"></div>
-                            </div>*@
+                                    <input type="text" class="studentid" />
+                                    <input type="button" class="btn" onclick="initMap()" />
+                                    <div class="dropDownSelect2"></div>
+                                </div>*@
                             <input class="au-input au-input--h65" id="studentid" type="text" name="search" placeholder="Search By Student USN" style="border: 1px solid grey" />
                             <button class="text-primary" type="button" onclick="initMap()" style="width:60px;height:35px;background-color:blue;margin-left:-10px;">
                                 <i class="zmdi zmdi-search" style="color:white;"></i>
@@ -33,24 +34,24 @@
                         <br />
 
                         @*<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-                        <div ng-app="myApp" ng-controller="myCtrl">
+                            <div ng-app="myApp" ng-controller="myCtrl">
 
-                            USN: <input type="text" ng-model="firstName"><br>
+                                USN: <input type="text" ng-model="firstName"><br>
 
-                            <br>
-                            Full Name: {{firstName}}
+                                <br>
+                                Full Name: {{firstName}}
 
-                        </div>
-                        <script>
-                            var app = angular.module('myApp', []);
-                            app.controller('myCtrl', function ($scope) {
-                                //$scope.firstName = "John";
-                                if ($scope.firstName =='') {
-                                    $scope.firstName = 'vat';
-                                }
+                            </div>
+                            <script>
+                                var app = angular.module('myApp', []);
+                                app.controller('myCtrl', function ($scope) {
+                                    //$scope.firstName = "John";
+                                    if ($scope.firstName =='') {
+                                        $scope.firstName = 'vat';
+                                    }
 
-                            });
-                        </script>*@
+                                });
+                            </script>*@
 
                         <div class="map-wrap">
                             @*<div class="vmap" id="vmap1"></div>*@
@@ -114,10 +115,10 @@
 
                             </script>
                             <!--Load the API from the specified URL
-                        * The async attribute allows the browser to render the page while the API loads
-                        * The key parameter will contain your own API key (which is not needed for this tutorial)
-                        * The callback parameter executes the initMap() function
-                        -->
+                            * The async attribute allows the browser to render the page while the API loads
+                            * The key parameter will contain your own API key (which is not needed for this tutorial)
+                            * The callback parameter executes the initMap() function
+                            -->
                             <script async defer
                                     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxi53n1l21ELjpf2Oq0frWB50S6GyCG5o&callback=initMap">
                             </script>
@@ -126,8 +127,9 @@
                     <!-- END MAP DATA-->
                 </div>
             </div>
-            </div>
         </div>
+    </div>
+</body>
         <!-- END MAIN CONTENT-->
 
         

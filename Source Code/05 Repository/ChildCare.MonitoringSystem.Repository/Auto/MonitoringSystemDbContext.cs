@@ -137,9 +137,12 @@ namespace ChildCare.MonitoringSystem.Repository
 				entity.ToTable("BusLocation", "dbo");
 				
 				entity.HasOne(a => a.Bus).WithMany(b => b.BusLocation).HasForeignKey(c => c.BusId); // FK_BusLocation_Bus
+				entity.HasOne(a => a.BusSchedule).WithMany(b => b.BusLocation).HasForeignKey(c => c.BusScheduleId); // FK_BusLocation_BusSchedule
 				entity.Property(x => x.BusLocationId).HasColumnName(@"BusLocationId").IsRequired();
 
 				entity.Property(x => x.BusId).HasColumnName(@"BusId").IsRequired();
+
+				entity.Property(x => x.BusScheduleId).HasColumnName(@"BusScheduleId").IsRequired();
 
 				entity.Property(x => x.LocationTime).HasColumnName(@"LocationTime").IsRequired();
 
@@ -380,11 +383,11 @@ namespace ChildCare.MonitoringSystem.Repository
 
 				entity.Property(x => x.StudentName).HasColumnName(@"StudentName").IsRequired().IsUnicode(false).HasMaxLength(100);
 
-				entity.Property(x => x.StudentAddress).HasColumnName(@"StudentAddress").IsRequired().IsUnicode(false).HasMaxLength(200);
-
 				entity.Property(x => x.StudentImg).HasColumnName(@"StudentImg").IsRequired().IsUnicode(false).HasMaxLength(200);
 
-				entity.Property(x => x.StudentGender).HasColumnName(@"StudentGender").IsRequired().IsUnicode(false).HasMaxLength(10);
+				entity.Property(x => x.StudentAddress).HasColumnName(@"StudentAddress").IsRequired().IsUnicode(false).HasMaxLength(200);
+
+				entity.Property(x => x.StudentGender).HasColumnName(@"StudentGender").IsRequired().IsUnicode(false).HasMaxLength(100);
 
 				entity.Property(x => x.StudentDob).HasColumnName(@"StudentDob").IsRequired();
 
@@ -416,7 +419,7 @@ namespace ChildCare.MonitoringSystem.Repository
 
 				entity.ToTable("StudentBusSchedule", "dbo");
 				
-				entity.HasOne(a => a.BusSchedule).WithMany(b => b.StudentBusSchedule).HasForeignKey(c => c.BusScheduleId); // FK_StudentBusSchedule_BusSchedule
+				entity.HasOne(a => a.BusSchedule).WithMany(b => b.StudentBusSchedule).HasForeignKey(c => c.BusScheduleId); // FK_StudentBusSchedule_BusSchedule1
 				entity.HasOne(a => a.Student).WithMany(b => b.StudentBusSchedule).HasForeignKey(c => c.StudentId); // FK_StudentBusSchedule_Student
 				entity.Property(x => x.StudentBusScheduleId).HasColumnName(@"StudentBusScheduleId").IsRequired();
 
