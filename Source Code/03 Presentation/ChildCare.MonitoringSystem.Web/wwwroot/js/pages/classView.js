@@ -18,12 +18,30 @@ function download() {
     a.style.display = 'none';
     a.href = url;
     a.download = 'test.webm';
+   
+  
     document.body.appendChild(a);
     a.click();
     setTimeout(() => {
         document.body.removeChild(a);
         window.URL.revokeObjectURL(url);
-    }, 100);
+    }, 10000);
+    //$.ajax({
+
+    //    url: '/Dashboard/Student1',
+    //    type: 'post',
+    //    dataType: 'json',
+    //    data: {
+    //        videoname: 'test.webm'
+    //    },
+    //    success: function (result) {
+
+    //        if (result) {
+
+
+    //        }
+    //    },
+    //});
 }
 
 function startRecording() {
@@ -72,18 +90,25 @@ recordButton.addEventListener('click', () => {
 
         recordingInterval = setInterval(() => {
             stopRecording();
-            download();
+           // this.setTimeout(download, 30000); 
+            setTimeout(() => {
+                download();
+            }, 10000);
 
             startRecording();
-        }, 60000); //300000
-    } 
+        }, 30000); //300000
+    }
 });
 
 $(window).bind('beforeunload', function () {
     if (ChildCare.localVideo && recordedBlobs) {
 
         stopRecording();
-        download();
+        setTimeout(() => {
+            download();
+        }, 10000);
+        //this.setTimeout(download,60000);
+       
         clearInterval(recordingInterval)
     }
 });

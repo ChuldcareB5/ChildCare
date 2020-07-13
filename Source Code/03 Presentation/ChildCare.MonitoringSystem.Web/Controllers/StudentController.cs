@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Hosting;
 using System.IO;
 using ChildCare.MonitoringSystem.Core.Models;
 using ChildCare.MonitoringSystem.Entity;
+using MySql.Data.MySqlClient;
 
 namespace ChildCare.MonitoringSystem.Web.Controllers
 {
@@ -97,9 +98,52 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 			//return null;
 		}
 
+        [HttpGet]
+        public ActionResult<Int32> getlocation()
+        {
+            //using (SqlConnection con = new SqlConnection("Data Source=192.168.43.28:80;Initial Catalog=test_pathol;Integrated Security=True"))
+            //{
+            //    SqlCommand cmd = new SqlCommand("select * from gps;");
+            //    cmd.Connection = con;
+            //    con.Open();
+            //    DataSet ds = new DataSet();
 
+
+            //    SqlDataAdapter v_sda = new SqlDataAdapter(cmd);
+
+            //    v_sda.Fill(ds);
+            //    var a = ds.Tables[0].Rows.Count;
+
+            //}
+            string con = "datasource=127.0.0.1;port=3306;user=root;password=;database= test_pathol";
+            string query = "SELECT * FROM gps where id=(SELECT MAX(id) FROM gps)";
+
+            MySqlConnection databaseconnect = new MySqlConnection(con);
+            MySqlCommand commandDatabase = new MySqlCommand(query, databaseconnect);
+            MySqlDataReader reader;
+            try
+            {
+                databaseconnect.Open();
+                reader = commandDatabase.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        string[] row = { reader.GetString(0), reader.GetString(1), reader.GetString(2), };
+                        var studentlocation = this.studentBusiness.UpdateStudentLocation(applicationContext.UserId,row[1],row[2]);
+                    }
+                }
+
+            }
+            catch
+            {
+                string a;
+            }
+            return 0;
+        }
         public ActionResult<StudentLocationModel> GetStudentLocation()
         {
+            getlocation();
             var studentlocation = this.studentBusiness.GetStudentLocation(applicationContext.UserId);
             return studentlocation;
         }

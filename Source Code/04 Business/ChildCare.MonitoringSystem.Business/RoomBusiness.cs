@@ -14,12 +14,14 @@ namespace ChildCare.MonitoringSystem.Business
         private readonly IRepository<Room> roomRepository;//Connect user Repository
         private readonly IUnitOfWork unitOfWork;
         private readonly IRepository<RoomSchedule> roomScheduleRepository;
-
+        private readonly IRepository<RoomVideo> roomvideorepository;
+        
         public RoomBusiness(IUnitOfWork unitOfWork)
         {
             this.roomRepository = unitOfWork.GetRepository<IRepository<Room>>();//Get User From Repository
             this.unitOfWork = unitOfWork;//Instantiate unitOfWork Variable
             this.roomScheduleRepository = unitOfWork.GetRepository<IRepository<RoomSchedule>>();
+            this.roomvideorepository=unitOfWork.GetRepository<IRepository<RoomVideo>>();
         }
 
         public RoomModel AddRoom(RoomModel roomModel)
@@ -83,7 +85,24 @@ namespace ChildCare.MonitoringSystem.Business
             return rooms;
         }
 
+         public Int32 Updatedvideoid(string id)
+        {
+            var roomvideoEntity = new RoomVideo()
+            {
 
+                RoomVideoUrlId = id,
+                RoomId=1,
+                CreatedBy = -1,
+                CreatedOn = DateTime.UtcNow,
+                UpdatedBy = -1,
+                UpdatedOn = DateTime.UtcNow
+            };
+
+
+            this.roomvideorepository.Add(roomvideoEntity);
+            this.unitOfWork.Save();
+            return 1;
+        }
 		public Int32 DeleteId(int id)
 		{
 
@@ -93,5 +112,49 @@ namespace ChildCare.MonitoringSystem.Business
 			return roomid != null ? 0 : 1;
 
 		}
+        public string Updatedpath(int id,string paths)
+        {
+            var roomid = this.roomvideorepository.GetBy(x => x.RoomVideoId == id).SingleOrDefault();
+            roomid.Path = paths;
+            this.unitOfWork.Save();
+            return null;
+        }
+        public List<string> GetAllRoomvideos()
+        {
+            var urlid = this.roomvideorepository.GetAll();
+            var roomlist = new List<string>();
+            foreach (var url in urlid)
+            {
+                roomlist.Add(url.Path);
+
+
+            }
+            return roomlist;
+        }
+        public List<RoomVideoModel> GetRoomvideourlId()
+        {
+            var urllist = new List<RoomVideoModel>();    
+            var urlid = this.roomvideorepository.GetAll();
+            foreach(var url in urlid)
+            {
+                if(url.Path==null)
+                {
+                    urllist.Add(new RoomVideoModel()
+                    {
+                        RoomVideoId = url.RoomVideoId,
+                        RoomVideoUrlId = url.RoomVideoUrlId,
+                    });
+                }
+                else
+                {
+                    continue;
+                }
+               
+               
+            }
+            return urllist;
+        }
+        //////////////////////////////////////////
+       
 	}
 }

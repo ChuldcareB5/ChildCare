@@ -12,18 +12,28 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Controllers\DriveController.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="7.0.1" />
+    <PackageReference Include="Google.Apis.Drive.v3" Version="1.45.0.1959" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.7" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.7" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication" Version="2.1.2" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.AspNetCore.SignalR.Core" Version="1.0.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.10" />
+    <PackageReference Include="MySql.Data" Version="8.0.20" />
     <PackageReference Include="Nexmo.Csharp.Client" Version="2.2.0-rc2" />
+    <PackageReference Include="System.Web.Providers" Version="1.2.0" />
+    <PackageReference Include="System.Web.Providers.Core" Version="1.1.0" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Infrastructure\" />
-    <Folder Include="Middlewares\" />
+    <Folder Include="wwwroot\DFile\" />
     <Folder Include="wwwroot\profilepics\" />
   </ItemGroup>
 

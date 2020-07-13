@@ -34,7 +34,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "06 Database", "06 Database"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "ChildCare.MonitoringSystem.Database", "06 Database\ChildCare.MonitoringSystem.Database\ChildCare.MonitoringSystem.Database.sqlproj", "{026259CD-EA3E-49BB-916C-88252D0D6290}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChildCare.MonitoringSystem.Signaling", "03 Presentation\ChildCare.MonitoringSystem.Signaling\ChildCare.MonitoringSystem.Signaling\ChildCare.MonitoringSystem.Signaling.csproj", "{8E954E37-7AA1-462B-8E43-7CB74DBE129D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChildCare.MonitoringSystem.Signaling", "03 Presentation\ChildCare.MonitoringSystem.Signaling\ChildCare.MonitoringSystem.Signaling\ChildCare.MonitoringSystem.Signaling.csproj", "{8E954E37-7AA1-462B-8E43-7CB74DBE129D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

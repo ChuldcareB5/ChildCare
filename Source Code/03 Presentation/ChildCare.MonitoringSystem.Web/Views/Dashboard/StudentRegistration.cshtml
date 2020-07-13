@@ -62,7 +62,7 @@
                     <div class="form-group">
                         <label for="mname" class=" form-control-label">User Name *</label>
                         <div class="input-group">
-                            @*@Html.TextBoxFor(x => x.UserName)*@
+
                             <input asp-for="UserName" type="text" placeholder="Username" required class="form-control">
                             <div class="input-group-addon">
                                 <i class="fa fa-user"></i>
@@ -98,7 +98,7 @@
 
                     <div class="form-group">
                         <label>Batch</label>
-                        @*  <input class="form-control" type="time" name="batch" id="batch" required>*@
+
                         <select asp-for="Batch" id="sbatch" class="form-control">
                             <option value="B1">B1</option>
                             <option value="B2">B2</option>
@@ -158,14 +158,14 @@
             <table id="busregister">
                 <tr>
                     @*<td>Scheduling Id</td>
-                    <td>           </td>
-                    <td>Time</td>*@
+                        <td>           </td>
+                        <td>Time</td>*@
                 </tr>
             </table>
         </div>
 
         <div>
-            <button type="button" class="btn btn-outline-primary btn-block"  onclick="addbusbtn()">Add Bus info</button>
+            <button type="button" class="btn btn-outline-primary btn-block" onclick="addbusbtn()">Add Bus info</button>
         </div>
     </div>
 
@@ -298,7 +298,7 @@
                     if (result) {
                         var tabl = '';
                         for (i = 0; i < result.length; i++) {
-                            tabl += '<tr><td>' + (i + 1) + '</td></tr><tr><td>Select : <input type = "radio" name="busbt"class="bus" onclick="addbusinfo(' +result[i].busScheduleId+')" id="tick" value = "' + result[i].busScheduleId + '" /> </td></tr><tr><td>Schedule Id: ' + result[i].busScheduleId + '</td></tr><tr><td>Schedule Time :' + result[i].busScheduleTime + '</td><td>       </td>&nsb;&nsb;&nsb;&nsb;&nsb;&nsb;&nsb;&nsb;<br></tr>';
+                            tabl += '<tr><td>' + (i + 1) + '</td></tr><tr><td>Select : <input type = "radio" name="busbt"class="bus" onclick="addbusinfo(' + result[i].busScheduleId + ')" id="tick" value = "' + result[i].busScheduleId + '" /> </td></tr><tr><td>Schedule Id: ' + result[i].busScheduleId + '</td></tr><tr><td>Schedule Time :' + result[i].busScheduleTime + '</td><td>       </td>&nsb;&nsb;&nsb;&nsb;&nsb;&nsb;&nsb;&nsb;<br></tr>';
                         }
                         $('#busregister').append(tabl);
                     }

@@ -1,0 +1,5 @@
+select * from RoomSchedule  
+SELECT  COUNT(RoomId) as count
+FROM RoomSchedule
+GROUP BY RoomScheduleTime
+select DISTINCT RoomScheduleTime,TeacherId,RoomScheduleSubject from RoomSchedule where  RoomId=1;

@@ -17,11 +17,11 @@
                         <div class="table-sorting table-responsive">
 
                             <div class="panel-body">
-                                <br>
+                        
                                 <div class="table-sorting table-responsive" align="center">
-                                    <!--  SHOW ENTRIES-->
-                                    <div class="portrait" align="center" style="border-radius: 50%; ">
-                                        <img  id="simg" style="max-width: 30%; max-height: 30%;width: 20%; height:20%;border-radius: 50%">
+                                    <!--  SHOW ENTRIES--><br />
+                                    <div class="portrait" align="center" >
+                                        <img  id="simg" style="width: 20%; height:20%;border-radius: 50%; border:2px solid black">
                                     </div>
                                     <form action="" method="post" id="formnotes">
 
@@ -108,6 +108,12 @@
 
 @section Styles{
     <style>
+        #simg:hover {
+
+            -ms-transform: scale(1.5); /* IE 9 */
+            -webkit-transform: scale(1.5); /* Safari 3-8 */
+            transform: scale(1.3);
+        }
         #test-form-div {
             position: fixed;
             top: -500%;

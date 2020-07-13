@@ -150,11 +150,32 @@ namespace ChildCare.MonitoringSystem.Business
 			return studentid != null ? 0 : 1;
 
 		}
+
         public StudentModel GetUsersStudentInfo(int id)
         {
 
             var student = this.studentRepository.GetBy(x => x.ParentId == id, x => x.User).SingleOrDefault();
             return Mapper.Map<StudentModel>(student);
+        }
+        public Int32 UpdateStudentLocation(int parentid,string lattitude,string longitude)
+        {
+            var studentid = this.studentRepository.GetBy(x => x.ParentId == parentid).SingleOrDefault();
+            var Studentlocationentity = new StudentLocation()
+            {
+         
+
+                StudentId = studentid.StudentId,
+                LocationTime = DateTime.UtcNow,
+                Longitute =Convert.ToDouble(lattitude), 
+                Latitude = Convert.ToDouble(longitude),
+                CreatedBy = -1,
+                CreatedOn = DateTime.UtcNow,
+                UpdatedBy = -1,
+                UpdatedOn = DateTime.UtcNow
+            };
+            this.studentlocationRepository.Add(Studentlocationentity);
+            this.unitOfWork.Save();
+            return 0;
         }
         public StudentLocationModel GetStudentLocation(int parentid)
         {

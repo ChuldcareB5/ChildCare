@@ -8,7 +8,9 @@
 }
 
 
-    
+    <style>
+       
+    </style>
         <!-- MAIN CONTENT-->
         <div class="main-content">
             @*<div class="section__content section__content--p30">*@
@@ -18,42 +20,32 @@
                         <!-- DATA TABLE -->
                         <div class="row">
                             <div class="col-md-6">
-                                <h2 class="title-5 m-b-30" style="color:blue;">Student View</h2>
-                            </div>
-                            <div class="col-md-6">
-                                @*<div class="input-group">
-                                    <input  class="text-center" style="border:solid #F5F5F5;border-radius:5px;" type="text" id="studid" name="studid" placeholder="SearchBy StudentId">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-primary">
-                                            <i class="fa fa-search"></i>
-                                        </button>
-                                    </div>
-                                </div>*@
-
+                                <h1>Student View</h1>
                             </div>
                         </div>
-
-
+                        <hr />
                         <div class="row">
+                            <div class="col-lg-1">
+
+                            </div>
                             <div class="col-lg-11">
-                                <div class="au-card m-b-30">
-                                    <div class="au-card-inner">
-                                        
-                                        <video width="100%" controls>
-                                            <source src="~/video/class.mp4" type="video/mp4">
-                                            @*<source src="~/video/class.mp4" type="video/mp4">*@
 
+                                <div class="au-card-inner" id="gh">
 
-                                        </video>
-
-
-
+                                    <video id="videoid" class="videoclass" style="width:50%; height:400px" controls autoplay>
+                                    </video>
+                                </div>
+                                <div class="au-card-inner"
+                                     
+                                     >
+                                    <div id="df" style="width:50%;height:auto;background-color:black;display:flex;">
 
                                     </div>
                                 </div>
 
                             </div>
-                        </div>
+
+                            </div>
                         <!-- END DATA TABLE -->
                     </div>
                 </div>
@@ -68,15 +60,79 @@
         function search(string) {
             window.find(string);
         }
+        function hi(a) {
+            $('#gh').html('');
+            $.ajax({
+                url: '/Dashboard/Getvideofile',
+                type: 'get',
+                dataType: 'json',
+                success: function (result) {
 
+                    if (result) {
+
+                 
+                        var cat = '';
+                        
+                        cat += ' <video id="videoid"class="videoclass"width="50%" style="height:auto" controls autoplay ><source src="' + result[a] + '" type="video/mp4"></video>';
+                  
+
+
+                     
+                        $('#gh').append(cat);
+
+                    }
+                    else {
+                        alert("failed to get data");
+                    }
+
+                },
+
+
+            });
+           // alert(a)
+        }
+        $(document).ready(function () {
+
+            $.ajax({
+                url: '/Dashboard/videofile',
+                type: 'get',
+                dataType: 'json',
+                success: function (result) {
+
+                    if (result) {
+                        var k = result.length - 1
+                        var bat = '';
+                        var cat = '';
+                        for (var i = result.length-1; i >=0; i--) {
+                            bat += '<div  class="p1" onClick="hi('+i+')""style="width:150px;height:150px;background-color:white;" > <video style="width:130px ; height:150px" > <source src="'+result[i]+'" type="video/mp4"> </video> </div>';
+                           // cat += '<source src="' + result[i] + '"  type="video/mp4">';
+                        }
+                        cat += ' <video id="videoid"class="videoclass"width="100%" style="height:auto" controls autoplay ><source src="' + result[k] + '" type="video/mp4"></video>';
+
+
+                        $('#df').append(bat);
+                        $('#videoid').append(cat);
+                        
+                    }
+                    else {
+                        alert("failed to get data");
+                    }
+
+                },
+
+
+            });
+        });
         
     </script>
 }
 @section Styles{
     <style>
-        
 
 
+        .p1:hover {
+            border: solid black 2px;
+        }
 
         form.example input[type=text] {
             padding: 8px;
