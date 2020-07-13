@@ -203,7 +203,7 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
                 FilesResource.CreateMediaUpload request;
                 using (var stream = new System.IO.FileStream(path1, System.IO.FileMode.Open))
                 {
-               
+             
                     request = service.Files.Create(FileMetaData, stream, FileMetaData.MimeType);
                     request.Fields = "id";
                     request.Upload();

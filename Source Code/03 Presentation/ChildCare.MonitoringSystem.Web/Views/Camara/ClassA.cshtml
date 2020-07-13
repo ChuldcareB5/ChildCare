@@ -31,8 +31,10 @@
             <video id="cam" autoplay></video>
             <div class="col-md-3">
                 <button id="start_record">Start recording</button>
+                <br /> <br />
+                <button id="uplods" class="btn-success" onclick="upload()">Upload to drive</button>
             </div>
-        </div>
+            </div>
     </div>
 </div>
 @section Scripts{
@@ -45,17 +47,38 @@
         ChildCare.mediaName = 'ClassAVideo';
         ChildCare.urls = ChildCare.urls || {};
         ChildCare.urls.signalHostUrl = "@appSettings.SignalUrl";
+        function upload() {
+            $.ajax({
+                url: '/Dashboard/GetFiles',
+                type: 'get',
+                dataType: 'json',
+                success: function (result) {
 
-        $(document).ready(function ()
-        {
+                    if (result) {
+
+
+                        alert("all videos are uploaded");
+                    }
+                    else {
+                        alert("failed to get data");
+                    }
+
+                },
+
+
+            });
+        }
+        $(document).ready(function () {
             startChannel();
             join(ChildCare.camName);
+
         });
     </script>
     <script src="~/js/webrtc/common.js"></script>
     <script src="~/js/pages/classView.js"></script>
 }
 <style>
+
     #start_record {
         background-color: royalblue;
         border: 1px blue solid;
@@ -63,11 +86,18 @@
         color: black;
     }
 
-        #start_record:hover {
-            background-color: transparent;
-            color: black;
-            border: 1px black solid;
-        }
+    #uplods {
+        background-color: lightgreen;
+        border: 1px blue solid;
+        padding: 5px 20px 5px 20px;
+        color: black;
+    }
+
+    #start_record:hover {
+        background-color: transparent;
+        color: black;
+        border: 1px black solid;
+    }
 
     #cam {
         width: 60%;

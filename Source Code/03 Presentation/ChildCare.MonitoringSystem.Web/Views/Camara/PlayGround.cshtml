@@ -17,15 +17,15 @@
             </div>
             <div class="col-md-11">
                 @*<select name="type" style="padding:10px; width:20%">
-                    <option type="button"><a href="Dashboad/Camaraview">Class A</a></option>
-                    <option type="button" value="/Camara/ClassB">Class B</option>*@
-                    @*<option id="classC" type="button" value="Class B">CLASS C</option>
-            <option id="classB" type="button" value="Class B">CLASS D</option>
-            <option id="classB" type="button" value="Class B">CLASS E</option>
-            <option id="classB" type="button" value="Class B">PLAY GROUND</option>*@
-            
+                <option type="button"><a href="Dashboad/Camaraview">Class A</a></option>
+                <option type="button" value="/Camara/ClassB">Class B</option>*@
+                @*<option id="classC" type="button" value="Class B">CLASS C</option>
+                <option id="classB" type="button" value="Class B">CLASS D</option>
+                <option id="classB" type="button" value="Class B">CLASS E</option>
+                <option id="classB" type="button" value="Class B">PLAY GROUND</option>*@
+
                 @*<input id="classA" type="button" value="Class A" />
-        <input id="classB" type="button" value="Class B" />*@
+                <input id="classB" type="button" value="Class B" />*@
                 <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);" style="padding:10px; width:20%">
                     <option value="/Camara/ClassA">Class A</option>
                     <option value="/Camara/ClassB">Class B</option>
@@ -41,6 +41,8 @@
             <video id="cam" autoplay></video>
             <div class="col-md-3">
                 <button id="start_record">Start recording</button>
+                <br /> <br />
+                <button id="uplods" class="btn-success" onclick="upload()">Upload to drive</button>
             </div>
         </div>
     </div>
@@ -55,11 +57,31 @@
         ChildCare.mediaName = 'PlayGroundVideo';
         ChildCare.urls = ChildCare.urls || {};
         ChildCare.urls.signalHostUrl = "@appSettings.SignalUrl";
+        function upload() {
+            $.ajax({
+                url: '/Dashboard/GetFiles',
+                type: 'get',
+                dataType: 'json',
+                success: function (result) {
 
-        $(document).ready(function ()
-        {
+                    if (result) {
+
+
+                        alert("all videos are uploaded");
+                    }
+                    else {
+                        alert("failed to get data");
+                    }
+
+                },
+
+
+            });
+        }
+        $(document).ready(function () {
             startChannel();
             join(ChildCare.camName);
+
         });
     </script>
     <script src="~/js/webrtc/common.js"></script>
@@ -68,6 +90,12 @@
 <style>
     #start_record {
         background-color: royalblue;
+        border: 1px blue solid;
+        padding: 5px 20px 5px 20px;
+        color: black;
+    }
+    #uplods {
+        background-color: lightgreen;
         border: 1px blue solid;
         padding: 5px 20px 5px 20px;
         color: black;
