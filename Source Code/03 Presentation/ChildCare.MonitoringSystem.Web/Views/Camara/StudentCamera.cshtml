@@ -1,0 +1,95 @@
+﻿@inject ChildCare.MonitoringSystem.Common.AppSettings appSettings;
+@{
+    ViewData["Title"] = "StudentCamera";
+}
+
+@section LeftNavigation{
+    <partial name="_UserLeftNavigation" />
+}
+
+<div class="main-content">
+    <div class="container-fluid">
+        <h2>Student Camera</h2><hr />
+        <div class="row">
+            <div class="col-md-1">
+            </div>
+            @*<video id="cam" autoplay></video>*@
+        </div>
+        <div class="row">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-10">
+                <div class="au-card-inner">
+                    <video width="70%" controls>
+                        <source src="~/video/test (3).webm" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+            <div class="col-md-1">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="au-card-inner">
+                    <video width="70%" controls>
+                        <source src="~/video/test (4).webm" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="au-card-inner">
+                    <video width="70%" controls>
+                        <source src="~/video/test (4).webm" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="au-card-inner">
+                    <video width="70%" controls>
+                        <source src="~/video/test (4).webm" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    @*<script src="~/lib/signalr-client/signalr.js"></script>
+    <script src="~/js/webrtc/aykan-webrtc.min.js"></script>
+    <script type="text/javascript">
+        var ChildCare = ChildCare || {};
+
+        ChildCare.camName = 'StudentCamera';
+        ChildCare.mediaName = 'StudentCameraVideo';
+        ChildCare.urls = ChildCare.urls || {};
+        ChildCare.urls.signalHostUrl = "@appSettings.SignalUrl";
+
+        $(document).ready(function ()
+        {
+            startChannel();
+            join(ChildCare.camName);
+        });
+    </script>
+    <script src="~/js/webrtc/common.js"></script>
+    <script src="~/js/pages/classView.js"></script>*@
+}
+<style>
+    #start_record {
+        background-color: royalblue;
+        border: 1px blue solid;
+        padding: 5px 20px 5px 20px;
+        color: black;
+    }
+
+        #start_record:hover {
+            background-color: transparent;
+            color: black;
+            border: 1px black solid;
+        }
+
+    #cam {
+        width: 60%;
+        height: 50%;
+        border: 10px grey solid;
+    }
+</style>

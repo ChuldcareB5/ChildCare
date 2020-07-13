@@ -30,12 +30,12 @@ namespace ChildCare.MonitoringSystem.Web.Controllers
 			return View();
 		}
 
-		public IActionResult ClassD()
+		public IActionResult StudentCamera()
 		{
 			return View();
 		}
 
-		public IActionResult PlayGround1()
+		public IActionResult PlayGround()
 		{
 			return View();
 		}
